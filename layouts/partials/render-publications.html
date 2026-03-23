@@ -1,0 +1,67 @@
+{{ with .note }}
+<p class="section-note">{{ . }}</p>
+{{ end }}
+
+<div class="talks-toolbar publications-toolbar" data-publications-toolbar>
+  <span class="talks-toolbar-label">View</span>
+  <div class="talks-toggle" role="tablist" aria-label="Publications view toggle">
+    <button type="button" class="talks-toggle-button is-active" data-publications-view-button data-view="category" aria-pressed="true">By Category</button>
+    <button type="button" class="talks-toggle-button" data-publications-view-button data-view="year" aria-pressed="false">By Year</button>
+    <button type="button" class="talks-toggle-button" data-publications-view-button data-view="author" aria-pressed="false">By Author</button>
+    <button type="button" class="talks-toggle-button" data-publications-view-button data-view="journal" aria-pressed="false">By Journal</button>
+  </div>
+</div>
+
+<div data-publications-views>
+  <div data-publications-view="category">
+    {{ range .sections }}
+    <section class="publications-section">
+      <h3>{{ .title }}</h3>
+      {{ $category := .title }}
+      {{ $scratch := newScratch }}
+      {{ $scratch.Set "count" 0 }}
+      {{ with .entries }}
+      {{ $scratch.Set "count" (add ($scratch.Get "count") (len .)) }}
+      {{ end }}
+      {{ with .groups }}
+        {{ range . }}
+        {{ $scratch.Set "count" (add ($scratch.Get "count") (len .entries)) }}
+        {{ end }}
+      {{ end }}
+      {{ $scratch.Set "current" ($scratch.Get "count") }}
+      <ul>
+      {{ with .entries }}
+        {{ range . }}
+        {{ $num := $scratch.Get "current" }}
+        <li class="publication-item" data-publication-number="{{ $num }}" data-publication-category="{{ $category }}">
+          <span class="publication-number">[{{ $num }}]</span>
+          <div class="publication-body">
+            {{ partial "render-publication-entry.html" . }}
+          </div>
+        </li>
+        {{ $scratch.Set "current" (sub ($scratch.Get "current") 1) }}
+        {{ end }}
+      {{ end }}
+      {{ with .groups }}
+        {{ range . }}
+        {{ $year := .heading }}
+          {{ range .entries }}
+          {{ $num := $scratch.Get "current" }}
+          <li class="publication-item" data-publication-year="{{ $year }}" data-publication-number="{{ $num }}" data-publication-category="{{ $category }}">
+            <span class="publication-number">[{{ $num }}]</span>
+            <div class="publication-body">
+              {{ partial "render-publication-entry.html" . }}
+            </div>
+          </li>
+          {{ $scratch.Set "current" (sub ($scratch.Get "current") 1) }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      </ul>
+    </section>
+    {{ end }}
+  </div>
+  <div data-publications-view="year" hidden class="publication-year-view"></div>
+  <div data-publications-view="author" hidden class="publication-author-view"></div>
+  <div data-publications-view="journal" hidden class="publication-journal-view"></div>
+</div>

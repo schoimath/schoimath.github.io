@@ -1,0 +1,31 @@
+<div class="talks-toolbar" data-talks-toolbar>
+  <span class="talks-toolbar-label">View</span>
+  <div class="talks-toggle" role="tablist" aria-label="Talks view toggle">
+    <button type="button" class="talks-toggle-button is-active" data-talks-view-button data-view="category" aria-pressed="true">By Category</button>
+    <button type="button" class="talks-toggle-button" data-talks-view-button data-view="year" aria-pressed="false">By Year</button>
+  </div>
+</div>
+
+<div data-talks-views>
+  <div data-talks-view="category">
+    {{ range .sections }}
+    <section class="talks-section">
+      <h3>{{ .title }}</h3>
+      {{ $category := .title }}
+      {{ range .years }}
+      {{ $year := .year }}
+      <h4>{{ .year }}</h4>
+      <ul>
+        {{ range .entries }}
+        <li class="talk-item" data-talk-year="{{ $year }}" data-talk-category="{{ $category }}">
+          <div class="talk-item-event">{{ .event_html | markdownify }}</div>
+          {{ if .title_html }}<div class="talk-item-title">{{ .title_html | markdownify }}</div>{{ end }}
+        </li>
+        {{ end }}
+      </ul>
+      {{ end }}
+    </section>
+    {{ end }}
+  </div>
+  <div data-talks-view="year" hidden></div>
+</div>

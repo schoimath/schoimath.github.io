@@ -1,0 +1,34 @@
+{{ define "main" }}
+<div class="page-shell">
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Academic Homepage</p>
+      <h1>{{ site.Params.author }}</h1>
+      <p class="lede">{{ site.Params.affiliation }}</p>
+      <ul class="hero-meta">
+        <li><strong>Email</strong> {{ site.Params.email }}</li>
+        <li><strong>Phone</strong> {{ site.Params.phone }}</li>
+        <li><strong>Location</strong> {{ site.Params.location }}</li>
+      </ul>
+    </div>
+    <div class="hero-photo-wrap">
+      <img class="hero-photo" src="{{ site.Params.photo | relURL }}" alt="{{ site.Params.author }}">
+    </div>
+  </header>
+
+  <main class="page-content page-content-home">
+    <nav class="section-toc" aria-label="On this page" data-page-toc hidden>
+      <strong>On this page</strong>
+      <div data-page-toc-links></div>
+    </nav>
+    <article class="legacy-content">
+      {{ if and .Params.dataKey .Params.renderPartial }}
+      {{ partial .Params.renderPartial (index site.Data .Params.dataKey) }}
+      {{ else }}
+      {{ readFile (printf "layouts/partials/sections/%s.html" .Params.sectionFile) | safeHTML }}
+      {{ end }}
+      <p class="last-updated">Last updated: {{ site.Params.lastUpdated }}</p>
+    </article>
+  </main>
+</div>
+{{ end }}

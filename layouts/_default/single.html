@@ -1,0 +1,23 @@
+{{ define "main" }}
+<div class="page-shell">
+  <header class="section-hero">
+    <p class="eyebrow">Suyoung Choi</p>
+    <h1>{{ .Title }}</h1>
+  </header>
+
+  <main class="page-content">
+    <nav class="section-toc" aria-label="On this page" data-page-toc hidden>
+      <strong>On this page</strong>
+      <div data-page-toc-links></div>
+    </nav>
+    <article class="legacy-content">
+      {{ if and .Params.dataKey .Params.renderPartial }}
+      {{ partial .Params.renderPartial (index site.Data .Params.dataKey) }}
+      {{ else }}
+      {{ readFile (printf "layouts/partials/sections/%s.html" .Params.sectionFile) | safeHTML }}
+      {{ end }}
+      <p class="last-updated">Last updated: {{ site.Params.lastUpdated }}</p>
+    </article>
+  </main>
+</div>
+{{ end }}

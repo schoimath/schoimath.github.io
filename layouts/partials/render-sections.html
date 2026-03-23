@@ -1,0 +1,23 @@
+{{ with .note }}
+<p class="section-note">{{ . }}</p>
+{{ end }}
+{{ range .sections }}
+<h3>{{ .title }}</h3>
+{{ with .entries }}
+<ul>
+  {{ range . }}
+  <li>{{ . | markdownify }}</li>
+  {{ end }}
+</ul>
+{{ end }}
+{{ with .groups }}
+  {{ range . }}
+  <h4>{{ .heading }}</h4>
+  <ul>
+    {{ range .entries }}
+    <li>{{ . | markdownify }}</li>
+    {{ end }}
+  </ul>
+  {{ end }}
+{{ end }}
+{{ end }}

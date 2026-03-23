@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.affiliation }}{{ end }}">
+    <link rel="stylesheet" href="{{ "site.css" | relURL }}">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-title" href="{{ "/" | relURL }}">Suyoung Choi</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="{{ "/" | relURL }}"{{ if .IsHome }} aria-current="page"{{ end }}>CV</a>
+          <a href="{{ "publications/" | relURL }}"{{ if eq .RelPermalink ("/publications/" | relURL) }} aria-current="page"{{ end }}>Publications</a>
+          <a href="{{ "outreach/" | relURL }}"{{ if eq .RelPermalink ("/outreach/" | relURL) }} aria-current="page"{{ end }}>Outreach</a>
+          <a href="{{ "supervision/" | relURL }}"{{ if eq .RelPermalink ("/supervision/" | relURL) }} aria-current="page"{{ end }}>Supervision</a>
+          <a href="{{ "talks/" | relURL }}"{{ if eq .RelPermalink ("/talks/" | relURL) }} aria-current="page"{{ end }}>Talks</a>
+          <a href="{{ "teaching/" | relURL }}"{{ if eq .RelPermalink ("/teaching/" | relURL) }} aria-current="page"{{ end }}>Teaching</a>
+        </nav>
+      </div>
+    </header>
+    {{ block "main" . }}{{ end }}
+    <script>
+      (function () {
+        const article = document.querySelector('.legacy-content');
+        const toc = document.querySelector('[data-page-toc]');
+        const tocLinks = document.querySelector('[data-page-toc-links]');
+
+        const usedIds = new Set();
+        const slugify = (text) => {
+          const base = (text || '')
+            .toLowerCase()
+            .trim()
+            .replace(/&[a-z0-9#]+;/gi, '')
+            .replace(/[^\p{L}\p{N}\s-]/gu, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-')
+            .replace(/^-|-$/g, '') || 'section';
+
+          let slug = base;
+          let index = 2;
+          while (usedIds.has(slug)) {
+            slug = `${base}-${index++}`;
+          }
+          usedIds.add(slug);
+          return slug;
+        };
+
+        window.buildPageToc = function buildPageToc(scope) {
+          if (!article || !toc || !tocLinks) return;
+
+          const target = scope || article;
+          const headings = Array.from(target.querySelectorAll('h3'));
+          tocLinks.innerHTML = '';
+
+          if (!headings.length) {
+            toc.hidden = true;
+            return;
+          }
+
+          headings.forEach((heading) => {
+            if (!heading.id) heading.id = slugify(heading.textContent);
+
+            const link = document.createElement('a');
+            link.href = `#${heading.id}`;
+            link.textContent = heading.textContent.trim();
+            link.className = 'toc-item';
+            tocLinks.appendChild(link);
+          });
+
+          toc.hidden = false;
+        };
+
+        window.buildPageToc();
+      })();
+
+      (function () {
+        const talksViews = document.querySelector('[data-talks-views]');
+        const buttons = Array.from(document.querySelectorAll('[data-talks-view-button]'));
+        if (!talksViews || !buttons.length) return;
+
+        const categoryView = talksViews.querySelector('[data-talks-view="category"]');
+        const yearView = talksViews.querySelector('[data-talks-view="year"]');
+        const talkItems = Array.from(categoryView.querySelectorAll('.talk-item'));
+        if (!categoryView || !yearView || !talkItems.length) return;
+
+        const groupedByYear = new Map();
+        talkItems.forEach((item) => {
+          const year = item.dataset.talkYear;
+          if (!groupedByYear.has(year)) groupedByYear.set(year, []);
+          groupedByYear.get(year).push({
+            category: item.dataset.talkCategory,
+            eventHtml: item.querySelector('.talk-item-event')?.innerHTML || '',
+            titleHtml: item.querySelector('.talk-item-title')?.innerHTML || ''
+          });
+        });
+
+        Array.from(groupedByYear.keys())
+          .sort((a, b) => Number(b) - Number(a))
+          .forEach((year) => {
+            const section = document.createElement('section');
+            section.className = 'talks-section';
+
+            const heading = document.createElement('h3');
+            heading.textContent = year;
+            section.appendChild(heading);
+
+            const list = document.createElement('ul');
+            groupedByYear.get(year).forEach((entry) => {
+              const item = document.createElement('li');
+              item.className = 'talk-item';
+
+              const event = document.createElement('div');
+              event.className = 'talk-item-event';
+              event.innerHTML = entry.eventHtml;
+              item.appendChild(event);
+
+              if (entry.titleHtml) {
+                const title = document.createElement('div');
+                title.className = 'talk-item-title';
+                title.innerHTML = entry.titleHtml;
+                item.appendChild(title);
+              }
+
+              const category = document.createElement('div');
+              category.className = 'talk-item-category';
+              category.textContent = entry.category;
+              item.appendChild(category);
+
+              list.appendChild(item);
+            });
+
+            section.appendChild(list);
+            yearView.appendChild(section);
+          });
+
+        const setView = (view) => {
+          const showCategory = view === 'category';
+          categoryView.hidden = !showCategory;
+          yearView.hidden = showCategory;
+
+          buttons.forEach((button) => {
+            const active = button.dataset.view === view;
+            button.classList.toggle('is-active', active);
+            button.setAttribute('aria-pressed', active ? 'true' : 'false');
+          });
+
+          if (typeof window.buildPageToc === 'function') {
+            window.buildPageToc(showCategory ? categoryView : yearView);
+          }
+        };
+
+        buttons.forEach((button) => {
+          button.addEventListener('click', () => setView(button.dataset.view));
+        });
+
+        setView('category');
+      })();
+
+      (function () {
+        const publicationViews = document.querySelector('[data-publications-views]');
+        const buttons = Array.from(document.querySelectorAll('[data-publications-view-button]'));
+        if (!publicationViews || !buttons.length) return;
+
+        const categoryView = publicationViews.querySelector('[data-publications-view="category"]');
+        const yearView = publicationViews.querySelector('[data-publications-view="year"]');
+        const authorView = publicationViews.querySelector('[data-publications-view="author"]');
+        const journalView = publicationViews.querySelector('[data-publications-view="journal"]');
+        const items = Array.from(categoryView.querySelectorAll('.publication-item'));
+        if (!categoryView || !yearView || !authorView || !journalView || !items.length) return;
+
+        const numberedCategories = new Set(['Mathematics', 'Applied Mathematics']);
+        const numberedItems = items.filter((item) =>
+          numberedCategories.has(item.dataset.publicationCategory) && item.dataset.publicationYear
+        );
+
+        const groupedByYear = new Map();
+        numberedItems.forEach((item) => {
+          const year = item.dataset.publicationYear;
+          if (!groupedByYear.has(year)) groupedByYear.set(year, []);
+          groupedByYear.get(year).push({
+            category: item.dataset.publicationCategory,
+            html: item.innerHTML
+          });
+        });
+
+        yearView.innerHTML = '';
+        yearView.classList.add('publication-year-view');
+
+        let currentNumber = numberedItems.length;
+
+        Array.from(groupedByYear.keys())
+          .sort((a, b) => Number(b) - Number(a))
+          .forEach((year) => {
+            const section = document.createElement('section');
+            section.className = 'publications-section';
+
+            const heading = document.createElement('h3');
+            heading.textContent = year;
+            section.appendChild(heading);
+
+            const list = document.createElement('ul');
+            groupedByYear.get(year).forEach((entry) => {
+              const item = document.createElement('li');
+              item.className = 'publication-item';
+              item.innerHTML = entry.html;
+
+              const number = item.querySelector('.publication-number');
+              if (number) {
+                number.textContent = `[${currentNumber--}]`;
+              }
+
+              const category = document.createElement('div');
+              category.className = 'talk-item-category';
+              category.textContent = entry.category;
+              item.appendChild(category);
+
+              list.appendChild(item);
+            });
+
+            section.appendChild(list);
+            yearView.appendChild(section);
+          });
+
+        const extraSections = Array.from(categoryView.querySelectorAll('.publications-section')).filter((section) => {
+          const title = section.querySelector('h3')?.textContent?.trim();
+          return title && !numberedCategories.has(title);
+        });
+
+        extraSections.forEach((section) => {
+          yearView.appendChild(section.cloneNode(true));
+        });
+
+        const authorGroups = new Map();
+        items.forEach((item) => {
+          const authors = Array.from(item.querySelectorAll('.publication-author'));
+          authors.forEach((author) => {
+            const id = author.dataset.authorId;
+            const name = author.dataset.authorName;
+            if (!id || id === 'suyoung-choi' || !name) return;
+
+            if (!authorGroups.has(id)) {
+              authorGroups.set(id, {
+                id,
+                name,
+                sortName: author.dataset.authorSort || name,
+                url: author.dataset.authorUrl || '',
+                entries: []
+              });
+            }
+
+            authorGroups.get(id).entries.push({
+              category: item.dataset.publicationCategory,
+              html: item.innerHTML
+            });
+          });
+        });
+
+        Array.from(authorGroups.values())
+          .sort((a, b) => a.sortName.localeCompare(b.sortName))
+          .forEach((author) => {
+            const section = document.createElement('section');
+            section.className = 'publications-section';
+
+            const heading = document.createElement('h3');
+            if (author.url) {
+              const link = document.createElement('a');
+              link.href = author.url;
+              link.textContent = author.name;
+              heading.appendChild(link);
+            } else {
+              heading.textContent = author.name;
+            }
+            section.appendChild(heading);
+
+            const list = document.createElement('ul');
+            author.entries.forEach((entry) => {
+              const item = document.createElement('li');
+              item.className = 'publication-item';
+              item.innerHTML = entry.html;
+
+              const category = document.createElement('div');
+              category.className = 'talk-item-category';
+              category.textContent = entry.category;
+              item.appendChild(category);
+
+              list.appendChild(item);
+            });
+
+            section.appendChild(list);
+            authorView.appendChild(section);
+          });
+
+        const journalGroups = new Map();
+        items.forEach((item) => {
+          const journal = item.querySelector('.publication-venue');
+          const id = journal?.dataset.journalId;
+          const name = journal?.dataset.journalName;
+          if (!id || !name) return;
+
+          if (!journalGroups.has(id)) {
+            journalGroups.set(id, {
+              id,
+              name,
+              heading: journal.dataset.journalHeading || name,
+              sortName: journal.dataset.journalSort || name,
+              url: journal.dataset.journalUrl || '',
+              entries: []
+            });
+          }
+
+          journalGroups.get(id).entries.push({
+            category: item.dataset.publicationCategory,
+            html: item.innerHTML
+          });
+        });
+
+        Array.from(journalGroups.values())
+          .sort((a, b) => a.sortName.localeCompare(b.sortName))
+          .forEach((journal) => {
+            const section = document.createElement('section');
+            section.className = 'publications-section';
+
+            const heading = document.createElement('h3');
+            if (journal.url) {
+              const link = document.createElement('a');
+              link.href = journal.url;
+              link.textContent = journal.heading;
+              heading.appendChild(link);
+            } else {
+              heading.textContent = journal.heading;
+            }
+            section.appendChild(heading);
+
+            const list = document.createElement('ul');
+            journal.entries.forEach((entry) => {
+              const item = document.createElement('li');
+              item.className = 'publication-item';
+              item.innerHTML = entry.html;
+
+              const category = document.createElement('div');
+              category.className = 'talk-item-category';
+              category.textContent = entry.category;
+              item.appendChild(category);
+
+              list.appendChild(item);
+            });
+
+            section.appendChild(list);
+            journalView.appendChild(section);
+          });
+
+        const setView = (view) => {
+          categoryView.hidden = view !== 'category';
+          yearView.hidden = view !== 'year';
+          authorView.hidden = view !== 'author';
+          journalView.hidden = view !== 'journal';
+
+          buttons.forEach((button) => {
+            const active = button.dataset.view === view;
+            button.classList.toggle('is-active', active);
+            button.setAttribute('aria-pressed', active ? 'true' : 'false');
+          });
+
+          if (typeof window.buildPageToc === 'function') {
+            const activeView =
+              view === 'year' ? yearView :
+              view === 'journal' ? journalView :
+              view === 'author' ? authorView :
+              categoryView;
+            window.buildPageToc(activeView);
+          }
+        };
+
+        buttons.forEach((button) => {
+          button.addEventListener('click', () => setView(button.dataset.view));
+        });
+
+        setView('category');
+      })();
+    </script>
+  </body>
+</html>

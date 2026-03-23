@@ -1,0 +1,60 @@
+{{- $entry := . -}}
+{{- $authorData := site.Data.authors -}}
+{{- $journalData := site.Data.journals -}}
+{{- if reflect.IsMap $entry -}}
+{{- if $entry.citationMarkdown -}}
+{{- $entry.citationMarkdown | markdownify -}}
+{{- else if $entry.citationHtml -}}
+{{- $entry.citationHtml | safeHTML -}}
+{{- else -}}
+<span class="publication-authors">
+  {{- $authors := split $entry.authors "," -}}
+  {{- range $index, $rawAuthor := $authors -}}
+    {{- $authorKey := trim $rawAuthor " " -}}
+    {{- $author := index $authorData $authorKey -}}
+    {{ if gt $index 0 }}, {{ end }}
+    <span
+      class="publication-author"
+      {{- with $author.id }} data-author-id="{{ . }}"{{ end -}}
+      data-author-name="{{ if $author }}{{ $author.name }}{{ else }}{{ $authorKey }}{{ end }}"
+      data-author-sort="{{ if $author }}{{ $author.sortName }}{{ else }}{{ $authorKey }}{{ end }}"
+      {{- with $author.url }} data-author-url="{{ . }}"{{ end -}}
+    >
+      {{- if and $author $author.url -}}
+      <a href="{{ $author.url }}">{{ $author.name }}</a>
+      {{- else if $author -}}
+      {{- $author.name -}}
+      {{- else -}}
+      {{- $authorKey | safeHTML -}}
+      {{- end -}}
+    </span>
+  {{- end -}}
+</span>,
+<em>{{- if $entry.titleLink -}}<a href="{{ $entry.titleLink }}">{{ $entry.title | safeHTML }}</a>{{- else -}}{{ $entry.title | safeHTML }}{{- end -}}</em>
+{{- with $entry.venue -}}
+  {{- $rawVenue := . -}}
+  {{- $journal := index $journalData $rawVenue -}}
+  , <strong
+    class="publication-venue"
+    {{- with $journal.id }} data-journal-id="{{ . }}"{{ end -}}
+    data-journal-name="{{ if $journal }}{{ $journal.name }}{{ else }}{{ $rawVenue }}{{ end }}"
+    data-journal-heading="{{ if and $journal $journal.heading }}{{ $journal.heading }}{{ else if $journal }}{{ $journal.name }}{{ else }}{{ $rawVenue }}{{ end }}"
+    data-journal-sort="{{ if $journal }}{{ $journal.sortName }}{{ else }}{{ $rawVenue }}{{ end }}"
+    {{- with $journal.url }} data-journal-url="{{ . }}"{{ end -}}
+  >
+    {{- if and $journal $journal.url -}}
+    <a href="{{ $journal.url }}">{{ $journal.name }}</a>
+    {{- else if $journal -}}
+    {{- $journal.name -}}
+    {{- else -}}
+    {{- $rawVenue | safeHTML -}}
+    {{- end -}}
+  </strong>
+{{- end -}}
+{{- with $entry.details -}}, {{ . | safeHTML }}{{- end -}}
+{{- with $entry.note -}}<span class="publication-note"> {{ . | safeHTML }}</span>{{- end -}}
+{{- end -}}
+{{- else -}}
+{{- $clean := replaceRE "^\\[[^\\]]+\\]\\s*" "" $entry -}}
+{{- $clean | markdownify -}}
+{{- end -}}
