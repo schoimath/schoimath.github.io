@@ -114,10 +114,9 @@ terms:
         code: "MATH104"
       - name: "아주희망"
         code: "CAJO114"
-        note: "course for freshmen; co-teaching with Prof. Uijin Jung"
+        note: "co-teaching with Prof. Uijin Jung"
       - name: "Differential Geometry"
         code: "11215"
-        note: "course in Graduate school of education"
   - term: "2019 Winter"
     courses:
       - name: "Calculus II"
@@ -134,7 +133,7 @@ terms:
         note: "co-teaching with Prof. Boram Park"
       - name: "Mathematical Logic and Essay"
         code: "50171"
-        note: "course in Graduate school of education; co-teaching with Prof. Ho Kyoung Ko"
+        note: "co-teaching with Prof. Ho Kyoung Ko"
   - term: "2019 Spring"
     courses:
       - name: "Differential Geometry"
@@ -145,7 +144,7 @@ terms:
         code: "MATH671"
       - name: "아주희망"
         code: "CAJO114"
-        note: "course for freshmen; co-teaching with Prof. Youngwoo Choi"
+        note: "co-teaching with Prof. Youngwoo Choi"
   - term: "2018 Fall"
     courses:
       - name: "Topics in Geometry"
@@ -154,7 +153,6 @@ terms:
         code: "MATH638"
       - name: "Topology"
         code: "10156"
-        note: "course in Graduate school of education"
   - term: "2018 Spring"
     courses:
       - name: "Calculus I"
@@ -165,7 +163,6 @@ terms:
         code: "MATH741"
       - name: "Differential Geometry"
         code: "11215"
-        note: "course in Graduate school of education"
   - term: "2016 Fall"
     courses:
       - name: "Topology"
@@ -182,7 +179,6 @@ terms:
         note: "for two classes"
       - name: "Number theory"
         code: "13603"
-        note: "course in Graduate school of education"
   - term: "2015 Fall"
     courses:
       - name: "Topology"
@@ -191,10 +187,9 @@ terms:
         code: "MATH205"
       - name: "Topology"
         code: "10156"
-        note: "course in Graduate school of education"
       - name: "Identification of gifted in Mathematics"
         code: "50145"
-        note: "course in Graduate school of education; co-teaching with Prof. Ho Kyoung Ko"
+        note: "co-teaching with Prof. Ho Kyoung Ko"
   - term: "2015 Spring"
     courses:
       - name: "Engineering Mathematics A"
@@ -204,7 +199,6 @@ terms:
         code: "MATH741"
       - name: "Mathematics Problem Practice 1"
         code: "15524"
-        note: "course in Graduate school of education"
   - term: "2014 Fall"
     courses:
       - name: "Topics in Geometry"
@@ -213,7 +207,7 @@ terms:
         code: "MATH747"
       - name: "Mathematical Logic and Essay"
         code: "50171"
-        note: "course in Graduate school of education; co-teaching with Prof. Ho Kyoung Ko"
+        note: "co-teaching with Prof. Ho Kyoung Ko"
   - term: "2014 Spring"
     courses:
       - name: "Engineering Mathematics A"
@@ -223,10 +217,9 @@ terms:
         code: "MATH285"
       - name: "Combinatorics and graph theory"
         code: "22504"
-        note: "course in Graduate school of education"
       - name: "Story-telling math for gifted students in math"
         code: "EDU5112"
-        note: "course in Graduate school of education; co-teaching with Prof. Ho Kyoung Ko"
+        note: "co-teaching with Prof. Ho Kyoung Ko"
   - term: "2013 Fall"
     courses:
       - name: "Calculus II"
@@ -235,7 +228,6 @@ terms:
         code: "MATb41"
       - name: "Topology"
         code: "10156"
-        note: "course in Graduate school of education"
   - term: "2013 Spring"
     courses:
       - name: "Calculus I"
@@ -245,7 +237,6 @@ terms:
         code: "MATH748"
       - name: "Combinatorics and graph theory"
         code: "22504"
-        note: "course in Graduate school of education"
   - term: "2012 Fall"
     courses:
       - name: "Seminar in Topology I"
@@ -257,7 +248,6 @@ terms:
         note: "MAPLE program training course"
       - name: "Technology for Mathematics Education"
         code: "7004"
-        note: "course in Graduate school of education"
   - term: "2012 Spring"
     courses:
       - name: "Calculus I"
@@ -267,7 +257,6 @@ terms:
         code: "MATH646"
       - name: "Combinatorics and graph theory"
         code: "22504"
-        note: "course in Graduate school of education"
   - term: "2011 Fall"
     courses:
       - name: "Topology"
@@ -278,10 +267,8 @@ terms:
     courses:
       - name: "Calculus I"
         code: "MATH102"
-        note: "for freshmen"
       - name: "Differential Geometry I"
         code: "1711"
-        note: "for graduate-course students"
       - name: "Math Lab I"
         code: "MATH104"
         note: "MAPLE program training course"

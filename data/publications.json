@@ -1,545 +1,545 @@
 {
-    "sections":  [
-                     {
-                         "title":  "Mathematics",
-                         "groups":  [
-                                        {
-                                            "heading":  "2026",
-                                            "entries":  [
-                                                            {
-                                                                "authors":  "Suyoung Choi, Hyeontae Jang",
-                                                                "title":  "Stellar subdivisions, wedges and Buchstaber numbers",
-                                                                "venue":  "Algebr. Geom. Topol.",
-                                                                "details":  "26 (2026) no. 2, 751\u0026ndash;759."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Younghan Yoon",
-                                                                "title":  "Real toric manifolds associated with chordal nestohedra",
-                                                                "venue":  "J. Combin. Theory, Ser. A",
-                                                                "details":  "217 (2026), Paper No. 106102, 38 pp."
-                                                            }
-                                                        ]
-                                        },
-                                        {
-                                            "heading":  "2025",
-                                            "entries":  [
-                                                            {
-                                                                "authors":  "Suyoung Choi,  Hyeontae Jang, Mathieu Vall\u0026eacute;e",
-                                                                "title":  "Toric wedge induction and toric lifting property for piecewise linear spheres with a few vertices",
-                                                                "venue":  "J. London Math. Soc.",
-                                                                "details":  "112 (2025), no. 1, Paper No. e70231, 24 pp."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Taekgyu Hwang, Hyeontae Jang",
-                                                                "title":  "Strong cohomological rigidity of Bott manifolds",
-                                                                "venue":  "Adv. Math.",
-                                                                "details":  "473 (2025), 110305."
-                                                            }
-                                                        ]
-                                        },
-                                        {
-                                            "heading":  "2024",
-                                            "entries":  [
-                                                            {
-                                                                "authors":  "Suyoung Choi, Younghan Yoon, Seonghyeon Yu",
-                                                                "title":  "The Betti numbers of real toric varieties associated to Weyl chambers of types E7 and E8",
-                                                                "venue":  "Osaka J. Math.",
-                                                                "details":  "61 (3) (2024), 409\u0026ndash;417."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Hyeontae Jang, Mathieu Vall\u0026eacute;e",
-                                                                "title":  "The characterization of (n-1)-spheres with n+4 vertices having maximal Buchstaber number",
-                                                                "venue":  "J. Reine Angew. Math.",
-                                                                "details":  "811 (2024), 267\u0026ndash;292."
-                                                            }
-                                                        ]
-                                        },
-                                        {
-                                            "heading":  "2023",
-                                            "entries":  [
-                                                            {
-                                                                "authors":  "Suyoung Choi, Taekgyu Hwang",
-                                                                "title":  "Gromov width of symplectic toric manifolds associated with graphs",
-                                                                "venue":  "Internat. J. Math.",
-                                                                "details":  "24 (3) (2023), 2350013, 19 pp."
-                                                            }
-                                                        ]
-                                        },
-                                        {
-                                            "heading":  "2022",
-                                            "entries":  [
-                                                            {
-                                                                "authors":  "Suyoung Choi, Mathieu Vall\u0026eacute;e",
-                                                                "title":  "An algorithmic strategy for finding characteristic maps over wedged simplicial complexes",
-                                                                "venue":  "Pacific J. Math.",
-                                                                "details":  "320 (2022), no. 1, 13??3."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Mathieu Vall\u0026eacute;e",
-                                                                "title":  "Cohomological rigidity of the connected sum of three real projective spaces",
-                                                                "venue":  "Proc. Steklov Inst. Math.",
-                                                                "details":  "317 (2022), 178-188."
-                                                            }
-                                                        ]
-                                        },
-                                        {
-                                            "heading":  "2021",
-                                            "entries":  [
-                                                            {
-                                                                "authors":  "Li Cai, Suyoung Choi",
-                                                                "title":  "Integral cohomology groups of real toric manifolds and small covers",
-                                                                "venue":  "Mosc. Math. J.",
-                                                                "details":  "21 (3), 467\u0026ndash;492."
-                                                            }
-                                                        ]
-                                        },
-                                        {
-                                            "heading":  "2020",
-                                            "entries":  [
-                                                            {
-                                                                "authors":  "Li Cai, Suyoung Choi, Hanchul Park",
-                                                                "title":  "On the KO-groups of toric manifolds",
-                                                                "venue":  "Algebr. Geom. Topol.",
-                                                                "details":  "20 (2020) 2589\u0026ndash;2607"
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Hanchul Park",
-                                                                "title":  "Multiplicative structure of the cohomology ring of real toric spaces",
-                                                                "venue":  "Homology Homotopy Appl.",
-                                                                "details":  "22 (2020), no. 1, 139\u0026ndash;157."
-                                                            }
-                                                        ]
-                                        },
-                                        {
-                                            "heading":  "2019",
-                                            "entries":  [
-                                                            {
-                                                                "authors":  "Suyoung Choi, Shizuo Kaji, Hanchul Park",
-                                                                "title":  "The cohomology groups of real toric varieties associated to Weyl chambers of type C and D",
-                                                                "venue":  "Proc. Edinb. Math. Soc.",
-                                                                "details":  "62 (2019), 861\u0026ndash;874."
-                                                            },
-                                                                {
-                                                                    "authors":  "Soojin Cho, Suyoung Choi, Shizuo Kaji",
-                                                                    "title":  "Geometric representations of finite groups on real toric spaces",
-                                                                    "venue":  "J. Korean Math. Soc.",
-                                                                    "details":  "56 (2019), no. 5, 1265\u0026ndash;1283.",
-                                                                    "note":  "(This paper was selected as the best Korean mathematical paper by KOFST in 2019.)"
-                                                                },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Hanchul Park",
-                                                                "title":  "Small covers over wedges of polygons",
-                                                                "venue":  "J.  Math. Soc. Japan",
-                                                                "details":  "71 (2019), no. 3, 739\u0026ndash;764."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Kyoungsuk Park",
-                                                                "title":  "Example of C-rigid polytopes which are not B-rigid",
-                                                                "venue":  "Math. Slovaca",
-                                                                "details":  "69 (2019), no. 2, 437\u0026ndash;448."
-                                                            }
-                                                        ]
-                                        },
-                                        {
-                                            "heading":  "2017",
-                                            "entries":  [
-                                                            {
-                                                                "authors":  "Suyoung Choi, Seonjeong Park",
-                                                                "title":  "Strong cohomological rigidity of toric varieties",
-                                                                "venue":  "Proc. Roy. Soc. Edinburgh Sect. A.",
-                                                                "details":  "147 (2017), no. 5, 971\u0026ndash;992."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Boram Park, Hanchul Park",
-                                                                "title":  "The Betti numbers of real toric varieties associated to Weyl chambers of type B",
-                                                                "venue":  "Chinese Ann. Math. Ser. B.",
-                                                                "details":  "38 (2017), no. 6, 1213\u0026ndash;1222."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Hanchul Park",
-                                                                "title":  "Wedge operations and torus symmetries II",
-                                                                "venue":  "Canad. J. Math.",
-                                                                "details":  "69 (2017), no. 4, 767\u0026ndash;789."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Hanchul Park",
-                                                                "title":  "On the cohomology and their torsion of real toric objects",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=3641664",
-                                                                "venue":  "Forum Math.",
-                                                                "details":  "29 (2017), no. 3, 543\u0026ndash;553."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Hanchul Park",
-                                                                "title":  "Wedge operations and a new family of projective toric manifolds",
-                                                                "venue":  "Israel J. Math.",
-                                                                "details":  "219(1) (2017), 353\u0026ndash;377."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Boram Park, Seonjeong Park",
-                                                                "title":  "Pseudograph and its associated real toric manifold",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=3638281",
-                                                                "venue":  "J. Math. Soc. Japan",
-                                                                "details":  "69(2) (2017), 693\u0026ndash;714."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Mikiya Masuda, Sang-il Oum",
-                                                                "title":  "Classification of real Bott manifolds and acyclic digraphs",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=3592535",
-                                                                "venue":  "Trans. Amer. Math. Soc.",
-                                                                "details":  "369 (2017), 2987\u0026ndash;3011."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Shizuo Kaji, Stephen Theriault",
-                                                                "title":  "Homotopy decomposition of a suspended real toric space",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=3633130",
-                                                                "venue":  "Bol. Soc. Mat. Mex.",
-                                                                "details":  "(3), 23  (2017), no. 1, 153\u0026ndash;161. (the memorial volume for Professor Gitler)"
-                                                            }
-                                                        ]
-                                        },
-                                        {
-                                            "heading":  "2016",
-                                            "entries":  [
-                                                            {
-                                                                "authors":  "Suyoung Choi, Seonjeong Park",
-                                                                "title":  "Projective bundles over smooth compact toric surfaces",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=3491049",
-                                                                "venue":  "Internat. J. Math.",
-                                                                "details":  "27 (4) (2016), 1650032, 30 pp."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Hanchul Park",
-                                                                "title":  "Wedge operations and torus symmetries",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=3476138",
-                                                                "venue":  "Tohoku Math. J.",
-                                                                "details":  "(2), 68(1) (2016), 91\u0026ndash;138."
-                                                            }
-                                                        ]
-                                        },
-                                        {
-                                            "heading":  "2015",
-                                            "entries":  [
-                                                            {
-                                                                "authors":  "Suyoung Choi",
-                                                                "title":  "Classification of Bott manifolds up to dimension 8",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=3391366",
-                                                                "venue":  "Proc. Edinb. Math. Soc.",
-                                                                "details":  "(2), 58(3) (2015), 653\u0026ndash;659."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Mikiya Masuda, Satoshi Murai",
-                                                                "title":  "Invariance of Pontrjagin classes for Bott manifolds",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=3342682",
-                                                                "venue":  "Algebr. Geom. Topol.",
-                                                                "details":  "15(2) (2015), 965\u0026ndash;986."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Hanchul Park",
-                                                                "title":  "A new graph invariant arises in toric topology",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=3340192",
-                                                                "venue":  "J. Math. Soc. Japan",
-                                                                "details":  "67(2) (2015), 699-720."
-                                                            }
-                                                        ]
-                                        },
-                                        {
-                                            "heading":  "2013",
-                                            "entries":  [
-                                                            {
-                                                                "authors":  "Suyoung Choi",
-                                                                "title":  "Different moment-angle manifolds arising from two polytopes having the same bigraded Betti numbers",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=3248743",
-                                                                "venue":  "Algebr. Geom. Topol.",
-                                                                "details":  "13(6) (2013), 3639\u0026ndash;3649."
-                                                            }
-                                                        ]
-                                        },
-                                        {
-                                            "heading":  "2012",
-                                            "entries":  [
-                                                            {
-                                                                "authors":  "Suyoung Choi, Mikiya Masuda",
-                                                                "title":  "Classification of Q-trivial Bott manifolds",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=2983437",
-                                                                "venue":  "J. Symplectic Geom.",
-                                                                "details":  "10(3) (2012), 447\u0026ndash;462."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Dong Youp Suh",
-                                                                "title":  "Strong cohomological rigidity of a product of projective spaces",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=2978415",
-                                                                "venue":  "Bull. Korean Math. Soc.",
-                                                                "details":  "49(4) (2012), 761\u0026ndash;765."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Seonjeong Park, Dong Youp Suh",
-                                                                "title":  "Topological classification of quasitoric manifolds with second Betti number 2",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=2928539",
-                                                                "venue":  "Pacific J. Math.",
-                                                                "details":  "256(1) (2012), 19\u0026ndash;49."
-                                                            }
-                                                        ]
-                                        },
-                                        {
-                                            "heading":  "2011",
-                                            "entries":  [
-                                                            {
-                                                                "authors":  "Suyoung Choi, Mikiya Masuda, Dong Youp Suh",
-                                                                "title":  "Rigidity problems in toric topology, a survey",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=2962979",
-                                                                "venue":  "Proc. Steklov Inst. Math.",
-                                                                "details":  "275 (2011), 177\u0026ndash;190."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Shintaro Kuroki",
-                                                                "title":  "Topological classification of torus manifolds which have codimension one extended actions",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=2846908",
-                                                                "venue":  "Algebr. Geom. Topol.",
-                                                                "details":  "11(5) (2011), 2655\u0026ndash;2679."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Jang Soo Kim",
-                                                                "title":  "Combinatorial rigidity of 3-dimensional simplicial polytopes",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=2806527",
-                                                                "venue":  "Int. Math. Res. Not. IMRN.",
-                                                                "details":  "2011(8), (2011), 1935\u0026ndash;1951."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Dong Youp Suh",
-                                                                "title":  "Properties of Bott manifolds and cohomological rigidity",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=2792373",
-                                                                "venue":  "Algebr. Geom. Topol.",
-                                                                "details":  "11(2), (2011), 1053\u0026ndash;1076."
-                                                            }
-                                                        ]
-                                        },
-                                        {
-                                            "heading":  "2010",
-                                            "entries":  [
-                                                            {
-                                                                "authors":  "Suyoung Choi, Taras E. Panov, Dong Youp Suh",
-                                                                "title":  "Toric cohomological rigidity of simple polytopes",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=2725043",
-                                                                "venue":  "J. London Math. Soc.",
-                                                                "details":  "82(2),  (2010), 343\u0026ndash;360."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi",
-                                                                "title":  "The number of orientable small covers over cubes",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=2680832",
-                                                                "venue":  "Proc. Japan Acad.",
-                                                                "details":  "86, Ser. A. (2010), no.6, 97\u0026ndash;100."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Jang Soo Kim",
-                                                                "title":  "A combinatorial proof of a formula for Betti numbers of a stacked polytope",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=2578904",
-                                                                "venue":  "Electron. J. Combin.",
-                                                                "details":  "17(1) (2010), #R9."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Mikiya Masuda, Dong Youp Suh",
-                                                                "title":  "Topological classification of generalized Bott towers",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=2551516",
-                                                                "venue":  "Trans. Amer. Math. Soc.",
-                                                                "details":  "362 (2010), 1097\u0026ndash;1112."
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Mikiya Masuda, Dong Youp Suh",
-                                                                "title":  "Quasitoric manifolds over a product of simplices",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=2666127",
-                                                                "venue":  "Osaka J. Math.",
-                                                                "details":  "47 (2010), 109\u0026ndash;129."
-                                                            }
-                                                        ]
-                                        },
-                                        {
-                                            "heading":  "2008",
-                                            "entries":  [
-                                                            {
-                                                                "authors":  "Suyoung Choi",
-                                                                "title":  "The number of small covers over cubes",
-                                                                "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=2465745",
-                                                                "venue":  "Algebr. Geom. Topol.",
-                                                                "details":  "8(4) (2008), 2391\u0026ndash;2399."
-                                                            }
-                                                        ]
-                                        }
-                                    ]
-                     },
-                     {
-                         "title":  "Applied Mathematics",
-                         "groups":  [
-                                        {
-                                            "heading":  "2026",
-                                            "entries":  [
-                                                            {
-                                                                "authors":  "Meiyan Kang, Shizuo Kaji, Sang-Yun Lee, Taegeon Kim, Hee-Hwan Ryu, Suyoung Choi",
-                                                                "title":  "Shape-Aware Topological Representation for Pipeline Hyperbola Detection in GPR Data",
-                                                                "venue":  "IEEE Sens. J.",
-                                                                "details":  "26(3) (2026), 4313-4325"
-                                                            }
-                                                        ]
-                                        },
-                                        {
-                                            "heading":  "2025",
-                                            "entries":  [
-                                                            {
-                                                                "authors":  "Hee-Hwan Ryu, Suyoung Choi, Eun-Soo Hong, Shin Kyu Choi",
-                                                                "title":  "Prediction of steel tower foundation specifications using non-destructive testing method",
-                                                                "venue":  "Geomech. Eng.",
-                                                                "details":  "41(2), (2025), 287\u0026ndash;295."
-                                                            },
-                                                            {
-                                                                "authors":  "Hee-Hwan Ryu, Suyoung Choi, Song-Hun Chong, Tae-Young Kim, Jiyun Lee, Meiyan Kang",
-                                                                "title":  "Machine learning-based prediction of underground utility counts using electrical resistance numerical data",
-                                                                "venue":  "Geomechanics and Engineering",
-                                                                "details":  "41(1), (2025), 11\u0026ndash;19."
-                                                            }
-                                                        ]
-                                        },
-                                        {
-                                            "heading":  "2024",
-                                            "entries":  [
-                                                            {
-                                                                "authors":  "Tae-Young Kim, Hee-Hwan Ryu, Meiyan Kang, Suyoung Choi, Song-Hun Chong",
-                                                                "title":  "Effect of geometry of underground structure and electrode on electrical resistance measurement: A numerical study",
-                                                                "venue":  "Geomechanics and Engineering",
-                                                                "details":  "39(1), (2024), pp. 105-113."
-                                                            },
-                                                            {
-                                                                "authors":  "Jiyun Lee, Kyuwon Kim, Meiyan Kang, Eun-Soo Hong, Suyoung Choi",
-                                                                "title":  "Void detection for Tunnel Lining Backfill using Impact-Echo Method based on Continuous Wavelet Transform and Convolutional Neural Network",
-                                                                "venue":  "Geomechanics and Engineering",
-                                                                "details":  "36(1), (2024), pp. 1-8 ."
-                                                            }
-                                                        ]
-                                        },
-                                        {
-                                            "heading":  "2021",
-                                            "entries":  [
-                                                            {
-                                                                "authors":  "Ho Kyoung Ko, Suyoung Choi, Shizuo Kaji",
-                                                                "title":  "Who Has Given up on Mathematics? A data analysis",
-                                                                "venue":  "Asia Pacific Education Review",
-                                                                "details":  "(2021) 22:699\u0026ndash;714"
-                                                            },
-                                                            {
-                                                                "authors":  "Suyoung Choi, Ahyun Goo, Ho Kyoung Ko",
-                                                                "title":  "The Case of Polymath Activities Using Collective Intelligence",
-                                                                "venue":  "East Asian Mathematical Journal",
-                                                                "details":  "37 (2021), No. 4, 523\u0026ndash;541"
-                                                            }
-                                                        ]
-                                        },
-                                        {
-                                            "heading":  "2017",
-                                            "entries":  [
-                                                                {
-                                                                    "authors":  "Ho Kyoung Ko, Hyung Won Kim, Shizuo Kaji, Suyoung Choi",
-                                                                    "title":  "Elementary school students who give up on learning mathematics: Correlations with non-cognitive learner characteristics",
-                                                                    "venue":  "J. Korea Soc. Math. Ed. Ser. C",
-                                                                    "details":  "20 (2017), No. 2, 143\u0026ndash;151."
-                                                                }
-                                                            ]
-                                        }
-                                    ]
-                     },
-                     {
-                         "title":  "Conference Proceedings",
-                         "entries":  [
-                                         {
-                                             "authors":  "Hee-Hwan Ryu, Suyoung Choi, Song-Hun Chong, Tae-Young Kim, Jiyun Lee, Meiyan Kang",
-                                             "title":  "Machine learning-based classification of underground utility counts using electrical resistance numerical module",
-                                             "venue":  "The 2024 World Congress on Advances in Civil, Environmental, and Materials Research (ACEM24)",
-                                             "details":  "."
-                                         },
-                                         {
-                                             "authors":  "Suyoung Choi, Hyeontae Jang, Mathieu Vall\u0026eacute;e",
-                                             "title":  "GPU Algorithm for Enumerating PL Spheres of Picard Number 4: Application to Toric Topology",
-                                             "venue":  "40th International Symposium on Computational Geometry (SoCG 2024)",
-                                             "details":  "Leibniz International Proceedings in Informatics (LIPIcs), 293, pp. 41:1-41:15."
-                                         }
-                                     ]
-                     },
-                     {
-                         "title":  "Preprints and Notes",
-                         "entries":  [
-                                         {
-                                             "authors":  "Suyoung Choi, Younghan Yoon",
-                                             "title":  "A decomposition of graph a-numbers",
-                                             "details":  "arXiv:2508.06855, submitted."
-                                         },
-                                         {
-                                             "authors":  "Suyoung Choi,  Hyeontae Jang, Mathieu Vall\u0026eacute;e",
-                                             "title":  "Complete non-singular toric varieties with Picard number 4",
-                                             "details":  "arXiv:2504.18134, submitted."
-                                         },
-                                         {
-                                             "authors":  "Suyoung Choi, Younghan Yoon, Seonghyeon Yu",
-                                             "title":  "Full subcomplexes of Bier spheres",
-                                             "details":  "arXiv:2503.05385, submitted."
-                                         },
-                                         {
-                                             "authors":  "Suyoung Choi, Younghan Yoon",
-                                             "title":  "The cohomology rings of real permutohedral varieties",
-                                             "details":  "arXiv:2308.12693, submitted."
-                                         },
-                                         {
-                                             "authors":  "Meiyan Kang, Tae-Young Kim, Song-Hun Chong, Hee-Hwan Ryu, Suyoung Choi",
-                                             "title":  "Deep Learning Based Prediction of Underground Utility Locations Using Simulated Electrical Resistivity Survey Data and Novel Feature Engineering",
-                                             "details":  "submitted."
-                                         },
-                                         {
-                                             "authors":  "Suyoung Choi",
-                                             "title":  "On Petrie\u0027s theorem for torus manifolds",
-                                             "details":  "RIMS Kokyuroku, 1732 (2011), 95\u0026ndash;100."
-                                         },
-                                         {
-                                             "authors":  "Suyoung Choi",
-                                             "title":  "Counting on real Bott manifolds",
-                                             "details":  "RIMS Kokyuroku,  1690  (2009), 69\u0026ndash;71."
-                                         },
-                                         {
-                                             "authors":  "Suyoung Choi",
-                                             "title":  "Small covers over cubes",
-                                             "details":  "Trend in Math., 10 (2008), no. 1, 81\u0026ndash;83."
-                                         }
-                                     ]
-                     },
-                     {
-                         "title":  "Books",
-                         "entries":  [
-                                         {
-                                             "citationHtml":  "2022 개정 교육과정 교과서 고등학교 \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=33632\"\u003e공통수학1\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=33631\"\u003e공통수학2\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=33627\"\u003e기본수학1\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=33626\"\u003e기본수학2\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=33623\"\u003e대수\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=34065\"\u003e확률과 통계\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=34065\"\u003e미적분 I\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=34065\"\u003e미적분 II\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=34065\"\u003e기하\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=34065\"\u003e직무수학\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=34065\"\u003e인공지능 수학\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=34065\"\u003e수학과 문화\u003c/a\u003e (Government-authorized high school textbooks), Donga, 2024."
-                                         },
-                                         {
-                                             "citationHtml":  "2022 개정 교육과정 교과서 중학교 \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=33698\"\u003e수학1\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=34052\"\u003e수학2\u003c/a\u003e, 수학3 (Government-authorized middle school textbooks), Donga, 2024."
-                                         },
-                                         {
-                                             "citationHtml":  "\u003ca href=\"https://www.kyowoo.co.kr/m/product/view.php?p_idx=1855\u0026cate=0014_0015_\"\u003e미래사회를 선도할 꿈나무들을 위한 과학 CML\u003c/a\u003e, ISBN 9791125103820, Kyowoo, 2023."
-                                         },
-                                         {
-                                             "citationHtml":  "\u003ca href=\"https://www.kyowoo.co.kr/m/product/view.php?p_idx=1707\u0026cate=0014_0017_\"\u003e오일러의 보석\u003c/a\u003e (Translation of Euler\u0027s Gem written by David Richeson), ISBN 9791125102595, Kyowoo, 2018. (Recognized as a Sejong Book in 2019)"
-                                         },
-                                         {
-                                             "citationHtml":  "\u003ca href=\"https://www.kyowoo.co.kr/m/product/view.php?p_idx=1580\u0026cate=0014_0047_\"\u003e드론, 수학으로 날다!\u003c/a\u003e, ISBN 9791125101994, Kyowoo, 2017."
-                                         },
-                                         {
-                                             "citationHtml":  "2015 개정 교육과정 교과서 수학1, 수학2, 수학3 (Government-authorized middle school textbooks), Kyohak, 2017."
-                                         },
-                                         {
-                                             "citationHtml":  "2009 개정 교육과정 교과서 수학1, 수학2, 수학3 (Government-authorized middle school textbooks), Kyohak, 2013."
-                                         }
-                                     ]
-                     },
-                     {
-                         "title":  "Patents",
-                         "entries":  [
-                                         {
-                                             "citationHtml":  "위상 데이터 분석(TDA) 기법을 이용한 차량의 추돌 가능성 예측 방법 및 장치 (Crash probability prediction method and apparatus for vehicle using TDA technique), Korea Patent 10-2020-0025618, filed on Feb 28, 2020; patent pending."
-                                         }
-                                     ]
-                     }
-                 ]
+  "sections": [
+    {
+      "title": "Mathematics",
+      "groups": [
+        {
+          "heading": "2026",
+          "entries": [
+            {
+              "authors": "Suyoung Choi, Hyeontae Jang",
+              "title": "Stellar subdivisions, wedges and Buchstaber numbers",
+              "venue": "Algebr. Geom. Topol.",
+              "details": "26 (2026) no. 2, 751\u0026ndash;759."
+            },
+            {
+              "authors": "Suyoung Choi, Younghan Yoon",
+              "title": "Real toric manifolds associated with chordal nestohedra",
+              "venue": "J. Combin. Theory, Ser. A",
+              "details": "217 (2026), Paper No. 106102, 38 pp."
+            }
+          ]
+        },
+        {
+          "heading": "2025",
+          "entries": [
+            {
+              "authors": "Suyoung Choi,  Hyeontae Jang, Mathieu Vallee",
+              "title": "Toric wedge induction and toric lifting property for piecewise linear spheres with a few vertices",
+              "venue": "J. London Math. Soc.",
+              "details": "112 (2025), no. 1, Paper No. e70231, 24 pp."
+            },
+            {
+              "authors": "Suyoung Choi, Taekgyu Hwang, Hyeontae Jang",
+              "title": "Strong cohomological rigidity of Bott manifolds",
+              "venue": "Adv. Math.",
+              "details": "473 (2025), 110305."
+            }
+          ]
+        },
+        {
+          "heading": "2024",
+          "entries": [
+            {
+              "authors": "Suyoung Choi, Younghan Yoon, Seonghyeon Yu",
+              "title": "The Betti numbers of real toric varieties associated to Weyl chambers of types E7 and E8",
+              "venue": "Osaka J. Math.",
+              "details": "61 (3) (2024), 409\u0026ndash;417."
+            },
+            {
+              "authors": "Suyoung Choi, Hyeontae Jang, Mathieu Vallee",
+              "title": "The characterization of (n-1)-spheres with n+4 vertices having maximal Buchstaber number",
+              "venue": "J. Reine Angew. Math.",
+              "details": "811 (2024), 267\u0026ndash;292."
+            }
+          ]
+        },
+        {
+          "heading": "2023",
+          "entries": [
+            {
+              "authors": "Suyoung Choi, Taekgyu Hwang",
+              "title": "Gromov width of symplectic toric manifolds associated with graphs",
+              "venue": "Internat. J. Math.",
+              "details": "24 (3) (2023), 2350013, 19 pp."
+            }
+          ]
+        },
+        {
+          "heading": "2022",
+          "entries": [
+            {
+              "authors": "Suyoung Choi, Mathieu Vallee",
+              "title": "An algorithmic strategy for finding characteristic maps over wedged simplicial complexes",
+              "venue": "Pacific J. Math.",
+              "details": "320 (2022), no. 1, 13??3."
+            },
+            {
+              "authors": "Suyoung Choi, Mathieu Vallee",
+              "title": "Cohomological rigidity of the connected sum of three real projective spaces",
+              "venue": "Proc. Steklov Inst. Math.",
+              "details": "317 (2022), 178-188."
+            }
+          ]
+        },
+        {
+          "heading": "2021",
+          "entries": [
+            {
+              "authors": "Li Cai, Suyoung Choi",
+              "title": "Integral cohomology groups of real toric manifolds and small covers",
+              "venue": "Mosc. Math. J.",
+              "details": "21 (3), 467\u0026ndash;492."
+            }
+          ]
+        },
+        {
+          "heading": "2020",
+          "entries": [
+            {
+              "authors": "Li Cai, Suyoung Choi, Hanchul Park",
+              "title": "On the KO-groups of toric manifolds",
+              "venue": "Algebr. Geom. Topol.",
+              "details": "20 (2020) 2589\u0026ndash;2607"
+            },
+            {
+              "authors": "Suyoung Choi, Hanchul Park",
+              "title": "Multiplicative structure of the cohomology ring of real toric spaces",
+              "venue": "Homology Homotopy Appl.",
+              "details": "22 (2020), no. 1, 139\u0026ndash;157."
+            }
+          ]
+        },
+        {
+          "heading": "2019",
+          "entries": [
+            {
+              "authors": "Suyoung Choi, Shizuo Kaji, Hanchul Park",
+              "title": "The cohomology groups of real toric varieties associated to Weyl chambers of type C and D",
+              "venue": "Proc. Edinb. Math. Soc.",
+              "details": "62 (2019), 861\u0026ndash;874."
+            },
+            {
+              "authors": "Soojin Cho, Suyoung Choi, Shizuo Kaji",
+              "title": "Geometric representations of finite groups on real toric spaces",
+              "venue": "J. Korean Math. Soc.",
+              "details": "56 (2019), no. 5, 1265\u0026ndash;1283.",
+              "note": "(This paper was selected as the best Korean mathematical paper by KOFST in 2019.)"
+            },
+            {
+              "authors": "Suyoung Choi, Hanchul Park",
+              "title": "Small covers over wedges of polygons",
+              "venue": "J.  Math. Soc. Japan",
+              "details": "71 (2019), no. 3, 739\u0026ndash;764."
+            },
+            {
+              "authors": "Suyoung Choi, Kyoungsuk Park",
+              "title": "Example of C-rigid polytopes which are not B-rigid",
+              "venue": "Math. Slovaca",
+              "details": "69 (2019), no. 2, 437\u0026ndash;448."
+            }
+          ]
+        },
+        {
+          "heading": "2017",
+          "entries": [
+            {
+              "authors": "Suyoung Choi, Seonjeong Park",
+              "title": "Strong cohomological rigidity of toric varieties",
+              "venue": "Proc. Roy. Soc. Edinburgh Sect. A.",
+              "details": "147 (2017), no. 5, 971\u0026ndash;992."
+            },
+            {
+              "authors": "Suyoung Choi, Boram Park, Hanchul Park",
+              "title": "The Betti numbers of real toric varieties associated to Weyl chambers of type B",
+              "venue": "Chinese Ann. Math. Ser. B.",
+              "details": "38 (2017), no. 6, 1213\u0026ndash;1222."
+            },
+            {
+              "authors": "Suyoung Choi, Hanchul Park",
+              "title": "Wedge operations and torus symmetries II",
+              "venue": "Canad. J. Math.",
+              "details": "69 (2017), no. 4, 767\u0026ndash;789."
+            },
+            {
+              "authors": "Suyoung Choi, Hanchul Park",
+              "title": "On the cohomology and their torsion of real toric objects",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=3641664",
+              "venue": "Forum Math.",
+              "details": "29 (2017), no. 3, 543\u0026ndash;553."
+            },
+            {
+              "authors": "Suyoung Choi, Hanchul Park",
+              "title": "Wedge operations and a new family of projective toric manifolds",
+              "venue": "Israel J. Math.",
+              "details": "219(1) (2017), 353\u0026ndash;377."
+            },
+            {
+              "authors": "Suyoung Choi, Boram Park, Seonjeong Park",
+              "title": "Pseudograph and its associated real toric manifold",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=3638281",
+              "venue": "J. Math. Soc. Japan",
+              "details": "69(2) (2017), 693\u0026ndash;714."
+            },
+            {
+              "authors": "Suyoung Choi, Mikiya Masuda, Sang-il Oum",
+              "title": "Classification of real Bott manifolds and acyclic digraphs",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=3592535",
+              "venue": "Trans. Amer. Math. Soc.",
+              "details": "369 (2017), 2987\u0026ndash;3011."
+            },
+            {
+              "authors": "Suyoung Choi, Shizuo Kaji, Stephen Theriault",
+              "title": "Homotopy decomposition of a suspended real toric space",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=3633130",
+              "venue": "Bol. Soc. Mat. Mex.",
+              "details": "(3), 23  (2017), no. 1, 153\u0026ndash;161. (the memorial volume for Professor Gitler)"
+            }
+          ]
+        },
+        {
+          "heading": "2016",
+          "entries": [
+            {
+              "authors": "Suyoung Choi, Seonjeong Park",
+              "title": "Projective bundles over smooth compact toric surfaces",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=3491049",
+              "venue": "Internat. J. Math.",
+              "details": "27 (4) (2016), 1650032, 30 pp."
+            },
+            {
+              "authors": "Suyoung Choi, Hanchul Park",
+              "title": "Wedge operations and torus symmetries",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=3476138",
+              "venue": "Tohoku Math. J.",
+              "details": "(2), 68(1) (2016), 91\u0026ndash;138."
+            }
+          ]
+        },
+        {
+          "heading": "2015",
+          "entries": [
+            {
+              "authors": "Suyoung Choi",
+              "title": "Classification of Bott manifolds up to dimension 8",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=3391366",
+              "venue": "Proc. Edinb. Math. Soc.",
+              "details": "(2), 58(3) (2015), 653\u0026ndash;659."
+            },
+            {
+              "authors": "Suyoung Choi, Mikiya Masuda, Satoshi Murai",
+              "title": "Invariance of Pontrjagin classes for Bott manifolds",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=3342682",
+              "venue": "Algebr. Geom. Topol.",
+              "details": "15(2) (2015), 965\u0026ndash;986."
+            },
+            {
+              "authors": "Suyoung Choi, Hanchul Park",
+              "title": "A new graph invariant arises in toric topology",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=3340192",
+              "venue": "J. Math. Soc. Japan",
+              "details": "67(2) (2015), 699-720."
+            }
+          ]
+        },
+        {
+          "heading": "2013",
+          "entries": [
+            {
+              "authors": "Suyoung Choi",
+              "title": "Different moment-angle manifolds arising from two polytopes having the same bigraded Betti numbers",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=3248743",
+              "venue": "Algebr. Geom. Topol.",
+              "details": "13(6) (2013), 3639\u0026ndash;3649."
+            }
+          ]
+        },
+        {
+          "heading": "2012",
+          "entries": [
+            {
+              "authors": "Suyoung Choi, Mikiya Masuda",
+              "title": "Classification of Q-trivial Bott manifolds",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=2983437",
+              "venue": "J. Symplectic Geom.",
+              "details": "10(3) (2012), 447\u0026ndash;462."
+            },
+            {
+              "authors": "Suyoung Choi, Dong Youp Suh",
+              "title": "Strong cohomological rigidity of a product of projective spaces",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=2978415",
+              "venue": "Bull. Korean Math. Soc.",
+              "details": "49(4) (2012), 761\u0026ndash;765."
+            },
+            {
+              "authors": "Suyoung Choi, Seonjeong Park, Dong Youp Suh",
+              "title": "Topological classification of quasitoric manifolds with second Betti number 2",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=2928539",
+              "venue": "Pacific J. Math.",
+              "details": "256(1) (2012), 19\u0026ndash;49."
+            }
+          ]
+        },
+        {
+          "heading": "2011",
+          "entries": [
+            {
+              "authors": "Suyoung Choi, Mikiya Masuda, Dong Youp Suh",
+              "title": "Rigidity problems in toric topology, a survey",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=2962979",
+              "venue": "Proc. Steklov Inst. Math.",
+              "details": "275 (2011), 177\u0026ndash;190."
+            },
+            {
+              "authors": "Suyoung Choi, Shintaro Kuroki",
+              "title": "Topological classification of torus manifolds which have codimension one extended actions",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=2846908",
+              "venue": "Algebr. Geom. Topol.",
+              "details": "11(5) (2011), 2655\u0026ndash;2679."
+            },
+            {
+              "authors": "Suyoung Choi, Jang Soo Kim",
+              "title": "Combinatorial rigidity of 3-dimensional simplicial polytopes",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=2806527",
+              "venue": "Int. Math. Res. Not. IMRN.",
+              "details": "2011(8), (2011), 1935\u0026ndash;1951."
+            },
+            {
+              "authors": "Suyoung Choi, Dong Youp Suh",
+              "title": "Properties of Bott manifolds and cohomological rigidity",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=2792373",
+              "venue": "Algebr. Geom. Topol.",
+              "details": "11(2), (2011), 1053\u0026ndash;1076."
+            }
+          ]
+        },
+        {
+          "heading": "2010",
+          "entries": [
+            {
+              "authors": "Suyoung Choi, Taras E. Panov, Dong Youp Suh",
+              "title": "Toric cohomological rigidity of simple polytopes",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=2725043",
+              "venue": "J. London Math. Soc.",
+              "details": "82(2),  (2010), 343\u0026ndash;360."
+            },
+            {
+              "authors": "Suyoung Choi",
+              "title": "The number of orientable small covers over cubes",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=2680832",
+              "venue": "Proc. Japan Acad.",
+              "details": "86, Ser. A. (2010), no.6, 97\u0026ndash;100."
+            },
+            {
+              "authors": "Suyoung Choi, Jang Soo Kim",
+              "title": "A combinatorial proof of a formula for Betti numbers of a stacked polytope",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=2578904",
+              "venue": "Electron. J. Combin.",
+              "details": "17(1) (2010), #R9."
+            },
+            {
+              "authors": "Suyoung Choi, Mikiya Masuda, Dong Youp Suh",
+              "title": "Topological classification of generalized Bott towers",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=2551516",
+              "venue": "Trans. Amer. Math. Soc.",
+              "details": "362 (2010), 1097\u0026ndash;1112."
+            },
+            {
+              "authors": "Suyoung Choi, Mikiya Masuda, Dong Youp Suh",
+              "title": "Quasitoric manifolds over a product of simplices",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=2666127",
+              "venue": "Osaka J. Math.",
+              "details": "47 (2010), 109\u0026ndash;129."
+            }
+          ]
+        },
+        {
+          "heading": "2008",
+          "entries": [
+            {
+              "authors": "Suyoung Choi",
+              "title": "The number of small covers over cubes",
+              "titleLink": "http://www.ams.org/mathscinet-getitem?mr=2465745",
+              "venue": "Algebr. Geom. Topol.",
+              "details": "8(4) (2008), 2391\u0026ndash;2399."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Applied Mathematics",
+      "groups": [
+        {
+          "heading": "2026",
+          "entries": [
+            {
+              "authors": "Meiyan Kang, Shizuo Kaji, Sang-Yun Lee, Taegeon Kim, Hee-Hwan Ryu, Suyoung Choi",
+              "title": "Shape-Aware Topological Representation for Pipeline Hyperbola Detection in GPR Data",
+              "venue": "IEEE Sens. J.",
+              "details": "26(3) (2026), 4313-4325"
+            }
+          ]
+        },
+        {
+          "heading": "2025",
+          "entries": [
+            {
+              "authors": "Hee-Hwan Ryu, Suyoung Choi, Eun-Soo Hong, Shin Kyu Choi",
+              "title": "Prediction of steel tower foundation specifications using non-destructive testing method",
+              "venue": "Geomech. Eng.",
+              "details": "41(2), (2025), 287\u0026ndash;295."
+            },
+            {
+              "authors": "Hee-Hwan Ryu, Suyoung Choi, Song-Hun Chong, Tae-Young Kim, Jiyun Lee, Meiyan Kang",
+              "title": "Machine learning-based prediction of underground utility counts using electrical resistance numerical data",
+              "venue": "Geomech. Eng.",
+              "details": "41(1), (2025), 11\u0026ndash;19."
+            }
+          ]
+        },
+        {
+          "heading": "2024",
+          "entries": [
+            {
+              "authors": "Tae-Young Kim, Hee-Hwan Ryu, Meiyan Kang, Suyoung Choi, Song-Hun Chong",
+              "title": "Effect of geometry of underground structure and electrode on electrical resistance measurement: A numerical study",
+              "venue": "Geomech. Eng.",
+              "details": "39(1), (2024), pp. 105-113."
+            },
+            {
+              "authors": "Jiyun Lee, Kyuwon Kim, Meiyan Kang, Eun-Soo Hong, Suyoung Choi",
+              "title": "Void detection for Tunnel Lining Backfill using Impact-Echo Method based on Continuous Wavelet Transform and Convolutional Neural Network",
+              "venue": "Geomech. Eng.",
+              "details": "36(1), (2024), pp. 1-8 ."
+            }
+          ]
+        },
+        {
+          "heading": "2021",
+          "entries": [
+            {
+              "authors": "Ho Kyoung Ko, Suyoung Choi, Shizuo Kaji",
+              "title": "Who Has Given up on Mathematics? A data analysis",
+              "venue": "Asia Pacific Education Review",
+              "details": "(2021) 22:699\u0026ndash;714"
+            },
+            {
+              "authors": "Suyoung Choi, Ahyun Goo, Ho Kyoung Ko",
+              "title": "The Case of Polymath Activities Using Collective Intelligence",
+              "venue": "East Asian Mathematical Journal",
+              "details": "37 (2021), No. 4, 523\u0026ndash;541"
+            }
+          ]
+        },
+        {
+          "heading": "2017",
+          "entries": [
+            {
+              "authors": "Ho Kyoung Ko, Hyung Won Kim, Shizuo Kaji, Suyoung Choi",
+              "title": "Elementary school students who give up on learning mathematics: Correlations with non-cognitive learner characteristics",
+              "venue": "J. Korea Soc. Math. Ed. Ser. C",
+              "details": "20 (2017), No. 2, 143\u0026ndash;151."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Conference Proceedings",
+      "entries": [
+        {
+          "authors": "Hee-Hwan Ryu, Suyoung Choi, Song-Hun Chong, Tae-Young Kim, Jiyun Lee, Meiyan Kang",
+          "title": "Machine learning-based classification of underground utility counts using electrical resistance numerical module",
+          "venue": "The 2024 World Congress on Advances in Civil, Environmental, and Materials Research (ACEM24)",
+          "details": "."
+        },
+        {
+          "authors": "Suyoung Choi, Hyeontae Jang, Mathieu Vallee",
+          "title": "GPU Algorithm for Enumerating PL Spheres of Picard Number 4: Application to Toric Topology",
+          "venue": "40th International Symposium on Computational Geometry (SoCG 2024)",
+          "details": "Leibniz International Proceedings in Informatics (LIPIcs), 293, pp. 41:1-41:15."
+        }
+      ]
+    },
+    {
+      "title": "Preprints and Notes",
+      "entries": [
+        {
+          "authors": "Suyoung Choi, Younghan Yoon",
+          "title": "A decomposition of graph a-numbers",
+          "details": "arXiv:2508.06855, submitted."
+        },
+        {
+          "authors": "Suyoung Choi,  Hyeontae Jang, Mathieu Vallee",
+          "title": "Complete non-singular toric varieties with Picard number 4",
+          "details": "arXiv:2504.18134, submitted."
+        },
+        {
+          "authors": "Suyoung Choi, Younghan Yoon, Seonghyeon Yu",
+          "title": "Full subcomplexes of Bier spheres",
+          "details": "arXiv:2503.05385, submitted."
+        },
+        {
+          "authors": "Suyoung Choi, Younghan Yoon",
+          "title": "The cohomology rings of real permutohedral varieties",
+          "details": "arXiv:2308.12693, submitted."
+        },
+        {
+          "authors": "Meiyan Kang, Tae-Young Kim, Song-Hun Chong, Hee-Hwan Ryu, Suyoung Choi",
+          "title": "Deep Learning Based Prediction of Underground Utility Locations Using Simulated Electrical Resistivity Survey Data and Novel Feature Engineering",
+          "details": "submitted."
+        },
+        {
+          "authors": "Suyoung Choi",
+          "title": "On Petrie\u0027s theorem for torus manifolds",
+          "details": "RIMS Kokyuroku, 1732 (2011), 95\u0026ndash;100."
+        },
+        {
+          "authors": "Suyoung Choi",
+          "title": "Counting on real Bott manifolds",
+          "details": "RIMS Kokyuroku,  1690  (2009), 69\u0026ndash;71."
+        },
+        {
+          "authors": "Suyoung Choi",
+          "title": "Small covers over cubes",
+          "details": "Trend in Math., 10 (2008), no. 1, 81\u0026ndash;83."
+        }
+      ]
+    },
+    {
+      "title": "Books",
+      "entries": [
+        {
+          "citationHtml": "2022 개정 교육과정 교과서 고등학교 \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=33632\"\u003e공통수학1\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=33631\"\u003e공통수학2\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=33627\"\u003e기본수학1\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=33626\"\u003e기본수학2\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=33623\"\u003e대수\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=34065\"\u003e확률과 통계\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=34065\"\u003e미적분 I\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=34065\"\u003e미적분 II\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=34065\"\u003e기하\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=34065\"\u003e직무수학\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=34065\"\u003e인공지능 수학\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=34065\"\u003e수학과 문화\u003c/a\u003e (Government-authorized high school textbooks), Donga, 2024."
+        },
+        {
+          "citationHtml": "2022 개정 교육과정 교과서 중학교 \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=33698\"\u003e수학1\u003c/a\u003e, \u003ca href=\"https://www.bookdonga.com/textbook/book_view.donga?product_seq=34052\"\u003e수학2\u003c/a\u003e, 수학3 (Government-authorized middle school textbooks), Donga, 2024."
+        },
+        {
+          "citationHtml": "\u003ca href=\"https://www.kyowoo.co.kr/m/product/view.php?p_idx=1855\u0026cate=0014_0015_\"\u003e미래사회를 선도할 꿈나무들을 위한 과학 CML\u003c/a\u003e, ISBN 9791125103820, Kyowoo, 2023."
+        },
+        {
+          "citationHtml": "\u003ca href=\"https://www.kyowoo.co.kr/m/product/view.php?p_idx=1707\u0026cate=0014_0017_\"\u003e오일러의 보석\u003c/a\u003e (Translation of Euler\u0027s Gem written by David Richeson), ISBN 9791125102595, Kyowoo, 2018. (Recognized as a Sejong Book in 2019)"
+        },
+        {
+          "citationHtml": "\u003ca href=\"https://www.kyowoo.co.kr/m/product/view.php?p_idx=1580\u0026cate=0014_0047_\"\u003e드론, 수학으로 날다!\u003c/a\u003e, ISBN 9791125101994, Kyowoo, 2017."
+        },
+        {
+          "citationHtml": "2015 개정 교육과정 교과서 수학1, 수학2, 수학3 (Government-authorized middle school textbooks), Kyohak, 2017."
+        },
+        {
+          "citationHtml": "2009 개정 교육과정 교과서 수학1, 수학2, 수학3 (Government-authorized middle school textbooks), Kyohak, 2013."
+        }
+      ]
+    },
+    {
+      "title": "Patents",
+      "entries": [
+        {
+          "citationHtml": "위상 데이터 분석(TDA) 기법을 이용한 차량의 추돌 가능성 예측 방법 및 장치 (Crash probability prediction method and apparatus for vehicle using TDA technique), Korea Patent 10-2020-0025618, filed on Feb 28, 2020; patent pending."
+        }
+      ]
+    }
+  ]
 }

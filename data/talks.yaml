@@ -1,8 +1,28 @@
 sections:
   - title: "Conference and Workshop"
     years:
+      - year: 2025
+        entries:
+          - event_html: "2025 KMS Annual Meeting, ST Convention Center, Seoul, **Korea**, Oct 24, 2025"
+            title_html: "Data analysis for nondestructive testing"
+          - event_html: "[Glances@Manifolds-2025](https://glancesmanifolds25.im.uj.edu.pl/), Jagiellonian University, Krakow, **Poland**, Sep 1-5, 2025"
+            title_html: "Classification of toric manifolds with Pic 4"
+          - event_html: "[2025 Summer Workshop on Low-dimensional Topology and Related Topics](https://sites.google.com/view/2025-summer-topology-workshop), Kangwon National Univ., Chuncheon, **Korea**, Aug 11-13, 2025"
+            title_html: "Topological classification of Bott manifolds"
+          - event_html: "[Topological Data Analysis and Industrial Mathematics: Bridging Theory and Applications](https://sites.google.com/view/tda-im-2025/home), Nishijin Plaza, Fukuoka, **Japan**, Aug 5-8, 2025"
+            title_html: "Topological Data Analysis for non-destructive testing in Civil engineering"
+          - event_html: "Planary talk, 2025 Annual meeting of the Kangwon-Kyungki mathematical society, Kyung Hee Univ., Suwon, **Korea**, Jun 20-21, 2025"
+            title_html: "Classification of complete non-singular toric varieties"
+          - event_html: "The 7th Korea Toric Topology Workshop, KAIST, Daejeon, **Korea**, Feb 17-19, 2025"
+            title_html: "Classification of toric manifolds with Picard number 4"
       - year: 2024
         entries:
+          - event_html: "2024 KSME, Ajou Univ., Suwon, **Korea**, Nov 1-2, 2024"
+            title_html: "Rank 시스템을 통한 입학사정관의 자동화 가능성 연구"
+          - event_html: "Ajou-Kyushu-NIMS Workshop, Ramada Hotel Suwon, Suwon, **Korea**, Sep 28, 2024"
+            title_html: "GPU-friendly algorithm for counting PL spheres"
+          - event_html: "2024 Dalian International Conference on Mathematics, Dalian Univ. of Technology, Dalian, **China**, Sep 24-28, 2024"
+            title_html: "Toric Lifting Problems"
           - event_html: "[2024 Combinatorial Workshop](https://cw2024.combinatorics.kr/), Chungbuk National University, Cheongju, **Korea**, Aug 28-30, 2024"
             title_html: "Toric Colorability of Simplicial d-Polytopes with d+4 vertices"
           - event_html: "[Workshop on Toric Topology](http://www.fields.utoronto.ca/activities/24-25/toric), Fields Institute for Research in Mathematical Sciences, Toronto, **Canada**, Aug 23, 2024"
@@ -197,8 +217,22 @@ sections:
             title_html: "The cohomology ring and Bott tower structure"
   - title: "Colloquium and Seminar"
     years:
+      - year: 2026
+        entries:
+          - event_html: "Invited talk, Fudan University, Shanghai, **China**, Apr 16, 2026"
+            title_html: "Toric manifolds and PL spheres"
+          - event_html: "Colloquium, Chonnam National University, Gwangju, **Korea**, Mar 26, 2026"
+            title_html: "Toric varieites and simplicial complexes"
+          - event_html: "Invited talk, POSTECH, Pohang, **Korea**, Feb 4, 2026"
+            title_html: "Mathematical approaches to nondestructive inspection"
+          - event_html: "ALGO Lunch Seminar, Université libre de Bruxelles (ULB), Brussels, **Belgium**, Jan 7, 2026"
+            title_html: "A decomposition of graph a-numbers"
       - year: 2025
         entries:
+          - event_html: "Invited talk, GIST, Gwangju, **Korea**, Aug 29, 2025"
+            title_html: "What shapes can support a toric fan?"
+          - event_html: "Colloquium, Gongju Univ., Gongju, **Korea**, Apr 30, 2025"
+            title_html: "분류로의 여행 : 위상수학"
           - event_html: "Seminar talk, KICT, Ilsan, **Korea**, Apr 16, 2025"
             title_html: "Industrial math in civil engineering"
       - year: 2024
@@ -303,9 +337,34 @@ sections:
         entries:
           - event_html: "KAIST combinatorics Seminar, KAIST, Daejon, **Korea**, Feb. 4-5, 2009"
             title_html: "Cohomological rigidity of simple polytopes with few facets"
-
   - title: "Public Lectures and Special Lectures"
     years:
+      - year: 2026
+        entries:
+          - event_html: "대한수학회 2026 Young Mathematician Camp, Yonsei Univ., Incheon, **Korea**, Jan 26-29, 2026"
+            title_html: "다양체와 다면체의 만남"
+      - year: 2025
+        entries:
+          - event_html: "2025 불어권협력센터 릴레이세미나, Ajou Univ., Suwon, **Korea**, Dec 11, 2025"
+            title_html: "페르마에서 푸앵카레까지 난제의 역사"
+          - event_html: "Special Lecture, Jeonju Univ., Jeonju, **Korea**, Nov 11, 2025"
+            title_html: "수학자가 보는 AI"
+          - event_html: "[Topology & Data: AJOU Graduate Summer School #tda](https://sites.google.com/ajou.ac.kr/ajou-graduate-summerschool-tda/home?authuser=0), Ajou Univ., Suwon, **Korea**, Jul 14-16, 2025"
+            title_html: "TDA : topological data analysis"
+      - year: 2024
+        entries:
+          - event_html: "Special Lecture, Gacheon Univ., Seongnam, **Korea**, May 28, 2024"
+            title_html: "미래사회의 변화와 신기술의 이해"
+      - year: 2023
+        entries:
+          - event_html: "Special Lecture, Ajou Univ., Suwon, **Korea**, Aug 2, 2023"
+            title_html: "교사를 위한 수학과 대중문화"
+          - event_html: "과학영재교육원 특강, Yonsei Univ., Seoul, **Korea**, Jul 25, 2023"
+            title_html: "수학 문제 도전의 즐거움"
+          - event_html: "Special Lecture, 국립중앙과학관, Daejeon, **Korea**, Jul 22, 2023"
+            title_html: "위상수학, 넌 누구니?"
+          - event_html: "과학영재교육원 특강, Ajou Univ., Suwon, **Korea**, Mar 17, 2023"
+            title_html: "수학자 관점으로 읽기"
       - year: 2014
         entries:
           - event_html: "Brown Bag Lectures at Ajou University, Ajou Univ., Suwon, **Korea**, Sep 16, 2014"
