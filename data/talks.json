@@ -1,0 +1,796 @@
+{
+    "sections":  [
+                     {
+                         "title":  "Conference and Workshop",
+                         "years":  [
+                                       {
+                                           "year":  2025,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "2025 KMS Annual Meeting, ST Convention Center, Seoul, **Korea**, Oct 24, 2025",
+                                                               "title_html":  "Data analysis for nondestructive testing"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Glances@Manifolds-2025](https://glancesmanifolds25.im.uj.edu.pl/), Jagiellonian Univ., Krakow, **Poland**, Sep 1-5, 2025",
+                                                               "title_html":  "Classification of toric manifolds with Pic 4"
+                                                           },
+                                                           {
+                                                               "event_html":  "[2025 Summer Workshop on Low-dimensional Topology and Related Topics](https://sites.google.com/view/2025-summer-topology-workshop), Kangwon National Univ., Chuncheon, **Korea**, Aug 11-13, 2025",
+                                                               "title_html":  "Topological classification of Bott manifolds"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Topological Data Analysis and Industrial Mathematics: Bridging Theory and Applications](https://sites.google.com/view/tda-im-2025/home), Nishijin Plaza, Fukuoka, **Japan**, Aug 5-8, 2025",
+                                                               "title_html":  "Topological Data Analysis for non-destructive testing in Civil engineering"
+                                                           },
+                                                           {
+                                                               "event_html":  "Planary talk, 2025 Annual meeting of the Kangwon-Kyungki mathematical society, Kyung Hee Univ., Suwon, **Korea**, Jun 20-21, 2025",
+                                                               "title_html":  "Classification of complete non-singular toric varieties"
+                                                           },
+                                                           {
+                                                               "event_html":  "The 7th Korea Toric Topology Workshop, KAIST, Daejeon, **Korea**, Feb 17-19, 2025",
+                                                               "title_html":  "Classification of toric manifolds with Picard number 4"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2024,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "2024 KSME, Ajou Univ., Suwon, **Korea**, Nov 1-2, 2024",
+                                                               "title_html":  "Rank 시스템을 통한 입학사정관의 자동화 가능성 연구"
+                                                           },
+                                                           {
+                                                               "event_html":  "Ajou-Kyushu-NIMS Workshop, Ramada Hotel Suwon, Suwon, **Korea**, Sep 28, 2024",
+                                                               "title_html":  "GPU-friendly algorithm for counting PL spheres"
+                                                           },
+                                                           {
+                                                               "event_html":  "2024 Dalian International Conference on Mathematics, Dalian Univ. of Technology, Dalian, **China**, Sep 24-28, 2024",
+                                                               "title_html":  "Toric Lifting Problems"
+                                                           },
+                                                           {
+                                                               "event_html":  "[2024 Combinatorial Workshop](https://cw2024.combinatorics.kr/), Chungbuk National Univ., Cheongju, **Korea**, Aug 28-30, 2024",
+                                                               "title_html":  "Toric Colorability of Simplicial d-Polytopes with d+4 vertices"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Workshop on Toric Topology](http://www.fields.utoronto.ca/activities/24-25/toric), Fields Institute for Research in Mathematical Sciences, Toronto, **Canada**, Aug 23, 2024",
+                                                               "title_html":  "[Buchstaber Numbers and Toric Wedge Induction](https://www.youtube.com/watch?v=chYLDqcr9n)"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2023,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "[Iberoamerican and Pan Pacific International Conference on Topology and its Applications (IPPICTA)](https://sites.google.com/izt.uam.mx/citaandppicta2023/home), Online, Puebla, **Mexico**, Sep 11-14, 2023",
+                                                               "title_html":  "Cohomology of real toric varieties corresponding to Weyl chambers"
+                                                           },
+                                                           {
+                                                               "event_html":  "Workshop on Topological Data Analysis: Mathematics, Physics and beyond, Korea Institute for Advanced Study (KIAS), Seoul, **Korea**, Feb 9, 2023",
+                                                               "title_html":  "GPU-friendly enumeration on simplicial complexes"
+                                                           },
+                                                           {
+                                                               "event_html":  "2023 CNN International Conference on math and its application, Online, Chungnam National Univ., Daejeon, **Korea**, Jan 17, 2023",
+                                                               "title_html":  "Void Detection using Impact-Echo Method based on CWT and CNN"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2022,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "Workshop on Algebra, Topology and Related Fields, Online, **Turkey**, Sep 22-23, 2022",
+                                                               "title_html":  "Cohomological rigidity problems in toric topology"
+                                                           },
+                                                           {
+                                                               "event_html":  "건국-아주-인하 수학과 연합세미나, Konkuk Univ., Seoul, **Korea**, Dec 17, 2012",
+                                                               "title_html":  "Rational Betti number of generalized real Hassenberg varieties and new graph invariants"
+                                                           },
+                                                           {
+                                                               "event_html":  "[The 6th Korea Toric Topology Workshop](https://sites.google.com/view/6thkttw), KAIST, Daejeon, **Korea**, Jul 11-13, 2022",
+                                                               "title_html":  "Industrial math in civil engineering"
+                                                           },
+                                                           {
+                                                               "event_html":  "[2022 KMS Spring Meeting](https://www.kms.or.kr/md_meet/main.html?period=78), Online, Korean Mathematical Society, **Korea**, Apr 28-29, 2022",
+                                                               "title_html":  "Toric colorizable PL spheres with a few vertices"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Toric Topology 2022 in Osaka](https://www.xmath.ous.ac.jp/~kuroki/Toric2022.html), Online, OCAMI (Osaka City Univ.), Osaka, **Japan**, Mar 23-25, 2022",
+                                                               "title_html":  "Cohomological rigidity for Bott manifolds"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2021,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "Topology of torus actions and related topics, Online, Sirius Mathematics Center, Sochi, **Russia**, Oct 25-29, 2021",
+                                                               "title_html":  "Puzzle algorithm for finding mod $2$ characteristic maps over wedged simplicial complexes"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2020,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "[The 8th East Asian Conference on Algebraic Topology(EACAT)](https://sites.google.com/view/eacat8-hanoi), VIASM and VNI, Hanoi, **Vietnam**, Dec 14-18, 2020",
+                                                               "title_html":  "(Plenary talk) TBA"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Topology and geometry of group actions](https://cs.hse.ru/ata-lab/tgga), Online conference, **Russia**, Nov 18-22, 2020",
+                                                               "title_html":  "Gromov width of symplectic toric manifolds associated with graph associahedra"
+                                                           },
+                                                           {
+                                                               "event_html":  "[2020 KMS Annual Meeting](http://www.kms.or.kr/meetings/fall2020/), Virtual conference, **Korea**, Oct 23-24, 2020",
+                                                               "title_html":  "real toric manifold, and its cohomology"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Workshop on Polyhedral Products in Homotopy Theory](http://www.fields.utoronto.ca/activities/19-20/toric-homotopy), The Fields Institute, Toronto, **Canada**, Jan 20-24, 2020",
+                                                               "title_html":  "Topology of real moment-angle complexes and real toric spaces"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2019,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "[Toric Topology 2019 in Okayama](https://sites.google.com/view/torictopology2019okayama/enhome?authuser=0), Okayama Univ. of Science, Okayama, **Japan**, Nov 18-21, 2019",
+                                                               "title_html":  "On the classification of (real) toric manifolds of Picard number 4"
+                                                           },
+                                                           {
+                                                               "event_html":  "[The 3rd Pan Pacific International Conference on Topology and Applications (PPICTA)](https://tianyuan.scu.edu.cn/portal/subject/index/id/394/cid/45.html), Xiangyu Hotel, Chengdu, **China**, Nov 8-13, 2019",
+                                                               "title_html":  "Topology of real toric manifolds and its application"
+                                                           },
+                                                           {
+                                                               "event_html":  "[2019 International conference of The Kangwon-Kyungki Mathematical Society](http://www.kkms.org/conf2019/), Daegu Gyeongbuk Design Center, Daegu, **Korea**, Jun 28-30, 2019",
+                                                               "title_html":  "Small cover and cohomological rigidity problem"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Mini workshop on toric topology and related topics](https://sites.google.com/view/miniworkshopontorictopology/home), Korea Chamber of Commerce and Industry, Seoul, **Korea**, May 27, 2019",
+                                                               "title_html":  "On the real toric spaces"
+                                                           },
+                                                           {
+                                                               "event_html":  "[The 6th International Electric Vehicle Expo](http://www.ievexpo.org/eng/), private session organized by Ajou Univ., ICC Jeju, Jeju, **Korea**, May 7-11, 2019",
+                                                               "title_html":  "Topological Data Analysis on Object Detection"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2018,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "Ajou Data Science Forum-Data Science in Finance, Ajou Univ., Suwon, **Korea**, Dec 14, 2018",
+                                                               "title_html":  "Topological Data Analysis on Image classification"
+                                                           },
+                                                           {
+                                                               "event_html":  "[2018 Joint Meeting of the Korean Mathematical Society and the German Mathematical Society](http://www.kms.or.kr/KMS-DMV/), COEX, Seoul, **Korea**, Oct 3-6, 2018",
+                                                               "title_html":  "Torsions in the cohomology of real toric manifold"
+                                                           },
+                                                           {
+                                                               "event_html":  "[88th KPPY Combinatorics Workshop](http://webbuild.knu.ac.kr/~mhs/seminars/S88/index.html), Yeungnam Univ., Daegu, **Korea**, Aug 31, 2018",
+                                                               "title_html":  "Betti numbers of real toric varieties associated to Weyl chambers"
+                                                           },
+                                                           {
+                                                               "event_html":  "[20th KIAS Combinatorics Workshop](http://events.kias.re.kr/h/combinatorics/?pageNo=3250), Duksung Women\u0027s Univ., Seoul, **Korea**, Jun 1-2, 2018",
+                                                               "title_html":  "Weyl group action on real toric manifolds and its geometric representations"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Algebraic Topology, Combinatorics, and Mathematical Physics](http://www.mathnet.ru/php/conference.phtml?confid=1289\u0026option_lang=eng), Steklov Mathematical Institute, Moscow, **Russia**, May 24-30, 2018",
+                                                               "title_html":  "Cohomology formulae of real toric spaces"
+                                                           },
+                                                           {
+                                                               "event_html":  "[2018 KMS Spring Meeting](http://www.kms.or.kr/meetings/spring2018/), Kyung Hee Univ., Seoul, **Korea**, Apr 20-22, 2018",
+                                                               "title_html":  "Title 1: Cohomology of real toric spaces; Title 2: Industrial math on civil engineering"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2017,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "[Encounter in Topology \u0027n Algebra](http://ivanmartino.com/ETNA2017.php), [Scuola Superiore di Catania](http://www.scuolasuperiorecatania.it/?lang=en), Catania, **Italy**, May 31-Jun 4, 2017",
+                                                               "title_html":  "Finite group action on real toric variety and its geometric representations"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2016,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "[79th KPPY Combinatorics Workshop](http://webbuild.knu.ac.kr/~mhs/seminars/S79/index.html), Kyungpook National Univ., Daegu, **Korea**, Oct 8, 2016",
+                                                               "title_html":  "Acyclic digraphs and real Bott manifolds"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2015,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "[The 6th East Asian Conference on Algebraic Topology(EACAT)](https://camp.nims.re.kr/activities/eventpages/?id=246\u0026action=overview), NIMS, Daejeon, **Korea**, Nov 30-Dec 4, 2015",
+                                                               "title_html":  "Homology of real toric varieties associated to Weyl groups"
+                                                           },
+                                                           {
+                                                               "event_html":  "[International Open Chinese-Russian Conference-Torus Actions: Topology, Geometry and Number Theory](http://www.math.ac.cn/xshd/hyyzt/201504/t20150407_286641.html), Chinese Academy of Sciences, Beijing, **China**, Oct 26-29, 2015",
+                                                               "title_html":  "The Betti numbers of real toric varieties associated to Weyl groups of regular types"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Combinatorial Constructions in Topology](http://gdenham.math.uwo.ca/share/PIMS2015/), Univ. of Regina, Regina, SK, **Canada**, Aug 17-21, 2015",
+                                                               "title_html":  "A new family of projective toric manifolds"
+                                                           },
+                                                           {
+                                                               "event_html":  "[2015 KMS Spring Meeting](http://www.kms.or.kr/meetings/spring2015/), Pusan National Univ., Pusan, **Korea**, Apr 24-26, 2014",
+                                                               "title_html":  "On the topology of real toric spaces"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Geometry and Topology](http://web.math.princeton.edu/conference/Bendersky-Gitler/), Princeton Univ., Princeton, NJ, **USA**, Mar 18-21, 2015",
+                                                               "title_html":  "Construction of a small cover with odd torsion"
+                                                           },
+                                                           {
+                                                               "event_html":  "[7th KIAS Combinatorics Workshop](http://home.kias.re.kr/MKG/h/Combinatorics/?pageNo=1208), KIAS, Seoul, **Korea**, Mar 13-14, 2015",
+                                                               "title_html":  "Small cover and puzzle"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Perspectives in Lie Theory-session: Algebraic topology, geometric and combinatorial group theory](http://crm.sns.it/event/293/index.html#title), Centro di Ricerca Matematica-Ennio De Giorgi, Pisa, **Italy**, Feb 8-28, 2015",
+                                                               "title_html":  "Cohomology of small cover and its torsion"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2014,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "[2014 KAIST CMC Discrete Math Workshop](http://kcw2014.eventbrite.com), KAIST, Daejeon, **Korea**, Dec 10-12, 2014",
+                                                               "title_html":  "The Betti numbers of real toric varieties corresponding to generalized graph associahedra"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Seoul ICM 2014](http://www.icm2014.org/), COEX, Seoul, **Korea**, Aug 13-21, 2014",
+                                                               "title_html":  "Title 1 (Topology): Topology of generalized Bott manifolds; Title 2 (Combinatorics): Graph invariants arising from toric topology"
+                                                           },
+                                                           {
+                                                               "event_html":  "[ICM 2014 Satellite conference: Topology of torus actions and applications to geometry and combinatorics](http://toric.kaist.ac.kr), Daejeon Convention Center, Daejeon, **Korea**, Aug 7-11, 2014",
+                                                               "title_html":  "On the classification of toric varieties"
+                                                           },
+                                                           {
+                                                               "event_html":  "[64th KPPY Combinatorics Workshop](http://webbuild.knu.ac.kr/~mhs/seminars/S64/index.html), Kyungpook National Univ., Daegu, **Korea**, Jun 20, 2014",
+                                                               "title_html":  "The a-number of graphs and the topology of small covers"
+                                                           },
+                                                           {
+                                                               "event_html":  "[2014 KMS Spring Meeting](http://www.kms.or.kr/meetings/spring2014/), Gangneung-Wonju National Univ., Gangneung, **Korea**, Apr 24-26, 2014",
+                                                               "title_html":  "Cohomological rigidity problem for toric manifolds"
+                                                           },
+                                                           {
+                                                               "event_html":  "The 12th Korea-Japan Workshop on Algebra and Combinatorics, KAIST, Daejeon, **Korea**, Jan 23-25, 2014",
+                                                               "title_html":  "Enumeration of toric objects and wedge operation on simplicial complexes."
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2013,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "[The 5th East Asian Conference on Algebraic Topology (EACAT)](http://www.math.ac.cn/EACAT5/Home%20-%205th%20East%20Asian%20Conference%20on%20Algebraic%20Topology.htm), Chinese Academy of Sciences, Beijing, **China**, Dec 2-6, 2013",
+                                                               "title_html":  "On the cohomology of real toric manifolds"
+                                                           },
+                                                           {
+                                                               "event_html":  "[2013 Combinatorics Workshop](http://cw2013.combinatorics.kr/home), NIMS, Daejeon, **Korea**, Aug 7-9, 2013",
+                                                               "title_html":  "Introduction to the a-number of graphs and hypergraphs"
+                                                           },
+                                                           {
+                                                               "event_html":  "[The Asian Mathematical Conference (AMC) 2013](http://www.kms.or.kr/amc2013/main.html), BEXCO, Busan, **Korea**, Jun 30-Jul 4, 2013",
+                                                               "title_html":  "Wedge operations and torus symmetries"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Joint International Meeting of the AMS and the Romanian Mathematical Society](http://imar.ro/ams-ro2013/TopGeomAlgTopol.php), Univ. of Alba Iulia, Alba Iulia, **Romania**, Jun 27-30, 2013",
+                                                               "title_html":  "Wedge operations and torus symmetries"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2012,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "[Toric Topology 2012 in Osaka](http://www.sci.osaka-cu.ac.jp/~masuda/torictopology2012_osaka/torictopology2012_osaka.html), Osaka City Univ., Osaka, **Japan**, Nov 16-19, 2012",
+                                                               "title_html":  "On the toric rigidity of simple polytopes"
+                                                           },
+                                                           {
+                                                               "event_html":  "[2012 Combinatorial workshop](http://www.math.chonnam.ac.kr/swkim/cw2012/), Chonnam National Univ., Gwangju, **Korea**, Aug 9, 2012",
+                                                               "title_html":  "Polytopes and combinatorics in toric topology"
+                                                           },
+                                                           {
+                                                               "event_html":  "[2012 The KMS Spring Meeting](http://www.kms.or.kr/meetings/spring2012/home.htm), Sookmyung Women\u0027s Univ., Seoul, **Korea**, Apr 28, 2012",
+                                                               "title_html":  "Different moment-angle manifolds arising from two polytopes having the same bigraded Betti numbers"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Princeton-Rider Workshop on Homotopy Theory and Toric Spaces (sponsored by Algebraic Topology Seminar)](http://www.math.princeton.edu/~seminar/2011-12-sem/ChoiAbstract2-24-2012.html), Rider Univ., Lawrenceville, NJ, **USA**, Feb 23-25, 2012",
+                                                               "title_html":  "Toric rigidity of simple polytopes and moment-angle manifolds"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2011,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "[International Conference \\\"Toric Topology and Automorphic Functions\\\"](http://www.iam.khv.ru/ttaf-2011/the1st_announcement.htm), Pacific National Univ., Khabarovsk, **Russia**, Sep 5-10, 2011",
+                                                               "title_html":  "Classification of Bott manifolds, and cohomological rigidity problems"
+                                                           },
+                                                           {
+                                                               "event_html":  "Workshop of Department of Mathematical Sciences, KAIST, Lotte Resort, Buyeo, **Korea**, Jul 26-27, 2011",
+                                                               "title_html":  "Topology of toric manifolds"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Conference: Toric Methods in Homotopy Theory and Related Subjects](http://toricmethodsbelfast.zzl.org/), Queens Univ., Belfast, **UK**, Jul 18-20, 2011",
+                                                               "title_html":  "Invariance of Pontrjagin classes of generalized Bott manifolds"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2010,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "[The 37th Symposium of Transformation Groups](http://www.design.kyushu-u.ac.jp/~sumi/stg2010/index.html), Kyushu Univ., Kyushu, **Japan**, Nov 23-24, 2010",
+                                                               "title_html":  "Cohomological rigidity of polytopes in toric topology"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Topological methods in toric geometry, symplectic geometry and combinatorics](http://www.birs.ca/birspages.php?task=displayevent\u0026event_id=10w5026), [BIRS](http://www.birs.ca/), Banff, AB, **Canada**, Nov 7-17, 2010",
+                                                               "title_html":  "Torus actions on cohomology generalized Bott manifolds"
+                                                           },
+                                                           {
+                                                               "event_html":  "[The Homotopy Theory Symposium 2010](http://www.ns.tcu.ac.jp/Topology/2010/homotopy.11.html), Kyushu Univ., Kyushu, **Japan**, Oct 31-Nov 3, 2010",
+                                                               "title_html":  "Torus actions on cohomology Bott manifolds"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Workshop on Geometry \u0026 Topology 2010](http://homeweb1.unifr.ch/dessaia/pub/Workshop10/index.html), Univ. of Fribourg, Fribourg, **Switzerland**, Sep 16-18, 2010",
+                                                               "title_html":  "Real Bott manifolds and acyclic digraphs"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Group Actions in Topology and Analysis-4th GAF Conference](http://peano.matapp.unimib.it/gata2010/index.php), [Univ. of Milano-Bicocca](http://eng.cnu.edu.cn/), Milan, **Italy**, Sep 13-17, 2010",
+                                                               "title_html":  "Invariance of Pontrjagin classes of Bott manifolds"
+                                                           },
+                                                           {
+                                                               "event_html":  "[RIMS conference 2010 Transformation Groups and Surgery Theory](http://surgery.matrix.jp/math/rims2010/eindex.html), RIMS, Kyoto, **Japan**, Aug 30-Sep 3, 2010",
+                                                               "title_html":  "Invariance of Pontrjagin classes of Bott manifolds"
+                                                           },
+                                                           {
+                                                               "event_html":  "[The International Conference \\\"GEOMETRY, TOPOLOGY, ALGEBRA and NUMBER THEORY, APPLICATIONS\\\"](http://delone120.mi.ras.ru/), [Steklov Mathematical Institute](http://www.mi.ras.ru/index.php?l=1), Moscow, **Russia**, Aug 16-20, 2010",
+                                                               "title_html":  "Real Bott manifolds and acyclic digraphs"
+                                                           },
+                                                           {
+                                                               "event_html":  "[The 3rd Topology Workshop](http://mathsci.kaist.ac.kr/ko/schedule/cwView.php?idx=-21\u0026page=\u0026key_start=604800\u0026key_gap=-604800\u0026key_period=7776000), [KAIST](http://mathsci.kaist.ac.kr), Daejeon, **Korea**, Aug 3-4, 2010",
+                                                               "title_html":  "Real Bott manifolds and acyclic digraphs ([Poster](Conf_poster/topology_workshop_poster.pdf))"
+                                                           },
+                                                           {
+                                                               "event_html":  "[International Conference on Algebraic and Geometric topology](http://202.204.208.104/w10028/files/Conference1/index.html), [Capital Normal Univ.](http://eng.cnu.edu.cn/), Beijing, **China**, Jun 28-Jul 2, 2010",
+                                                               "title_html":  "Invariance of Pontrjagin classes of Bott manifolds"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Workshop on Toric Topology and Related Topics](http://math.fudan.edu.cn/science/Conference/workshop/index.htm), [Fudan Univ.](http://www.fudan.edu.cn/englishnew/index.html), Shanghai, **China**, May 2-5, 2010",
+                                                               "title_html":  "The classification of four-stage Bott manifolds"
+                                                           },
+                                                           {
+                                                               "event_html":  "Toric Topology 2010 in Himeji, [Egret-Himeji](http://www1.winknet.ne.jp/~egret-himeji/), Himeji, **Japan**, Apr 10-11, 2010",
+                                                               "title_html":  "Homology group of moment angle complex of certain polytopes"
+                                                           },
+                                                           {
+                                                               "event_html":  "[KAIST Toric Topology Workshop 2010](http://topology.kaist.ac.kr), [KAIST](http://mathsci.kaist.ac.kr), Daejeon, **Korea**, Feb 22-26, 2010",
+                                                               "title_html":  "Combinatorial rigidity of 3-dimensional simplicial polytopes"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2009,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "[The 3rd East Asia Conference on Algebraic Topology](http://mim.hus.edu.vn/EACAT3/), Vietnam National Univ., Hanoi, **Vietnam**, Dec. 14-18, 2009",
+                                                               "title_html":  "Classification of Q-trivial Bott manifolds"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Toric Topology Seminar in Osaka, 2009](http://math01.sci.osaka-cu.ac.jp/~choi/osaka2009/), Osaka City Univ., Osaka, **Japan**, Dec. 7-9, 2009",
+                                                               "title_html":  "Classification of Q-trivial Bott manifolds"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Bratislava Topology Symposium \\\"Group Actions and Homogeneous Spaces\\\"](http://thales.doa.fmph.uniba.sk/bts/), Comenius Univ., Bratislava, **Slovakia**, Sep. 7-11, 2009",
+                                                               "title_html":  "Real Bott manifolds and acyclic digraphs"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Transformation groups from a new viewpoint](http://www.center.wakayama-u.ac.jp/~kawa/math/suuriken2009/program-e.html), RIMS, Kyoto, **Japan**, Aug. 17-20, 2009",
+                                                               "title_html":  "The number of small covers over cubes"
+                                                           },
+                                                           {
+                                                               "event_html":  "[The Korean Mathematical Society 09 Spring Symposium](http://www.kms.or.kr/eng/), Ajou Univ., Suwon, **Korea**, 25. Apr, 2009",
+                                                               "title_html":  "Tor-algebra and Cohomological Rigidity of Simple Polytopes with Few Facets"
+                                                           },
+                                                           {
+                                                               "event_html":  "Korea-Japan Workshop on Algebra and Combinatorics, Pusan National Univ., Pusan, **Korea**, Feb. 9-10, 2009",
+                                                               "title_html":  "Tor-algebra and Cohomological rigidity of simple polytopes with few facets"
+                                                           },
+                                                           {
+                                                               "event_html":  "2009 ASARC Workshop at Daecheon, Daecheon, **Korea**, Jan. 29-31, 2009",
+                                                               "title_html":  "On the topological classification of toric manifolds"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2008,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "The 2nd East Asia Conference on Algebraic Topology, National Univ. of Singapore, Singapore, **Singapore**, Dec. 15-19, 2008",
+                                                               "title_html":  "Properties of Bott towers in Toric Topology"
+                                                           },
+                                                           {
+                                                               "event_html":  "The 28th PNU-POSTECH Algebraic Combinatorics Seminar, Pusan National Univ., Pusan, **Korea**, 15th Nov 2008",
+                                                               "title_html":  "Combinatorics on bigraded Betti numbers of simple polytopes"
+                                                           },
+                                                           {
+                                                               "event_html":  "[2008 Global KMS International Conference](http://www.kms.or.kr/gkms2008), Jeju Internationl Convention Center, Jeju, **Korea**, 23th-25th Oct 2008",
+                                                               "title_html":  "Toric cohomological rigidity of simple polytopes ([Presentation](presentations/2008KMS_fall.pdf))"
+                                                           },
+                                                           {
+                                                               "event_html":  "[2008 ASARC-Conference on transformation group theory](http://topology.kaist.ac.kr/asarc2008), KAIST, Daejon, **Korea**, 29th Aug 2008",
+                                                               "title_html":  "Properties of Bott tower ([Presentation](presentations/2008ASARC.pdf))"
+                                                           },
+                                                           {
+                                                               "event_html":  "[2008 Workshop on Combinatorics](http://matrix.skku.ac.kr/conference/2008Combnatorics.htm), Sungkyunkwan Univ., Suwon, **Korea**, 7th-8th Aug 2008",
+                                                               "title_html":  "Cohomological Rigidity of simple polytopes ([Presentation](presentations/2008combinatorics_workshop.pdf))"
+                                                           },
+                                                           {
+                                                               "event_html":  "[New Horizons in Toric Topology](http://www.mims.manchester.ac.uk/events/workshops/NHTT08/index.php), Univ. of Manchester, Manchester, **UK**, 7th-11th Jul 2008",
+                                                               "title_html":  "The number of small covers over cubes ([Poster](Poster-smallcover.pdf)); Toric cohomological rigidity of simple polytopes ([Poster](Poster-rigidity.pdf))"
+                                                           },
+                                                           {
+                                                               "event_html":  "[The Korean Mathematical Society 08 Spring Symposium](http://kms.or.kr/home/kor/symposium/abstract/abstract_list.asp?globalmenu=2\u0026localmenu=7), Keimyoung Univ., Daegu, **Korea**, 26. Apr, 2008",
+                                                               "title_html":  "The number of small covers over cubes ([Presentation](Conference_counting.pdf))"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2007,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "[Osaka City Univ. Summer School on symplectic Geometry and toric topology](http://www.ms.u-tokyo.ac.jp/~takahiko/summer_school07/summer_school.html), Osaka City Univ., Osaka, **Japan**, 17th-27th. Jul, 2007",
+                                                               "title_html":  "The cohomology ring and Bott tower structure"
+                                                           }
+                                                       ]
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Colloquium and Seminar",
+                         "years":  [
+                                       {
+                                           "year":  2026,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "Invited talk, Fudan Univ., Shanghai, **China**, Apr 16, 2026",
+                                                               "title_html":  "Toric manifolds and PL spheres"
+                                                           },
+                                                           {
+                                                               "event_html":  "Colloquium, Chonnam National Univ., Gwangju, **Korea**, Mar 26, 2026",
+                                                               "title_html":  "Toric varieites and simplicial complexes"
+                                                           },
+                                                           {
+                                                               "event_html":  "Invited talk, POSTECH, Pohang, **Korea**, Feb 4, 2026",
+                                                               "title_html":  "Mathematical approaches to nondestructive inspection"
+                                                           },
+                                                           {
+                                                               "event_html":  "ALGO Lunch Seminar, Université libre de Bruxelles (ULB), Brussels, **Belgium**, Jan 7, 2026",
+                                                               "title_html":  "A decomposition of graph a-numbers"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2025,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "Invited talk, GIST, Gwangju, **Korea**, Aug 29, 2025",
+                                                               "title_html":  "What shapes can support a toric fan?"
+                                                           },
+                                                           {
+                                                               "event_html":  "Colloquium, Gongju Univ., Gongju, **Korea**, Apr 30, 2025",
+                                                               "title_html":  "분류로의 여행 : 위상수학"
+                                                           },
+                                                           {
+                                                               "event_html":  "Seminar talk, KICT, Ilsan, **Korea**, Apr 16, 2025",
+                                                               "title_html":  "Industrial math in civil engineering"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2024,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "Seminar talk at BIMSA, Online, Beijing Institute of Mathematical Sciences and Applications (BIMSA), Beijing, **China**, Jun 6, 2024",
+                                                               "title_html":  "Maximal Buchstaber Number and Toric Wedge Induction"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2023,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "Colloquium, NIMS, Suwon, **Korea**, Jan 19, 2023",
+                                                               "title_html":  "GPU-friendly enumeration for mathematical algorithms on simplicial complexes"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2022,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "전력연구원 특강, KEPCO KEPRI, Daejeon, **Korea**, Jul 28, 2022",
+                                                               "title_html":  "Industrial math in Civil Engineering"
+                                                           },
+                                                           {
+                                                               "event_html":  "연구교류세미나 at NIMS, NIMS, Suwon, **Korea**, Feb 7, 2022",
+                                                               "title_html":  "토목 분야에서의 산업수학"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2021,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "Colloquium, Ulsan Univ., Ulsan, **Korea**, Nov 11, 2021",
+                                                               "title_html":  "위상적데이터분석(TDA)의 산업수학에서의 활용"
+                                                           },
+                                                           {
+                                                               "event_html":  "[International polyhedral product seminar](https://www.math.princeton.edu/events/classification-real-toric-manifolds-2021-10-21t143000), Online, Princeton Univ., **USA**, Oct 21, 2021",
+                                                               "title_html":  "On the classification of real toric manifolds"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2018,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "Invited talk, IBS-CGP, Pohang, **Korea**, Aug 30, 2018",
+                                                               "title_html":  "On the topology of real toric manifolds"
+                                                           },
+                                                           {
+                                                               "event_html":  "Invited talk, Ryukyu Univ., Nakagami-gun, Okinawa, **Japan**, Jul 30, 2018",
+                                                               "title_html":  "topology of real toric spaces"
+                                                           },
+                                                           {
+                                                               "event_html":  "Special Lectures at Sungkyunkwan Univ., Sungkyunkwan Univ., Suwon, **Korea**, Apr 13, 2018",
+                                                               "title_html":  "Topology of real toric varieties"
+                                                           },
+                                                           {
+                                                               "event_html":  "Colloquium, Ajou Univ., Suwon, **Korea**, Apr 13, 2018",
+                                                               "title_html":  "The cohomology rings of real toric spaces"
+                                                           },
+                                                           {
+                                                               "event_html":  "Invited talk at Osaka City Univ., Osaka City Univ., Osaka, **Japan**, Feb 26, 2018",
+                                                               "title_html":  "Cohomology of real toric spaces"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2017,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "[Algebraic Topology Seminar](https://www.math.princeton.edu/events/multiplicative-structure-cohomology-real-toric-spaces-2017-11-30t200011), Princeton Univ., Princeton, NJ, **USA**, Nov 30, 2017",
+                                                               "title_html":  "Multiplicative structure of the cohomology of real toric spaces"
+                                                           },
+                                                           {
+                                                               "event_html":  "Invited talk, Western Univ., London, ON, **Canada**, Nov 22, 2017",
+                                                               "title_html":  "Introduction to real toric spaces"
+                                                           },
+                                                           {
+                                                               "event_html":  "Colloquium talk, The Univ. of Texas Rio Grande Valley, Edinburg, Texas, **USA**, Apr 27, 2017",
+                                                               "title_html":  "Topology and combinatorics of real toric manifolds"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2016,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "Invited seminar, Osaka City Univ., Osaka, **Japan**, Jul 27, 2016",
+                                                               "title_html":  "Geometric representation of Weyl groups on the corresponding real toric manifolds"
+                                                           },
+                                                           {
+                                                               "event_html":  "Colloquium, KAIST, Daejeon, **Korea**, Mar 10, 2016",
+                                                               "title_html":  "Topology of real toric spaces"
+                                                           },
+                                                           {
+                                                               "event_html":  "Invited series seminar, Fudan Univ., Shanghai, **China**, Jan 6-7, 2016",
+                                                               "title_html":  "Topology and Combinatorics of real toric spaces"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2015,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "Invited series seminar, KAIST, Daejeon, **Korea**, Oct 7, 14, 21, 2015",
+                                                               "title_html":  "Topology and Combinatorics of real toric spaces"
+                                                           },
+                                                           {
+                                                               "event_html":  "Topology Seminar, Univ. of Southampton, Southampton, **UK**, Feb 2, 2015",
+                                                               "title_html":  "The cohomology and their torsion of real toric manifolds"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2014,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "Colloquium, Sogang Univ., Suwon, **Korea**, Sep 11, 2014",
+                                                               "title_html":  "Classification of toric varieties"
+                                                           },
+                                                           {
+                                                               "event_html":  "Invited Seminar, NIMS, Daejeon, **Korea**, Jun 3, 2014",
+                                                               "title_html":  "Topology of small covers"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2013,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "[KAIST Discrete Math Seminar](http://mathsci.kaist.ac.kr/~sangil/seminar/), KAIST, Daejeon, **Korea**, Nov 18, 2013",
+                                                               "title_html":  "The rational Betti number of small covers and its combinatorics"
+                                                           },
+                                                           {
+                                                               "event_html":  "[International Open Chinese-Russian conference \\\"Torus Actions: Topology, Geometry and Number Theory\\\"](http://www.iam.khv.ru/ta-2013/), Pacific National Univ., Khabarovsk, **Russia**, Sep 2-7, 2013",
+                                                               "title_html":  "Classification of torus manifolds and wedge operations"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Algebraic Combinatorics Seminar](http://newton.kias.re.kr/~kimjs/seminar.html), KIAS, Seoul, **Korea**, Aug 26, 2013",
+                                                               "title_html":  "The number of real toric varieties"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Algebraic Topology Seminar](http://www.math.princeton.edu/events/seminars/algebraic-topology-seminar), Princeton Univ., Princeton, NJ, **USA**, Feb 21, 2013",
+                                                               "title_html":  "Wedge operations and torus symmetries"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Univ. of Minnesota Combinatorics Seminar](http://www.math.umn.edu/~jblewis/seminar_fall12.html), Univ. of Minnesota, Minneapolis, Minnesota, **USA**, Feb 15, 2013",
+                                                               "title_html":  "A new graph invariant arises in toric topology: rational Betti numbers of real toric varieties arising from graphs"
+                                                           },
+                                                           {
+                                                               "event_html":  "Invited Seminar, Osaka City Univ., Osaka, **Japan**, Jan 23, 2013",
+                                                               "title_html":  "Wedge operation and symmetry of manifolds"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2012,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "[Algebraic topology seminar at Princeton Univ.](http://www.math.princeton.edu/~seminar/2011-12-sem/ChoiAbstract2-16-2012.html), Princeton Univ., Princeton, NJ, **USA**, Feb 16, 2012",
+                                                               "title_html":  "Cohomological rigidity problems in Toric topology"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2011,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "건국-아주-인하 수학과 연합세미나, Inha Univ., Incheon, **Korea**, Dec 9, 2011",
+                                                               "title_html":  "Classification problems in toric topology"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Invited Seminar: Program of Low dimensional topology seminar](http://www.mpim-bonn.mpg.de/node/3499), Max Planck Institute for Mathematics, Bonn, **Germany**, Jul 11, 2011",
+                                                               "title_html":  "Topological Classification of Bott manifolds"
+                                                           },
+                                                           {
+                                                               "event_html":  "Colloquium, Ajou Univ., Suwon, **Korea**, Jun 10, 2011",
+                                                               "title_html":  "Introduction to toric topology and cohomological rigidity problems"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Invited Seminar, Topology regular seminar](http://seminar.math.snu.ac.kr/addform2.php?uid=4355), Seoul National Univ., Seoul, **Korea**, May 17, 2011",
+                                                               "title_html":  "Classification of Bott manifolds"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2010,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "Invited Seminar, Ajou Univ., Suwon, **Korea**, Dec 10, 2010",
+                                                               "title_html":  "Topology of torus manifolds"
+                                                           },
+                                                           {
+                                                               "event_html":  "Colloquium, Osaka City Univ., Osaka, **Japan**, Nov 17, 2010",
+                                                               "title_html":  "Toric topology and polytope theory"
+                                                           },
+                                                           {
+                                                               "event_html":  "Invited Seminar, Okayama Univ., Okayama, **Japan**, Apr 13, 2010",
+                                                               "title_html":  "Cohomological rigidity problem and Q-trivial Bott manifold"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Ikuta Seminar on Toric Topology](http://www.math.meiji.ac.jp/~takahiko/workshop/Ikuta-seminar09/index.html), Meiji Univ., Tokyo, **Japan**, Mar 6-7, 2010",
+                                                               "title_html":  "Invariant of real Bott manifolds"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2009,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "KAIST combinatorics Seminar, KAIST, Daejon, **Korea**, Feb. 4-5, 2009",
+                                                               "title_html":  "Cohomological rigidity of simple polytopes with few facets"
+                                                           }
+                                                       ]
+                                       }
+                                   ]
+                     },
+                     {
+                         "title":  "Public Lectures and Special Lectures",
+                         "years":  [
+                                       {
+                                           "year":  2026,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "대한수학회 2026 Young Mathematician Camp, Yonsei Univ., Incheon, **Korea**, Jan 26-29, 2026",
+                                                               "title_html":  "다양체와 다면체의 만남"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2025,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "2025 불어권협력센터 릴레이세미나, Ajou Univ., Suwon, **Korea**, Dec 11, 2025",
+                                                               "title_html":  "페르마에서 푸앵카레까지 난제의 역사"
+                                                           },
+                                                           {
+                                                               "event_html":  "Special Lecture, Jeonju Univ., Jeonju, **Korea**, Nov 11, 2025",
+                                                               "title_html":  "수학자가 보는 AI"
+                                                           },
+                                                           {
+                                                               "event_html":  "[Topology \u0026 Data: AJOU Graduate Summer School #tda](https://sites.google.com/ajou.ac.kr/ajou-graduate-summerschool-tda/home?authuser=0), Ajou Univ., Suwon, **Korea**, Jul 14-16, 2025",
+                                                               "title_html":  "TDA : topological data analysis"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2024,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "Special Lecture, Gacheon Univ., Seongnam, **Korea**, May 28, 2024",
+                                                               "title_html":  "미래사회의 변화와 신기술의 이해"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2023,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "Special Lecture, Ajou Univ., Suwon, **Korea**, Aug 2, 2023",
+                                                               "title_html":  "교사를 위한 수학과 대중문화"
+                                                           },
+                                                           {
+                                                               "event_html":  "과학영재교육원 특강, Yonsei Univ., Seoul, **Korea**, Jul 25, 2023",
+                                                               "title_html":  "수학 문제 도전의 즐거움"
+                                                           },
+                                                           {
+                                                               "event_html":  "Special Lecture, 국립중앙과학관, Daejeon, **Korea**, Jul 22, 2023",
+                                                               "title_html":  "위상수학, 넌 누구니?"
+                                                           },
+                                                           {
+                                                               "event_html":  "과학영재교육원 특강, Ajou Univ., Suwon, **Korea**, Mar 17, 2023",
+                                                               "title_html":  "수학자 관점으로 읽기"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2014,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "Brown Bag Lectures at Ajou Univ., Ajou Univ., Suwon, **Korea**, Sep 16, 2014",
+                                                               "title_html":  ""
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "year":  2012,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "조선대학교 수학교육과 특강, Chosun Univ., Gwangju, **Korea**, Jun 21, 2012",
+                                                               "title_html":  "Catalan numbers and associahedra"
+                                                           }
+                                                       ]
+                                       }
+                                   ]
+                     }
+                 ]
+}

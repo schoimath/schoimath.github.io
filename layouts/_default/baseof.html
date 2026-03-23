@@ -83,15 +83,30 @@
 
         const categoryView = talksViews.querySelector('[data-talks-view="category"]');
         const yearView = talksViews.querySelector('[data-talks-view="year"]');
+        const countryView = talksViews.querySelector('[data-talks-view="country"]');
         const talkItems = Array.from(categoryView.querySelectorAll('.talk-item'));
-        if (!categoryView || !yearView || !talkItems.length) return;
+        if (!categoryView || !yearView || !countryView || !talkItems.length) return;
 
         const groupedByYear = new Map();
+        const groupedByCountry = new Map();
         talkItems.forEach((item) => {
           const year = item.dataset.talkYear;
+          const country = item.querySelector('.talk-item-event strong')?.textContent?.trim() || 'Other';
+
           if (!groupedByYear.has(year)) groupedByYear.set(year, []);
           groupedByYear.get(year).push({
             category: item.dataset.talkCategory,
+            year,
+            country,
+            eventHtml: item.querySelector('.talk-item-event')?.innerHTML || '',
+            titleHtml: item.querySelector('.talk-item-title')?.innerHTML || ''
+          });
+
+          if (!groupedByCountry.has(country)) groupedByCountry.set(country, []);
+          groupedByCountry.get(country).push({
+            category: item.dataset.talkCategory,
+            year,
+            country,
             eventHtml: item.querySelector('.talk-item-event')?.innerHTML || '',
             titleHtml: item.querySelector('.talk-item-title')?.innerHTML || ''
           });
@@ -136,10 +151,56 @@
             yearView.appendChild(section);
           });
 
+        Array.from(groupedByCountry.keys())
+          .sort((a, b) => a.localeCompare(b))
+          .forEach((country) => {
+            const section = document.createElement('section');
+            section.className = 'talks-section';
+
+            const heading = document.createElement('h3');
+            heading.textContent = country;
+            section.appendChild(heading);
+
+            const list = document.createElement('ul');
+            groupedByCountry.get(country)
+              .sort((a, b) => Number(b.year) - Number(a.year))
+              .forEach((entry) => {
+                const item = document.createElement('li');
+                item.className = 'talk-item';
+
+                const event = document.createElement('div');
+                event.className = 'talk-item-event';
+                event.innerHTML = entry.eventHtml;
+                item.appendChild(event);
+
+                if (entry.titleHtml) {
+                  const title = document.createElement('div');
+                  title.className = 'talk-item-title';
+                  title.innerHTML = entry.titleHtml;
+                  item.appendChild(title);
+                }
+
+                const metaYear = document.createElement('div');
+                metaYear.className = 'talk-item-category';
+                metaYear.textContent = String(entry.year);
+                item.appendChild(metaYear);
+
+                const category = document.createElement('div');
+                category.className = 'talk-item-category';
+                category.textContent = entry.category;
+                item.appendChild(category);
+
+                list.appendChild(item);
+              });
+
+            section.appendChild(list);
+            countryView.appendChild(section);
+          });
+
         const setView = (view) => {
-          const showCategory = view === 'category';
-          categoryView.hidden = !showCategory;
-          yearView.hidden = showCategory;
+          categoryView.hidden = view !== 'category';
+          yearView.hidden = view !== 'year';
+          countryView.hidden = view !== 'country';
 
           buttons.forEach((button) => {
             const active = button.dataset.view === view;
@@ -148,7 +209,11 @@
           });
 
           if (typeof window.buildPageToc === 'function') {
-            window.buildPageToc(showCategory ? categoryView : yearView);
+            const activeView =
+              view === 'year' ? yearView :
+              view === 'country' ? countryView :
+              categoryView;
+            window.buildPageToc(activeView);
           }
         };
 
