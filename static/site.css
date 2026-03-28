@@ -19,6 +19,13 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+@media (min-width: 961px) {
+  body {
+    overflow-y: scroll;
+  }
 }
 
 body {
