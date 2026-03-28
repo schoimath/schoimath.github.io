@@ -272,3 +272,21 @@ terms:
       - name: "Math Lab I"
         code: "MATH104"
         note: "MAPLE program training course"
+
+mooc_section_title: "MOOC"
+mooc_terms:
+  - term: "2026 Spring"
+    courses:
+      - name: "문학과 수학"
+        english: "Mathematics in Literature"
+        link: "https://www.kmooc.kr/view/course/detail/19269"
+  - term: "2025 Fall"
+    courses:
+      - name: "문학과 수학"
+        english: "Mathematics in Literature"
+        link: "https://www.kmooc.kr/view/course/detail/17309"
+  - term: "2025 Summer"
+    courses:
+      - name: "문학과 수학"
+        english: "Mathematics in Literature"
+        link: "https://www.kmooc.kr/view/course/detail/16598"

@@ -12,3 +12,20 @@
   {{ end }}
 </ul>
 {{ end }}
+
+{{ with .mooc_terms }}
+<h3>{{ $.mooc_section_title }}</h3>
+{{ range . }}
+<h4>{{ .term }}</h4>
+<ul>
+  {{ range .courses }}
+  <li>
+    {{ with .link }}<a href="{{ . }}">{{ end }}{{ .name }}{{ with .link }}</a>{{ end }}
+    {{ with .english }} ({{ . }}){{ end }}
+    {{ with .code }} ({{ . }}){{ end }}
+    {{ with .note }} - {{ . }}{{ end }}
+  </li>
+  {{ end }}
+</ul>
+{{ end }}
+{{ end }}

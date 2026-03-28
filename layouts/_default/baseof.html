@@ -79,6 +79,7 @@
       (function () {
         const talksViews = document.querySelector('[data-talks-views]');
         const buttons = Array.from(document.querySelectorAll('[data-talks-view-button]'));
+        const photoToggle = document.querySelector('[data-talks-photo-toggle]');
         if (!talksViews || !buttons.length) return;
 
         const categoryView = talksViews.querySelector('[data-talks-view="category"]');
@@ -87,29 +88,152 @@
         const talkItems = Array.from(categoryView.querySelectorAll('.talk-item'));
         if (!categoryView || !yearView || !countryView || !talkItems.length) return;
 
+        let photosEnabled = true;
+
+        const parsePhotos = (item) => {
+          const raw = item.dataset.talkPhotos || '';
+          return raw ? raw.split('||').filter(Boolean) : [];
+        };
+
+        const buildPhotoUrl = (talkId, photo) => {
+          if (!photo) return '';
+          if (photo.startsWith('/') || photo.startsWith('http://') || photo.startsWith('https://')) return photo;
+          return `/talks/images/${talkId}/${photo}`;
+        };
+
+        const closeInlineViewer = (item) => {
+          const viewer = item.querySelector('.talk-photo-viewer');
+          if (!viewer) return;
+          viewer.remove();
+          const activeThumb = item.querySelector('.talk-photo-thumb.is-active');
+          if (activeThumb) activeThumb.classList.remove('is-active');
+        };
+
+        const openInlineViewer = (item, src) => {
+          if (!src) return;
+          const current = item.querySelector('.talk-photo-thumb.is-active');
+          if (current && current.dataset.fullSrc === src) {
+            closeInlineViewer(item);
+            return;
+          }
+
+          if (current) current.classList.remove('is-active');
+          const next = Array.from(item.querySelectorAll('.talk-photo-thumb'))
+            .find((thumb) => thumb.dataset.fullSrc === src);
+          if (next) next.classList.add('is-active');
+
+          const existing = item.querySelector('.talk-photo-viewer');
+          if (existing) existing.remove();
+
+          const viewer = document.createElement('div');
+          viewer.className = 'talk-photo-viewer';
+
+          const image = document.createElement('img');
+          image.src = src;
+          image.alt = 'Talk photo enlarged';
+          image.loading = 'lazy';
+          viewer.appendChild(image);
+
+          item.appendChild(viewer);
+        };
+
+        const renderPhotosForItem = (item, entry) => {
+          const existing = item.querySelector('.talk-item-photos');
+          if (existing) existing.remove();
+          closeInlineViewer(item);
+          if (!photosEnabled || !entry.talkId || !entry.photos.length) return;
+
+          const strip = document.createElement('div');
+          strip.className = 'talk-item-photos';
+
+          entry.photos.slice(0, 4).forEach((photo) => {
+            const src = buildPhotoUrl(entry.talkId, photo);
+            if (!src) return;
+
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'talk-photo-thumb';
+            button.dataset.fullSrc = src;
+            button.style.width = '112px';
+            button.style.height = '84px';
+            button.style.overflow = 'hidden';
+            button.style.padding = '0';
+            button.style.display = 'inline-block';
+
+            const image = document.createElement('img');
+            image.src = src;
+            image.alt = `Talk photo`;
+            image.loading = 'lazy';
+            image.style.width = '100%';
+            image.style.height = '100%';
+            image.style.objectFit = 'cover';
+            image.style.display = 'block';
+
+            button.appendChild(image);
+            strip.appendChild(button);
+          });
+
+          if (strip.childElementCount) item.appendChild(strip);
+        };
+
+        const makeEntryFromItem = (item) => ({
+          category: item.dataset.talkCategory,
+          year: item.dataset.talkYear,
+          country: item.querySelector('.talk-item-event strong')?.textContent?.trim() || 'Other',
+          eventHtml: item.querySelector('.talk-item-event')?.innerHTML || '',
+          titleHtml: item.querySelector('.talk-item-title')?.innerHTML || '',
+          talkId: item.dataset.talkId || '',
+          photos: parsePhotos(item)
+        });
+
+        const buildTalkItem = (entry, includeYear) => {
+          const item = document.createElement('li');
+          item.className = 'talk-item';
+          item.dataset.talkCategory = entry.category || '';
+          item.dataset.talkYear = entry.year || '';
+          if (entry.talkId) item.dataset.talkId = entry.talkId;
+          if (entry.photos && entry.photos.length) item.dataset.talkPhotos = entry.photos.join('||');
+
+          const event = document.createElement('div');
+          event.className = 'talk-item-event';
+          event.innerHTML = entry.eventHtml;
+          item.appendChild(event);
+
+          if (entry.titleHtml) {
+            const title = document.createElement('div');
+            title.className = 'talk-item-title';
+            title.innerHTML = entry.titleHtml;
+            item.appendChild(title);
+          }
+
+          if (includeYear) {
+            const yearTag = document.createElement('div');
+            yearTag.className = 'talk-item-category';
+            yearTag.textContent = String(entry.year);
+            item.appendChild(yearTag);
+          }
+
+          const category = document.createElement('div');
+          category.className = 'talk-item-category';
+          category.textContent = entry.category;
+          item.appendChild(category);
+
+          renderPhotosForItem(item, entry);
+          return item;
+        };
+
         const groupedByYear = new Map();
         const groupedByCountry = new Map();
         talkItems.forEach((item) => {
-          const year = item.dataset.talkYear;
-          const country = item.querySelector('.talk-item-event strong')?.textContent?.trim() || 'Other';
+          const entry = makeEntryFromItem(item);
+          const year = entry.year;
+          const country = entry.country;
 
           if (!groupedByYear.has(year)) groupedByYear.set(year, []);
-          groupedByYear.get(year).push({
-            category: item.dataset.talkCategory,
-            year,
-            country,
-            eventHtml: item.querySelector('.talk-item-event')?.innerHTML || '',
-            titleHtml: item.querySelector('.talk-item-title')?.innerHTML || ''
-          });
+          groupedByYear.get(year).push(entry);
 
           if (!groupedByCountry.has(country)) groupedByCountry.set(country, []);
-          groupedByCountry.get(country).push({
-            category: item.dataset.talkCategory,
-            year,
-            country,
-            eventHtml: item.querySelector('.talk-item-event')?.innerHTML || '',
-            titleHtml: item.querySelector('.talk-item-title')?.innerHTML || ''
-          });
+          groupedByCountry.get(country).push(entry);
         });
 
         Array.from(groupedByYear.keys())
@@ -124,27 +248,7 @@
 
             const list = document.createElement('ul');
             groupedByYear.get(year).forEach((entry) => {
-              const item = document.createElement('li');
-              item.className = 'talk-item';
-
-              const event = document.createElement('div');
-              event.className = 'talk-item-event';
-              event.innerHTML = entry.eventHtml;
-              item.appendChild(event);
-
-              if (entry.titleHtml) {
-                const title = document.createElement('div');
-                title.className = 'talk-item-title';
-                title.innerHTML = entry.titleHtml;
-                item.appendChild(title);
-              }
-
-              const category = document.createElement('div');
-              category.className = 'talk-item-category';
-              category.textContent = entry.category;
-              item.appendChild(category);
-
-              list.appendChild(item);
+              list.appendChild(buildTalkItem(entry, false));
             });
 
             section.appendChild(list);
@@ -165,37 +269,17 @@
             groupedByCountry.get(country)
               .sort((a, b) => Number(b.year) - Number(a.year))
               .forEach((entry) => {
-                const item = document.createElement('li');
-                item.className = 'talk-item';
-
-                const event = document.createElement('div');
-                event.className = 'talk-item-event';
-                event.innerHTML = entry.eventHtml;
-                item.appendChild(event);
-
-                if (entry.titleHtml) {
-                  const title = document.createElement('div');
-                  title.className = 'talk-item-title';
-                  title.innerHTML = entry.titleHtml;
-                  item.appendChild(title);
-                }
-
-                const metaYear = document.createElement('div');
-                metaYear.className = 'talk-item-category';
-                metaYear.textContent = String(entry.year);
-                item.appendChild(metaYear);
-
-                const category = document.createElement('div');
-                category.className = 'talk-item-category';
-                category.textContent = entry.category;
-                item.appendChild(category);
-
-                list.appendChild(item);
+                list.appendChild(buildTalkItem(entry, true));
               });
 
             section.appendChild(list);
             countryView.appendChild(section);
           });
+
+        const syncPhotosInContainer = (container) => {
+          const items = Array.from(container.querySelectorAll('.talk-item'));
+          items.forEach((item) => renderPhotosForItem(item, makeEntryFromItem(item)));
+        };
 
         const setView = (view) => {
           categoryView.hidden = view !== 'category';
@@ -221,6 +305,34 @@
           button.addEventListener('click', () => setView(button.dataset.view));
         });
 
+        if (photoToggle) {
+          photoToggle.classList.add('is-active');
+          photoToggle.setAttribute('aria-pressed', 'true');
+          photoToggle.textContent = 'Hide Photos';
+          photoToggle.addEventListener('click', () => {
+            photosEnabled = !photosEnabled;
+            photoToggle.classList.toggle('is-active', photosEnabled);
+            photoToggle.setAttribute('aria-pressed', photosEnabled ? 'true' : 'false');
+            photoToggle.textContent = photosEnabled ? 'Hide Photos' : 'Show Photos';
+
+            syncPhotosInContainer(categoryView);
+            syncPhotosInContainer(yearView);
+            syncPhotosInContainer(countryView);
+            setView(categoryView.hidden ? (yearView.hidden ? 'country' : 'year') : 'category');
+          });
+        }
+
+        talksViews.addEventListener('click', (event) => {
+          const trigger = event.target.closest('.talk-photo-thumb');
+          if (!trigger) return;
+          const item = trigger.closest('.talk-item');
+          if (!item) return;
+          openInlineViewer(item, trigger.dataset.fullSrc);
+        });
+
+        syncPhotosInContainer(categoryView);
+        syncPhotosInContainer(yearView);
+        syncPhotosInContainer(countryView);
         setView('category');
       })();
 

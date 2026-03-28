@@ -379,6 +379,22 @@ a {
   box-shadow: 0 4px 12px rgba(17, 32, 51, 0.08);
 }
 
+.talks-photo-toggle {
+  border: 1px solid var(--line);
+  background: var(--surface-strong);
+  color: var(--muted);
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.talks-photo-toggle.is-active {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 4px 12px rgba(17, 32, 51, 0.08);
+}
+
 .talk-item {
   margin-bottom: 0.55rem;
 }
@@ -402,6 +418,51 @@ a {
   background: var(--surface-strong);
   color: var(--muted);
   font-size: 0.82rem;
+}
+
+.talk-item-photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.55rem;
+}
+
+.talk-photo-thumb {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0;
+  background: var(--surface);
+  cursor: pointer;
+  overflow: hidden;
+  width: 112px;
+  height: 84px;
+}
+
+.talk-photo-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.talk-photo-thumb.is-active {
+  border-color: #9db8ca;
+  box-shadow: 0 0 0 2px rgba(22, 93, 134, 0.16);
+}
+
+.talk-photo-viewer {
+  margin-top: 0.55rem;
+  max-width: min(100%, 760px);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.talk-photo-viewer img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .legacy-content img {

@@ -12,7 +12,11 @@
                                                            },
                                                            {
                                                                "event_html":  "[Glances@Manifolds-2025](https://glancesmanifolds25.im.uj.edu.pl/), Jagiellonian Univ., Krakow, **Poland**, Sep 1-5, 2025",
-                                                               "title_html":  "Classification of toric manifolds with Pic 4"
+                                                               "title_html":  "Classification of toric manifolds with Pic 4",
+                                                               "id":  "glances-manifolds-2025",
+                                                               "photos":  [
+                                                                              "photo-1.jpg"
+                                                                          ]
                                                            },
                                                            {
                                                                "event_html":  "[2025 Summer Workshop on Low-dimensional Topology and Related Topics](https://sites.google.com/view/2025-summer-topology-workshop), Kangwon National Univ., Chuncheon, **Korea**, Aug 11-13, 2025",
@@ -355,7 +359,7 @@
                                                            },
                                                            {
                                                                "event_html":  "[The 3rd Topology Workshop](http://mathsci.kaist.ac.kr/ko/schedule/cwView.php?idx=-21\u0026page=\u0026key_start=604800\u0026key_gap=-604800\u0026key_period=7776000), [KAIST](http://mathsci.kaist.ac.kr), Daejeon, **Korea**, Aug 3-4, 2010",
-                                                               "title_html":  "Real Bott manifolds and acyclic digraphs ([Poster](Conf_poster/topology_workshop_poster.pdf))"
+                                                               "title_html":  "Real Bott manifolds and acyclic digraphs"
                                                            },
                                                            {
                                                                "event_html":  "[International Conference on Algebraic and Geometric topology](http://202.204.208.104/w10028/files/Conference1/index.html), [Capital Normal Univ.](http://eng.cnu.edu.cn/), Beijing, **China**, Jun 28-Jul 2, 2010",
@@ -421,23 +425,27 @@
                                                            },
                                                            {
                                                                "event_html":  "[2008 Global KMS International Conference](http://www.kms.or.kr/gkms2008), Jeju Internationl Convention Center, Jeju, **Korea**, 23th-25th Oct 2008",
-                                                               "title_html":  "Toric cohomological rigidity of simple polytopes ([Presentation](presentations/2008KMS_fall.pdf))"
+                                                               "title_html":  "Toric cohomological rigidity of simple polytopes"
                                                            },
                                                            {
                                                                "event_html":  "[2008 ASARC-Conference on transformation group theory](http://topology.kaist.ac.kr/asarc2008), KAIST, Daejon, **Korea**, 29th Aug 2008",
-                                                               "title_html":  "Properties of Bott tower ([Presentation](presentations/2008ASARC.pdf))"
+                                                               "title_html":  "Properties of Bott tower"
                                                            },
                                                            {
                                                                "event_html":  "[2008 Workshop on Combinatorics](http://matrix.skku.ac.kr/conference/2008Combnatorics.htm), Sungkyunkwan Univ., Suwon, **Korea**, 7th-8th Aug 2008",
-                                                               "title_html":  "Cohomological Rigidity of simple polytopes ([Presentation](presentations/2008combinatorics_workshop.pdf))"
+                                                               "title_html":  "Cohomological Rigidity of simple polytopes"
                                                            },
                                                            {
                                                                "event_html":  "[New Horizons in Toric Topology](http://www.mims.manchester.ac.uk/events/workshops/NHTT08/index.php), Univ. of Manchester, Manchester, **UK**, 7th-11th Jul 2008",
-                                                               "title_html":  "The number of small covers over cubes ([Poster](Poster-smallcover.pdf)); Toric cohomological rigidity of simple polytopes ([Poster](Poster-rigidity.pdf))"
+                                                               "title_html":  "The number of small covers over cubes; Toric cohomological rigidity of simple polytopes",
+                                                               "id":  "new-horizons-toric-topology-2008",
+                                                               "photos":  [
+                                                                              "poster.png"
+                                                                          ]
                                                            },
                                                            {
                                                                "event_html":  "[The Korean Mathematical Society 08 Spring Symposium](http://kms.or.kr/home/kor/symposium/abstract/abstract_list.asp?globalmenu=2\u0026localmenu=7), Keimyoung Univ., Daegu, **Korea**, 26. Apr, 2008",
-                                                               "title_html":  "The number of small covers over cubes ([Presentation](Conference_counting.pdf))"
+                                                               "title_html":  "The number of small covers over cubes"
                                                            }
                                                        ]
                                        },
@@ -462,17 +470,26 @@
                                                                "event_html":  "Invited talk, Fudan Univ., Shanghai, **China**, Apr 16, 2026",
                                                                "title_html":  "Toric manifolds and PL spheres"
                                                            },
-                                                           {
-                                                               "event_html":  "Colloquium, Chonnam National Univ., Gwangju, **Korea**, Mar 26, 2026",
-                                                               "title_html":  "Toric varieites and simplicial complexes"
-                                                           },
+                                                            {
+                                                                "event_html":  "Colloquium, Chonnam National Univ., Gwangju, **Korea**, Mar 26, 2026",
+                                                                "title_html":  "Toric varieites and simplicial complexes",
+                                                                "id":  "chonnam-colloquium-2026",
+                                                                "photos":  [
+                                                                               "IMG_6738.JPEG",
+                                                                               "poster.png"
+                                                                           ]
+                                                            },
                                                            {
                                                                "event_html":  "Invited talk, POSTECH, Pohang, **Korea**, Feb 4, 2026",
                                                                "title_html":  "Mathematical approaches to nondestructive inspection"
                                                            },
                                                            {
                                                                "event_html":  "ALGO Lunch Seminar, Université libre de Bruxelles (ULB), Brussels, **Belgium**, Jan 7, 2026",
-                                                               "title_html":  "A decomposition of graph a-numbers"
+                                                               "title_html":  "A decomposition of graph a-numbers",
+                                                               "id":  "ulb-algo-lunch-seminar-2026",
+                                                               "photos":  [
+                                                                              "2026_ULB.jpg"
+                                                                          ]
                                                            }
                                                        ]
                                        },

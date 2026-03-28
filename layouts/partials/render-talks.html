@@ -5,6 +5,7 @@
     <button type="button" class="talks-toggle-button" data-talks-view-button data-view="year" aria-pressed="false">By Year</button>
     <button type="button" class="talks-toggle-button" data-talks-view-button data-view="country" aria-pressed="false">By Country</button>
   </div>
+  <button type="button" class="talks-photo-toggle" data-talks-photo-toggle aria-pressed="false">Show Photos</button>
 </div>
 
 <div data-talks-views>
@@ -18,7 +19,12 @@
       <h4>{{ .year }}</h4>
       <ul>
         {{ range .entries }}
-        <li class="talk-item" data-talk-year="{{ $year }}" data-talk-category="{{ $category }}">
+        <li
+          class="talk-item"
+          data-talk-year="{{ $year }}"
+          data-talk-category="{{ $category }}"
+          {{ with .id }}data-talk-id="{{ . }}"{{ end }}
+          {{ with .photos }}data-talk-photos="{{ delimit . "||" }}"{{ end }}>
           <div class="talk-item-event">{{ .event_html | markdownify }}</div>
           {{ if .title_html }}<div class="talk-item-title">{{ .title_html | markdownify }}</div>{{ end }}
         </li>
