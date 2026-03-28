@@ -1,3 +1,11 @@
+{{- $talkAuthorLinks := slice -}}
+{{- range $key, $author := site.Data.authors -}}
+  {{- with $author.url -}}
+    {{- $talkAuthorLinks = $talkAuthorLinks | append (dict "name" $author.name "url" .) -}}
+  {{- end -}}
+{{- end -}}
+<script id="talks-author-links" type="application/json">{{ $talkAuthorLinks | jsonify | safeHTML }}</script>
+
 <div class="talks-toolbar" data-talks-toolbar>
   <span class="talks-toolbar-label">View</span>
   <div class="talks-toggle" role="tablist" aria-label="Talks view toggle">

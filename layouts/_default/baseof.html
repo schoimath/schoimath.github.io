@@ -85,6 +85,94 @@
         const categoryView = talksViews.querySelector('[data-talks-view="category"]');
         const yearView = talksViews.querySelector('[data-talks-view="year"]');
         const countryView = talksViews.querySelector('[data-talks-view="country"]');
+        const authorLinkNode = document.getElementById('talks-author-links');
+        let talkAuthorLinks = [];
+        if (authorLinkNode) {
+          try {
+            let parsedAuthorLinks = JSON.parse(authorLinkNode.textContent || '[]');
+            if (typeof parsedAuthorLinks === 'string') {
+              parsedAuthorLinks = JSON.parse(parsedAuthorLinks);
+            }
+            talkAuthorLinks = parsedAuthorLinks
+              .filter((entry) => entry && entry.name && entry.url)
+              .sort((a, b) => b.name.length - a.name.length);
+          } catch (_error) {
+            talkAuthorLinks = [];
+          }
+        }
+
+        const isAsciiWordChar = (char) => /[A-Za-z0-9]/.test(char || '');
+
+        const replaceAuthorNamesInTextNode = (node) => {
+          if (!node || !node.nodeValue || !talkAuthorLinks.length) return;
+          const text = node.nodeValue;
+          let cursor = 0;
+          let changed = false;
+          const fragment = document.createDocumentFragment();
+
+          const findNextMatch = (startIndex) => {
+            let best = null;
+            for (const author of talkAuthorLinks) {
+              let index = text.indexOf(author.name, startIndex);
+              while (index !== -1) {
+                const before = index > 0 ? text[index - 1] : '';
+                const afterIndex = index + author.name.length;
+                const after = afterIndex < text.length ? text[afterIndex] : '';
+                const validBoundary = !isAsciiWordChar(before) && !isAsciiWordChar(after);
+                if (validBoundary) {
+                  if (!best || index < best.index || (index === best.index && author.name.length > best.name.length)) {
+                    best = { index, ...author };
+                  }
+                  break;
+                }
+                index = text.indexOf(author.name, index + author.name.length);
+              }
+            }
+            return best;
+          };
+
+          while (cursor < text.length) {
+            const match = findNextMatch(cursor);
+            if (!match) break;
+
+            if (match.index > cursor) {
+              fragment.appendChild(document.createTextNode(text.slice(cursor, match.index)));
+            }
+
+            const link = document.createElement('a');
+            link.href = match.url;
+            link.textContent = match.name;
+            link.className = 'talk-author-link';
+            fragment.appendChild(link);
+
+            cursor = match.index + match.name.length;
+            changed = true;
+          }
+
+          if (!changed) return;
+          if (cursor < text.length) {
+            fragment.appendChild(document.createTextNode(text.slice(cursor)));
+          }
+          node.parentNode.replaceChild(fragment, node);
+        };
+
+        const linkTalkAuthors = (container) => {
+          if (!container || !talkAuthorLinks.length) return;
+          const targets = container.querySelectorAll('.talk-item-event, .talk-item-title');
+          targets.forEach((target) => {
+            const walker = document.createTreeWalker(target, NodeFilter.SHOW_TEXT);
+            const textNodes = [];
+            let current = walker.nextNode();
+            while (current) {
+              if (!current.parentElement?.closest('a')) textNodes.push(current);
+              current = walker.nextNode();
+            }
+            textNodes.forEach(replaceAuthorNamesInTextNode);
+          });
+        };
+
+        linkTalkAuthors(categoryView);
+
         const talkItems = Array.from(categoryView.querySelectorAll('.talk-item'));
         if (!categoryView || !yearView || !countryView || !talkItems.length) return;
 
@@ -322,13 +410,13 @@
         });
 
         if (photoToggle) {
-          photoToggle.classList.add('is-active');
-          photoToggle.setAttribute('aria-pressed', 'true');
+          photoToggle.classList.remove('is-active');
+          photoToggle.setAttribute('aria-pressed', 'false');
           photoToggle.textContent = 'Hide Photos';
           photoToggle.addEventListener('click', () => {
             photosEnabled = !photosEnabled;
-            photoToggle.classList.toggle('is-active', photosEnabled);
-            photoToggle.setAttribute('aria-pressed', photosEnabled ? 'true' : 'false');
+            photoToggle.classList.toggle('is-active', !photosEnabled);
+            photoToggle.setAttribute('aria-pressed', photosEnabled ? 'false' : 'true');
             photoToggle.textContent = photosEnabled ? 'Hide Photos' : 'Show Photos';
 
             syncPhotosInContainer(categoryView);
@@ -753,6 +841,184 @@
 
         setView('category');
       })();
+
+      (function () {
+        const path = window.location.pathname || '';
+        const isTalks = /\/talks\/?$/.test(path);
+        const isOutreach = /\/outreach\/?$/.test(path);
+        const isSupervision = /\/supervision\/?$/.test(path);
+        if (!isTalks && !isOutreach && !isSupervision) return;
+
+        const monthPattern = '(Jan\\.?|Feb\\.?|Mar\\.?|Apr\\.?|May|Jun\\.?|Jul\\.?|Aug\\.?|Sep\\.?|Oct\\.?|Nov\\.?|Dec\\.?)';
+        const trailingDateRegex = new RegExp(`,\\s*(${monthPattern}[^,<]*(?:present)?)$`, 'i');
+        const parenthesizedPeriodRegex = new RegExp(`\\(([^)]*${monthPattern}[^)]*(?:present)?[^)]*)\\)`, 'gi');
+
+        const wrapPeriods = (node) => {
+          const original = node.innerHTML;
+          let updated = original;
+          updated = updated.replace(parenthesizedPeriodRegex, (_, period) => `(<span class="period-text">${period}</span>)`);
+          updated = updated.replace(trailingDateRegex, (_, period) => `, <span class="period-text">${period}</span>`);
+          if (updated !== original) node.innerHTML = updated;
+        };
+
+        if (isTalks) {
+          document.querySelectorAll('.talk-item-event').forEach(wrapPeriods);
+        }
+
+        if (isOutreach || isSupervision) {
+          document.querySelectorAll('.legacy-content li').forEach(wrapPeriods);
+        }
+      })();
+
+      (function () {
+        const badges = Array.from(document.querySelectorAll('.cv-current-badge'));
+        if (!badges.length) return;
+
+        const lists = Array.from(document.querySelectorAll('.cv-position-list'));
+        if (!lists.length) return;
+        const content = document.querySelector('.legacy-content');
+        const path = window.location.pathname || '';
+        const isSupervisionPage = /\/supervision\/?$/.test(path);
+
+        let currentOnly = false;
+        let toggleButton = null;
+
+        const applyCurrentFilter = () => {
+          lists.forEach((list) => {
+            const items = Array.from(list.querySelectorAll('.cv-position-item'));
+            const hasCurrentItem = items.some((item) => item.querySelector('.cv-current-badge'));
+
+            items.forEach((item) => {
+              if (!currentOnly) {
+                item.hidden = false;
+                return;
+              }
+              if (!isSupervisionPage && !hasCurrentItem) {
+                item.hidden = false;
+                return;
+              }
+              item.hidden = !item.querySelector('.cv-current-badge');
+            });
+          });
+
+          badges.forEach((badge) => {
+            badge.classList.toggle('is-filter-active', currentOnly);
+            badge.setAttribute('title', currentOnly ? 'Show all' : 'Show current only');
+          });
+
+          if (toggleButton) {
+            toggleButton.classList.toggle('is-active', currentOnly);
+            toggleButton.textContent = currentOnly ? 'Show All' : 'Show Current Only';
+            toggleButton.setAttribute('aria-pressed', currentOnly ? 'true' : 'false');
+          }
+        };
+
+        if (content) {
+          const toolbar = document.createElement('div');
+          toolbar.className = 'current-filter-toolbar';
+
+          toggleButton = document.createElement('button');
+          toggleButton.type = 'button';
+          toggleButton.className = 'current-filter-toggle';
+          toggleButton.textContent = 'Show Current Only';
+          toggleButton.setAttribute('aria-pressed', 'false');
+
+          toggleButton.addEventListener('click', () => {
+            currentOnly = !currentOnly;
+            applyCurrentFilter();
+          });
+
+          toolbar.appendChild(toggleButton);
+          content.insertBefore(toolbar, content.firstChild);
+        }
+
+        badges.forEach((badge) => {
+          badge.addEventListener('click', () => {
+            currentOnly = !currentOnly;
+            applyCurrentFilter();
+          });
+        });
+
+        applyCurrentFilter();
+      })();
+
+      (function () {
+        const path = window.location.pathname || '';
+        if (!/\/teaching\/?$/.test(path)) return;
+
+        const content = document.querySelector('.legacy-content');
+        if (!content) return;
+
+        const termSections = Array.from(content.querySelectorAll('.teaching-term[data-teaching-term]'));
+        if (!termSections.length) return;
+
+        const month = new Date().getMonth() + 1;
+        const year = new Date().getFullYear();
+        let currentSeason = '';
+        if (month >= 3 && month <= 6) currentSeason = 'spring';
+        else if (month >= 7 && month <= 8) currentSeason = 'summer';
+        else if (month >= 9 && month <= 12) currentSeason = 'fall';
+        else currentSeason = 'winter';
+
+        const parseTerm = (raw) => {
+          const match = String(raw || '').trim().match(/^(\d{4})\s+(Spring|Summer|Fall|Winter)$/i);
+          if (!match) return null;
+          return {
+            year: Number(match[1]),
+            season: match[2].toLowerCase()
+          };
+        };
+
+        const isCurrentTerm = (termText) => {
+          const parsed = parseTerm(termText);
+          if (!parsed) return false;
+          if (parsed.season === 'winter') {
+            return currentSeason === 'winter' && (parsed.year + 1) === year;
+          }
+          return parsed.year === year && parsed.season === currentSeason;
+        };
+
+        let currentCount = 0;
+        termSections.forEach((section) => {
+          const current = isCurrentTerm(section.dataset.teachingTerm);
+          section.dataset.isCurrent = current ? 'true' : 'false';
+          const badge = section.querySelector('.teaching-current-badge');
+          if (badge) badge.hidden = !current;
+          if (current) currentCount += 1;
+        });
+        if (!currentCount) return;
+
+        let currentOnly = false;
+
+        const toolbar = document.createElement('div');
+        toolbar.className = 'current-filter-toolbar';
+
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'current-filter-toggle';
+        toggle.textContent = 'Show Current Only';
+        toggle.setAttribute('aria-pressed', 'false');
+
+        const applyFilter = () => {
+          termSections.forEach((section) => {
+            const isCurrent = section.dataset.isCurrent === 'true';
+            section.hidden = currentOnly ? !isCurrent : false;
+          });
+          toggle.classList.toggle('is-active', currentOnly);
+          toggle.textContent = currentOnly ? 'Show All' : 'Show Current Only';
+          toggle.setAttribute('aria-pressed', currentOnly ? 'true' : 'false');
+        };
+
+        toggle.addEventListener('click', () => {
+          currentOnly = !currentOnly;
+          applyFilter();
+        });
+
+        toolbar.appendChild(toggle);
+        content.insertBefore(toolbar, content.firstChild);
+        applyFilter();
+      })();
+
     </script>
   </body>
 </html>

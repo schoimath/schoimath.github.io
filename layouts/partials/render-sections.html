@@ -1,12 +1,116 @@
 {{ with .note }}
 <p class="section-note">{{ . }}</p>
 {{ end }}
-{{ range .sections }}
-<h3>{{ .title }}</h3>
+
+{{- $orderedTitles := slice "Professional Experience" "Education" "Professional Service" "Awards" -}}
+
+{{- define "renderSectionBody" -}}
+{{- with .positions }}
+<ul class="cv-position-list">
+  {{ range . }}
+  <li class="cv-position-item">
+    <span class="cv-position-line">
+      <span class="cv-position-part cv-position-role">{{ .role | markdownify }}</span>
+      <span class="cv-position-sep" aria-hidden="true">|</span>
+      <span class="cv-position-part cv-position-org">{{ .institution | markdownify }}</span>
+      <span class="cv-position-sep" aria-hidden="true">|</span>
+      <span class="cv-position-part cv-position-period">{{ .period }}</span>
+      {{ with .note }}
+      <span class="cv-position-sep" aria-hidden="true">|</span>
+      <span class="cv-position-part cv-position-note">{{ . | markdownify }}</span>
+      {{ end }}
+    </span>
+    {{ if .current }}<span class="cv-current-badge">Current</span>{{ end }}
+  </li>
+  {{ end }}
+</ul>
+{{ end }}
+{{ with .educationItems }}
+<ul class="cv-education-list">
+  {{ range . }}
+  <li class="cv-education-item">
+    <span class="cv-education-line1">
+      <span class="cv-education-school">{{ .school }}</span>
+      {{ with .degree }}
+      <span class="cv-position-sep" aria-hidden="true">|</span>
+      <span class="cv-education-degree">{{ . | markdownify }}</span>
+      {{ end }}
+      <span class="cv-position-sep" aria-hidden="true">|</span>
+      <span class="cv-education-period">{{ .period }}</span>
+    </span>
+    {{ with .note }}
+    <span class="cv-education-note">{{ . | markdownify }}</span>
+    {{ end }}
+  </li>
+  {{ end }}
+</ul>
+{{ end }}
+{{ with .awardItems }}
+<ul class="cv-award-list">
+  {{ range . }}
+  <li class="cv-award-item">
+    <span class="cv-award-part cv-award-name">{{ .name | markdownify }}</span>
+    <span class="cv-position-sep" aria-hidden="true">|</span>
+    <span class="cv-award-part cv-award-org">{{ .organization | markdownify }}</span>
+    <span class="cv-position-sep" aria-hidden="true">|</span>
+    <span class="cv-award-part cv-award-date">{{ .date }}</span>
+    {{ with .articles }}
+    <span class="cv-position-sep" aria-hidden="true">|</span>
+    <span class="cv-award-part cv-award-articles">
+      {{ range $idx, $a := . }}
+        <a class="cv-award-link-chip" href="{{ $a.url }}" aria-label="Related link {{ $a.label }}">
+          <img src="{{ "icons/link-icon.svg" | relURL }}" alt="" aria-hidden="true">
+        </a>
+      {{ end }}
+    </span>
+    {{ end }}
+  </li>
+  {{ end }}
+</ul>
+{{ end }}
 {{ with .entries }}
 <ul>
   {{ range . }}
   <li>{{ . | markdownify }}</li>
+  {{ end }}
+</ul>
+{{ end }}
+{{ with .peopleItems }}
+<ul class="cv-position-list supervision-person-list">
+  {{ range . }}
+  {{ $displayName := .name }}
+  {{ $periodText := .period }}
+  {{ $isCurrent := .current }}
+  {{ if and (not $isCurrent) $periodText }}
+    {{ $isCurrent = in (lower $periodText) "present" }}
+  {{ end }}
+  {{ $authorMeta := dict }}
+  {{ if .authorKey }}
+    {{ $authorMeta = index site.Data.authors .authorKey }}
+  {{ else if .name }}
+    {{ $authorMeta = index site.Data.authors .name }}
+  {{ end }}
+  {{ $authorUrl := "" }}
+  {{ with $authorMeta }}
+    {{ $displayName = .name }}
+    {{ with .url }}{{ $authorUrl = . }}{{ end }}
+  {{ end }}
+  <li class="cv-position-item supervision-person-item">
+    <span class="cv-position-line supervision-person-line">
+      <span class="cv-position-part supervision-person-name">
+        {{ if $authorUrl }}<a href="{{ $authorUrl }}">{{ $displayName }}</a>{{ else }}{{ $displayName }}{{ end }}
+      </span>
+      {{ with .period }}
+      <span class="cv-position-sep" aria-hidden="true">|</span>
+      <span class="cv-position-part cv-position-period">{{ . }}</span>
+      {{ end }}
+      {{ with .note }}
+      <span class="cv-position-sep" aria-hidden="true">|</span>
+      <span class="cv-position-part supervision-person-note">{{ . }}</span>
+      {{ end }}
+    </span>
+    {{ if $isCurrent }}<span class="cv-current-badge supervision-current-badge">Current</span>{{ end }}
+  </li>
   {{ end }}
 </ul>
 {{ end }}
@@ -20,4 +124,20 @@
   </ul>
   {{ end }}
 {{ end }}
-{{ end }}
+{{- end -}}
+
+{{- range .sections -}}
+  {{- if not (in $orderedTitles .title) -}}
+<h3>{{ .title }}</h3>
+{{ template "renderSectionBody" . }}
+  {{- end -}}
+{{- end -}}
+
+{{- range $targetTitle := $orderedTitles -}}
+  {{- range $.sections -}}
+    {{- if eq .title $targetTitle -}}
+<h3>{{ .title }}</h3>
+{{ template "renderSectionBody" . }}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

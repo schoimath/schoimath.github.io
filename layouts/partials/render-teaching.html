@@ -1,7 +1,11 @@
 <h3>{{ .section_title }}</h3>
 {{ range .terms }}
-<h4>{{ .term }}</h4>
-<ul>
+<section class="teaching-term" data-teaching-term="{{ .term }}">
+<h4 class="teaching-term-heading">
+  <span class="teaching-term-label">{{ .term }}</span>
+  <span class="cv-current-badge teaching-current-badge" hidden>Current</span>
+</h4>
+<ul class="teaching-course-list">
   {{ range .courses }}
   <li>
     {{ .name }}
@@ -11,13 +15,18 @@
   </li>
   {{ end }}
 </ul>
+</section>
 {{ end }}
 
 {{ with .mooc_terms }}
 <h3>{{ $.mooc_section_title }}</h3>
 {{ range . }}
-<h4>{{ .term }}</h4>
-<ul>
+<section class="teaching-term" data-teaching-term="{{ .term }}">
+<h4 class="teaching-term-heading">
+  <span class="teaching-term-label">{{ .term }}</span>
+  <span class="cv-current-badge teaching-current-badge" hidden>Current</span>
+</h4>
+<ul class="teaching-course-list">
   {{ range .courses }}
   <li>
     {{ with .link }}<a href="{{ . }}">{{ end }}{{ .name }}{{ with .link }}</a>{{ end }}
@@ -27,5 +36,6 @@
   </li>
   {{ end }}
 </ul>
+</section>
 {{ end }}
 {{ end }}
