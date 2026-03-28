@@ -1,4 +1,6 @@
-<h3>{{ .section_title }}</h3>
+{{ $regularTotal := 0 }}
+{{ range .terms }}{{ $regularTotal = add $regularTotal (len .courses) }}{{ end }}
+<h3>{{ .section_title }} <span class="dynamic-count" data-count-type="current-total" data-total="{{ $regularTotal }}">({{ $regularTotal }})</span></h3>
 {{ range .terms }}
 <section class="teaching-term" data-teaching-term="{{ .term }}">
 <h4 class="teaching-term-heading">
@@ -19,7 +21,9 @@
 {{ end }}
 
 {{ with .mooc_terms }}
-<h3>{{ $.mooc_section_title }}</h3>
+{{ $moocTotal := 0 }}
+{{ range . }}{{ $moocTotal = add $moocTotal (len .courses) }}{{ end }}
+<h3>{{ $.mooc_section_title }} <span class="dynamic-count" data-count-type="current-total" data-total="{{ $moocTotal }}">({{ $moocTotal }})</span></h3>
 {{ range . }}
 <section class="teaching-term" data-teaching-term="{{ .term }}">
 <h4 class="teaching-term-heading">

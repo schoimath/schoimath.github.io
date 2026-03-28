@@ -20,7 +20,9 @@
   <div data-talks-view="category">
     {{ range .sections }}
     <section class="talks-section">
-      <h3>{{ .title }}</h3>
+      {{ $categoryTotal := 0 }}
+      {{ range .years }}{{ $categoryTotal = add $categoryTotal (len .entries) }}{{ end }}
+      <h3>{{ .title }} ({{ $categoryTotal }})</h3>
       {{ $category := .title }}
       {{ range .years }}
       {{ $year := .year }}

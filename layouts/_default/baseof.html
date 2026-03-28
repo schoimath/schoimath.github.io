@@ -347,7 +347,7 @@
             section.className = 'talks-section';
 
             const heading = document.createElement('h3');
-            heading.textContent = year;
+            heading.textContent = `${year} (${groupedByYear.get(year).length})`;
             section.appendChild(heading);
 
             const list = document.createElement('ul');
@@ -366,7 +366,7 @@
             section.className = 'talks-section';
 
             const heading = document.createElement('h3');
-            heading.textContent = country;
+            heading.textContent = `${country} (${groupedByCountry.get(country).length})`;
             section.appendChild(heading);
 
             const list = document.createElement('ul');
@@ -883,6 +883,21 @@
         let currentOnly = false;
         let toggleButton = null;
 
+        const updateSectionCounts = () => {
+          lists.forEach((list) => {
+            const heading = list.previousElementSibling;
+            if (!heading) return;
+            const countEl = heading.querySelector('.dynamic-count[data-count-type="current-total"]');
+            if (!countEl) return;
+
+            const items = Array.from(list.querySelectorAll('.cv-position-item'));
+            const total = Number(countEl.dataset.total || items.length || 0);
+            const current = items.filter((item) => item.querySelector('.cv-current-badge')).length;
+            const shown = currentOnly ? current : total;
+            countEl.textContent = `(${shown})`;
+          });
+        };
+
         const applyCurrentFilter = () => {
           lists.forEach((list) => {
             const items = Array.from(list.querySelectorAll('.cv-position-item'));
@@ -900,6 +915,7 @@
               item.hidden = !item.querySelector('.cv-current-badge');
             });
           });
+          updateSectionCounts();
 
           badges.forEach((badge) => {
             badge.classList.toggle('is-filter-active', currentOnly);
@@ -999,6 +1015,26 @@
         toggle.textContent = 'Show Current Only';
         toggle.setAttribute('aria-pressed', 'false');
 
+        const updateTeachingCounts = () => {
+          const headings = Array.from(content.querySelectorAll('h3'));
+          headings.forEach((heading) => {
+            const countEl = heading.querySelector('.dynamic-count[data-count-type="current-total"]');
+            if (!countEl) return;
+
+            const total = Number(countEl.dataset.total || 0);
+            let current = 0;
+            let node = heading.nextElementSibling;
+            while (node && node.tagName !== 'H3') {
+              if (node.matches('.teaching-term[data-is-current]') && node.dataset.isCurrent === 'true') {
+                current += node.querySelectorAll('.teaching-course-list li').length;
+              }
+              node = node.nextElementSibling;
+            }
+            const shown = currentOnly ? current : total;
+            countEl.textContent = `(${shown})`;
+          });
+        };
+
         const applyFilter = () => {
           termSections.forEach((section) => {
             const isCurrent = section.dataset.isCurrent === 'true';
@@ -1007,6 +1043,7 @@
           toggle.classList.toggle('is-active', currentOnly);
           toggle.textContent = currentOnly ? 'Show All' : 'Show Current Only';
           toggle.setAttribute('aria-pressed', currentOnly ? 'true' : 'false');
+          updateTeachingCounts();
         };
 
         toggle.addEventListener('click', () => {

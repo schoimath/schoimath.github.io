@@ -196,7 +196,10 @@
 
 {{- range .sections -}}
   {{- if not (in $orderedTitles .title) -}}
-<h3>{{ .title }}</h3>
+<h3>
+  {{ .title }}
+  {{ with .peopleItems }} <span class="dynamic-count" data-count-type="current-total" data-total="{{ len . }}">({{ len . }})</span>{{ end }}
+</h3>
 {{ template "renderSectionBody" . }}
   {{- end -}}
 {{- end -}}
@@ -204,7 +207,10 @@
 {{- range $targetTitle := $orderedTitles -}}
   {{- range $.sections -}}
     {{- if eq .title $targetTitle -}}
-<h3>{{ .title }}</h3>
+<h3>
+  {{ .title }}
+  {{ with .peopleItems }} <span class="dynamic-count" data-count-type="current-total" data-total="{{ len . }}">({{ len . }})</span>{{ end }}
+</h3>
 {{ template "renderSectionBody" . }}
     {{- end -}}
   {{- end -}}
