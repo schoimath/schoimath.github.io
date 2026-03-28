@@ -296,24 +296,32 @@ a {
 
 .publication-extra-link {
   display: inline-flex;
-  margin-left: 0.18rem;
+  margin-left: 0.14rem;
   vertical-align: middle;
 }
 
 .publication-ms-icon {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 0.88rem !important;
+  height: 0.88rem !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 999px;
+  vertical-align: -0.08em;
+  border-radius: 3px;
   border: 1px solid var(--line);
   background: var(--surface-strong);
   color: var(--muted);
   text-decoration: none;
-  font-size: 0.62rem;
-  font-weight: 700;
-  line-height: 1;
+  overflow: hidden;
+}
+
+.publication-ms-icon img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  border-radius: 0 !important;
+  object-fit: cover;
+  display: block;
 }
 
 .publication-ms-icon:hover {
