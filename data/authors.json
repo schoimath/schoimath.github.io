@@ -14,7 +14,7 @@
   "Tae-Young Kim": { "id": "tae-young-kim", "name": "Tae-Young Kim", "sortName": "Kim, Tae-Young" },
   "Ho Kyoung Ko": { "id": "ho-kyoung-ko", "name": "Ho Kyoung Ko", "sortName": "Ko, Ho Kyoung" },
   "Jiyun Lee": { "id": "jiyun-lee", "name": "Jiyun Lee", "sortName": "Lee, Jiyun" },
-  "Boram Park": { "id": "boram-park", "name": "Boram Park", "sortName": "Park, Boram" },
+  "Boram Park": { "id": "boram-park", "name": "Boram Park", "sortName": "Park, Boram", "url": "https://sites.google.com/view/borampark/" },
   "Eun-Soo Hong": { "id": "eun-soo-hong", "name": "Eun-Soo Hong", "sortName": "Hong, Eun-Soo" },
   "Jang Soo Kim": { "id": "jang-soo-kim", "name": "Jang Soo Kim", "sortName": "Kim, Jang Soo", "url": "https://jangsookim.github.io/" },
   "Li Cai": { "id": "li-cai", "name": "Li Cai", "sortName": "Cai, Li", "url": "https://scholar.xjtlu.edu.cn/en/persons/LiCai/" },
@@ -32,5 +32,5 @@
   "Soojin Cho": { "id": "soojin-cho", "name": "Soojin Cho", "sortName": "Cho, Soojin" },
   "Stephen Theriault": { "id": "stephen-theriault", "name": "Stephen Theriault", "sortName": "Theriault, Stephen" },
   "Taegeon Kim": { "id": "taegeon-kim", "name": "Taegeon Kim", "sortName": "Kim, Taegeon" },
-  "Taras E. Panov": { "id": "taras-e-panov", "name": "Taras E. Panov", "sortName": "Panov, Taras E." }
+  "Taras E. Panov": { "id": "taras-e-panov", "name": "Taras E. Panov", "sortName": "Panov, Taras E.", "url": "http://higeom.math.msu.su/people/taras/english.html" }
 }
