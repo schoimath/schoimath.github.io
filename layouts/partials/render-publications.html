@@ -7,16 +7,22 @@
   <div class="talks-toggle" role="tablist" aria-label="Publications view toggle">
     <button type="button" class="talks-toggle-button is-active" data-publications-view-button data-view="category" aria-pressed="true">By Category</button>
     <button type="button" class="talks-toggle-button" data-publications-view-button data-view="year" aria-pressed="false">By Year</button>
-    <button type="button" class="talks-toggle-button" data-publications-view-button data-view="author" aria-pressed="false">By Author</button>
+    <button type="button" class="talks-toggle-button" data-publications-view-button data-view="author" aria-pressed="false">By Co-author</button>
     <button type="button" class="talks-toggle-button" data-publications-view-button data-view="journal" aria-pressed="false">By Journal</button>
   </div>
+  <label class="publications-search">
+    <span class="sr-only">Search publications</span>
+    <input type="search" data-publications-search placeholder="Search title, author, journal" autocomplete="off">
+  </label>
+  <span class="publications-search-status" data-publications-search-status aria-live="polite"></span>
 </div>
+
+<div class="publications-search-results" data-publications-search-results hidden></div>
 
 <div data-publications-views>
   <div data-publications-view="category">
     {{ range .sections }}
     <section class="publications-section">
-      <h3>{{ .title }}</h3>
       {{ $category := .title }}
       {{ $scratch := newScratch }}
       {{ $scratch.Set "count" 0 }}
@@ -28,6 +34,7 @@
         {{ $scratch.Set "count" (add ($scratch.Get "count") (len .entries)) }}
         {{ end }}
       {{ end }}
+      <h3>{{ .title }} ({{ $scratch.Get "count" }})</h3>
       {{ $scratch.Set "current" ($scratch.Get "count") }}
       <ul>
       {{ with .entries }}

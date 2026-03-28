@@ -355,6 +355,9 @@
       (function () {
         const publicationViews = document.querySelector('[data-publications-views]');
         const buttons = Array.from(document.querySelectorAll('[data-publications-view-button]'));
+        const searchInput = document.querySelector('[data-publications-search]');
+        const searchStatus = document.querySelector('[data-publications-search-status]');
+        const searchResults = document.querySelector('[data-publications-search-results]');
         if (!publicationViews || !buttons.length) return;
 
         const categoryView = publicationViews.querySelector('[data-publications-view="category"]');
@@ -382,53 +385,58 @@
         yearView.innerHTML = '';
         yearView.classList.add('publication-year-view');
 
-        let currentNumber = numberedItems.length;
+        const sortedYears = Array.from(groupedByYear.keys()).sort((a, b) => Number(b) - Number(a));
 
-        Array.from(groupedByYear.keys())
-          .sort((a, b) => Number(b) - Number(a))
-          .forEach((year) => {
-            const section = document.createElement('section');
-            section.className = 'publications-section';
+        sortedYears.forEach((year) => {
+          const section = document.createElement('section');
+          section.className = 'publications-section';
+          section.dataset.publicationYearSection = year;
 
-            const heading = document.createElement('h3');
-            heading.textContent = year;
-            section.appendChild(heading);
+          const heading = document.createElement('h3');
+          heading.textContent = `${year} (${groupedByYear.get(year).length})`;
+          section.appendChild(heading);
 
-            const list = document.createElement('ul');
-            groupedByYear.get(year).forEach((entry) => {
-              const item = document.createElement('li');
-              item.className = 'publication-item';
-              item.innerHTML = entry.html;
+          const list = document.createElement('ul');
+          let yearNumber = groupedByYear.get(year).length;
+          groupedByYear.get(year).forEach((entry) => {
+            const item = document.createElement('li');
+            item.className = 'publication-item';
+            item.innerHTML = entry.html;
 
-              const number = item.querySelector('.publication-number');
-              if (number) {
-                number.textContent = `[${currentNumber--}]`;
-              }
+            const number = item.querySelector('.publication-number');
+            if (number) {
+              number.textContent = `[${yearNumber--}]`;
+            }
 
-              const category = document.createElement('div');
-              category.className = 'talk-item-category';
-              category.textContent = entry.category;
-              item.appendChild(category);
+            const category = document.createElement('div');
+            category.className = 'talk-item-category';
+            category.textContent = entry.category;
+            item.appendChild(category);
 
-              list.appendChild(item);
-            });
-
-            section.appendChild(list);
-            yearView.appendChild(section);
+            list.appendChild(item);
           });
 
-        const extraSections = Array.from(categoryView.querySelectorAll('.publications-section')).filter((section) => {
-          const title = section.querySelector('h3')?.textContent?.trim();
-          return title && !numberedCategories.has(title);
-        });
-
-        extraSections.forEach((section) => {
-          yearView.appendChild(section.cloneNode(true));
+          section.appendChild(list);
+          yearView.appendChild(section);
         });
 
         const authorGroups = new Map();
+        const soloEntries = [];
         items.forEach((item) => {
           const authors = Array.from(item.querySelectorAll('.publication-author'));
+          if (
+            authors.length === 1 &&
+            (
+              authors[0].dataset.authorId === 'suyoung-choi' ||
+              (authors[0].dataset.authorName || '').trim() === 'Suyoung Choi'
+            )
+          ) {
+            soloEntries.push({
+              category: item.dataset.publicationCategory,
+              html: item.innerHTML
+            });
+          }
+
           authors.forEach((author) => {
             const id = author.dataset.authorId;
             const name = author.dataset.authorName;
@@ -451,6 +459,38 @@
           });
         });
 
+        if (soloEntries.length) {
+          const section = document.createElement('section');
+          section.className = 'publications-section';
+
+          const heading = document.createElement('h3');
+          heading.textContent = `Solo Papers (${soloEntries.length})`;
+          section.appendChild(heading);
+
+          const list = document.createElement('ul');
+          let soloNumber = soloEntries.length;
+          soloEntries.forEach((entry) => {
+            const item = document.createElement('li');
+            item.className = 'publication-item';
+            item.innerHTML = entry.html;
+
+            const number = item.querySelector('.publication-number');
+            if (number) {
+              number.textContent = `[${soloNumber--}]`;
+            }
+
+            const category = document.createElement('div');
+            category.className = 'talk-item-category';
+            category.textContent = entry.category;
+            item.appendChild(category);
+
+            list.appendChild(item);
+          });
+
+          section.appendChild(list);
+          authorView.appendChild(section);
+        }
+
         Array.from(authorGroups.values())
           .sort((a, b) => a.sortName.localeCompare(b.sortName))
           .forEach((author) => {
@@ -458,21 +498,29 @@
             section.className = 'publications-section';
 
             const heading = document.createElement('h3');
+            const authorCount = author.entries.length;
             if (author.url) {
               const link = document.createElement('a');
               link.href = author.url;
               link.textContent = author.name;
               heading.appendChild(link);
+              heading.appendChild(document.createTextNode(` (${authorCount})`));
             } else {
-              heading.textContent = author.name;
+              heading.textContent = `${author.name} (${authorCount})`;
             }
             section.appendChild(heading);
 
             const list = document.createElement('ul');
+            let authorNumber = author.entries.length;
             author.entries.forEach((entry) => {
               const item = document.createElement('li');
               item.className = 'publication-item';
               item.innerHTML = entry.html;
+
+              const number = item.querySelector('.publication-number');
+              if (number) {
+                number.textContent = `[${authorNumber--}]`;
+              }
 
               const category = document.createElement('div');
               category.className = 'talk-item-category';
@@ -517,21 +565,29 @@
             section.className = 'publications-section';
 
             const heading = document.createElement('h3');
+            const journalCount = journal.entries.length;
             if (journal.url) {
               const link = document.createElement('a');
               link.href = journal.url;
               link.textContent = journal.heading;
               heading.appendChild(link);
+              heading.appendChild(document.createTextNode(` (${journalCount})`));
             } else {
-              heading.textContent = journal.heading;
+              heading.textContent = `${journal.heading} (${journalCount})`;
             }
             section.appendChild(heading);
 
             const list = document.createElement('ul');
+            let journalNumber = journal.entries.length;
             journal.entries.forEach((entry) => {
               const item = document.createElement('li');
               item.className = 'publication-item';
               item.innerHTML = entry.html;
+
+              const number = item.querySelector('.publication-number');
+              if (number) {
+                number.textContent = `[${journalNumber--}]`;
+              }
 
               const category = document.createElement('div');
               category.className = 'talk-item-category';
@@ -545,7 +601,123 @@
             journalView.appendChild(section);
           });
 
+        const allViews = [categoryView, yearView, authorView, journalView];
+        let activeViewName = 'category';
+        allViews.forEach((view) => {
+          const empty = document.createElement('p');
+          empty.className = 'publication-filter-empty';
+          empty.hidden = true;
+          empty.textContent = 'No matching publications.';
+          view.appendChild(empty);
+        });
+
+        const renderSearchResults = (keyword) => {
+          if (!searchResults) return;
+          searchResults.innerHTML = '';
+
+          if (!keyword) {
+            searchResults.hidden = true;
+            publicationViews.hidden = false;
+            if (typeof window.buildPageToc === 'function') {
+              const visibleView =
+                activeViewName === 'year' ? yearView :
+                activeViewName === 'journal' ? journalView :
+                activeViewName === 'author' ? authorView :
+                categoryView;
+              window.buildPageToc(visibleView);
+            }
+            return;
+          }
+
+          const sourceItems = Array.from(categoryView.querySelectorAll('.publication-item'));
+          const matchedItems = sourceItems.filter((entry) => {
+            if (!entry.dataset.searchText) {
+              entry.dataset.searchText = entry.textContent.toLowerCase();
+            }
+            return entry.dataset.searchText.includes(keyword);
+          });
+
+          const section = document.createElement('section');
+          section.className = 'publications-section';
+          const heading = document.createElement('h3');
+          heading.textContent = `Search Results (${matchedItems.length})`;
+          section.appendChild(heading);
+
+          if (matchedItems.length > 0) {
+            const list = document.createElement('ul');
+            matchedItems.forEach((entry) => {
+              const clone = entry.cloneNode(true);
+              clone.hidden = false;
+              list.appendChild(clone);
+            });
+            section.appendChild(list);
+          } else {
+            const empty = document.createElement('p');
+            empty.className = 'publication-filter-empty';
+            empty.hidden = false;
+            empty.textContent = 'No matching publications.';
+            section.appendChild(empty);
+          }
+
+          searchResults.appendChild(section);
+          searchResults.hidden = false;
+          publicationViews.hidden = true;
+
+          if (typeof window.buildPageToc === 'function') {
+            window.buildPageToc(searchResults);
+          }
+        };
+
+        const updateSectionVisibility = (container) => {
+          const sections = Array.from(container.querySelectorAll('.publications-section'));
+          sections.forEach((section) => {
+            const visibleItems = Array.from(section.querySelectorAll('.publication-item')).filter((item) => !item.hidden);
+            section.hidden = visibleItems.length === 0;
+          });
+        };
+
+        const applyFilter = () => {
+          const keyword = (searchInput?.value || '').trim().toLowerCase();
+          const sourceEntries = Array.from(categoryView.querySelectorAll('.publication-item'));
+          const matchedSourceCount = keyword
+            ? sourceEntries.filter((entry) => {
+                if (!entry.dataset.searchText) {
+                  entry.dataset.searchText = entry.textContent.toLowerCase();
+                }
+                return entry.dataset.searchText.includes(keyword);
+              }).length
+            : 0;
+
+          allViews.forEach((container) => {
+            const entries = Array.from(container.querySelectorAll('.publication-item'));
+            let visibleCount = 0;
+            entries.forEach((entry) => {
+              if (!entry.dataset.searchText) {
+                entry.dataset.searchText = entry.textContent.toLowerCase();
+              }
+              const matched = !keyword || entry.dataset.searchText.includes(keyword);
+              entry.hidden = !matched;
+              if (matched) visibleCount += 1;
+            });
+
+            updateSectionVisibility(container);
+            const empty = container.querySelector('.publication-filter-empty');
+            if (empty) empty.hidden = visibleCount > 0;
+          });
+
+          if (searchStatus) {
+            if (keyword) {
+              searchStatus.textContent = `${matchedSourceCount} result${matchedSourceCount === 1 ? '' : 's'}`;
+            } else {
+              searchStatus.textContent = '';
+            }
+          }
+
+          renderSearchResults(keyword);
+        };
+
         const setView = (view) => {
+          activeViewName = view;
           categoryView.hidden = view !== 'category';
           yearView.hidden = view !== 'year';
           authorView.hidden = view !== 'author';
@@ -563,13 +735,21 @@
               view === 'journal' ? journalView :
               view === 'author' ? authorView :
               categoryView;
-            window.buildPageToc(activeView);
+            if (!(searchInput && searchInput.value.trim())) {
+              window.buildPageToc(activeView);
+            }
           }
+
+          applyFilter();
         };
 
         buttons.forEach((button) => {
           button.addEventListener('click', () => setView(button.dataset.view));
         });
+
+        if (searchInput) {
+          searchInput.addEventListener('input', applyFilter);
+        }
 
         setView('category');
       })();

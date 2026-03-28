@@ -9,6 +9,7 @@
 {{- else -}}
 {{- $officialLink := "" -}}
 {{- $mathscinetLink := "" -}}
+{{- $coauthors := slice -}}
 {{- with $entry.officialLink -}}
   {{- $officialLink = . -}}
 {{- end -}}
@@ -28,11 +29,26 @@
     {{- $mathscinetLink = . -}}
   {{- end -}}
 {{- end -}}
-<span class="publication-authors">
+<span class="publication-line publication-line-authors">
   {{- $authors := split $entry.authors "," -}}
   {{- range $index, $rawAuthor := $authors -}}
     {{- $authorKey := trim $rawAuthor " " -}}
     {{- $author := index $authorData $authorKey -}}
+    {{- $isPrimary := false -}}
+    {{- if $author -}}
+      {{- if eq $author.id "suyoung-choi" -}}
+        {{- $isPrimary = true -}}
+      {{- end -}}
+    {{- else if eq $authorKey "Suyoung Choi" -}}
+      {{- $isPrimary = true -}}
+    {{- end -}}
+    {{- if not $isPrimary -}}
+      {{- if $author -}}
+        {{- $coauthors = $coauthors | append (dict "name" $author.name "url" $author.url) -}}
+      {{- else -}}
+        {{- $coauthors = $coauthors | append (dict "name" $authorKey "url" "") -}}
+      {{- end -}}
+    {{- end -}}
     {{ if gt $index 0 }}, {{ end }}
     <span
       class="publication-author"
@@ -50,12 +66,26 @@
       {{- end -}}
     </span>
   {{- end -}}
-</span>,
-<em>{{- if $officialLink -}}<a href="{{ $officialLink }}">{{ $entry.title | safeHTML }}</a>{{- else -}}{{ $entry.title | safeHTML }}{{- end -}}</em>
+</span>
+<span class="publication-line publication-line-title">
+  {{- if $officialLink -}}<a href="{{ $officialLink }}">{{ $entry.title | safeHTML }}</a>{{- else -}}{{ $entry.title | safeHTML }}{{- end -}}
+  {{- if gt (len $coauthors) 0 -}}
+  {{- $withParts := slice -}}
+  {{- range $coauthor := $coauthors -}}
+    {{- if $coauthor.url -}}
+      {{- $withParts = $withParts | append (printf `<a class="publication-with-link" href="%s">%s</a>` $coauthor.url $coauthor.name) -}}
+    {{- else -}}
+      {{- $withParts = $withParts | append $coauthor.name -}}
+    {{- end -}}
+  {{- end -}}
+  <span class="publication-with"> (with {{ delimit $withParts ", " | safeHTML }})</span>
+  {{- end -}}
+</span>
+<span class="publication-line publication-line-meta">
 {{- with $entry.venue -}}
   {{- $rawVenue := . -}}
   {{- $journal := index $journalData $rawVenue -}}
-  , <strong
+  <strong
     class="publication-venue"
     {{- with $journal.id }} data-journal-id="{{ . }}"{{ end -}}
     data-journal-name="{{ if $journal }}{{ $journal.name }}{{ else }}{{ $rawVenue }}{{ end }}"
@@ -72,7 +102,9 @@
     {{- end -}}
   </strong>
 {{- end -}}
-{{- with $entry.details -}}, {{ . | safeHTML }}{{- end -}}
+{{- with $entry.details -}}
+  {{- if $entry.venue -}}, {{ . | safeHTML }}{{- else -}}{{ . | safeHTML }}{{- end -}}
+{{- end -}}
 {{- with $mathscinetLink -}}
 <span class="publication-extra-link">
   <a class="publication-ms-icon" href="{{ . }}" aria-label="MathSciNet Review" title="MathSciNet Review">
@@ -81,6 +113,7 @@
 </span>
 {{- end -}}
 {{- with $entry.note -}}<span class="publication-note"> {{ . | safeHTML }}</span>{{- end -}}
+</span>
 {{- end -}}
 {{- else -}}
 {{- $clean := replaceRE "^\\[[^\\]]+\\]\\s*" "" $entry -}}
