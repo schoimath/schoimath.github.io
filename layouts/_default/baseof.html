@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.affiliation }}{{ end }}">
-    <link rel="stylesheet" href="{{ "site.css" | relURL }}">
+    <link rel="stylesheet" href="{{ "site.css" | relURL }}?v={{ now.Unix }}">
   </head>
   <body>
     <header class="site-header">
