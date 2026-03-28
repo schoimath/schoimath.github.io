@@ -522,11 +522,12 @@ a {
 .talks-photo-toggle {
   margin-left: auto;
   border: 1px solid var(--line);
-  background: var(--surface-strong);
+  background: var(--surface);
   color: var(--muted);
   padding: 0.45rem 0.9rem;
   border-radius: 999px;
   font: inherit;
+  font-weight: 700;
   cursor: pointer;
 }
 
@@ -754,6 +755,196 @@ a {
   margin-left: 0;
 }
 
+.cv-export-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.9rem;
+}
+
+.cv-export-paper {
+  background: var(--surface);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 2.1rem 2.25rem 2.2rem;
+}
+
+.cv-export-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.2rem;
+  align-items: start;
+  margin-bottom: 0.5rem;
+}
+
+.cv-export-kicker {
+  margin: 0;
+  color: #2a5f83;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.cv-export-header h1 {
+  display: block !important;
+  margin: 0.25rem 0 0.5rem;
+  font-size: clamp(2.3rem, 5vw, 3rem);
+  line-height: 1.1;
+  color: #123e5f;
+}
+
+.cv-export-contact {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.5;
+}
+
+.cv-export-paper h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.62rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+  font-size: 1.15rem;
+  color: #1a557a;
+}
+
+.cv-export-paper h4 {
+  margin: 0.9rem 0 0.45rem;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.cv-export-section {
+  margin-bottom: 0.2rem;
+}
+
+.cv-export-subsection {
+  margin-bottom: 0.55rem;
+}
+
+.cv-export-paper ul,
+.cv-export-paper ol {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  padding-left: 1.2rem;
+}
+
+.cv-export-paper li + li {
+  margin-top: 0.58rem;
+}
+
+.cv-export-numbered {
+  padding-left: 1.55rem;
+}
+
+.cv-export-subtle {
+  color: var(--muted);
+}
+
+.hero-export-link {
+  font-size: 0.86rem;
+  margin-top: 0.08rem;
+}
+
+.hero-export-link a {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+}
+
+.hero-export-link a:hover,
+.hero-export-link a:focus-visible {
+  color: var(--accent);
+  border-bottom-color: currentColor;
+}
+
+@media print {
+  .site-header,
+  .section-toc,
+  .section-hero,
+  .cv-export-actions {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .page-shell,
+  .page-content,
+  .legacy-content {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    max-width: none;
+  }
+
+  .legacy-content {
+    background: #fff !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .cv-export-paper {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0.08rem 0;
+  }
+
+  .cv-export-paper h3 {
+    break-after: avoid;
+    break-inside: avoid;
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  .cv-export-section,
+  .cv-export-subsection {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .cv-export-publications,
+  .cv-export-publications .cv-export-subsection,
+  .cv-export-publications ol,
+  .cv-export-publications li {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .cv-export-publications h3,
+  .cv-export-publications h4 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .cv-export-paper li {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    orphans: 2;
+    widows: 2;
+  }
+
+  .cv-export-publications li {
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .cv-export-paper {
+    padding: 1.6rem 1.2rem 1.7rem;
+  }
+
+  .cv-export-header {
+    grid-template-columns: 1fr;
+  }
+}
+
 .supervision-current-badge {
   text-transform: none;
   display: inline-flex;
@@ -886,6 +1077,14 @@ a {
   border-top: 1px solid var(--line);
   color: var(--muted);
   font-size: 0.95rem;
+}
+
+.cv-export-generated {
+  margin-top: 2rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .period-text {

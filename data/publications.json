@@ -11,14 +11,16 @@
                                                                 "title":  "Stellar subdivisions, wedges and Buchstaber numbers",
                                                                 "venue":  "Algebr. Geom. Topol.",
                                                                 "details":  "26 (2026) no. 2, 751\u0026ndash;759.",
-                                                                "officialLink":  "https://doi.org/10.2140/agt.2026.26.751"
+                                                                "officialLink":  "https://doi.org/10.2140/agt.2026.26.751",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Younghan Yoon",
                                                                 "title":  "Real toric manifolds associated with chordal nestohedra",
                                                                 "venue":  "J. Combin. Theory, Ser. A",
                                                                 "details":  "217 (2026), Paper No. 106102, 38 pp.",
-                                                                "officialLink":  "https://doi.org/10.1016/j.jcta.2025.106102"
+                                                                "officialLink":  "https://doi.org/10.1016/j.jcta.2025.106102",
+                                                                "cvExport":  true
                                                             }
                                                         ]
                                         },
@@ -30,14 +32,16 @@
                                                                 "title":  "Toric wedge induction and toric lifting property for piecewise linear spheres with a few vertices",
                                                                 "venue":  "J. London Math. Soc.",
                                                                 "details":  "112 (2025), no. 1, Paper No. e70231, 24 pp.",
-                                                                "officialLink":  "https://doi.org/10.1112/jlms.70231"
+                                                                "officialLink":  "https://doi.org/10.1112/jlms.70231",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Taekgyu Hwang, Hyeontae Jang",
                                                                 "title":  "Strong cohomological rigidity of Bott manifolds",
                                                                 "venue":  "Adv. Math.",
                                                                 "details":  "473 (2025), 110305.",
-                                                                "officialLink":  "https://doi.org/10.1016/j.aim.2025.110305"
+                                                                "officialLink":  "https://doi.org/10.1016/j.aim.2025.110305",
+                                                                "cvExport":  true
                                                             }
                                                         ]
                                         },
@@ -49,14 +53,16 @@
                                                                 "title":  "The Betti numbers of real toric varieties associated to Weyl chambers of types E7 and E8",
                                                                 "venue":  "Osaka J. Math.",
                                                                 "details":  "61 (3) (2024), 409\u0026ndash;417.",
-                                                                "officialLink":  "https://doi.org/10.18910/97640"
+                                                                "officialLink":  "https://doi.org/10.18910/97640",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Hyeontae Jang, Mathieu Vallee",
                                                                 "title":  "The characterization of (n-1)-spheres with n+4 vertices having maximal Buchstaber number",
                                                                 "venue":  "J. Reine Angew. Math.",
                                                                 "details":  "811 (2024), 267\u0026ndash;292.",
-                                                                "officialLink":  "https://doi.org/10.1515/crelle-2024-0027"
+                                                                "officialLink":  "https://doi.org/10.1515/crelle-2024-0027",
+                                                                "cvExport":  true
                                                             }
                                                         ]
                                         },
@@ -68,7 +74,8 @@
                                                                 "title":  "Gromov width of symplectic toric manifolds associated with graphs",
                                                                 "venue":  "Internat. J. Math.",
                                                                 "details":  "24 (3) (2023), 2350013, 19 pp.",
-                                                                "officialLink":  "https://doi.org/10.1142/s0129167x23500131"
+                                                                "officialLink":  "https://doi.org/10.1142/s0129167x23500131",
+                                                                "cvExport":  true
                                                             }
                                                         ]
                                         },
@@ -80,14 +87,16 @@
                                                                 "title":  "An algorithmic strategy for finding characteristic maps over wedged simplicial complexes",
                                                                 "venue":  "Pacific J. Math.",
                                                                 "details":  "320 (2022), no. 1, 13??3.",
-                                                                "officialLink":  "https://doi.org/10.2140/pjm.2022.320.13"
+                                                                "officialLink":  "https://doi.org/10.2140/pjm.2022.320.13",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Mathieu Vallee",
                                                                 "title":  "Cohomological rigidity of the connected sum of three real projective spaces",
                                                                 "venue":  "Proc. Steklov Inst. Math.",
                                                                 "details":  "317 (2022), 178-188.",
-                                                                "officialLink":  "https://doi.org/10.1134/s0081543822020109"
+                                                                "officialLink":  "https://doi.org/10.1134/s0081543822020109",
+                                                                "cvExport":  true
                                                             }
                                                         ]
                                         },
@@ -99,7 +108,8 @@
                                                                 "title":  "Integral cohomology groups of real toric manifolds and small covers",
                                                                 "venue":  "Mosc. Math. J.",
                                                                 "details":  "21 (3), 467\u0026ndash;492.",
-                                                                "officialLink":  "https://doi.org/10.17323/1609-4514-2021-21-3-467-492"
+                                                                "officialLink":  "https://doi.org/10.17323/1609-4514-2021-21-3-467-492",
+                                                                "cvExport":  true
                                                             }
                                                         ]
                                         },
@@ -111,14 +121,16 @@
                                                                 "title":  "On the KO-groups of toric manifolds",
                                                                 "venue":  "Algebr. Geom. Topol.",
                                                                 "details":  "20 (2020) 2589\u0026ndash;2607",
-                                                                "officialLink":  "https://doi.org/10.2140/agt.2020.20.2589"
+                                                                "officialLink":  "https://doi.org/10.2140/agt.2020.20.2589",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Hanchul Park",
                                                                 "title":  "Multiplicative structure of the cohomology ring of real toric spaces",
                                                                 "venue":  "Homology Homotopy Appl.",
                                                                 "details":  "22 (2020), no. 1, 139\u0026ndash;157.",
-                                                                "officialLink":  "https://doi.org/10.4310/hha.2020.v22.n1.a7"
+                                                                "officialLink":  "https://doi.org/10.4310/hha.2020.v22.n1.a7",
+                                                                "cvExport":  true
                                                             }
                                                         ]
                                         },
@@ -130,7 +142,8 @@
                                                                 "title":  "The cohomology groups of real toric varieties associated to Weyl chambers of type C and D",
                                                                 "venue":  "Proc. Edinb. Math. Soc.",
                                                                 "details":  "62 (2019), 861\u0026ndash;874.",
-                                                                "officialLink":  "https://doi.org/10.1017/S001309151800086X"
+                                                                "officialLink":  "https://doi.org/10.1017/S001309151800086X",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Soojin Cho, Suyoung Choi, Shizuo Kaji",
@@ -138,21 +151,24 @@
                                                                 "officialLink":  "https://jkms.kms.or.kr/journal/view.html?uid=2619",
                                                                 "venue":  "J. Korean Math. Soc.",
                                                                 "details":  "56 (2019), no. 5, 1265\u0026ndash;1283.",
-                                                                "note":  "(This paper was selected as the best Korean mathematical paper by KOFST in 2019.)"
+                                                                "note":  "(This paper was selected as the best Korean mathematical paper by KOFST in 2019.)",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Hanchul Park",
                                                                 "title":  "Small covers over wedges of polygons",
                                                                 "venue":  "J.  Math. Soc. Japan",
                                                                 "details":  "71 (2019), no. 3, 739\u0026ndash;764.",
-                                                                "officialLink":  "https://doi.org/10.2969/jmsj/79727972"
+                                                                "officialLink":  "https://doi.org/10.2969/jmsj/79727972",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Kyoungsuk Park",
                                                                 "title":  "Example of C-rigid polytopes which are not B-rigid",
                                                                 "venue":  "Math. Slovaca",
                                                                 "details":  "69 (2019), no. 2, 437\u0026ndash;448.",
-                                                                "officialLink":  "https://doi.org/10.1515/ms-2017-0236"
+                                                                "officialLink":  "https://doi.org/10.1515/ms-2017-0236",
+                                                                "cvExport":  true
                                                             }
                                                         ]
                                         },
@@ -164,21 +180,24 @@
                                                                 "title":  "Strong cohomological rigidity of toric varieties",
                                                                 "venue":  "Proc. Roy. Soc. Edinburgh Sect. A.",
                                                                 "details":  "147 (2017), no. 5, 971\u0026ndash;992.",
-                                                                "officialLink":  "https://doi.org/10.1017/s0308210516000457"
+                                                                "officialLink":  "https://doi.org/10.1017/s0308210516000457",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Boram Park, Hanchul Park",
                                                                 "title":  "The Betti numbers of real toric varieties associated to Weyl chambers of type B",
                                                                 "venue":  "Chinese Ann. Math. Ser. B.",
                                                                 "details":  "38 (2017), no. 6, 1213\u0026ndash;1222.",
-                                                                "officialLink":  "https://doi.org/10.1007/s11401-017-1032-6"
+                                                                "officialLink":  "https://doi.org/10.1007/s11401-017-1032-6",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Hanchul Park",
                                                                 "title":  "Wedge operations and torus symmetries II",
                                                                 "venue":  "Canad. J. Math.",
                                                                 "details":  "69 (2017), no. 4, 767\u0026ndash;789.",
-                                                                "officialLink":  "https://doi.org/10.4153/cjm-2016-037-4"
+                                                                "officialLink":  "https://doi.org/10.4153/cjm-2016-037-4",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Hanchul Park",
@@ -187,14 +206,16 @@
                                                                 "venue":  "Forum Math.",
                                                                 "details":  "29 (2017), no. 3, 543\u0026ndash;553.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=3641664",
-                                                                "officialLink":  "https://doi.org/10.1515/forum-2016-0025"
+                                                                "officialLink":  "https://doi.org/10.1515/forum-2016-0025",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Hanchul Park",
                                                                 "title":  "Wedge operations and a new family of projective toric manifolds",
                                                                 "venue":  "Israel J. Math.",
                                                                 "details":  "219(1) (2017), 353\u0026ndash;377.",
-                                                                "officialLink":  "https://doi.org/10.1007/s11856-017-1483-1"
+                                                                "officialLink":  "https://doi.org/10.1007/s11856-017-1483-1",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Boram Park, Seonjeong Park",
@@ -203,7 +224,8 @@
                                                                 "venue":  "J. Math. Soc. Japan",
                                                                 "details":  "69(2) (2017), 693\u0026ndash;714.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=3638281",
-                                                                "officialLink":  "https://doi.org/10.2969/jmsj/06920693"
+                                                                "officialLink":  "https://doi.org/10.2969/jmsj/06920693",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Mikiya Masuda, Sang-il Oum",
@@ -212,7 +234,8 @@
                                                                 "venue":  "Trans. Amer. Math. Soc.",
                                                                 "details":  "369 (2017), 2987\u0026ndash;3011.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=3592535",
-                                                                "officialLink":  "https://doi.org/10.1090/tran/6896"
+                                                                "officialLink":  "https://doi.org/10.1090/tran/6896",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Shizuo Kaji, Stephen Theriault",
@@ -221,7 +244,8 @@
                                                                 "venue":  "Bol. Soc. Mat. Mex.",
                                                                 "details":  "(3), 23  (2017), no. 1, 153\u0026ndash;161. (the memorial volume for Professor Gitler)",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=3633130",
-                                                                "officialLink":  "https://doi.org/10.1007/s40590-016-0090-1"
+                                                                "officialLink":  "https://doi.org/10.1007/s40590-016-0090-1",
+                                                                "cvExport":  true
                                                             }
                                                         ]
                                         },
@@ -235,7 +259,8 @@
                                                                 "venue":  "Internat. J. Math.",
                                                                 "details":  "27 (4) (2016), 1650032, 30 pp.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=3491049",
-                                                                "officialLink":  "https://doi.org/10.1142/S0129167X16500324"
+                                                                "officialLink":  "https://doi.org/10.1142/S0129167X16500324",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Hanchul Park",
@@ -244,7 +269,8 @@
                                                                 "venue":  "Tohoku Math. J.",
                                                                 "details":  "(2), 68(1) (2016), 91\u0026ndash;138.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=3476138",
-                                                                "officialLink":  "https://doi.org/10.2748/tmj/1458248864"
+                                                                "officialLink":  "https://doi.org/10.2748/tmj/1458248864",
+                                                                "cvExport":  true
                                                             }
                                                         ]
                                         },
@@ -258,7 +284,8 @@
                                                                 "venue":  "Proc. Edinb. Math. Soc.",
                                                                 "details":  "(2), 58(3) (2015), 653\u0026ndash;659.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=3391366",
-                                                                "officialLink":  "https://doi.org/10.1017/s0013091514000121"
+                                                                "officialLink":  "https://doi.org/10.1017/s0013091514000121",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Mikiya Masuda, Satoshi Murai",
@@ -267,7 +294,8 @@
                                                                 "venue":  "Algebr. Geom. Topol.",
                                                                 "details":  "15(2) (2015), 965\u0026ndash;986.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=3342682",
-                                                                "officialLink":  "https://doi.org/10.2140/agt.2015.15.965"
+                                                                "officialLink":  "https://doi.org/10.2140/agt.2015.15.965",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Hanchul Park",
@@ -276,7 +304,8 @@
                                                                 "venue":  "J. Math. Soc. Japan",
                                                                 "details":  "67(2) (2015), 699-720.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=3340192",
-                                                                "officialLink":  "https://doi.org/10.2969/jmsj/06720699"
+                                                                "officialLink":  "https://doi.org/10.2969/jmsj/06720699",
+                                                                "cvExport":  true
                                                             }
                                                         ]
                                         },
@@ -290,7 +319,8 @@
                                                                 "venue":  "Algebr. Geom. Topol.",
                                                                 "details":  "13(6) (2013), 3639\u0026ndash;3649.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=3248743",
-                                                                "officialLink":  "https://doi.org/10.2140/agt.2013.13.3639"
+                                                                "officialLink":  "https://doi.org/10.2140/agt.2013.13.3639",
+                                                                "cvExport":  true
                                                             }
                                                         ]
                                         },
@@ -304,7 +334,8 @@
                                                                 "venue":  "J. Symplectic Geom.",
                                                                 "details":  "10(3) (2012), 447\u0026ndash;462.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=2983437",
-                                                                "officialLink":  "https://doi.org/10.4310/jsg.2012.v10.n3.a4"
+                                                                "officialLink":  "https://doi.org/10.4310/jsg.2012.v10.n3.a4",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Dong Youp Suh",
@@ -313,7 +344,8 @@
                                                                 "venue":  "Bull. Korean Math. Soc.",
                                                                 "details":  "49(4) (2012), 761\u0026ndash;765.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=2978415",
-                                                                "officialLink":  "https://doi.org/10.4134/bkms.2012.49.4.761"
+                                                                "officialLink":  "https://doi.org/10.4134/bkms.2012.49.4.761",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Seonjeong Park, Dong Youp Suh",
@@ -322,7 +354,8 @@
                                                                 "venue":  "Pacific J. Math.",
                                                                 "details":  "256(1) (2012), 19\u0026ndash;49.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=2928539",
-                                                                "officialLink":  "https://doi.org/10.2140/pjm.2012.256.19"
+                                                                "officialLink":  "https://doi.org/10.2140/pjm.2012.256.19",
+                                                                "cvExport":  true
                                                             }
                                                         ]
                                         },
@@ -336,7 +369,8 @@
                                                                 "venue":  "Proc. Steklov Inst. Math.",
                                                                 "details":  "275 (2011), 177\u0026ndash;190.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=2962979",
-                                                                "officialLink":  "https://doi.org/10.1134/s0081543811080128"
+                                                                "officialLink":  "https://doi.org/10.1134/s0081543811080128",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Shintaro Kuroki",
@@ -345,7 +379,8 @@
                                                                 "venue":  "Algebr. Geom. Topol.",
                                                                 "details":  "11(5) (2011), 2655\u0026ndash;2679.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=2846908",
-                                                                "officialLink":  "https://doi.org/10.2140/agt.2011.11.2655"
+                                                                "officialLink":  "https://doi.org/10.2140/agt.2011.11.2655",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Jang Soo Kim",
@@ -354,7 +389,8 @@
                                                                 "venue":  "Int. Math. Res. Not. IMRN.",
                                                                 "details":  "2011(8), (2011), 1935\u0026ndash;1951.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=2806527",
-                                                                "officialLink":  "https://doi.org/10.1093/imrn/rnq143"
+                                                                "officialLink":  "https://doi.org/10.1093/imrn/rnq143",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Dong Youp Suh",
@@ -363,7 +399,8 @@
                                                                 "venue":  "Algebr. Geom. Topol.",
                                                                 "details":  "11(2), (2011), 1053\u0026ndash;1076.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=2792373",
-                                                                "officialLink":  "https://doi.org/10.2140/agt.2011.11.1053"
+                                                                "officialLink":  "https://doi.org/10.2140/agt.2011.11.1053",
+                                                                "cvExport":  true
                                                             }
                                                         ]
                                         },
@@ -377,7 +414,8 @@
                                                                 "venue":  "J. London Math. Soc.",
                                                                 "details":  "82(2),  (2010), 343\u0026ndash;360.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=2725043",
-                                                                "officialLink":  "https://doi.org/10.1112/jlms/jdq022"
+                                                                "officialLink":  "https://doi.org/10.1112/jlms/jdq022",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi",
@@ -386,7 +424,8 @@
                                                                 "venue":  "Proc. Japan Acad.",
                                                                 "details":  "86, Ser. A. (2010), no.6, 97\u0026ndash;100.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=2680832",
-                                                                "officialLink":  "https://doi.org/10.3792/pjaa.86.97"
+                                                                "officialLink":  "https://doi.org/10.3792/pjaa.86.97",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Jang Soo Kim",
@@ -395,7 +434,8 @@
                                                                 "venue":  "Electron. J. Combin.",
                                                                 "details":  "17(1) (2010), #R9.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=2578904",
-                                                                "officialLink":  "https://doi.org/10.37236/281"
+                                                                "officialLink":  "https://doi.org/10.37236/281",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Mikiya Masuda, Dong Youp Suh",
@@ -404,7 +444,8 @@
                                                                 "venue":  "Trans. Amer. Math. Soc.",
                                                                 "details":  "362 (2010), 1097\u0026ndash;1112.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=2551516",
-                                                                "officialLink":  "https://doi.org/10.1090/s0002-9947-09-04970-8"
+                                                                "officialLink":  "https://doi.org/10.1090/s0002-9947-09-04970-8",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Mikiya Masuda, Dong Youp Suh",
@@ -413,7 +454,8 @@
                                                                 "venue":  "Osaka J. Math.",
                                                                 "details":  "47 (2010), 109\u0026ndash;129.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=2666127",
-                                                                "officialLink":  "https://projecteuclid.org/journals/osaka-journal-of-mathematics/volume-47/issue-1/Quasitoric-manifolds-over-a-product-of-simplices/ojm/1266586788.full"
+                                                                "officialLink":  "https://projecteuclid.org/journals/osaka-journal-of-mathematics/volume-47/issue-1/Quasitoric-manifolds-over-a-product-of-simplices/ojm/1266586788.full",
+                                                                "cvExport":  true
                                                             }
                                                         ]
                                         },
@@ -427,7 +469,8 @@
                                                                 "venue":  "Algebr. Geom. Topol.",
                                                                 "details":  "8(4) (2008), 2391\u0026ndash;2399.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=2465745",
-                                                                "officialLink":  "https://doi.org/10.2140/agt.2008.8.2391"
+                                                                "officialLink":  "https://doi.org/10.2140/agt.2008.8.2391",
+                                                                "cvExport":  true
                                                             }
                                                         ]
                                         }
@@ -444,7 +487,8 @@
                                                                 "title":  "Shape-Aware Topological Representation for Pipeline Hyperbola Detection in GPR Data",
                                                                 "venue":  "IEEE Sens. J.",
                                                                 "details":  "26(3) (2026), 4313-4325",
-                                                                "officialLink":  "https://doi.org/10.1109/jsen.2025.3642308"
+                                                                "officialLink":  "https://doi.org/10.1109/jsen.2025.3642308",
+                                                                "cvExport":  true
                                                             }
                                                         ]
                                         },
@@ -454,16 +498,18 @@
                                                             {
                                                                 "authors":  "Hee-Hwan Ryu, Suyoung Choi, Eun-Soo Hong, Shin Kyu Choi",
                                                                 "title":  "Prediction of steel tower foundation specifications using non-destructive testing method",
-                                                                "officialLink":  "https://www.techno-press.org/content/?page=article&journal=gae&volume=41&num=2&ordernum=13",
+                                                                "officialLink":  "https://www.techno-press.org/content/?page=article\u0026journal=gae\u0026volume=41\u0026num=2\u0026ordernum=13",
                                                                 "venue":  "Geomech. Eng.",
-                                                                "details":  "41(2), (2025), 287\u0026ndash;295."
+                                                                "details":  "41(2), (2025), 287\u0026ndash;295.",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Hee-Hwan Ryu, Suyoung Choi, Song-Hun Chong, Tae-Young Kim, Jiyun Lee, Meiyan Kang",
                                                                 "title":  "Machine learning-based prediction of underground utility counts using electrical resistance numerical data",
-                                                                "officialLink":  "https://www.techno-press.org/content/?page=article&journal=gae&volume=41&num=1&ordernum=3",
+                                                                "officialLink":  "https://www.techno-press.org/content/?page=article\u0026journal=gae\u0026volume=41\u0026num=1\u0026ordernum=3",
                                                                 "venue":  "Geomech. Eng.",
-                                                                "details":  "41(1), (2025), 11\u0026ndash;19."
+                                                                "details":  "41(1), (2025), 11\u0026ndash;19.",
+                                                                "cvExport":  true
                                                             }
                                                         ]
                                         },
@@ -473,16 +519,18 @@
                                                             {
                                                                 "authors":  "Tae-Young Kim, Hee-Hwan Ryu, Meiyan Kang, Suyoung Choi, Song-Hun Chong",
                                                                 "title":  "Effect of geometry of underground structure and electrode on electrical resistance measurement: A numerical study",
-                                                                "officialLink":  "https://www.techno-press.org/content/?page=article&journal=gae&volume=39&num=1&ordernum=8",
+                                                                "officialLink":  "https://www.techno-press.org/content/?page=article\u0026journal=gae\u0026volume=39\u0026num=1\u0026ordernum=8",
                                                                 "venue":  "Geomech. Eng.",
-                                                                "details":  "39(1), (2024), pp. 105-113."
+                                                                "details":  "39(1), (2024), pp. 105-113.",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Jiyun Lee, Kyuwon Kim, Meiyan Kang, Eun-Soo Hong, Suyoung Choi",
                                                                 "title":  "Void detection for Tunnel Lining Backfill using Impact-Echo Method based on Continuous Wavelet Transform and Convolutional Neural Network",
-                                                                "officialLink":  "https://www.techno-press.org/content/?page=article&journal=gae&volume=36&num=1&ordernum=1",
+                                                                "officialLink":  "https://www.techno-press.org/content/?page=article\u0026journal=gae\u0026volume=36\u0026num=1\u0026ordernum=1",
                                                                 "venue":  "Geomech. Eng.",
-                                                                "details":  "36(1), (2024), pp. 1-8 ."
+                                                                "details":  "36(1), (2024), pp. 1-8 .",
+                                                                "cvExport":  true
                                                             }
                                                         ]
                                         },
@@ -494,14 +542,16 @@
                                                                 "title":  "Who Has Given up on Mathematics? A data analysis",
                                                                 "venue":  "Asia Pac. Educ. Rev.",
                                                                 "details":  "(2021) 22:699\u0026ndash;714",
-                                                                "officialLink":  "https://doi.org/10.1007/s12564-021-09709-6"
+                                                                "officialLink":  "https://doi.org/10.1007/s12564-021-09709-6",
+                                                                "cvExport":  true
                                                             },
                                                             {
                                                                 "authors":  "Suyoung Choi, Ahyun Goo, Ho Kyoung Ko",
                                                                 "title":  "The Case of Polymath Activities Using Collective Intelligence",
                                                                 "officialLink":  "https://koreascience.kr/article/JAKO202126048643471.page",
                                                                 "venue":  "East Asian Math. J.",
-                                                                "details":  "37 (2021), No. 4, 523\u0026ndash;541"
+                                                                "details":  "37 (2021), No. 4, 523\u0026ndash;541",
+                                                                "cvExport":  false
                                                             }
                                                         ]
                                         },
@@ -513,7 +563,8 @@
                                                                 "title":  "Elementary school students who give up on learning mathematics: Correlations with non-cognitive learner characteristics",
                                                                 "officialLink":  "https://koreascience.kr/article/JAKO201718054545544.do",
                                                                 "venue":  "J. Korea Soc. Math. Ed. Ser. C",
-                                                                "details":  "20 (2017), No. 2, 143\u0026ndash;151."
+                                                                "details":  "20 (2017), No. 2, 143\u0026ndash;151.",
+                                                                "cvExport":  false
                                                             }
                                                         ]
                                         }
@@ -528,13 +579,13 @@
                                              "venue":  "The 2024 World Congress on Advances in Civil, Environmental, and Materials Research (ACEM24)",
                                              "details":  "."
                                          },
-                                        {
-                                            "authors":  "Suyoung Choi, Hyeontae Jang, Mathieu Vallee",
-                                            "title":  "GPU Algorithm for Enumerating PL Spheres of Picard Number 4: Application to Toric Topology",
-                                            "officialLink":  "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SoCG.2024.41",
-                                            "venue":  "40th International Symposium on Computational Geometry (SoCG 2024)",
-                                            "details":  "Leibniz International Proceedings in Informatics (LIPIcs), 293, pp. 41:1-41:15."
-                                        }
+                                         {
+                                             "authors":  "Suyoung Choi, Hyeontae Jang, Mathieu Vallee",
+                                             "title":  "GPU Algorithm for Enumerating PL Spheres of Picard Number 4: Application to Toric Topology",
+                                             "officialLink":  "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SoCG.2024.41",
+                                             "venue":  "40th International Symposium on Computational Geometry (SoCG 2024)",
+                                             "details":  "Leibniz International Proceedings in Informatics (LIPIcs), 293, pp. 41:1-41:15."
+                                         }
                                      ]
                      },
                      {

@@ -1019,6 +1019,14 @@
         applyFilter();
       })();
 
+      (function () {
+        const triggers = Array.from(document.querySelectorAll('[data-print-cv]'));
+        if (!triggers.length) return;
+        triggers.forEach((button) => {
+          button.addEventListener('click', () => window.print());
+        });
+      })();
+
     </script>
   </body>
 </html>

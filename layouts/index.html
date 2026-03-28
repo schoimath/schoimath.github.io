@@ -9,6 +9,7 @@
         <li><strong>Email</strong> {{ site.Params.email }}</li>
         <li><strong>Phone</strong> {{ site.Params.phone }}</li>
         <li><strong>Location</strong> {{ site.Params.location }}</li>
+        <li class="hero-export-link"><a href="{{ "cv-export/" | relURL }}">CV Export (Print/PDF)</a></li>
       </ul>
     </div>
     <div class="hero-photo-wrap">
@@ -27,7 +28,9 @@
       {{ else }}
       {{ readFile (printf "layouts/partials/sections/%s.html" .Params.sectionFile) | safeHTML }}
       {{ end }}
+      {{ if not .Params.hideLastUpdated }}
       <p class="last-updated">Last updated: {{ now.Format "Jan 2, 2006" }}</p>
+      {{ end }}
     </article>
   </main>
 </div>

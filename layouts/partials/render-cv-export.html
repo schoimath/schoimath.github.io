@@ -1,0 +1,125 @@
+<div class="cv-export-actions">
+  <button type="button" class="current-filter-toggle" data-print-cv>Print / Save as PDF</button>
+</div>
+
+<section class="cv-export-paper">
+  <header class="cv-export-header">
+    <div class="cv-export-headline">
+      <p class="cv-export-kicker">Curriculum Vitae</p>
+      <h1>{{ or site.Params.author site.Title }}</h1>
+      <p class="cv-export-contact">
+        {{ site.Params.affiliation }} | {{ site.Params.location }}<br>
+        Email: {{ site.Params.email }} | Tel: {{ site.Params.phone }}<br>
+        Website: https://schoimath.github.io
+      </p>
+    </div>
+  </header>
+
+  {{ $cvSections := site.Data.cv.sections }}
+
+  {{ range $cvSections }}
+    {{ if eq .title "Research Interests" }}
+    <section class="cv-export-section">
+    <h3>Research Interests</h3>
+    <ul>
+      {{ range .entries }}
+      <li>{{ . | markdownify }}</li>
+      {{ end }}
+    </ul>
+    </section>
+    {{ end }}
+  {{ end }}
+
+  {{ $cvExpTitles := slice "Affiliation" "Leadership & Administrative Roles" "Professional Service" }}
+  {{ range $targetTitle := $cvExpTitles }}
+    {{ range $cvSections }}
+      {{ if eq .title $targetTitle }}
+      <section class="cv-export-section">
+      <h3>{{ .title }}</h3>
+      <ul>
+        {{ range .positions }}
+          {{ if .cvExport }}
+          {{ $periodText := "" }}
+          {{ with .start }}{{ $periodText = . }}{{ end }}
+          {{ with .end }}
+            {{ if $periodText }}
+              {{ $periodText = printf "%s-%s" $periodText . }}
+            {{ else }}
+              {{ $periodText = . }}
+            {{ end }}
+          {{ end }}
+          <li><strong>{{ .role | markdownify | plainify }}</strong> | {{ .institution | markdownify | plainify }} | {{ $periodText }}</li>
+          {{ end }}
+        {{ end }}
+      </ul>
+      </section>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ range $cvSections }}
+    {{ if eq .title "Education" }}
+    <section class="cv-export-section">
+    <h3>Education</h3>
+    <ul>
+      {{ range .educationItems }}
+      {{ if .cvExport }}
+      {{ $periodText := "" }}
+      {{ with .start }}{{ $periodText = . }}{{ end }}
+      {{ with .end }}
+        {{ if $periodText }}
+          {{ $periodText = printf "%s-%s" $periodText . }}
+        {{ else }}
+          {{ $periodText = . }}
+        {{ end }}
+      {{ end }}
+      <li><strong>{{ .school }}</strong> | {{ with .degree }}{{ . | markdownify | plainify }} | {{ end }}{{ $periodText }}</li>
+      {{ end }}
+      {{ end }}
+    </ul>
+    </section>
+    {{ end }}
+  {{ end }}
+
+  <section class="cv-export-section cv-export-publications">
+  <h3>Selected Publications</h3>
+  {{ range site.Data.publications.sections }}
+    {{ if or (eq .title "Mathematics") (eq .title "Applied Mathematics") }}
+    <div class="cv-export-subsection">
+    <h4>{{ .title }}</h4>
+    <ol class="cv-export-numbered">
+      {{ range .groups }}
+        {{ range .entries }}
+          {{ if .cvExport }}
+          <li>
+            {{ .authors }},
+            <em>{{ .title }}</em>,
+            <strong>{{ .venue }}</strong>,
+            {{ .details | safeHTML }}
+          </li>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </ol>
+    </div>
+    {{ end }}
+  {{ end }}
+  </section>
+
+  {{ range $cvSections }}
+    {{ if eq .title "Awards" }}
+    <section class="cv-export-section">
+    <h3>Selected Awards</h3>
+    <ul>
+      {{ range .awardItems }}
+      {{ if .cvExport }}
+      <li><strong>{{ .name | markdownify | plainify }}</strong> | {{ .organization | markdownify | plainify }} | {{ .date }}</li>
+      {{ end }}
+      {{ end }}
+    </ul>
+    </section>
+    {{ end }}
+  {{ end }}
+
+  <p class="cv-export-generated">Generated from website data on {{ now.Format "Jan 2, 2006" }}.</p>
+</section>

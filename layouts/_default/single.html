@@ -16,7 +16,9 @@
       {{ else }}
       {{ readFile (printf "layouts/partials/sections/%s.html" .Params.sectionFile) | safeHTML }}
       {{ end }}
+      {{ if not .Params.hideLastUpdated }}
       <p class="last-updated">Last updated: {{ now.Format "Jan 2, 2006" }}</p>
+      {{ end }}
     </article>
   </main>
 </div>
