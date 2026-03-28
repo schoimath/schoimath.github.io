@@ -101,6 +101,12 @@
           return `/talks/images/${talkId}/${photo}`;
         };
 
+        const buildThumbUrl = (talkId, photo) => {
+          if (!photo) return '';
+          if (photo.startsWith('/') || photo.startsWith('http://') || photo.startsWith('https://')) return photo;
+          return `/talks/images/${talkId}/thumbs/${photo}`;
+        };
+
         const closeInlineViewer = (item) => {
           const viewer = item.querySelector('.talk-photo-viewer');
           if (!viewer) return;
@@ -148,6 +154,7 @@
 
           entry.photos.slice(0, 4).forEach((photo) => {
             const src = buildPhotoUrl(entry.talkId, photo);
+            const thumb = buildThumbUrl(entry.talkId, photo);
             if (!src) return;
 
             const button = document.createElement('button');
@@ -161,9 +168,12 @@
             button.style.display = 'inline-block';
 
             const image = document.createElement('img');
-            image.src = src;
+            image.src = thumb || src;
             image.alt = `Talk photo`;
             image.loading = 'lazy';
+            image.onerror = () => {
+              if (image.src !== src) image.src = src;
+            };
             image.style.width = '100%';
             image.style.height = '100%';
             image.style.objectFit = 'cover';
