@@ -294,6 +294,34 @@ a {
   grid-column: 2;
 }
 
+.publication-extra-link {
+  display: inline-flex;
+  margin-left: 0.18rem;
+  vertical-align: middle;
+}
+
+.publication-ms-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface-strong);
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.publication-ms-icon:hover {
+  color: var(--ink);
+  border-color: #bfd0df;
+  background: var(--surface);
+}
+
 .publication-item p {
   margin: 0;
 }

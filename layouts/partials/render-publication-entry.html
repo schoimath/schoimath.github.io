@@ -7,6 +7,27 @@
 {{- else if $entry.citationHtml -}}
 {{- $entry.citationHtml | safeHTML -}}
 {{- else -}}
+{{- $officialLink := "" -}}
+{{- $mathscinetLink := "" -}}
+{{- with $entry.officialLink -}}
+  {{- $officialLink = . -}}
+{{- end -}}
+{{- with $entry.mathscinetLink -}}
+  {{- $mathscinetLink = . -}}
+{{- end -}}
+{{- with $entry.titleLink -}}
+  {{- if and (eq $officialLink "") (eq $mathscinetLink "") -}}
+    {{- if in (lower .) "mathscinet" -}}
+      {{- $mathscinetLink = . -}}
+    {{- else -}}
+      {{- $officialLink = . -}}
+    {{- end -}}
+  {{- else if and (eq $officialLink "") (not (in (lower .) "mathscinet")) -}}
+    {{- $officialLink = . -}}
+  {{- else if and (eq $mathscinetLink "") (in (lower .) "mathscinet") -}}
+    {{- $mathscinetLink = . -}}
+  {{- end -}}
+{{- end -}}
 <span class="publication-authors">
   {{- $authors := split $entry.authors "," -}}
   {{- range $index, $rawAuthor := $authors -}}
@@ -30,7 +51,7 @@
     </span>
   {{- end -}}
 </span>,
-<em>{{- if $entry.titleLink -}}<a href="{{ $entry.titleLink }}">{{ $entry.title | safeHTML }}</a>{{- else -}}{{ $entry.title | safeHTML }}{{- end -}}</em>
+<em>{{- if $officialLink -}}<a href="{{ $officialLink }}">{{ $entry.title | safeHTML }}</a>{{- else -}}{{ $entry.title | safeHTML }}{{- end -}}</em>
 {{- with $entry.venue -}}
   {{- $rawVenue := . -}}
   {{- $journal := index $journalData $rawVenue -}}
@@ -52,6 +73,13 @@
   </strong>
 {{- end -}}
 {{- with $entry.details -}}, {{ . | safeHTML }}{{- end -}}
+{{- with $mathscinetLink -}}
+<span class="publication-extra-link">
+  <a class="publication-ms-icon" href="{{ . }}" aria-label="MathSciNet Review" title="MathSciNet Review">
+    <span aria-hidden="true">MR</span>
+  </a>
+</span>
+{{- end -}}
 {{- with $entry.note -}}<span class="publication-note"> {{ . | safeHTML }}</span>{{- end -}}
 {{- end -}}
 {{- else -}}

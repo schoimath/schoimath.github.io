@@ -10,7 +10,7 @@
   "Shizuo Kaji": { "id": "shizuo-kaji", "name": "Shizuo Kaji", "sortName": "Kaji, Shizuo", "url": "https://www.skaji.org/" },
   "Younghan Yoon": { "id": "younghan-yoon", "name": "Younghan Yoon", "sortName": "Yoon, Younghan", "url": "https://sites.google.com/view/younghan-yoon" },
   "Seonjeong Park": { "id": "seonjeong-park", "name": "Seonjeong Park", "sortName": "Park, Seonjeong", "url": "https://sites.google.com/site/seonjeong1124/" },
-  "Song-Hun Chong": { "id": "song-hun-chong", "name": "Song-Hun Chong", "sortName": "Chong, Song-Hun" },
+  "Song-Hun Chong": { "id": "song-hun-chong", "name": "Song-Hun Chong", "sortName": "Chong, Song-Hun", "url": "https://songhunchong.wixsite.com/scnugeolab/about-1" },
   "Tae-Young Kim": { "id": "tae-young-kim", "name": "Tae-Young Kim", "sortName": "Kim, Tae-Young" },
   "Ho Kyoung Ko": { "id": "ho-kyoung-ko", "name": "Ho Kyoung Ko", "sortName": "Ko, Ho Kyoung" },
   "Jiyun Lee": { "id": "jiyun-lee", "name": "Jiyun Lee", "sortName": "Lee, Jiyun" },
@@ -34,3 +34,4 @@
   "Taegeon Kim": { "id": "taegeon-kim", "name": "Taegeon Kim", "sortName": "Kim, Taegeon" },
   "Taras E. Panov": { "id": "taras-e-panov", "name": "Taras E. Panov", "sortName": "Panov, Taras E.", "url": "http://higeom.math.msu.su/people/taras/english.html" }
 }
+
