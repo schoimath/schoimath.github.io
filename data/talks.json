@@ -66,8 +66,13 @@
                                                                "title_html":  "Rank 시스템을 통한 입학사정관의 자동화 가능성 연구"
                                                            },
                                                            {
-                                                               "event_html":  "Ajou-Kyushu-NIMS Workshop, Ramada Hotel Suwon, Suwon, **Korea**, Sep 28, 2024",
-                                                               "title_html":  "GPU-friendly algorithm for counting PL spheres"
+                                                               "event_html":  "[Ajou-Kyushu-NIMS Workshop](https://sites.google.com/ajou.ac.kr/2024ajou-kyushu-nims/), Ramada Hotel Suwon, Suwon, **Korea**, Sep 28, 2024",
+                                                               "title_html":  "GPU-friendly algorithm for counting PL spheres",
+                                                               "id":  "ajou-kyushu-nims-workshop-2024",
+                                                               "photos":  [
+                                                                              "group.jpg",
+                                                                              "poster.jpg"
+                                                                          ]
                                                            },
                                                            {
                                                                "event_html":  "2024 Dalian International Conference on Mathematics, Dalian Univ. of Technology, Dalian, **China**, Sep 24-28, 2024",
@@ -75,7 +80,11 @@
                                                            },
                                                            {
                                                                "event_html":  "[2024 Combinatorial Workshop](https://cw2024.combinatorics.kr/), Chungbuk National Univ., Cheongju, **Korea**, Aug 28-30, 2024",
-                                                               "title_html":  "Toric Colorability of Simplicial d-Polytopes with d+4 vertices"
+                                                               "title_html":  "Toric Colorability of Simplicial d-Polytopes with d+4 vertices",
+                                                               "id":  "combinatorial-workshop-2024",
+                                                               "photos":  [
+                                                                              "group.jpg"
+                                                                          ]
                                                            },
                                                            {
                                                                "event_html":  "[Workshop on Toric Topology](http://www.fields.utoronto.ca/activities/24-25/toric), Fields Institute for Research in Mathematical Sciences, Toronto, **Canada**, Aug 23, 2024",

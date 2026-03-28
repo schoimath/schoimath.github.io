@@ -115,7 +115,7 @@
           if (activeThumb) activeThumb.classList.remove('is-active');
         };
 
-        const openInlineViewer = (item, src) => {
+        const openInlineViewer = (item, src, thumbSrc) => {
           if (!src) return;
           const current = item.querySelector('.talk-photo-thumb.is-active');
           if (current && current.dataset.fullSrc === src) {
@@ -138,6 +138,11 @@
           image.src = src;
           image.alt = 'Talk photo enlarged';
           image.loading = 'lazy';
+          image.onerror = () => {
+            if (thumbSrc && image.src !== thumbSrc) {
+              image.src = thumbSrc;
+            }
+          };
           viewer.appendChild(image);
 
           item.appendChild(viewer);
@@ -161,6 +166,7 @@
             button.type = 'button';
             button.className = 'talk-photo-thumb';
             button.dataset.fullSrc = src;
+            button.dataset.thumbSrc = thumb || src;
             button.style.width = '112px';
             button.style.height = '84px';
             button.style.overflow = 'hidden';
@@ -337,7 +343,7 @@
           if (!trigger) return;
           const item = trigger.closest('.talk-item');
           if (!item) return;
-          openInlineViewer(item, trigger.dataset.fullSrc);
+          openInlineViewer(item, trigger.dataset.fullSrc, trigger.dataset.thumbSrc);
         });
 
         syncPhotosInContainer(categoryView);
