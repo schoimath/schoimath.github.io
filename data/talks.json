@@ -20,19 +20,41 @@
                                                            },
                                                            {
                                                                "event_html":  "[2025 Summer Workshop on Low-dimensional Topology and Related Topics](https://sites.google.com/view/2025-summer-topology-workshop), Kangwon National Univ., Chuncheon, **Korea**, Aug 11-13, 2025",
-                                                               "title_html":  "Topological classification of Bott manifolds"
+                                                               "title_html":  "Topological classification of Bott manifolds",
+                                                               "id":  "2025-summer-topology-workshop",
+                                                               "photos":  [
+                                                                              "photo-1.jpg",
+                                                                              "photo-2.jpg"
+                                                                          ]
                                                            },
                                                            {
                                                                "event_html":  "[Topological Data Analysis and Industrial Mathematics: Bridging Theory and Applications](https://sites.google.com/view/tda-im-2025/home), Nishijin Plaza, Fukuoka, **Japan**, Aug 5-8, 2025",
-                                                               "title_html":  "Topological Data Analysis for non-destructive testing in Civil engineering"
+                                                               "title_html":  "Topological Data Analysis for non-destructive testing in Civil engineering",
+                                                               "id":  "tda-im-fukuoka-2025",
+                                                               "photos":  [
+                                                                              "group.png",
+                                                                              "poster.png",
+                                                                              "talk.jpg"
+                                                                          ]
                                                            },
                                                            {
-                                                               "event_html":  "Planary talk, 2025 Annual meeting of the Kangwon-Kyungki mathematical society, Kyung Hee Univ., Suwon, **Korea**, Jun 20-21, 2025",
-                                                               "title_html":  "Classification of complete non-singular toric varieties"
+                                                               "event_html":  "Planary talk, [2025 Annual meeting of the Kangwon-Kyungki mathematical society](https://sites.google.com/view/2025-kkms-meeting/home), Kyung Hee Univ., Suwon, **Korea**, Jun 20-21, 2025",
+                                                               "title_html":  "Classification of complete non-singular toric varieties",
+                                                               "id":  "kkms-annual-meeting-2025",
+                                                               "photos":  [
+                                                                              "group.jpg",
+                                                                              "talk.jpg",
+                                                                              "talk-2.jpeg"
+                                                                          ]
                                                            },
                                                            {
-                                                               "event_html":  "The 7th Korea Toric Topology Workshop, KAIST, Daejeon, **Korea**, Feb 17-19, 2025",
-                                                               "title_html":  "Classification of toric manifolds with Picard number 4"
+                                                               "event_html":  "[The 7th Korea Toric Topology Workshop](https://sites.google.com/view/7thkttw/home), KAIST, Daejeon, **Korea**, Feb 17-19, 2025",
+                                                               "title_html":  "Classification of toric manifolds with Picard number 4",
+                                                               "id":  "7th-kttw-2025",
+                                                               "photos":  [
+                                                                              "group.jpg",
+                                                                              "poster.png"
+                                                                          ]
                                                            }
                                                        ]
                                        },
@@ -738,7 +760,11 @@
                                            "entries":  [
                                                            {
                                                                "event_html":  "대한수학회 2026 Young Mathematician Camp, Yonsei Univ., Incheon, **Korea**, Jan 26-29, 2026",
-                                                               "title_html":  "다양체와 다면체의 만남"
+                                                               "title_html":  "다양체와 다면체의 만남",
+                                                               "id":  "kms-young-mathematician-camp-2026",
+                                                               "photos":  [
+                                                                              "2026-ymc.png"
+                                                                          ]
                                                            }
                                                        ]
                                        },
