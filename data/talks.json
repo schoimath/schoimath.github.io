@@ -520,11 +520,19 @@
                                            "entries":  [
                                                            {
                                                                "event_html":  "Invited talk, GIST, Gwangju, **Korea**, Aug 29, 2025",
-                                                               "title_html":  "What shapes can support a toric fan?"
+                                                               "title_html":  "What shapes can support a toric fan?",
+                                                               "id":  "gist-math-week-2025",
+                                                               "photos":  [
+                                                                              "poster.png"
+                                                                          ]
                                                            },
                                                            {
                                                                "event_html":  "Colloquium, Gongju Univ., Gongju, **Korea**, Apr 30, 2025",
-                                                               "title_html":  "분류로의 여행 : 위상수학"
+                                                               "title_html":  "분류로의 여행 : 위상수학",
+                                                               "id":  "gongju-colloquium-2025",
+                                                               "photos":  [
+                                                                              "poster.png"
+                                                                          ]
                                                            },
                                                            {
                                                                "event_html":  "Seminar talk, KICT, Ilsan, **Korea**, Apr 16, 2025",
@@ -772,16 +780,28 @@
                                            "year":  2025,
                                            "entries":  [
                                                            {
-                                                               "event_html":  "2025 불어권협력센터 릴레이세미나, Ajou Univ., Suwon, **Korea**, Dec 11, 2025",
-                                                               "title_html":  "페르마에서 푸앵카레까지 난제의 역사"
+                                                               "event_html":  "[2025 불어권협력센터 릴레이세미나](https://www.ajou.ac.kr/kr/ajou/notice.do;jsessionid=C71DD41766D5C187CCB577F73CFF936A?mode=view&articleNo=359674&article.offset=11160&articleLimit=10), Ajou Univ., Suwon, **Korea**, Dec 11, 2025",
+                                                               "title_html":  "페르마에서 푸앵카레까지 난제의 역사",
+                                                               "id":  "ajou-french-center-relay-seminar-2025",
+                                                               "photos":  [
+                                                                              "poster.jpg"
+                                                                          ]
                                                            },
                                                            {
-                                                               "event_html":  "Special Lecture, Jeonju Univ., Jeonju, **Korea**, Nov 11, 2025",
-                                                               "title_html":  "수학자가 보는 AI"
+                                                               "event_html":  "[Special Lecture, Jeonju Univ.](https://mathedu.jj.ac.kr/mathedu/community/gallery.do?mode=view&articleNo=497842), Jeonju, **Korea**, Nov 11, 2025",
+                                                               "title_html":  "수학자가 보는 AI",
+                                                               "id":  "jeonju-special-lecture-2025",
+                                                               "photos":  [
+                                                                              "photo.jpg"
+                                                                          ]
                                                            },
                                                            {
                                                                "event_html":  "[Topology \u0026 Data: AJOU Graduate Summer School #tda](https://sites.google.com/ajou.ac.kr/ajou-graduate-summerschool-tda/home?authuser=0), Ajou Univ., Suwon, **Korea**, Jul 14-16, 2025",
-                                                               "title_html":  "TDA : topological data analysis"
+                                                               "title_html":  "TDA : topological data analysis",
+                                                               "id":  "ajou-summer-school-tda-2025",
+                                                               "photos":  [
+                                                                              "group.jpg"
+                                                                          ]
                                                            }
                                                        ]
                                        },
