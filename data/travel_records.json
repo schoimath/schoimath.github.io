@@ -305,7 +305,7 @@
                         "country":  "Italy",
                         "city":  "Milan",
                         "arrival":  "2010-09-13",
-                        "departure":  "2010-09-17",
+                        "departure":  "2010-09-15",
                         "purpose":  "Talk - GAF Conference"
                     },
                     {
@@ -360,8 +360,8 @@
                     {
                         "country":  "Japan",
                         "city":  "Kyoto",
-                        "arrival":  "2009-08-17",
-                        "departure":  "2009-08-20",
+                        "arrival":  "2009-08-16",
+                        "departure":  "2009-08-21",
                         "purpose":  "Talk - Transformation Groups from a New Viewpoint"
                     },
                     {
@@ -402,9 +402,9 @@
                     {
                         "country":  "Northern Mariana Islands",
                         "city":  "Saipan",
-                        "arrival":  "",
-                        "departure":  "",
-                        "purpose":  ""
+                        "arrival":  "2007-06-26",
+                        "departure":  "2007-06-30",
+                        "purpose":  "Trip"
                     },
                     {
                         "country":  "Indonesia",
@@ -416,9 +416,9 @@
                     {
                         "country":  "Denmark",
                         "city":  "Copenhagen",
-                        "arrival":  "",
-                        "departure":  "",
-                        "purpose":  ""
+                        "arrival":  "2014-11-09",
+                        "departure":  "2014-11-15",
+                        "purpose":  "Conference-DCAT14"
                     },
                     {
                         "country":  "Japan",
@@ -629,6 +629,97 @@
                         "arrival":  "2013-06-25",
                         "departure":  "2013-07-02",
                         "purpose":  "Conference-RMS-AMS"
+                    },
+                    {
+                        "country":  "Japan",
+                        "city":  "Osaka",
+                        "arrival":  "2009-03-23",
+                        "departure":  "2009-03-27",
+                        "purpose":  "Research Visiting"
+                    },
+                    {
+                        "country":  "Japan",
+                        "city":  "Osaka",
+                        "arrival":  "2007-01-22",
+                        "departure":  "2007-02-03",
+                        "purpose":  "Research Visiting"
+                    },
+                    {
+                        "country":  "China",
+                        "city":  "Shanghai",
+                        "arrival":  "2008-01-28",
+                        "departure":  "2008-02-03",
+                        "purpose":  "Research Visiting"
+                    },
+                    {
+                        "country":  "Austria",
+                        "city":  "Vienna",
+                        "arrival":  "2010-09-15",
+                        "departure":  "2010-09-16",
+                        "purpose":  "Trip"
+                    },
+                    {
+                        "country":  "China",
+                        "city":  "Shanghai",
+                        "arrival":  "2012-01-08",
+                        "departure":  "2012-01-16",
+                        "purpose":  "Research Visiting"
+                    },
+                    {
+                        "country":  "Japan",
+                        "city":  "Yamaguchi",
+                        "arrival":  "2016-02-16",
+                        "departure":  "2016-02-19",
+                        "purpose":  "Research Visiting"
+                    },
+                    {
+                        "country":  "Japan",
+                        "city":  "Fukuoka",
+                        "arrival":  "2018-12-20",
+                        "departure":  "2018-12-24",
+                        "purpose":  "Research Visiting"
+                    },
+                    {
+                        "country":  "Japan",
+                        "city":  "Fukuoka",
+                        "arrival":  "2018-04-18",
+                        "departure":  "2018-04-20",
+                        "purpose":  "Research Visiting"
+                    },
+                    {
+                        "country":  "Japan",
+                        "city":  "Yamaguchi",
+                        "arrival":  "2016-11-15",
+                        "departure":  "2016-11-19",
+                        "purpose":  "Research Visiting"
+                    },
+                    {
+                        "country":  "Japan",
+                        "city":  "Osaka",
+                        "arrival":  "2014-12-02",
+                        "departure":  "2014-12-05",
+                        "purpose":  "Research Visiting"
+                    },
+                    {
+                        "country":  "Japan",
+                        "city":  "Kyoto",
+                        "arrival":  "2018-01-09",
+                        "departure":  "2018-01-13",
+                        "purpose":  "���翬��"
+                    },
+                    {
+                        "country":  "Japan",
+                        "city":  "Osaka",
+                        "arrival":  "2006-05-28",
+                        "departure":  "2006-06-03",
+                        "purpose":  "Conference"
+                    },
+                    {
+                        "country":  "China",
+                        "city":  "Shanghai",
+                        "arrival":  "2006-07-28",
+                        "departure":  "2006-08-03",
+                        "purpose":  "Trip"
                     }
                 ]
 }
