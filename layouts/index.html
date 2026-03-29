@@ -9,7 +9,11 @@
         <li><strong>Email</strong> {{ site.Params.email }}</li>
         <li><strong>Phone</strong> {{ site.Params.phone }}</li>
         <li><strong>Location</strong> {{ site.Params.location }}</li>
-        <li class="hero-export-link"><a href="{{ "cv-export/" | relURL }}">CV Export (Print/PDF)</a></li>
+        <li class="hero-export-link">
+          <a href="{{ "cv-export/" | relURL }}">CV Export (Print/PDF)</a>
+          <span class="hero-export-sep">|</span>
+          <a href="{{ "travel/" | relURL }}">Travel Log</a>
+        </li>
       </ul>
     </div>
     <div class="hero-photo-wrap">

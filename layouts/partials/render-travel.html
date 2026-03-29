@@ -1,0 +1,403 @@
+{{ $visited := .visited }}
+<p class="section-note">{{ .intro }}</p>
+<h3>Travel Records</h3>
+<p class="section-note">Total records: <strong data-travel-total-count>0</strong></p>
+
+{{ $continents := slice "All" "Asia" "Europe" "North America" "South America" "Oceania" "Africa" }}
+<div class="travel-filter" role="tablist" aria-label="Filter by continent">
+  {{ range $i, $continent := $continents }}
+  <button type="button" class="travel-filter-button{{ if eq $continent "All" }} is-active{{ end }}" data-travel-continent="{{ $continent }}" aria-pressed="{{ if eq $continent "All" }}true{{ else }}false{{ end }}">{{ $continent }}</button>
+  {{ end }}
+</div>
+
+<div class="travel-map-wrap">
+  <div id="travel-map" class="travel-map" aria-label="Visited countries world map"></div>
+</div>
+
+<h3>Countries <span class="dynamic-count" data-travel-country-count>(0)</span></h3>
+<div class="travel-country-pills" data-travel-country-pills></div>
+
+<h3>Visit List <span class="dynamic-count" data-travel-record-count>(0)</span></h3>
+<div class="travel-record-list" data-travel-record-list></div>
+
+<script id="travel-base-countries" type="application/json">{{ $visited | jsonify | safeHTML }}</script>
+<script id="travel-records-data" type="application/json">{{ site.Data.travel_records.records | jsonify | safeHTML }}</script>
+
+<script>
+  (function () {
+    const mapNode = document.getElementById('travel-map');
+    const baseCountriesNode = document.getElementById('travel-base-countries');
+    const recordsDataNode = document.getElementById('travel-records-data');
+    const countryPillsNode = document.querySelector('[data-travel-country-pills]');
+    const recordListNode = document.querySelector('[data-travel-record-list]');
+    const countryCountNode = document.querySelector('[data-travel-country-count]');
+    const recordCountNode = document.querySelector('[data-travel-record-count]');
+    const totalCountNode = document.querySelector('[data-travel-total-count]');
+    if (!mapNode || !baseCountriesNode || !recordsDataNode || !countryPillsNode || !recordListNode) return;
+
+    const parseJson = (node) => {
+      try {
+        const parsed = JSON.parse(node.textContent || '[]');
+        if (typeof parsed === 'string') return JSON.parse(parsed);
+        return parsed;
+      } catch (_) {
+        return [];
+      }
+    };
+
+    const normalizeIsoDate = (value) => {
+      const raw = String(value || '').trim();
+      if (!raw) return '';
+      let m = raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (m) return `${m[1]}-${m[2]}-${m[3]}`;
+      m = raw.match(/^(\d{4})\/(\d{2})\/(\d{2})$/);
+      if (m) return `${m[1]}-${m[2]}-${m[3]}`;
+      return '';
+    };
+
+    const baseCountries = parseJson(baseCountriesNode);
+    const rawRecords = parseJson(recordsDataNode);
+    const isoByName = new Map();
+    const continentByIso = new Map();
+
+    baseCountries.forEach((c) => {
+      if (!c || !c.iso3) return;
+      const key = String(c.name || '').toLowerCase();
+      isoByName.set(key, c.iso3);
+      continentByIso.set(c.iso3, c.continent || '');
+      if (c.iso3 === 'GBR') {
+        isoByName.set('uk', 'GBR');
+        isoByName.set('united kingdom', 'GBR');
+      }
+      if (c.iso3 === 'USA') isoByName.set('usa', 'USA');
+      if (c.iso3 === 'RUS') isoByName.set('russian federation', 'RUS');
+      if (c.iso3 === 'MNP') {
+        isoByName.set('northern mariana islands', 'MNP');
+        isoByName.set('saipan', 'MNP');
+      }
+      if (c.iso3 === 'KOR') {
+        isoByName.set('rep. of korea', 'KOR');
+        isoByName.set('republic of korea', 'KOR');
+      }
+    });
+
+    const monthName = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const cityCoords = {
+      'krakow': { lat: 50.0647, lon: 19.9450 },
+      'fukuoka': { lat: 33.5902, lon: 130.4017 },
+      'dalian': { lat: 38.9140, lon: 121.6147 },
+      'toronto': { lat: 43.6532, lon: -79.3832 },
+      'bath': { lat: 51.3813, lon: -2.3590 },
+      'chiba': { lat: 35.6073, lon: 140.1063 },
+      'st petersburg': { lat: 59.9343, lon: 30.3351 },
+      'hanoi': { lat: 21.0278, lon: 105.8342 },
+      'okayama': { lat: 34.6551, lon: 133.9195 },
+      'chengdu': { lat: 30.5728, lon: 104.0668 },
+      'cluj-napoca': { lat: 46.7712, lon: 23.6236 },
+      'moscow': { lat: 55.7558, lon: 37.6173 },
+      'rio de janeiro': { lat: -22.9068, lon: -43.1729 },
+      'catania': { lat: 37.5079, lon: 15.0830 },
+      'edinburg tx': { lat: 26.3017, lon: -98.1633 },
+      'london on': { lat: 42.9849, lon: -81.2453 },
+      'princeton nj': { lat: 40.3573, lon: -74.6672 },
+      'new york': { lat: 40.7128, lon: -74.0060 },
+      'new york ny': { lat: 40.7128, lon: -74.0060 },
+      'boston': { lat: 42.3601, lon: -71.0589 },
+      'boston ma': { lat: 42.3601, lon: -71.0589 },
+      'bucharest': { lat: 44.4268, lon: 26.1025 },
+      'osaka': { lat: 34.6937, lon: 135.5023 },
+      'shanghai': { lat: 31.2304, lon: 121.4737 },
+      'brussels': { lat: 50.8503, lon: 4.3517 },
+      'antwerp': { lat: 51.2194, lon: 4.4025 },
+      'chiang mai': { lat: 18.7883, lon: 98.9853 },
+      'beijing': { lat: 39.9042, lon: 116.4074 },
+      'regina sk': { lat: 50.4452, lon: -104.6189 },
+      'southampton': { lat: 50.9097, lon: -1.4044 },
+      'pisa': { lat: 43.7228, lon: 10.4017 },
+      'khabarovsk': { lat: 48.4808, lon: 135.0928 },
+      'minneapolis mn': { lat: 44.9778, lon: -93.2650 },
+      'lawrenceville nj': { lat: 40.2973, lon: -74.7296 },
+      'belfast': { lat: 54.5973, lon: -5.9301 },
+      'bonn': { lat: 50.7374, lon: 7.0982 },
+      'kyoto': { lat: 35.0116, lon: 135.7681 },
+      'kyushu': { lat: 33.5902, lon: 130.4017 },
+      'banff ab': { lat: 51.1784, lon: -115.5708 },
+      'fribourg': { lat: 46.8065, lon: 7.1610 },
+      'milan': { lat: 45.4642, lon: 9.1900 },
+      'paris': { lat: 48.8566, lon: 2.3522 },
+      'rome': { lat: 41.9028, lon: 12.4964 },
+      'himeji': { lat: 34.8151, lon: 134.6853 },
+      'tokyo': { lat: 35.6762, lon: 139.6503 },
+      'shijiazhuang': { lat: 38.0428, lon: 114.5149 },
+      'bratislava': { lat: 48.1486, lon: 17.1077 },
+      'saipan': { lat: 15.1778, lon: 145.7500 },
+      'bali': { lat: -8.4095, lon: 115.1889 },
+      'alba lulia': { lat: 46.0667, lon: 23.5833 },
+      'alba iulia': { lat: 46.0667, lon: 23.5833 },
+      'bern': { lat: 46.9480, lon: 7.4474 },
+      'copenhagen': { lat: 55.6761, lon: 12.5683 },
+      'cophenhagen': { lat: 55.6761, lon: 12.5683 },
+      'firenze': { lat: 43.7696, lon: 11.2558 },
+      'hong kong': { lat: 22.3193, lon: 114.1694 },
+      'london': { lat: 51.5074, lon: -0.1278 },
+      'nara': { lat: 34.6851, lon: 135.8048 },
+      'okinawa': { lat: 26.2124, lon: 127.6809 },
+      'winchester': { lat: 51.0629, lon: -1.3165 },
+      'yamaguchi': { lat: 34.1785, lon: 131.4737 },
+      'singapore': { lat: 1.3521, lon: 103.8198 },
+      'manchester': { lat: 53.4808, lon: -2.2426 }
+    };
+
+    const toPrettyDate = (iso) => {
+      const m = String(iso || '').match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (!m) return iso || '';
+      return `${monthName[Number(m[2]) - 1]} ${Number(m[3])}, ${Number(m[1])}`;
+    };
+
+    let activeContinent = 'All';
+    let selectedIso = null;
+
+    const filterButtons = Array.from(document.querySelectorAll('[data-travel-continent]'));
+    const countryMap = new Map();
+
+    const visibleCountries = () => {
+      const all = Array.from(countryMap.values()).sort((a, b) => a.country.localeCompare(b.country));
+      return all.filter((c) => activeContinent === 'All' || c.continent === activeContinent);
+    };
+
+    const visibleRecords = () => {
+      const pool = visibleCountries();
+      if (!selectedIso) return [];
+      const only = pool.find((c) => c.iso3 === selectedIso);
+      const rows = only ? only.records : [];
+      return rows.slice().sort((a, b) => {
+        const ad = a.arrival || a.departure || '';
+        const bd = b.arrival || b.departure || '';
+        if (!ad && !bd) return (a.city || '').localeCompare(b.city || '');
+        if (!ad) return 1;
+        if (!bd) return -1;
+        if (ad === bd) return (a.city || '').localeCompare(b.city || '');
+        return ad < bd ? 1 : -1;
+      });
+    };
+
+    const renderCountryPills = () => {
+      const pool = visibleCountries();
+      countryPillsNode.innerHTML = '';
+      if (countryCountNode) countryCountNode.textContent = `(${pool.length})`;
+      pool.forEach((c) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `travel-country-pill${selectedIso === c.iso3 ? ' is-active' : ''}`;
+        btn.textContent = `${c.country} (${c.records.length})`;
+        btn.addEventListener('click', () => {
+          selectedIso = selectedIso === c.iso3 ? null : c.iso3;
+          renderCountryPills();
+          renderRecords();
+          renderMap();
+        });
+        countryPillsNode.appendChild(btn);
+      });
+    };
+
+    const renderRecords = () => {
+      const rows = visibleRecords();
+      if (recordCountNode) recordCountNode.textContent = `(${rows.length})`;
+      if (!selectedIso) {
+        recordListNode.innerHTML = '<p class="section-note">Select a country to view visit records.</p>';
+        return;
+      }
+      if (!rows.length) {
+        recordListNode.innerHTML = '<p class="section-note">No records for this selection.</p>';
+        return;
+      }
+      recordListNode.innerHTML = rows.map((r) => {
+        const arrival = toPrettyDate(r.arrival);
+        const departure = toPrettyDate(r.departure || r.arrival);
+        const dateText = arrival ? (departure !== arrival ? `${arrival} - ${departure}` : arrival) : 'Date: TBD';
+        return `<div class="travel-record-item"><strong>${r.country}</strong> | ${r.city || '-'} | ${dateText}</div>`;
+      }).join('');
+    };
+
+    const renderMap = () => {
+      if (!window.Plotly) return;
+      const pool = visibleCountries();
+      const locations = pool.map((c) => c.iso3);
+      const labels = pool.map((c) => c.country);
+      const z = pool.map((c) => (selectedIso && c.iso3 === selectedIso ? 2 : 1));
+
+      const countryTrace = {
+        type: 'choropleth',
+        locationmode: 'ISO-3',
+        locations,
+        z,
+        text: labels,
+        hovertemplate: '%{text}<extra></extra>',
+        colorscale: [
+          [0, '#d8eaf6'],
+          [0.5, '#2f87c5'],
+          [1, '#1a5a86']
+        ],
+        zmin: 0,
+        zmax: 2,
+        marker: { line: { color: '#e3eaf1', width: 0.5 } },
+        showscale: false
+      };
+      const traces = [countryTrace];
+
+      if (selectedIso) {
+        const selectedRows = visibleRecords();
+        const cityVisitMap = new Map();
+        selectedRows.forEach((row) => {
+          const city = String(row.city || '').trim();
+          if (!city) return;
+          const key = city.toLowerCase();
+          const coords = cityCoords[key];
+          if (!coords) return;
+          if (!cityVisitMap.has(key)) {
+            cityVisitMap.set(key, { city, lat: coords.lat, lon: coords.lon, visits: [] });
+          }
+          cityVisitMap.get(key).visits.push(row);
+        });
+
+        const markerRows = Array.from(cityVisitMap.values()).map((item) => {
+          const details = item.visits.map((v) => {
+            const arrival = toPrettyDate(v.arrival);
+            const departure = toPrettyDate(v.departure || v.arrival);
+            if (!arrival) return 'Date: TBD';
+            return departure !== arrival ? `${arrival} - ${departure}` : arrival;
+          });
+          const hover = `<b>${item.city}</b><br>Visits: ${item.visits.length}<br>${details.join('<br>')}`;
+          return { lat: item.lat, lon: item.lon, hover };
+        });
+
+        if (markerRows.length) {
+          traces.push({
+            type: 'scattergeo',
+            mode: 'markers',
+            lat: markerRows.map((m) => m.lat),
+            lon: markerRows.map((m) => m.lon),
+            text: markerRows.map((m) => m.hover),
+            hovertemplate: '%{text}<extra></extra>',
+            marker: {
+              size: 9,
+              color: '#124f75',
+              line: { width: 1.2, color: '#ffffff' },
+              opacity: 0.95
+            },
+            showlegend: false
+          });
+        }
+      }
+
+      let fitMode = activeContinent === 'All' ? false : 'locations';
+      let geoOverrides = {};
+      if (activeContinent === 'Europe') {
+        fitMode = false;
+        geoOverrides = { scope: 'europe', center: { lon: 11, lat: 52 }, projection: { type: 'natural earth', scale: 1.58 } };
+      } else if (activeContinent === 'Oceania') {
+        fitMode = false;
+        geoOverrides = { center: { lon: 145.75, lat: 15.17 }, projection: { type: 'natural earth', scale: 3.8 } };
+      }
+
+      const layout = {
+        margin: { l: 0, r: 0, t: 0, b: 0 },
+        paper_bgcolor: 'transparent',
+        plot_bgcolor: 'transparent',
+        geo: {
+          projection: { type: 'natural earth' },
+          showframe: false,
+          showcoastlines: false,
+          showcountries: true,
+          countrycolor: '#d6dee8',
+          fitbounds: fitMode,
+          bgcolor: 'rgba(0,0,0,0)',
+          ...geoOverrides
+        }
+      };
+
+      const config = {
+        displayModeBar: false,
+        responsive: true,
+        scrollZoom: false,
+        staticPlot: false
+      };
+
+      window.Plotly.newPlot(mapNode, traces, layout, config);
+      mapNode.on('plotly_click', (evt) => {
+        const iso = evt?.points?.[0]?.location;
+        if (!iso) return;
+        selectedIso = selectedIso === iso ? null : iso;
+        renderCountryPills();
+        renderRecords();
+        renderMap();
+      });
+    };
+
+    const rebuild = () => {
+      renderCountryPills();
+      renderRecords();
+      renderMap();
+    };
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        activeContinent = button.dataset.travelContinent || 'All';
+        selectedIso = null;
+        filterButtons.forEach((b) => {
+          const on = b === button;
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        rebuild();
+      });
+    });
+
+    const initialize = (rows) => {
+      let totalAccepted = 0;
+      rows.forEach((row) => {
+        const countryName = String(row.country || '').trim();
+        if (!countryName) return;
+        const lower = countryName.toLowerCase();
+        if (lower === 'korea' || lower === 'rep. of korea' || lower === 'republic of korea') return;
+
+        const iso3 = isoByName.get(lower);
+        if (!iso3) return;
+
+        const arrival = normalizeIsoDate(row.arrival);
+        const departure = normalizeIsoDate(row.departure) || arrival;
+
+        if (!countryMap.has(iso3)) {
+          countryMap.set(iso3, {
+            iso3,
+            country: countryName,
+            continent: continentByIso.get(iso3) || 'Other',
+            records: []
+          });
+        }
+        countryMap.get(iso3).records.push({
+          country: countryName,
+          city: row.city || '',
+          arrival,
+          departure,
+          purpose: row.purpose || ''
+        });
+        totalAccepted += 1;
+      });
+      if (totalCountNode) totalCountNode.textContent = String(totalAccepted);
+      rebuild();
+    };
+
+    const start = () => initialize(rawRecords || []);
+
+    if (window.Plotly) {
+      start();
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = 'https://cdn.plot.ly/plotly-2.35.2.min.js';
+    script.async = true;
+    script.onload = start;
+    document.head.appendChild(script);
+  })();
+</script>

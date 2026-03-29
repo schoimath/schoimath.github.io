@@ -1,0 +1,36 @@
+{
+  "intro": "A personal travel log. Countries are highlighted once visited.",
+  "visited": [
+    { "iso3": "KOR", "name": "Korea", "continent": "Asia" },
+    { "iso3": "JPN", "name": "Japan", "continent": "Asia" },
+    { "iso3": "CHN", "name": "China", "continent": "Asia" },
+    { "iso3": "VNM", "name": "Vietnam", "continent": "Asia" },
+    { "iso3": "THA", "name": "Thailand", "continent": "Asia" },
+    { "iso3": "HKG", "name": "Hong Kong", "continent": "Asia" },
+    { "iso3": "SGP", "name": "Singapore", "continent": "Asia" },
+    { "iso3": "IDN", "name": "Indonesia", "continent": "Asia" },
+
+    { "iso3": "GBR", "name": "United Kingdom", "continent": "Europe" },
+    { "iso3": "FRA", "name": "France", "continent": "Europe" },
+    { "iso3": "DEU", "name": "Germany", "continent": "Europe" },
+    { "iso3": "POL", "name": "Poland", "continent": "Europe" },
+    { "iso3": "BEL", "name": "Belgium", "continent": "Europe" },
+    { "iso3": "ITA", "name": "Italy", "continent": "Europe" },
+    { "iso3": "NLD", "name": "Netherlands", "continent": "Europe" },
+    { "iso3": "IRL", "name": "Ireland", "continent": "Europe" },
+    { "iso3": "AUT", "name": "Austria", "continent": "Europe" },
+    { "iso3": "DNK", "name": "Denmark", "continent": "Europe" },
+    { "iso3": "ESP", "name": "Spain", "continent": "Europe" },
+    { "iso3": "ROU", "name": "Romania", "continent": "Europe" },
+    { "iso3": "SVK", "name": "Slovakia", "continent": "Europe" },
+    { "iso3": "CHE", "name": "Switzerland", "continent": "Europe" },
+    { "iso3": "RUS", "name": "Russia", "continent": "Europe" },
+
+    { "iso3": "USA", "name": "United States", "continent": "North America" },
+    { "iso3": "CAN", "name": "Canada", "continent": "North America" },
+
+    { "iso3": "BRA", "name": "Brazil", "continent": "South America" },
+
+    { "iso3": "MNP", "name": "Saipan (Northern Mariana Islands)", "continent": "Oceania", "lat": 15.1778, "lon": 145.7500 }
+  ]
+}
