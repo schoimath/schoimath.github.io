@@ -1,8 +1,18 @@
 {{ $visited := .visited }}
 <p class="section-note">{{ .intro }}</p>
+<div class="travel-lock-panel" data-travel-lock-panel>
+  <h3>Private Travel Log</h3>
+  <p class="section-note">Enter password to open this page.</p>
+  <div class="travel-lock-form">
+    <input type="password" class="travel-lock-input" data-travel-password-input placeholder="Password" autocomplete="current-password" />
+    <button type="button" class="travel-filter-button is-active travel-lock-submit" data-travel-password-submit>Unlock</button>
+  </div>
+  <p class="section-note travel-lock-error" data-travel-password-error hidden>Incorrect password.</p>
+</div>
+
+<div data-travel-protected hidden>
 <h3>Travel Records</h3>
 <p class="section-note">Total records: <strong data-travel-total-count>0</strong></p>
-
 {{ $continents := slice "All" "Asia" "Europe" "North America" "South America" "Oceania" "Africa" }}
 <div class="travel-filter" role="tablist" aria-label="Filter by continent">
   {{ range $i, $continent := $continents }}
@@ -19,12 +29,20 @@
 
 <h3>Visit List <span class="dynamic-count" data-travel-record-count>(0)</span></h3>
 <div class="travel-record-list" data-travel-record-list></div>
+</div>
 
 <script id="travel-base-countries" type="application/json">{{ $visited | jsonify | safeHTML }}</script>
 <script id="travel-records-data" type="application/json">{{ site.Data.travel_records.records | jsonify | safeHTML }}</script>
 
 <script>
   (function () {
+    const PASSWORD_HASH = '63940accfccf13ff0b9bd25025ed7b2c7d917b3f1299472bba49b8e9b4cdd535';
+    const SESSION_KEY = 'travel_log_unlocked_v1';
+    const lockPanel = document.querySelector('[data-travel-lock-panel]');
+    const protectedWrap = document.querySelector('[data-travel-protected]');
+    const passwordInput = document.querySelector('[data-travel-password-input]');
+    const passwordSubmit = document.querySelector('[data-travel-password-submit]');
+    const passwordError = document.querySelector('[data-travel-password-error]');
     const mapNode = document.getElementById('travel-map');
     const baseCountriesNode = document.getElementById('travel-base-countries');
     const recordsDataNode = document.getElementById('travel-records-data');
@@ -34,6 +52,7 @@
     const recordCountNode = document.querySelector('[data-travel-record-count]');
     const totalCountNode = document.querySelector('[data-travel-total-count]');
     if (!mapNode || !baseCountriesNode || !recordsDataNode || !countryPillsNode || !recordListNode) return;
+    if (!lockPanel || !protectedWrap || !passwordInput || !passwordSubmit || !passwordError) return;
 
     const parseJson = (node) => {
       try {
@@ -389,16 +408,60 @@
       rebuild();
     };
 
-    const start = () => initialize(rawRecords || []);
+    let hasBooted = false;
+    const bootTravel = () => {
+      if (hasBooted) return;
+      hasBooted = true;
+      const start = () => initialize(rawRecords || []);
+      if (window.Plotly) {
+        start();
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = 'https://cdn.plot.ly/plotly-2.35.2.min.js';
+      script.async = true;
+      script.onload = start;
+      document.head.appendChild(script);
+    };
 
-    if (window.Plotly) {
-      start();
-      return;
+    const sha256Hex = async (text) => {
+      const data = new TextEncoder().encode(text);
+      const digest = await window.crypto.subtle.digest('SHA-256', data);
+      return Array.from(new Uint8Array(digest)).map((b) => b.toString(16).padStart(2, '0')).join('');
+    };
+
+    const unlock = () => {
+      lockPanel.hidden = true;
+      protectedWrap.hidden = false;
+      window.sessionStorage.setItem(SESSION_KEY, '1');
+      bootTravel();
+    };
+
+    const tryUnlock = async () => {
+      const candidate = String(passwordInput.value || '').trim();
+      const hash = await sha256Hex(candidate);
+      if (hash === PASSWORD_HASH) {
+        passwordError.hidden = true;
+        unlock();
+        return;
+      }
+      passwordError.hidden = false;
+    };
+
+    passwordSubmit.addEventListener('click', () => {
+      tryUnlock();
+    });
+    passwordInput.addEventListener('keydown', (evt) => {
+      if (evt.key !== 'Enter') return;
+      evt.preventDefault();
+      tryUnlock();
+    });
+
+    if (window.sessionStorage.getItem(SESSION_KEY) === '1') {
+      unlock();
+    } else {
+      protectedWrap.hidden = true;
+      lockPanel.hidden = false;
     }
-    const script = document.createElement('script');
-    script.src = 'https://cdn.plot.ly/plotly-2.35.2.min.js';
-    script.async = true;
-    script.onload = start;
-    document.head.appendChild(script);
   })();
 </script>
