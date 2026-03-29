@@ -1119,6 +1119,40 @@ a {
   position: relative;
 }
 
+.travel-lock-panel {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #f9fbfd;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.travel-lock-form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.travel-lock-input {
+  min-width: 220px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.45rem 0.6rem;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+}
+
+.travel-lock-submit {
+  font-weight: 700;
+}
+
+.travel-lock-error {
+  margin-top: 0.5rem;
+  color: #a12f2f;
+}
+
 .travel-filter {
   display: flex;
   flex-wrap: wrap;
