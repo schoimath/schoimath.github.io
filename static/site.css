@@ -622,6 +622,14 @@ a {
   border-radius: 18px;
 }
 
+.legacy-content img[src$="imosmall.gif"] {
+  height: 1em;
+  width: auto;
+  border-radius: 0;
+  vertical-align: -0.1em;
+  margin-left: 0.2em;
+}
+
 .legacy-content center {
   display: none;
 }
