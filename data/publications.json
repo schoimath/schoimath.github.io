@@ -86,7 +86,7 @@
                                                                 "authors":  "Suyoung Choi, Mathieu Vallee",
                                                                 "title":  "An algorithmic strategy for finding characteristic maps over wedged simplicial complexes",
                                                                 "venue":  "Pacific J. Math.",
-                                                                "details":  "320 (2022), no. 1, 13??3.",
+                                                                "details":  "320 (2022), no. 1, 13\u0026ndash;43.",
                                                                 "officialLink":  "https://doi.org/10.2140/pjm.2022.320.13",
                                                                 "cvExport":  true
                                                             },
@@ -94,7 +94,7 @@
                                                                 "authors":  "Suyoung Choi, Mathieu Vallee",
                                                                 "title":  "Cohomological rigidity of the connected sum of three real projective spaces",
                                                                 "venue":  "Proc. Steklov Inst. Math.",
-                                                                "details":  "317 (2022), 178-188.",
+                                                                "details":  "317 (2022), 178\u0026ndash;188.",
                                                                 "officialLink":  "https://doi.org/10.1134/s0081543822020109",
                                                                 "cvExport":  true
                                                             }
@@ -302,7 +302,7 @@
                                                                 "title":  "A new graph invariant arises in toric topology",
                                                                 "titleLink":  "http://www.ams.org/mathscinet-getitem?mr=3340192",
                                                                 "venue":  "J. Math. Soc. Japan",
-                                                                "details":  "67(2) (2015), 699-720.",
+                                                                "details":  "67(2) (2015), 699\u0026ndash;720.",
                                                                 "mathscinetLink":  "http://www.ams.org/mathscinet-getitem?mr=3340192",
                                                                 "officialLink":  "https://doi.org/10.2969/jmsj/06720699",
                                                                 "cvExport":  true
@@ -486,7 +486,7 @@
                                                                 "authors":  "Meiyan Kang, Shizuo Kaji, Sang-Yun Lee, Taegeon Kim, Hee-Hwan Ryu, Suyoung Choi",
                                                                 "title":  "Shape-Aware Topological Representation for Pipeline Hyperbola Detection in GPR Data",
                                                                 "venue":  "IEEE Sens. J.",
-                                                                "details":  "26(3) (2026), 4313-4325",
+                                                                "details":  "26(3) (2026), 4313\u0026ndash;4325.",
                                                                 "officialLink":  "https://doi.org/10.1109/jsen.2025.3642308",
                                                                 "cvExport":  true
                                                             }
@@ -521,7 +521,7 @@
                                                                 "title":  "Effect of geometry of underground structure and electrode on electrical resistance measurement: A numerical study",
                                                                 "officialLink":  "https://www.techno-press.org/content/?page=article\u0026journal=gae\u0026volume=39\u0026num=1\u0026ordernum=8",
                                                                 "venue":  "Geomech. Eng.",
-                                                                "details":  "39(1), (2024), pp. 105-113.",
+                                                                "details":  "39(1), (2024), pp. 105\u0026ndash;113.",
                                                                 "cvExport":  true
                                                             },
                                                             {
@@ -529,7 +529,7 @@
                                                                 "title":  "Void detection for Tunnel Lining Backfill using Impact-Echo Method based on Continuous Wavelet Transform and Convolutional Neural Network",
                                                                 "officialLink":  "https://www.techno-press.org/content/?page=article\u0026journal=gae\u0026volume=36\u0026num=1\u0026ordernum=1",
                                                                 "venue":  "Geomech. Eng.",
-                                                                "details":  "36(1), (2024), pp. 1-8 .",
+                                                                "details":  "36(1), (2024), pp. 1\u0026ndash;8.",
                                                                 "cvExport":  true
                                                             }
                                                         ]
@@ -584,7 +584,7 @@
                                              "title":  "GPU Algorithm for Enumerating PL Spheres of Picard Number 4: Application to Toric Topology",
                                              "officialLink":  "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SoCG.2024.41",
                                              "venue":  "40th International Symposium on Computational Geometry (SoCG 2024)",
-                                             "details":  "Leibniz International Proceedings in Informatics (LIPIcs), 293, pp. 41:1-41:15."
+                                             "details":  "Leibniz International Proceedings in Informatics (LIPIcs), 293, pp. 41:1\u0026ndash;15."
                                          }
                                      ]
                      },
