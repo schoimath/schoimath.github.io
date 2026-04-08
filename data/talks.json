@@ -497,10 +497,14 @@
                                        {
                                            "year":  2026,
                                            "entries":  [
-                                                           {
-                                                               "event_html":  "Invited talk, Fudan Univ., Shanghai, **China**, Apr 16, 2026",
-                                                               "title_html":  "Toric manifolds and PL spheres"
-                                                           },
+                                                            {
+                                                                "event_html":  "Seminar talk, Fudan Univ., Shanghai, **China**, Apr 16, 2026",
+                                                                "title_html":  "Toric manifolds and PL spheres",
+                                                                "id":  "fudan-seminar-2026",
+                                                                "photos":  [
+                                                                               "poster.jpg"
+                                                                           ]
+                                                            },
                                                             {
                                                                 "event_html":  "Colloquium, Chonnam National Univ., Gwangju, **Korea**, Mar 26, 2026",
                                                                 "title_html":  "Toric varieites and simplicial complexes",

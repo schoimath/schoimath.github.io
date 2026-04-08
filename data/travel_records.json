@@ -495,14 +495,14 @@
                         "city":  "Tokyo",
                         "arrival":  "2024-04-18",
                         "departure":  "2024-04-20",
-                        "purpose":  "�ѱ��б��湮_����ó"
+                        "purpose":  "한국학교방문_입학처"
                     },
                     {
                         "country":  "Vietnam",
                         "city":  "Hanoi",
                         "arrival":  "2025-03-12",
                         "departure":  "2025-03-15",
-                        "purpose":  "�ѱ��б��湮_����ó"
+                        "purpose":  "한국학교방문_입학처"
                     },
                     {
                         "country":  "Japan",
@@ -705,7 +705,7 @@
                         "city":  "Kyoto",
                         "arrival":  "2018-01-09",
                         "departure":  "2018-01-13",
-                        "purpose":  "���翬��"
+                        "purpose":  "교사연수"
                     },
                     {
                         "country":  "Japan",
@@ -720,6 +720,13 @@
                         "arrival":  "2006-07-28",
                         "departure":  "2006-08-03",
                         "purpose":  "Trip"
+                    },
+                    {
+                        "country":  "China",
+                        "city":  "Shanghai",
+                        "arrival":  "2026-04-13",
+                        "departure":  "2026-04-19",
+                        "purpose":  "Talk - Fudan Univ. Seminar"
                     }
                 ]
 }

@@ -1,4 +1,4 @@
-country,city,arrival,departure,purpose
+ï»¿country,city,arrival,departure,purpose
 Poland,Krakow,2025-08-30,2025-09-06,Talk - Glances@Manifolds-2025
 Japan,Fukuoka,2025-08-04,2025-08-09,Talk - TDA and Industrial Mathematics Workshop
 China,Dalian,2024-09-23,2024-09-27,Talk - Dalian International Conference on Mathematics
@@ -69,8 +69,8 @@ USA,Boston MA,2017-09-27,2018-01-01,Sabbatical
 Japan,Yamaguchi,2017-04-02,2017-04-20,Research Visiting
 Japan,Fukuoka,2017-04-**,,Trip
 Japan,Kyoto,2026-01-20,2026-01-23,Research Visiting
-Japan,Tokyo,2024-04-18,2024-04-20,ÇÑ±¹ÇĞ±³¹æ¹®_ÀÔÇĞÃ³
-Vietnam,Hanoi,2025-03-12,2025-03-15,ÇÑ±¹ÇĞ±³¹æ¹®_ÀÔÇĞÃ³
+Japan,Tokyo,2024-04-18,2024-04-20,í•œêµ­í•™êµë°©ë¬¸_ì…í•™ì²˜
+Vietnam,Hanoi,2025-03-12,2025-03-15,í•œêµ­í•™êµë°©ë¬¸_ì…í•™ì²˜
 Japan,Osaka,2025-10-01,2025-10-06,Research Visiting
 China,Shijiazhuang,2025-05-11,2025-05-13,EACAT
 Belgium,Brussels,2025-12-30,2026-01-11,Talk - ULB
@@ -99,6 +99,7 @@ Japan,Fukuoka,2018-12-20,2018-12-24,Research Visiting
 Japan,Fukuoka,2018-04-18,2018-04-20,Research Visiting
 Japan,Yamaguchi,2016-11-15,2016-11-19,Research Visiting
 Japan,Osaka,2014-12-02,2014-12-05,Research Visiting
-Japan,Kyoto,2018-01-09,2018-01-13,±³»ç¿¬¼ö
+Japan,Kyoto,2018-01-09,2018-01-13,êµì‚¬ì—°ìˆ˜
 Japan,Osaka,2006-05-28,2006-06-03,Conference
 China,Shanghai,2006-07-28,2006-08-03,Trip
+China,Shanghai,2026-04-13,2026-04-19,Talk - Fudan Univ. Seminar
