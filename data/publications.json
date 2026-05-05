@@ -592,6 +592,12 @@
                           "title":  "Preprints and Notes",
                           "entries":  [
                                           {
+                                              "authors":  "Suyoung Choi",
+                                              "title":  "Symplectic small covers in dimension four",
+                                              "officialLink":  "https://arxiv.org/abs/2605.01275",
+                                              "details":  "arXiv:2605.01275, submitted."
+                                          },
+                                          {
                                               "authors":  "Suyoung Choi, Hyeontae Jang, Younghan Yoon",
                                               "title":  "Small covers as pullbacks from the simplex",
                                               "officialLink":  "https://arxiv.org/abs/2604.13437",
