@@ -782,6 +782,19 @@
                                            "year":  2026,
                                            "entries":  [
                                                            {
+                                                               "event_html":  "고색고등학교특강, Suwon, **Korea**, May 18, 2026",
+                                                               "title_html":  "모양이란 무엇인가?"
+                                                           },
+                                                           {
+                                                               "event_html":  "전북교육청과학교육원 특강, Iksan, **Korea**, May 14, 2026",
+                                                               "title_html":  "모양의 본질을 보는 위상수학",
+                                                               "id":  "jeonbuk-science-education-institute-2026",
+                                                               "photos":  [
+                                                                              "photo-1.jpg",
+                                                                              "photo-2.jpg"
+                                                                          ]
+                                                           },
+                                                           {
                                                                "event_html":  "대한수학회 2026 Young Mathematician Camp, Yonsei Univ., Incheon, **Korea**, Jan 26-29, 2026",
                                                                "title_html":  "다양체와 다면체의 만남",
                                                                "id":  "kms-young-mathematician-camp-2026",
