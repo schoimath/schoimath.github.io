@@ -4,6 +4,15 @@
                          "title":  "Conference and Workshop",
                          "years":  [
                                        {
+                                           "year":  2026,
+                                           "entries":  [
+                                                           {
+                                                               "event_html":  "[2026 Workshop on Topological Combinatorics](https://sites.google.com/view/2026topocomb), GIST, Gwangju, **Korea**, Jun 28-Jul 11, 2026",
+                                                               "title_html":  "Real toric manifolds and their geometry"
+                                                           }
+                                                       ]
+                                       },
+                                       {
                                            "year":  2025,
                                            "entries":  [
                                                            {
@@ -497,6 +506,15 @@
                                        {
                                            "year":  2026,
                                            "entries":  [
+                                                            {
+                                                                "event_html":  "Seminar talk, 2026 RIRCM Mini Workshop on Toric Topology and Hermitian Symmetric Spaces, Kyungpook National Univ., Daegu, **Korea**, Jun 19, 2026",
+                                                                "title_html":  "Toric topology and real toric spaces",
+                                                                "id":  "kyungpook-rircm-workshop-2026",
+                                                                "photos":  [
+                                                                               "talk.jpg",
+                                                                               "program.png"
+                                                                           ]
+                                                            },
                                                             {
                                                                 "event_html":  "Seminar talk, Fudan Univ., Shanghai, **China**, Apr 16, 2026",
                                                                 "title_html":  "Toric manifolds and PL spheres",
