@@ -592,6 +592,12 @@
                           "title":  "Preprints and Notes",
                           "entries":  [
                                           {
+                                              "authors":  "Suyoung Choi, Mathieu Vallee",
+                                              "title":  "Enumerating Toric-Colorable Seeds of Picard Number Five via Binary Matroids",
+                                              "officialLink":  "https://arxiv.org/abs/2606.29309",
+                                              "details":  "arXiv:2606.29309, submitted."
+                                          },
+                                          {
                                               "authors":  "Suyoung Choi",
                                               "title":  "Symplectic and projective small covers over products of polygons",
                                               "officialLink":  "http://arxiv.org/abs/2605.22554",
