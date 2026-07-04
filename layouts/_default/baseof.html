@@ -286,6 +286,7 @@
           country: item.querySelector('.talk-item-event strong')?.textContent?.trim() || 'Other',
           eventHtml: item.querySelector('.talk-item-event')?.innerHTML || '',
           titleHtml: item.querySelector('.talk-item-title')?.innerHTML || '',
+          materialsHtml: item.querySelector('.talk-item-materials')?.innerHTML || '',
           talkId: item.dataset.talkId || '',
           photos: parsePhotos(item)
         });
@@ -308,6 +309,13 @@
             title.className = 'talk-item-title';
             title.innerHTML = entry.titleHtml;
             item.appendChild(title);
+          }
+
+          if (entry.materialsHtml) {
+            const materials = document.createElement('div');
+            materials.className = 'talk-item-materials';
+            materials.innerHTML = entry.materialsHtml;
+            item.appendChild(materials);
           }
 
           if (includeYear) {

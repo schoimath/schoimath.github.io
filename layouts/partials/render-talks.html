@@ -37,6 +37,19 @@
           {{ with .photos }}data-talk-photos="{{ delimit . "||" }}"{{ end }}>
           <div class="talk-item-event">{{ .event_html | markdownify }}</div>
           {{ if .title_html }}<div class="talk-item-title">{{ .title_html | markdownify }}</div>{{ end }}
+          {{ with .materials }}
+          <div class="talk-item-materials">
+            <span>Materials:</span>
+            {{ range $index, $material := . }}
+            {{ if $index }}<span class="talk-item-material-separator">/</span>{{ end }}
+            {{ $href := $material.url }}
+            {{ if not (or (hasPrefix $href "http://") (hasPrefix $href "https://")) }}
+              {{ $href = $href | relURL }}
+            {{ end }}
+            <a href="{{ $href | safeURL }}">{{ $material.label }}</a>
+            {{ end }}
+          </div>
+          {{ end }}
         </li>
         {{ end }}
       </ul>

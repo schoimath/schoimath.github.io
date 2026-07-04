@@ -8,7 +8,18 @@
                                            "entries":  [
                                                            {
                                                                "event_html":  "[2026 Workshop on Topological Combinatorics](https://sites.google.com/view/2026topocomb), GIST, Gwangju, **Korea**, Jun 28-Jul 11, 2026",
-                                                               "title_html":  "Real toric manifolds and their geometry"
+                                                               "title_html":  "Real toric manifolds and their geometry",
+                                                               "id":  "topocomb2026",
+                                                               "photos":  [
+                                                                              "photo-1.jpg",
+                                                                              "poster.jpg"
+                                                                          ],
+                                                               "materials":  [
+                                                                                 {
+                                                                                     "label":  "Abstract booklet",
+                                                                                     "url":  "/talks/materials/topocomb2026/topocomb2026_abstract-booklet.pdf"
+                                                                                 }
+                                                                             ]
                                                            }
                                                        ]
                                        },

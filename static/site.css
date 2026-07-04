@@ -555,8 +555,27 @@ a {
   color: var(--muted);
 }
 
+.talk-item-materials {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.talk-item-materials span {
+  color: var(--muted);
+}
+
+.talk-item-materials a {
+  font-weight: 600;
+}
+
+.talk-item-material-separator {
+  margin: 0 0.35rem;
+}
+
 .talk-item-title p,
-.talk-item-event p {
+.talk-item-event p,
+.talk-item-materials p {
   margin: 0;
 }
 
