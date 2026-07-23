@@ -32,6 +32,8 @@
   "Soojin Cho": { "id": "soojin-cho", "name": "Soojin Cho", "sortName": "Cho, Soojin" },
   "Stephen Theriault": { "id": "stephen-theriault", "name": "Stephen Theriault", "sortName": "Theriault, Stephen" },
   "Taegeon Kim": { "id": "taegeon-kim", "name": "Taegeon Kim", "sortName": "Kim, Taegeon" },
-  "Taras E. Panov": { "id": "taras-e-panov", "name": "Taras E. Panov", "sortName": "Panov, Taras E.", "url": "http://higeom.math.msu.su/people/taras/english.html" }
+  "Taras E. Panov": { "id": "taras-e-panov", "name": "Taras E. Panov", "sortName": "Panov, Taras E.", "url": "http://higeom.math.msu.su/people/taras/english.html" },
+  "Yuanxin Guan": { "id": "yuanxin-guan", "name": "Yuanxin Guan", "sortName": "Guan, Yuanxin" },
+  "Zhi Lü": { "id": "zhi-lu", "name": "Zhi Lü", "sortName": "Lü, Zhi" }
 }
 

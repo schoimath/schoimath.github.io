@@ -592,6 +592,12 @@
                           "title":  "Preprints and Notes",
                           "entries":  [
                                           {
+                                              "authors":  "Suyoung Choi, Yuanxin Guan, Hyeontae Jang, Zhi Lü",
+                                              "title":  "On the toric lifting properties for simplicial 3-spheres",
+                                              "officialLink":  "https://arxiv.org/abs/2607.18706",
+                                              "details":  "arXiv:2607.18706, submitted."
+                                          },
+                                          {
                                               "authors":  "Suyoung Choi, Mathieu Vallee",
                                               "title":  "Enumerating Toric-Colorable Seeds of Picard Number Five via Binary Matroids",
                                               "officialLink":  "https://arxiv.org/abs/2606.29309",
