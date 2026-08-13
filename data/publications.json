@@ -592,6 +592,18 @@
                           "title":  "Preprints and Notes",
                           "entries":  [
                                           {
+                                              "authors":  "Suyoung Choi, Mathieu Vallee",
+                                              "title":  "Complement minimally non-totally unimodular matrices",
+                                              "officialLink":  "https://arxiv.org/abs/2608.08334",
+                                              "details":  "arXiv:2608.08334, submitted."
+                                          },
+                                          {
+                                              "authors":  "Suyoung Choi, Younghan Yoon, Seonghyeon Yu",
+                                              "title":  "On small covers over Bier spheres",
+                                              "officialLink":  "https://arxiv.org/abs/2607.28141",
+                                              "details":  "arXiv:2607.28141, submitted."
+                                          },
+                                          {
                                               "authors":  "Suyoung Choi, Yuanxin Guan, Hyeontae Jang, Zhi Lü",
                                               "title":  "On the toric lifting properties for simplicial 3-spheres",
                                               "officialLink":  "https://arxiv.org/abs/2607.18706",
