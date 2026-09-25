@@ -23,7 +23,7 @@ sections:
       - role: "Professor"
         institution: "Mobility Engineering, Ajou Univ."
         start: "Sep 2022"
-        end: "present"
+        end: "Aug 2026"
         cvExport: false
       - role: "Visiting Professor"
         institution: "Mathematics, Western Univ."
