@@ -14,17 +14,13 @@ sections:
       - "[The arXiv](https://arxiv.org/search/?query=Suyoung+Choi&searchtype=all&source=header)"
 
   - title: "Affiliation"
+    # Order: current permanent, current visiting, past permanent, past temporary, then postdoctoral.
     positions:
       - role: "Professor"
         institution: "Mathematics, Ajou Univ."
         start: "Mar 2020"
         end: "present"
         cvExport: true
-      - role: "Professor"
-        institution: "Mobility Engineering, Ajou Univ."
-        start: "Sep 2022"
-        end: "Aug 2026"
-        cvExport: false
       - role: "Visiting Professor"
         institution: "Mathematics, Western Univ."
         start: "Jul 2026"
@@ -40,6 +36,11 @@ sections:
         start: "Mar 2011"
         end: "Feb 2015"
         cvExport: true
+      - role: "Professor"
+        institution: "Mobility Engineering, Ajou Univ."
+        start: "Sep 2022"
+        end: "Aug 2026"
+        cvExport: false
       - role: "Visiting Professor"
         institution: "Mathematics, Northeastern Univ."
         start: "2017"
