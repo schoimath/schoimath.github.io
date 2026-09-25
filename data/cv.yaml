@@ -27,12 +27,8 @@ sections:
         cvExport: false
       - role: "Visiting Professor"
         institution: "Mathematics, Western Univ."
-        start: "Jul 1, 2026"
-        end: "Dec 31, 2026"
-        cvExport: false
-      - role: "Sabbatical Research Visit"
-        institution: "Mathematics, Northeastern Univ."
-        start: "2017"
+        start: "Jul 2026"
+        end: "Dec 2026"
         cvExport: false
       - role: "Associate Professor"
         institution: "Mathematics, Ajou Univ."
@@ -44,6 +40,10 @@ sections:
         start: "Mar 2011"
         end: "Feb 2015"
         cvExport: true
+      - role: "Visiting Professor"
+        institution: "Mathematics, Northeastern Univ."
+        start: "2017"
+        cvExport: false
       - role: "JSPS Postdoctoral Research Fellow"
         institution: "Mathematics, Osaka City Univ."
         start: "Sep 2009"
