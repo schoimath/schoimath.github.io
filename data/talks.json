@@ -7,6 +7,20 @@
                                            "year":  2026,
                                            "entries":  [
                                                            {
+                                                               "event_html":  "[TGTC 2026 in Cheongju](https://sites.google.com/view/tgtc2026cbnu/), Chungbuk National Univ., Cheongju, **Korea**, Sep 3-4, 2026",
+                                                               "title_html":  "Symplectic structure of real toric spaces",
+                                                               "id":  "tgtc-2026-cheongju",
+                                                               "photos":  [
+                                                                              "talk.jpg"
+                                                                          ],
+                                                               "materials":  [
+                                                                                 {
+                                                                                     "label":  "Abstract booklet",
+                                                                                     "url":  "/talks/materials/tgtc-2026-cheongju/tgtc-2026-abstract-booklet.pdf"
+                                                                                 }
+                                                                             ]
+                                                           },
+                                                           {
                                                                "event_html":  "[2026 Workshop on Topological Combinatorics](https://sites.google.com/view/2026topocomb), GIST, Gwangju, **Korea**, Jun 28-Jul 11, 2026",
                                                                "title_html":  "Real toric manifolds and their geometry",
                                                                "id":  "topocomb2026",
@@ -517,6 +531,15 @@
                                        {
                                            "year":  2026,
                                            "entries":  [
+                                                            {
+                                                                "event_html":  "[Transformation Groups Seminar](https://mathcal.sci.uwo.ca/V2/index.php?getdate=20260901), Western Univ., London, ON, **Canada**, Sep 18, 2026",
+                                                                "title_html":  "Cohomological rigidity of smooth compact toric varieties",
+                                                                "id":  "western-transformation-groups-seminar-2026",
+                                                                "photos":  [
+                                                                               "talk.jpg",
+                                                                               "event.png"
+                                                                           ]
+                                                            },
                                                             {
                                                                 "event_html":  "Seminar talk, 2026 RIRCM Mini Workshop on Toric Topology and Hermitian Symmetric Spaces, Kyungpook National Univ., Daegu, **Korea**, Jun 19, 2026",
                                                                 "title_html":  "Toric topology and real toric spaces",
