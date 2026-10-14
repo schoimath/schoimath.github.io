@@ -592,6 +592,12 @@
                           "title":  "Preprints and Notes",
                           "entries":  [
                                           {
+                                              "authors":  "Keunsu Kim, Suyoung Choi, Meiyan Kang",
+                                              "title":  "From Fourier Amplitudes to Persistence Images for Impact-Echo Defect Detection",
+                                              "officialLink":  "https://arxiv.org/abs/2610.18732",
+                                              "details":  "arXiv:2610.18732."
+                                          },
+                                          {
                                               "authors":  "Suyoung Choi, Hyeontae Jang",
                                               "title":  "A Finite-Geometric Obstruction and a Polytopal Separation of Buchstaber Invariants",
                                               "officialLink":  "https://arxiv.org/abs/2610.07631",
