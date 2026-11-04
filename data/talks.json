@@ -546,13 +546,7 @@
                                                                "id":  "sookmyung-colloquium-2026",
                                                                "photos":  [
                                                                               "poster.jpg"
-                                                                          ],
-                                                               "materials":  [
-                                                                                 {
-                                                                                     "label":  "Poster",
-                                                                                     "url":  "/talks/images/sookmyung-colloquium-2026/poster.jpg"
-                                                                                 }
-                                                                             ]
+                                                                          ]
                                                            },
                                                            {
                                                                "event_html":  "[2026 AJOU-CBNU-PNU Toric Topology Seminar](https://sites.google.com/view/acptts), Chungbuk National Univ., Cheongju, **Korea**, Nov 5, 2026",
