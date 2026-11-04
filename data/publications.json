@@ -592,6 +592,12 @@
                           "title":  "Preprints and Notes",
                           "entries":  [
                                           {
+                                              "authors":  "Suyoung Choi, Ringi Kim",
+                                              "title":  "Small covers and the Four Color Theorem",
+                                              "officialLink":  "https://arxiv.org/abs/2610.29131",
+                                              "details":  "arXiv:2610.29131."
+                                          },
+                                          {
                                               "authors":  "Keunsu Kim, Suyoung Choi, Meiyan Kang",
                                               "title":  "From Fourier Amplitudes to Persistence Images for Impact-Echo Defect Detection",
                                               "officialLink":  "https://arxiv.org/abs/2610.18732",

@@ -7,6 +7,15 @@
                                            "year":  2026,
                                            "entries":  [
                                                            {
+                                                               "event_html":  "[2026 KMS Annual Meeting](https://www.kms.or.kr/conference/meeting/?period=94), 집중세션: AI 대격변 시대 미래 전망과 수학의 역할 재정립, GIST, Gwangju, **Korea**, Oct 29, 2026",
+                                                               "title_html":  "AI를 이용한 위상수학 연구",
+                                                               "id":  "kms-annual-meeting-2026",
+                                                               "photos":  [
+                                                                              "talk.jpg",
+                                                                              "program.jpg"
+                                                                          ]
+                                                           },
+                                                           {
                                                                "event_html":  "[TGTC 2026 in Cheongju](https://sites.google.com/view/tgtc2026cbnu/), Chungbuk National Univ., Cheongju, **Korea**, Sep 3-4, 2026",
                                                                "title_html":  "Symplectic structure of real toric spaces",
                                                                "id":  "tgtc-2026-cheongju",
@@ -531,6 +540,25 @@
                                        {
                                            "year":  2026,
                                            "entries":  [
+                                                           {
+                                                               "event_html":  "[Colloquium](https://math.sookmyung.ac.kr/math/notice/notice.do?mode=view&articleNo=122650), Sookmyung Women's Univ., Seoul, **Korea**, Nov 12, 2026",
+                                                               "title_html":  "Topology and classification of toric varieties",
+                                                               "id":  "sookmyung-colloquium-2026",
+                                                               "photos":  [
+                                                                              "poster.jpg"
+                                                                          ],
+                                                               "materials":  [
+                                                                                 {
+                                                                                     "label":  "Poster",
+                                                                                     "url":  "/talks/images/sookmyung-colloquium-2026/poster.jpg"
+                                                                                 }
+                                                                             ]
+                                                           },
+                                                           {
+                                                               "event_html":  "[2026 AJOU-CBNU-PNU Toric Topology Seminar](https://sites.google.com/view/acptts), Chungbuk National Univ., Cheongju, **Korea**, Nov 5, 2026",
+                                                               "title_html":  "Small covers and the Four Color Theorem",
+                                                               "id":  "acptts-chungbuk-2026"
+                                                           },
                                                             {
                                                                 "event_html":  "[Transformation Groups Seminar](https://mathcal.sci.uwo.ca/V2/index.php?getdate=20260901), Western Univ., London, ON, **Canada**, Sep 18, 2026",
                                                                 "title_html":  "Cohomological rigidity of smooth compact toric varieties",
