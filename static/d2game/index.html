@@ -105,6 +105,18 @@ h3 { font-size: 14px; margin: 14px 0 6px; }
 .bar i { display: block; height: 100%; background: var(--bar); }
 .bar.pf i { background: var(--bar2); }
 footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18px; }
+/* (11/6) the runes: each PC's bank and the 창고, added up */
+.rtw { overflow-x: auto; margin-top: 8px; }
+.rt { width: 100%; border-collapse: collapse; font-size: 14px; }
+.rt th, .rt td { padding: 4px 8px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+.rt th { color: var(--mute); font-weight: 500; font-size: 12.5px; }
+.rt th:first-child, .rt td:first-child { text-align: left; }
+.rt td.tot { font-weight: 650; }
+.rt td.z { color: var(--mute); }
+.rt .ri { display: inline-flex; align-items: center; gap: 8px; }
+.rt .ri .pic { width: 30px; height: 30px; flex: none; display: inline-flex; align-items: center; justify-content: center; background: #0b0a09; border-radius: 4px; }
+.rt .ri img { image-rendering: pixelated; max-width: 28px; max-height: 28px; }
+.rt tr.hi td:first-child { font-weight: 600; }
 /* (11/5) items drawn as in the game: pictures from item_gfx.js, the tooltip in the game's colors (always dark, like the game) */
 .cnb { background: none; border: 0; padding: 0; margin: 0; font: inherit; font-weight: 650; color: inherit; cursor: pointer;
   text-decoration: underline dotted; text-underline-offset: 3px; border-radius: 0; }
@@ -183,6 +195,7 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
   <section class="tiles" id="sum"></section>
   <div id="pcs"></div>
   <div id="shared"></div>
+  <div id="runes"></div>
   <footer>PC마다 도우미가 2분마다 올려요 · 이 페이지는 1분마다 새로 불러와요 · 캐릭 이름을 누르면 장비가 보여요 · 시간은 한국 시간 · 읽기 전용</footer>
 </div>
 <div id="tip"></div>
@@ -458,6 +471,49 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
     // ---- the Hall and the 창고 (shared by all PCs: the freshest one's)
     var src = pcs.filter(function (p) { return p.d.hof; }).sort(function (a, b) { return b.at - a.at; })[0];
     $("shared").innerHTML = src ? sharedCard(src) : "";
+    $("runes").innerHTML = runeCard(pcs);
+  }
+  // ---- (11/6) the runes of every PC's bank (룬·보석) and of the 창고, by kind, added up ----
+  var RUNES = ["El", "Eld", "Tir", "Nef", "Eth", "Ith", "Tal", "Ral", "Ort", "Thul", "Amn", "Sol", "Shael", "Dol", "Hel", "Io", "Lum",
+    "Ko", "Fal", "Lem", "Pul", "Um", "Mal", "Ist", "Gul", "Vex", "Ohm", "Lo", "Sur", "Ber", "Jah", "Cham", "Zod"];
+  var cidOf = null;
+  function runeCid(code) {
+    var G = window.D2SB_GFX;
+    if (!G || !G.codes) return -1;
+    if (!cidOf) { cidOf = {}; Object.keys(G.codes).forEach(function (k) { cidOf[G.codes[k]] = Number(k); }); }
+    return code in cidOf ? cidOf[code] : -1;
+  }
+  function runeCard(pcs) {
+    var has = pcs.filter(function (p) { return p.d.rn; });
+    if (!has.length) return "";
+    // the 창고: the same for every PC - the freshest one's
+    var W = (has.slice().sort(function (a, b) { return b.at - a.at; })[0].d.rn.w) || {};
+    var rows = [], sum = 0, hi = 0;
+    for (var i = 33; i >= 1; i--) {
+      var code = "r" + (i < 10 ? "0" : "") + i;
+      var per = pcs.map(function (p) { return p.d.rn ? num(p.d.rn.s && p.d.rn.s[code]) : null; });
+      var w = num(W[code]);
+      var tot = per.reduce(function (a, n) { return a + (n || 0); }, 0) + w;
+      if (!tot) continue;
+      rows.push({ code: code, i: i, per: per, w: w, tot: tot });
+      sum += tot;
+      if (i >= 21) hi += tot; // Pul and up
+    }
+    var cell = function (n) { return n === null ? '<td class="z">?</td>' : n ? "<td>" + n + "</td>" : '<td class="z">-</td>'; };
+    var h = '<section class="card"><div class="pchead"><h2>룬 <small>PC마다 은행(룬·보석) + 창고 · 캐릭이 들고 있는 것은 빼고</small></h2></div>';
+    h += '<div class="sub" style="margin-top:6px"><span>모두 <b>' + sum + "</b>개</span><span>Pul 이상 <b>" + hi + "</b>개</span></div>";
+    if (rows.length) {
+      h += '<div class="rtw"><table class="rt"><thead><tr><th>룬</th>' + pcs.map(function (p) { return "<th>" + esc(p.label) + "</th>"; }).join("")
+        + "<th>창고</th><th>합계</th></tr></thead><tbody>" + rows.map(function (r) {
+          var nm = RUNES[r.i - 1];
+          var im = picOf({ t: nm + " Rune", q: 2, c: runeCid(r.code) });
+          return '<tr class="' + (r.i >= 21 ? "hi" : "") + '"><td><span class="ri"><span class="pic">' + (im ? '<img src="' + im.url + '" alt="">' : "") + "</span>" + esc(nm) + "</span></td>"
+            + r.per.map(cell).join("") + cell(r.w) + '<td class="tot">' + r.tot + "</td></tr>";
+        }).join("") + "</tbody></table></div>";
+    } else h += '<div class="empty">룬이 없어요</div>';
+    var old = pcs.filter(function (p) { return !p.d.rn; }).map(function (p) { return p.label; });
+    if (old.length) h += '<div class="sub" style="margin-top:6px">' + esc(old.join(", ")) + "은(는) 새 도우미를 넣으면 숫자가 나와요 (?)</div>";
+    return h + "</section>";
   }
   function isRunning(p, c) {
     // the bot wrote its log within 10 minutes of the PC's last upload, and that upload is recent
