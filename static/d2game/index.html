@@ -105,6 +105,58 @@ h3 { font-size: 14px; margin: 14px 0 6px; }
 .bar i { display: block; height: 100%; background: var(--bar); }
 .bar.pf i { background: var(--bar2); }
 footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18px; }
+/* (11/5) items drawn as in the game: pictures from item_gfx.js, the tooltip in the game's colors (always dark, like the game) */
+.cnb { background: none; border: 0; padding: 0; margin: 0; font: inherit; font-weight: 650; color: inherit; cursor: pointer;
+  text-decoration: underline dotted; text-underline-offset: 3px; border-radius: 0; }
+.cnb:hover { color: var(--acc); }
+.items { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 6px 14px; }
+.it { display: flex; gap: 10px; align-items: center; padding: 3px 0; min-width: 0; }
+.it .pic { flex: none; width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; background: #0b0a09;
+  border: 1px solid #2c261d; border-radius: 6px; cursor: help; overflow: hidden; }
+.it .pic img { image-rendering: pixelated; max-width: 42px; max-height: 42px; }
+.it .pic .nm { color: #9c8f7a; font-size: 9px; text-align: center; padding: 2px; line-height: 1.1; }
+.it .tx { flex: 1; min-width: 0; font-size: 14px; line-height: 1.35; overflow-wrap: anywhere; cursor: help; }
+.it .tx small { display: block; color: var(--mute); font-size: 12px; }
+.g-unique { --qc: #b8a270; } .g-set { --qc: #3fcf5a; } .g-rare { --qc: #f2e26b; } .g-magic { --qc: #7b86ff; } .g-craft { --qc: #f0a13a; }
+.g-rw { --qc: #c28cff; } .g-normal { --qc: #e6dccb; } .g-rune { --qc: #e0c276; }
+#tip { position: fixed; z-index: 70; pointer-events: none; max-width: min(340px, calc(100vw - 16px)); background: #0b0908; color: #e6dccb;
+  border: 1px solid #5a4a30; border-radius: 6px; padding: 8px 10px; font-size: 12.5px; line-height: 1.45; white-space: pre-line; display: none;
+  box-shadow: 0 6px 24px rgba(0,0,0,.6); }
+#tip .tt { font-size: 13.5px; margin-bottom: 4px; color: var(--qc, #e6dccb); }
+#tip .pic { display: flex; justify-content: center; align-items: center; margin: 2px 0 8px; }
+#tip .pic img { image-rendering: pixelated; }
+#tip .tb { color: #ffffff; } #tip .tr { color: #ff5a5a; } #tip .ts { color: #3fcf5a; } #tip .tp { color: #7b86ff; } #tip .tu { color: #b8a270; }
+#tip .tgy { color: #8f8f8f; } #tip .tk { color: #5c5c5c; } #tip .tn { color: #c9b98f; } #tip .to { color: #f0a13a; }
+#tip .ty { color: #f2e26b; } #tip .tdg { color: #2f9e48; } #tip .tpu { color: #b07cff; } #tip .tnote { color: #9c8f7a; }
+/* a character's items (like the dashboard's save view: 창고 / 가방 / 큐브 / 착용 / 스왑 / 허리띠 / 용병) */
+.ov { position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,.55); display: none; align-items: flex-start; justify-content: center;
+  padding: 24px 10px; overflow-y: auto; }
+.ov.on { display: flex; }
+.dlg { background: #17130f; color: #e6dccb; border: 1px solid #3a2f22; border-radius: 12px; max-width: 100%; padding: 14px 16px 18px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+.dlg .dh { display: flex; gap: 6px 12px; align-items: baseline; flex-wrap: wrap; margin-bottom: 10px; }
+.dlg .dh b { font-size: 17px; color: #d4af6a; }
+.dlg .dh .s2 { color: #9c8f7a; font-size: 12.5px; }
+.dlg .x { margin-left: auto; background: #1f1a14; color: #e6dccb; border-color: #3a2f22; }
+.dlg .msg { color: #9c8f7a; font-size: 13px; padding: 8px 0; }
+.sdwrap { display: flex; gap: 18px; align-items: flex-start; flex-wrap: wrap; }
+.sdcol { display: flex; flex-direction: column; gap: 12px; }
+.sdh { font-size: 12.5px; color: #9c8f7a; margin-bottom: 4px; }
+.sdh b { color: #e6dccb; font-weight: 600; }
+.sdg { --cell: 40px; display: grid; grid-template-columns: repeat(var(--w), var(--cell)); grid-template-rows: repeat(var(--h), var(--cell));
+  width: calc(var(--w) * var(--cell) + 1px); height: calc(var(--h) * var(--cell) + 1px); background-color: #0b0a09;
+  border-right: 1px solid #2c261d; border-bottom: 1px solid #2c261d;
+  background-image: linear-gradient(to right, #2c261d 1px, transparent 1px), linear-gradient(to bottom, #2c261d 1px, transparent 1px);
+  background-size: var(--cell) var(--cell); }
+.sdg.doll { background-image: none; border: 1px solid #2c261d; }
+.sdslot { margin: 2px 1px 1px 2px; border: 1px dashed #3a3226; border-radius: 3px; display: flex; align-items: center; justify-content: center;
+  color: #5a4e3c; font-size: 10.5px; }
+.sdi { position: relative; margin: 2px 1px 1px 2px; color: var(--qc, #e6dccb); border: 1px solid color-mix(in srgb, var(--qc, #e6dccb) 35%, transparent);
+  border-radius: 3px; background: rgba(255,255,255,.035); display: flex; align-items: center; justify-content: center; overflow: hidden;
+  font-size: 10px; line-height: 1.15; text-align: center; min-width: 0; min-height: 0; cursor: help; }
+.sdi:hover, .sdi.tap { border-color: var(--qc, #e6dccb); background: rgba(255,255,255,.08); }
+.sdi img { image-rendering: pixelated; max-width: 100%; max-height: 100%; pointer-events: none; }
+.sdi .nm { padding: 2px; word-break: keep-all; pointer-events: none; }
 @media (max-width: 720px) {
   .ch { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "n n" "l a" "s s"; }
   .cn { grid-area: n; } .cl { grid-area: l; } .ca { grid-area: a; text-align: right; } .cs { grid-area: s; }
@@ -115,6 +167,9 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
   .ca small::before { content: " · "; }
   .cs:empty { display: none; }
   .tile .v { font-size: 19px; }
+  .sdg { --cell: clamp(24px, calc((100vw - 64px) / 10), 40px); }
+  .sdwrap { gap: 12px; }
+  .dlg { padding: 12px 10px 14px; }
 }
 </style>
 </head>
@@ -128,8 +183,10 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
   <section class="tiles" id="sum"></section>
   <div id="pcs"></div>
   <div id="shared"></div>
-  <footer>PC마다 도우미가 2분마다 올려요 · 이 페이지는 1분마다 새로 불러와요 · 시간은 한국 시간 · 읽기 전용</footer>
+  <footer>PC마다 도우미가 2분마다 올려요 · 이 페이지는 1분마다 새로 불러와요 · 캐릭 이름을 누르면 장비가 보여요 · 시간은 한국 시간 · 읽기 전용</footer>
 </div>
+<div id="tip"></div>
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-label="캐릭 장비"><div class="dlg" id="dlg"></div></div>
 <script src="config.js"></script>
 <script>
 (function () {
@@ -155,6 +212,146 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
     return Math.round(ms / 86400000) + "일 전";
   };
   var qClass = function (x) { return x.r ? "qr" : x.rw ? "qr" : ({ 4: "q4", 5: "q5", 6: "q6", 7: "q7" })[x.q] || ""; };
+
+  // ---- (11/5) item pictures: item_gfx.js next to this page (the dashboard's file: built from the game's own files) ----
+  var GFX = null, GFX_CACHE = {}, gfxState = "";
+  function loadGfx() {
+    if (gfxState) return;
+    gfxState = "loading";
+    var sc = document.createElement("script");
+    sc.src = CFG.gfx || "item_gfx.js";
+    sc.onload = function () { gfxState = window.D2SB_GFX ? "ok" : "none"; if (gfxState === "ok") redraw(); };
+    sc.onerror = function () { gfxState = "none"; };
+    document.head.appendChild(sc);
+  }
+  function gfxData() {
+    if (GFX || !window.D2SB_GFX) return GFX;
+    var G = window.D2SB_GFX;
+    var un = function (s) { var b = atob(s); var u = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; };
+    GFX = { G: G, un: un, pal: un(G.pal), cmaps: {} };
+    Object.keys(G.cmaps || {}).forEach(function (k) { GFX.cmaps[k] = un(G.cmaps[k]); });
+    return GFX;
+  }
+  var gnorm = function (s) { return String(s || "").toLowerCase().replace(/[^a-z0-9]/g, ""); };
+  /** which picture the game draws for this item: base / variant / unique / set file + colour (the dashboard's gfxSpec) */
+  function gfxSpec(it) {
+    var D = gfxData();
+    if (!D || !it) return null;
+    var G = D.G;
+    var code = G.codes[it.c];
+    var b = code && G.base[code];
+    if (!b) return null;
+    var inv = b[0], tc = "";
+    if (b[3].length && typeof it.gx === "number" && b[3][it.gx]) inv = b[3][it.gx];
+    var tn = gnorm(it.t);
+    if (it.q === 7) {
+      if (b[1]) inv = b[1];
+      var u = G.unq[tn];
+      if (u) { if (u[0]) inv = u[0]; if (u[1]) tc = u[1]; }
+    } else if (it.q === 5) {
+      if (b[1]) inv = b[1];
+      var st = G.set[tn];
+      if (st) { if (st[0]) inv = st[0]; if (st[1]) tc = st[1]; }
+    } else if (it.q === 4) {
+      var bn = gnorm(b[5]);
+      var i = bn ? tn.indexOf(bn) : -1;
+      if (i >= 0) {
+        var pre = tn.slice(0, i), suf = tn.slice(i + bn.length);
+        if (pre && G.pre[pre]) tc = G.pre[pre];
+        if (suf && G.suf[suf]) tc = G.suf[suf];
+      }
+    }
+    if (it.inv) inv = it.inv;
+    if (typeof it.tcol === "string" && it.tcol) tc = it.tcol;
+    return { inv: String(inv || "").toLowerCase(), tc: tc, tr: b[4] || 0, eth: !!it.e };
+  }
+  function gfxImage(spec) {
+    if (!spec || !spec.inv) return null;
+    var k = spec.inv + "|" + spec.tc + "|" + spec.tr + "|" + (spec.eth ? 1 : 0);
+    if (k in GFX_CACHE) return GFX_CACHE[k];
+    var D = gfxData();
+    var img = D && D.G.imgs[spec.inv];
+    if (!img) return (GFX_CACHE[k] = null);
+    var w = img[0], h = img[1], px = D.un(img[2]);
+    var ci = D.G.colors.indexOf(spec.tc);
+    var cm = ci >= 0 && spec.tr && D.cmaps[spec.tr] ? D.cmaps[spec.tr].subarray(ci * 256, ci * 256 + 256) : null;
+    var cv = document.createElement("canvas");
+    cv.width = w; cv.height = h;
+    var ctx = cv.getContext("2d");
+    var id = ctx.createImageData(w, h);
+    var P = D.pal;
+    for (var i = 0; i < px.length; i++) {
+      var v = px[i];
+      if (!v) continue;
+      if (cm) v = cm[v];
+      id.data[i * 4] = P[v * 3 + 2]; id.data[i * 4 + 1] = P[v * 3 + 1]; id.data[i * 4 + 2] = P[v * 3];
+      id.data[i * 4 + 3] = spec.eth ? 150 : 255; // ethereal items look see-through in game
+    }
+    ctx.putImageData(id, 0, 0);
+    return (GFX_CACHE[k] = { url: cv.toDataURL(), w: w, h: h });
+  }
+  var picOf = function (g) { try { return g ? gfxImage(gfxSpec(g)) : null; } catch (e) { return null; } };
+  /** the dark panels' quality colors (like the game) */
+  var gq = function (g) { return !g ? "g-normal" : g.rw ? "g-rw" : ({ 7: "g-unique", 5: "g-set", 6: "g-rare", 4: "g-magic", 8: "g-craft" })[g.q] || (/ Rune$/.test(g.t || "") ? "g-rune" : "g-normal"); };
+  // ---- the tooltip: the item's lines in the game's colors (the dashboard's tipRows / tipRowHtml) ----
+  var TIP_CLASS = { "0": "tb", "1": "tr", "2": "ts", "3": "tp", "4": "tu", "5": "tgy", "6": "tk", "7": "tn", "8": "to", "9": "ty", ":": "tdg", ";": "tpu", n: "tnote" };
+  var TIP_BASE = { "g-unique": "4", "g-set": "2", "g-rare": "9", "g-magic": "3", "g-craft": "8", "g-rw": "5" };
+  var TIP_HEAD = /^(Defense:|Durability:|Required (Strength|Dexterity|Level):|(One|Two)-Hand Damage:|Throw Damage:|Kick Damage:|Smite Damage:|Chance to Block:|Quantity:|\(.+ Only\)$)/;
+  var TIP_RUNES = /^'[^']+'$/;
+  function tipRows(p) {
+    var d = Array.isArray(p.d) ? p.d : [], h = Array.isArray(p.h) ? p.h : [];
+    var dc = Array.isArray(p.dc) && p.dc.length === d.length ? p.dc : null;
+    var green = new Set(Array.isArray(p.sl) ? p.sl : []);
+    var own = function (l, i) {
+      return dc ? String(dc[i] || "0") : green.has(l) ? "2" : p.b && i <= 2 && l === p.b ? TIP_BASE[p.q] || "0" : TIP_RUNES.test(l) ? "4" : TIP_HEAD.test(l) ? "0" : "3";
+    };
+    var rows = d.map(function (l, i) { return { l: String(l), c: own(l, i), i: i }; });
+    if (!h.length) return rows.filter(function (r) { return !(r.i === 0 && r.l === p.t); });
+    var bi = p.b ? d.indexOf(p.b) : -1;
+    var rest = rows.filter(function (r) { return !(r.i === 0 && r.l === p.t) && !(p.b && r.i <= 2 && r.l === p.b) && !/^Defense: \d+$/.test(r.l); });
+    return (bi > -1 ? [rows[bi]] : []).concat(h.map(function (l) { return { l: String(l), c: TIP_RUNES.test(l) ? "4" : "0", i: -1 }; }), rest);
+  }
+  function tipRowHtml(r) {
+    if (!r.c) return esc(r.l);
+    var runs = r.c.split(",").map(function (s) { var k = s.indexOf("@"); return k < 0 ? [s, 0] : [s.slice(0, k), Number(s.slice(k + 1)) || 0]; });
+    var out = "";
+    runs.forEach(function (x, k) {
+      var piece = r.l.slice(k ? x[1] : 0, k + 1 < runs.length ? runs[k + 1][1] : r.l.length);
+      if (piece) out += '<span class="' + (TIP_CLASS[x[0]] || "tb") + '">' + esc(piece) + "</span>";
+    });
+    return out || esc(r.l);
+  }
+  /** what a tile carries for its tooltip */
+  function tipAttr(g, extra) {
+    var sl = Array.isArray(g.sg) ? g.sg.map(function (i) { return (g.d || [])[i]; }).filter(Boolean) : [];
+    return ' data-tip="' + encodeURIComponent(JSON.stringify({ t: g.t, b: g.b, d: g.d || [g.t], dc: g.dc, h: g.h, q: gq(g), sl: sl, g: { c: g.c, q: g.q, t: g.t, gx: g.gx, e: g.e, inv: g.inv, tcol: g.tcol }, x: extra || "" })) + '"';
+  }
+  var tip = null, tipFor = null;
+  function showTip(el, at) {
+    var d;
+    try { d = JSON.parse(decodeURIComponent(el.getAttribute("data-tip"))); } catch (e) { return; }
+    var im = picOf(d.g);
+    tip.innerHTML = (im ? '<div class="pic"><img src="' + im.url + '" width="' + im.w * 2 + '" height="' + im.h * 2 + '" alt=""></div>' : "")
+      + '<div class="tt ' + esc(d.q) + '">' + esc(d.t) + "</div>" + tipRows(d).map(tipRowHtml).join("\n") + (d.x ? '\n<span class="tnote">' + esc(d.x) + "</span>" : "");
+    tip.style.display = "block";
+    tipFor = el;
+    placeTip(at);
+  }
+  function placeTip(at) {
+    if (!tip || tip.style.display !== "block") return;
+    var x = Math.max(8, Math.min(at.x + 14, window.innerWidth - tip.offsetWidth - 8));
+    var y = at.y + 14;
+    if (y + tip.offsetHeight > window.innerHeight - 8) y = Math.max(8, at.y - tip.offsetHeight - 14);
+    tip.style.left = x + "px"; tip.style.top = y + "px";
+  }
+  function hideTip() { if (tip) tip.style.display = "none"; if (tipFor) tipFor.classList.remove("tap"); tipFor = null; }
+  /** an item in a list: its picture (or its name in the box) and its name, with a line under it */
+  function itemLine(x, under) {
+    var g = x.g || { t: x.t, q: x.q, rw: x.rw, d: [x.t] };
+    var im = picOf(g);
+    return '<li class="it"><div class="pic ' + gq(g) + '"' + tipAttr(g) + ">" + (im ? '<img src="' + im.url + '" alt="">' : '<span class="nm">' + esc(x.t) + "</span>") + "</div>"
+      + '<div class="tx"' + tipAttr(g) + '><span class="' + qClass(x) + '">' + esc(x.t) + "</span><small>" + under + "</small></div></li>";
+  }
 
   // ---- the address and the key (config.js): only a publishable key, never the secret one
   var base = String(CFG.url || "").trim().replace(/\/+$/, "").replace(/\/rest\/v1$/, "");
@@ -189,16 +386,24 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
 
   var last = null; // the last good answer (kept on screen when a refresh fails)
   var loading = false;
+  var noPub = false;
+  var hdrs = function () { var h = { apikey: key, Accept: "application/json" }; if (kind === "jwt") h.Authorization = "Bearer " + key; return h; };
+  function redraw() { if (last) render(last.rows); if (GEAR.ck) drawGear(); }
   async function load() {
     if (loading) return;
     loading = true;
     var ctl = new AbortController();
     var timer = setTimeout(function () { ctl.abort(); }, 15000);
     try {
-      var headers = { apikey: key, Accept: "application/json" };
-      if (kind === "jwt") headers.Authorization = "Bearer " + key; // (an older anon key)
-      var r = await fetch(base + "/rest/v1/d2_status?select=ord,label,data,ts&order=ord.asc,label.asc", { headers: headers, cache: "no-store", signal: ctl.signal, referrerPolicy: "no-referrer" });
+      var cols = noPub ? "ord,label,data,ts" : "ord,label,data,ts,pub";
+      var r = await fetch(base + "/rest/v1/d2_status?select=" + cols + "&order=ord.asc,label.asc", { headers: hdrs(), cache: "no-store", signal: ctl.signal, referrerPolicy: "no-referrer" });
       var text = await r.text();
+      // (the DB before the gear SQL has no pub column: the page works on, without the characters' items)
+      if (!r.ok && !noPub && (r.status === 400 || r.status === 404) && /pub/.test(text)) {
+        noPub = true;
+        r = await fetch(base + "/rest/v1/d2_status?select=ord,label,data,ts&order=ord.asc,label.asc", { headers: hdrs(), cache: "no-store", signal: ctl.signal, referrerPolicy: "no-referrer" });
+        text = await r.text();
+      }
       if (!r.ok) {
         var why = r.status === 401 || r.status === 403 ? "키를 확인해 주세요 (공개 키 sb_publishable_…)" : r.status === 404 ? "상태 표가 없어요 - d2sb_db.sql을 Supabase에서 다시 실행해 주세요" : "";
         throw new Error("HTTP " + r.status + (why ? " · " + why : ""));
@@ -224,7 +429,7 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
     var pcs = rows.map(function (r) {
       var d = r && r.data && typeof r.data === "object" ? r.data : {};
       var at = Date.parse(r.ts) || num(d.ts);
-      return { label: String(r.label || ("PC" + num(r.ord))), ord: num(r.ord), d: d, at: at, age: now - at, today: kstDay(num(d.ts) || at) === today };
+      return { label: String(r.label || ("PC" + num(r.ord))), ord: num(r.ord), pub: r.pub ? String(r.pub) : "", d: d, at: at, age: now - at, today: kstDay(num(d.ts) || at) === today };
     });
     // ---- the totals (today's numbers from the PCs that sent today)
     var inc = 0, hi = 0, run = 0, all = 0, de = 0, rs = 0, cr = 0, best = null, sum = 0;
@@ -278,13 +483,14 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
     h += '<div class="chars">' + (chars.length ? chars.map(function (c) { return charRow(p, c, I.by || {}); }).join("") : '<div class="empty">캐릭이 없어요</div>') + "</div>";
     var top = Array.isArray(d.top) ? d.top : [];
     if (top.length && p.today) {
-      h += "<h3>오늘 들어온 고급 템 <small>(1 Vex 이상)</small></h3><ul class=\"finds\">" + top.map(function (x) {
-        return '<li><span class="t"><span class="' + qClass(x) + '">' + esc(x.t) + "</span> <small>" + esc(x.c) + '</small></span><span class="w">' + f1(x.v) + " Vex · " + esc(hm(x.ts)) + "</span></li>";
+      h += '<h3>오늘 들어온 고급 템 <small>(1 Vex 이상)</small></h3><ul class="items">' + top.map(function (x) {
+        return itemLine(x, esc(x.c) + " · " + f1(x.v) + " Vex · " + esc(hm(x.ts)));
       }).join("") + "</ul>";
     }
     return h + "</article>";
   }
   function charRow(p, c, by) {
+    var gearBtn = p.pub ? '<button type="button" class="cnb" data-pub="' + esc(p.pub) + '" data-ck="' + esc(c.n) + '" data-pc="' + esc(p.label) + '" title="장비 보기">' + esc(c.n) + "</button>" : "<b>" + esc(c.n) + "</b>";
     var running = isRunning(p, c);
     var idle = num(c.la) > 0 ? num(p.d.ts) - num(c.la) : -1;
     var state = running ? "" : idle >= 0 ? " · 멈춤 " + ago(idle).replace(" 전", "") : " · 오늘 기록 없음";
@@ -299,7 +505,7 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
     var xp = typeof c.x === "number" ? '<small> · ' + f1(c.x) + '%</small><div class="xp"><i style="width:' + Math.max(0, Math.min(100, c.x)) + '%"></i></div>' : "";
     var vex = p.today && by[c.n] ? f1(by[c.n]) + " <small>Vex</small>" : "";
     return '<div class="ch' + (running ? "" : " idle") + '">'
-      + '<div class="cn">' + (vex ? '<span class="cvm">' + vex + "</span>" : "") + '<span class="dot ' + (running ? "run" : idle >= 0 ? "stop" : "") + '"></span><b>' + esc(c.n) + "</b>"
+      + '<div class="cn">' + (vex ? '<span class="cvm">' + vex + "</span>" : "") + '<span class="dot ' + (running ? "run" : idle >= 0 ? "stop" : "") + '"></span>' + gearBtn
       + (c.f ? '<span class="chip">파밍</span>' : "") + (c.m ? "" : '<span class="chip bad">용병 없음</span>')
       + "<small>" + esc([cls, c.b].filter(Boolean).join(" · ")) + esc(state) + "</small></div>"
       + '<div class="cl">Lv <b>' + num(c.l) + "</b>" + xp + "</div>"
@@ -322,11 +528,111 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
     h += '<div class="sub" style="margin-top:8px"><span>퍼펙트 <b>' + num(P[2]) + "</b>/" + num(P[1]) + (num(E[1]) ? " · 에테 " + num(E[2]) + "/" + num(E[1]) : "") + "</span>"
       + "<span>5개 꽉 찬 칸 <b>" + num(H.full) + "</b></span><span>2개 이상 <b>" + num(H.two) + "</b></span></div>";
     var wh = Array.isArray(p.d.wh) ? p.d.wh : [];
-    h += "<h3>오늘 창고에 들어온 템</h3>" + (wh.length && p.today ? '<ul class="finds">' + wh.map(function (x) {
-      return '<li><span class="t ' + qClass(x) + '">' + esc(x.t) + '</span><span class="w">' + esc(hm(x.ts)) + "</span></li>";
+    h += "<h3>오늘 창고에 들어온 템</h3>" + (wh.length && p.today ? '<ul class="items">' + wh.map(function (x) {
+      return itemLine(x, esc(hm(x.ts)));
     }).join("") + "</ul>" : '<div class="empty">아직 없어요</div>');
     return h + "</section>";
   }
+
+  // ---- (11/5) a character's items: what the dashboard's save view shows (d2_gear, sent by the helper when they change) ----
+  var PANELS = { stash: ["창고", 6, 8], inv: ["가방", 10, 4], cube: ["큐브", 3, 4], worn: ["착용", 8, 8], swap: ["스왑 무기", 4, 4], belt: ["허리띠", 4, 4], merc: ["용병", 8, 6] };
+  var MERC_BL = [1, 3, 4, 5];
+  var BODY = { 1: [4, 1, 2, 2, "투구"], 2: [6, 2, 1, 1, "목걸이"], 3: [4, 3, 2, 3, "갑옷"], 4: [1, 2, 2, 4, "무기"], 5: [7, 2, 2, 4, "방패"],
+    6: [3, 6, 1, 1, "반지"], 7: [6, 6, 1, 1, "반지"], 8: [4, 6, 2, 1, "허리띠"], 9: [7, 7, 2, 2, "신발"], 10: [1, 7, 2, 2, "장갑"],
+    11: [1, 1, 2, 4, "무기"], 12: [3, 1, 2, 4, "방패"] };
+  var GEAR = { ck: "", pub: "", pc: "", data: null, err: "", at: 0, loading: false };
+  function panel(w, d) {
+    var P = PANELS[w];
+    var mine = (d.items || []).filter(function (it) { return it.w === w; });
+    var body = w === "worn" || w === "swap" || w === "merc";
+    var rows = w === "belt" ? Math.max(1, Math.min(4, num(d.beltRows) || 4)) : P[2];
+    var area = function (b) { var a = BODY[b] || [1, 1, 1, 1]; return "grid-column:" + a[0] + " / span " + a[2] + ";grid-row:" + a[1] + " / span " + a[3]; };
+    var at = function (it) {
+      if (body) return area(it.bl);
+      if (w === "belt") return "grid-column:" + (num(it.px) + 1) + ";grid-row:" + (rows - num(it.py));
+      return "grid-column:" + (num(it.px) + 1) + " / span " + (num(it.iw) || 1) + ";grid-row:" + (num(it.py) + 1) + " / span " + (num(it.ih) || 1);
+    };
+    var worn = new Set(mine.map(function (it) { return num(it.bl); }));
+    var slots = body ? Object.keys(BODY).filter(function (b) { return w === "merc" ? MERC_BL.indexOf(Number(b)) > -1 : (w === "swap") === (Number(b) >= 11); })
+      .map(function (b) { return '<div class="sdslot" style="' + area(b) + '">' + (worn.has(Number(b)) ? "" : BODY[b][4]) + "</div>"; }).join("") : "";
+    var tiles = mine.map(function (it) {
+      var im = picOf(it);
+      return '<div class="sdi ' + gq(it) + '" style="' + at(it) + '"' + tipAttr(it) + ">" + (im ? '<img src="' + im.url + '" alt="">' : '<span class="nm">' + esc(it.t) + "</span>") + "</div>";
+    }).join("");
+    return '<div><div class="sdh"><b>' + P[0] + "</b>" + (mine.length ? " · " + mine.length + "개" : "") + '</div><div class="sdg' + (body ? " doll" : "")
+      + '" style="--w:' + P[1] + ";--h:" + rows + '">' + slots + tiles + "</div></div>";
+  }
+  function drawGear() {
+    var d = GEAR.data;
+    var head = '<div class="dh"><b>' + esc(GEAR.ck) + '</b><span class="s2">' + esc(GEAR.pc) + (d && d.lvl ? " · Lv " + num(d.lvl) : "")
+      + (d ? " · " + (d.live ? "게임 중 기록 " + ago(Date.now() - num(d.live)) : "세이브 " + ago(Date.now() - num(d.mt || d.ts))) + " · 올린 때 " + ago(Date.now() - GEAR.at) : "")
+      + '</span><button type="button" class="x" data-close>닫기</button></div>';
+    var body;
+    if (GEAR.loading && !d) body = '<div class="msg">불러오는 중…</div>';
+    else if (GEAR.err) body = '<div class="msg">' + esc(GEAR.err) + "</div>";
+    else if (!d) body = '<div class="msg">아직 올라온 장비가 없어요. 도우미가 캐릭마다 10분 안에 올려요.</div>';
+    else {
+      var hasMerc = (d.items || []).some(function (it) { return it.w === "merc"; });
+      body = '<div class="sdwrap">' + panel("stash", d) + '<div class="sdcol">' + panel("inv", d) + (d.cube ? panel("cube", d) : "") + "</div>"
+        + '<div class="sdcol">' + panel("worn", d) + '<div class="sdwrap">' + panel("swap", d) + panel("belt", d) + "</div></div>"
+        + (hasMerc ? '<div class="sdcol">' + panel("merc", d) + "</div>" : "") + "</div>"
+        + (gfxState === "none" ? '<div class="msg">템 그림 파일(item_gfx.js)이 이 페이지 옆에 없어서 이름으로 보여요.</div>' : "");
+    }
+    $("dlg").innerHTML = head + body;
+  }
+  async function openGear(pub, ck, pc) {
+    GEAR = { ck: ck, pub: pub, pc: pc, data: null, err: "", at: 0, loading: true };
+    hideTip();
+    $("ov").classList.add("on");
+    drawGear();
+    try {
+      var r = await fetch(base + "/rest/v1/d2_gear?select=ck,data,ts&pub=eq." + encodeURIComponent(pub) + "&ck=eq." + encodeURIComponent(ck), { headers: hdrs(), cache: "no-store", referrerPolicy: "no-referrer" });
+      var t = await r.text();
+      if (GEAR.ck !== ck || GEAR.pub !== pub) return;
+      if (!r.ok) throw new Error(r.status === 404 ? "장비 표가 없어요 - d2sb_db.sql을 Supabase에서 한 번 더 실행해 주세요" : "HTTP " + r.status);
+      var rows = JSON.parse(t);
+      var row = Array.isArray(rows) ? rows[0] : null;
+      GEAR.data = row && row.data && typeof row.data === "object" ? row.data : null;
+      GEAR.at = row ? Date.parse(row.ts) || 0 : 0;
+    } catch (e) {
+      GEAR.err = "장비를 불러오지 못했어요: " + String(e && e.message ? e.message : e);
+    }
+    GEAR.loading = false;
+    if ($("ov").classList.contains("on") && GEAR.ck === ck) drawGear();
+  }
+  function closeGear() { $("ov").classList.remove("on"); GEAR.ck = ""; hideTip(); }
+
+  tip = $("tip");
+  var touch = false;
+  document.addEventListener("pointerdown", function (ev) { touch = ev.pointerType === "touch" || ev.pointerType === "pen"; }, true);
+  document.addEventListener("mouseover", function (ev) {
+    if (touch) return;
+    var el = ev.target.closest && ev.target.closest("[data-tip]");
+    if (!el) { hideTip(); return; }
+    if (el !== tipFor) showTip(el, { x: ev.clientX, y: ev.clientY });
+  });
+  document.addEventListener("mousemove", function (ev) { if (!touch && tipFor) placeTip({ x: ev.clientX, y: ev.clientY }); });
+  document.addEventListener("click", function (ev) {
+    var t = ev.target;
+    var g = t.closest && t.closest("[data-pub]");
+    if (g) { ev.preventDefault(); openGear(g.getAttribute("data-pub"), g.getAttribute("data-ck"), g.getAttribute("data-pc")); return; }
+    if (t.closest && t.closest("[data-close]")) { closeGear(); return; }
+    var el = t.closest && t.closest("[data-tip]");
+    if (el && touch) {
+      // (a phone: tap an item for its tooltip, tap again or elsewhere to close)
+      if (el === tipFor) { hideTip(); return; }
+      hideTip();
+      el.classList.add("tap");
+      var rc = el.getBoundingClientRect();
+      showTip(el, { x: Math.max(8, rc.left - 14), y: rc.bottom - 6 });
+      return;
+    }
+    if (!el) hideTip();
+    if (t === $("ov")) closeGear();
+  });
+  document.addEventListener("keydown", function (ev) { if (ev.key === "Escape") { if (tipFor) hideTip(); else if (GEAR.ck) closeGear(); } });
+  window.addEventListener("scroll", function () { if (touch) hideTip(); }, { passive: true });
+  loadGfx();
 
   $("reload").addEventListener("click", load);
   document.addEventListener("visibilitychange", function () { if (!document.hidden && (!last || Date.now() - last.at > REFRESH)) load(); });
