@@ -551,7 +551,10 @@
                                                            {
                                                                "event_html":  "[2026 AJOU-CBNU-PNU Toric Topology Seminar](https://sites.google.com/view/acptts), Chungbuk National Univ., Cheongju, **Korea**, Nov 5, 2026",
                                                                "title_html":  "Small covers and the Four Color Theorem",
-                                                               "id":  "acptts-chungbuk-2026"
+                                                               "id":  "acptts-chungbuk-2026",
+                                                               "photos":  [
+                                                                              "talk.jpg"
+                                                                          ]
                                                            },
                                                             {
                                                                 "event_html":  "[Transformation Groups Seminar](https://mathcal.sci.uwo.ca/V2/index.php?getdate=20260901), Western Univ., London, ON, **Canada**, Sep 18, 2026",

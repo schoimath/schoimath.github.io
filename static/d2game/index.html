@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>D2 봇 상태</title>
+<!--
+  D2 봇 상태 페이지 (11/5). PC마다 도우미가 2분마다 올리는 요약(Supabase의 d2_status 표)을 공개 키로 읽어서 보여줘요.
+  읽기만 해요 - 이 페이지로는 아무것도 바꿀 수 없어요. 주소와 공개 키는 같은 폴더의 config.js에 넣어요.
+-->
+<style>
+:root {
+  --bg: #f6f5f1; --card: #ffffff; --ink: #1d1d1b; --mute: #6b6a64; --line: #e4e2da; --soft: #f0eee7;
+  --ok: #1f8a4c; --warn: #b26b00; --bad: #c62f2f; --acc: #3559c7; --bar: #3559c7; --bar2: #8a63d2;
+  --q4: #3b4fd8; --q5: #198c19; --q6: #9a7d00; --q7: #94702c; --qr: #b85c00;
+  --shadow: 0 1px 2px rgba(0,0,0,.06), 0 2px 10px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141412; --card: #1e1d1b; --ink: #ecebe6; --mute: #a3a199; --line: #34322e; --soft: #262522;
+    --ok: #4cc27f; --warn: #e3a33b; --bad: #ef6b6b; --acc: #8aa4ff; --bar: #7c97ff; --bar2: #b394f0;
+    --q4: #8c96ff; --q5: #4fd14f; --q6: #e6d24a; --q7: #d4b67a; --qr: #f0a050;
+    --shadow: none;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141412; --card: #1e1d1b; --ink: #ecebe6; --mute: #a3a199; --line: #34322e; --soft: #262522;
+  --ok: #4cc27f; --warn: #e3a33b; --bad: #ef6b6b; --acc: #8aa4ff; --bar: #7c97ff; --bar2: #b394f0;
+  --q4: #8c96ff; --q5: #4fd14f; --q6: #e6d24a; --q7: #d4b67a; --qr: #f0a050;
+  --shadow: none;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 20px 16px 40px; }
+header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+h1 { font-size: 22px; margin: 0; letter-spacing: -.01em; }
+.meta { color: var(--mute); font-size: 13px; display: flex; align-items: center; gap: 10px; }
+button {
+  font: inherit; font-size: 13px; color: var(--ink); background: var(--card); border: 1px solid var(--line);
+  border-radius: 8px; padding: 5px 12px; cursor: pointer;
+}
+button:hover { border-color: var(--mute); }
+.note { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--warn); border-radius: 10px; padding: 12px 14px; margin-bottom: 14px; }
+.note.bad { border-left-color: var(--bad); }
+.note code { background: var(--soft); padding: 1px 5px; border-radius: 4px; font-size: 13px; word-break: break-all; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 16px; }
+.tile { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; box-shadow: var(--shadow); min-width: 0; }
+.tile .k { color: var(--mute); font-size: 12px; }
+.tile .v { font-size: 22px; font-weight: 650; line-height: 1.25; overflow-wrap: anywhere; }
+.tile .v small { font-size: 13px; font-weight: 500; color: var(--mute); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; margin-bottom: 14px; box-shadow: var(--shadow); }
+.pchead { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.pchead h2 { font-size: 18px; margin: 0; }
+h2 small, h3 small { color: var(--mute); font-weight: 500; font-size: 12px; }
+h3 { font-size: 14px; margin: 14px 0 6px; }
+.pill { font-size: 12px; padding: 2px 9px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+.pill.ok { color: var(--ok); } .pill.warn { color: var(--warn); } .pill.bad { color: var(--bad); }
+.sub { color: var(--mute); font-size: 13px; margin: 4px 0 8px; display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; }
+.sub b { color: var(--ink); }
+.err { color: var(--bad); font-size: 13px; margin: 4px 0; }
+.spark { display: inline-flex; align-items: flex-end; gap: 2px; height: 22px; vertical-align: middle; }
+.spark i { display: block; width: 8px; background: var(--bar); border-radius: 2px 2px 0 0; min-height: 1px; opacity: .55; }
+.spark i.today { opacity: 1; }
+.chars { border-top: 1px solid var(--line); }
+.ch {
+  display: grid; grid-template-columns: minmax(150px, 1.3fr) minmax(110px, .9fr) minmax(150px, 1.3fr) minmax(170px, 1.6fr) minmax(60px, .5fr);
+  gap: 4px 12px; align-items: center; padding: 8px 2px; border-bottom: 1px solid var(--line); font-size: 14px;
+}
+.ch > div { min-width: 0; }
+.ch.idle { color: var(--mute); }
+.cn b { font-weight: 650; }
+.cn small, .ca small { color: var(--mute); display: block; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--mute); margin-right: 6px; vertical-align: 1px; }
+.dot.run { background: var(--ok); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ok) 22%, transparent); }
+.dot.stop { background: var(--bad); }
+.xp { height: 4px; background: var(--soft); border-radius: 2px; overflow: hidden; margin-top: 3px; max-width: 120px; }
+.xp i { display: block; height: 100%; background: var(--bar2); }
+.cl small { color: var(--mute); }
+.cs { font-size: 13px; color: var(--mute); }
+.cs .n { color: var(--ink); }
+.cs .hot { color: var(--bad); font-weight: 600; }
+.cs .amb { color: var(--warn); font-weight: 600; }
+.cv { text-align: right; white-space: nowrap; }
+.cvm { display: none; }
+.chip { display: inline-block; font-size: 11px; padding: 0 6px; border-radius: 4px; background: var(--soft); color: var(--mute); margin-left: 4px; vertical-align: 1px; }
+.chip.bad { color: var(--bad); }
+.finds { list-style: none; margin: 0; padding: 0; font-size: 14px; }
+.finds li { display: flex; gap: 8px; justify-content: space-between; padding: 3px 0; border-bottom: 1px dashed var(--line); }
+.finds li:last-child { border-bottom: 0; }
+.finds .w { color: var(--mute); font-size: 12px; white-space: nowrap; }
+.finds .t { min-width: 0; overflow-wrap: anywhere; }
+.q4 { color: var(--q4); } .q5 { color: var(--q5); } .q6 { color: var(--q6); } .q7 { color: var(--q7); } .qr { color: var(--qr); }
+.empty { color: var(--mute); font-size: 13px; padding: 4px 0; }
+.bars { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 8px 18px; }
+.brow .bl { display: flex; justify-content: space-between; font-size: 13px; }
+.brow .bl b { font-weight: 650; }
+.bar { height: 8px; background: var(--soft); border-radius: 4px; overflow: hidden; margin-top: 3px; }
+.bar i { display: block; height: 100%; background: var(--bar); }
+.bar.pf i { background: var(--bar2); }
+footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18px; }
+@media (max-width: 720px) {
+  .ch { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "n n" "l a" "s s"; }
+  .cn { grid-area: n; } .cl { grid-area: l; } .ca { grid-area: a; text-align: right; } .cs { grid-area: s; }
+  .cv { display: none; }
+  .cvm { display: inline; float: right; margin-left: 8px; white-space: nowrap; }
+  .cn small { white-space: normal; }
+  .ca small { display: inline; white-space: normal; }
+  .ca small::before { content: " · "; }
+  .cs:empty { display: none; }
+  .tile .v { font-size: 19px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>D2 봇 상태</h1>
+    <div class="meta"><span id="upd">불러오는 중…</span><button id="reload" type="button">새로고침</button></div>
+  </header>
+  <div id="warn"></div>
+  <section class="tiles" id="sum"></section>
+  <div id="pcs"></div>
+  <div id="shared"></div>
+  <footer>PC마다 도우미가 2분마다 올려요 · 이 페이지는 1분마다 새로 불러와요 · 시간은 한국 시간 · 읽기 전용</footer>
+</div>
+<script src="config.js"></script>
+<script>
+(function () {
+  "use strict";
+  var CFG = window.D2_STATUS_CONFIG || {};
+  var REFRESH = 60 * 1000;
+  var CLS = ["아마존", "소서리스", "네크로맨서", "팔라딘", "바바리안", "드루이드", "어쌔신"];
+  var DIFF = ["노멀", "나이트메어", "헬"];
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; });
+  };
+  var num = function (v) { var n = Number(v); return isFinite(n) ? n : 0; };
+  var f1 = function (v) { var n = Math.round(num(v) * 10) / 10; return n.toFixed(n % 1 ? 1 : 0); };
+  var KST = 9 * 3600 * 1000;
+  var kstDay = function (ts) { return new Date(num(ts) + KST).toISOString().slice(0, 10); };
+  var hm = function (ts) { var d = new Date(num(ts) + KST); return d.toISOString().slice(11, 16); };
+  var ago = function (ms) {
+    ms = Math.max(0, ms);
+    if (ms < 90 * 1000) return "방금";
+    if (ms < 3600 * 1000) return Math.round(ms / 60000) + "분 전";
+    if (ms < 48 * 3600 * 1000) return Math.round(ms / 3600000) + "시간 전";
+    return Math.round(ms / 86400000) + "일 전";
+  };
+  var qClass = function (x) { return x.r ? "qr" : x.rw ? "qr" : ({ 4: "q4", 5: "q5", 6: "q6", 7: "q7" })[x.q] || ""; };
+
+  // ---- the address and the key (config.js): only a publishable key, never the secret one
+  var base = String(CFG.url || "").trim().replace(/\/+$/, "").replace(/\/rest\/v1$/, "");
+  var key = String(CFG.key || "").trim();
+  function keyKind(k) {
+    if (!k) return "none";
+    if (/^sb_secret_/.test(k)) return "secret";
+    if (/^eyJ/.test(k)) {
+      try {
+        var p = JSON.parse(atob(k.split(".")[1].replace(/-/g, "+").replace(/_/g, "/")));
+        if (p && p.role === "service_role") return "secret";
+      } catch (e) { /* not a JWT we can read: let the server say */ }
+      return "jwt";
+    }
+    return "ok";
+  }
+  var kind = keyKind(key);
+  function note(html, bad) { $("warn").innerHTML = html ? '<div class="note' + (bad ? " bad" : "") + '">' + html + "</div>" : ""; }
+  if (kind === "secret") {
+    note("<b>config.js에 비밀 키가 들어 있어요.</b> 이 페이지는 비밀 키로는 열지 않아요. 비밀 키(<code>sb_secret_…</code>)를 지우고 "
+      + "공개 키(<code>sb_publishable_…</code>)를 넣어 주세요. 이미 GitHub에 올렸다면 Supabase → Project Settings → API Keys에서 "
+      + "그 비밀 키를 지우고 새로 만든 뒤, 도우미 PC들의 환경 변수(D2SB_SUPABASE_KEY)도 새 키로 바꿔 주세요.", true);
+    $("upd").textContent = "멈춤";
+    return;
+  }
+  if (!base || kind === "none" || !/^https?:\/\//.test(base)) {
+    note("<b>아직 설정 전이에요.</b> 같은 폴더의 <code>config.js</code>에 Supabase 프로젝트 주소(<code>https://….supabase.co</code>)와 "
+      + "공개 키(<code>sb_publishable_…</code>)를 넣어 주세요.");
+    $("upd").textContent = "설정 필요";
+    return;
+  }
+
+  var last = null; // the last good answer (kept on screen when a refresh fails)
+  var loading = false;
+  async function load() {
+    if (loading) return;
+    loading = true;
+    var ctl = new AbortController();
+    var timer = setTimeout(function () { ctl.abort(); }, 15000);
+    try {
+      var headers = { apikey: key, Accept: "application/json" };
+      if (kind === "jwt") headers.Authorization = "Bearer " + key; // (an older anon key)
+      var r = await fetch(base + "/rest/v1/d2_status?select=ord,label,data,ts&order=ord.asc,label.asc", { headers: headers, cache: "no-store", signal: ctl.signal, referrerPolicy: "no-referrer" });
+      var text = await r.text();
+      if (!r.ok) {
+        var why = r.status === 401 || r.status === 403 ? "키를 확인해 주세요 (공개 키 sb_publishable_…)" : r.status === 404 ? "상태 표가 없어요 - d2sb_db.sql을 Supabase에서 다시 실행해 주세요" : "";
+        throw new Error("HTTP " + r.status + (why ? " · " + why : ""));
+      }
+      var rows = JSON.parse(text);
+      if (!Array.isArray(rows)) throw new Error("알 수 없는 답");
+      last = { rows: rows, at: Date.now() };
+      note("");
+      render(rows);
+      $("upd").textContent = hm(Date.now()) + "에 불러옴";
+    } catch (e) {
+      var msg = e && e.name === "AbortError" ? "15초 동안 답이 없어요" : String(e && e.message ? e.message : e);
+      note("<b>불러오지 못했어요.</b> " + esc(msg) + (last ? " · 화면은 " + esc(hm(last.at)) + "에 불러온 것이에요." : ""), !last);
+      $("upd").textContent = "불러오기 실패";
+    } finally {
+      clearTimeout(timer);
+      loading = false;
+    }
+  }
+
+  function render(rows) {
+    var now = Date.now(), today = kstDay(now);
+    var pcs = rows.map(function (r) {
+      var d = r && r.data && typeof r.data === "object" ? r.data : {};
+      var at = Date.parse(r.ts) || num(d.ts);
+      return { label: String(r.label || ("PC" + num(r.ord))), ord: num(r.ord), d: d, at: at, age: now - at, today: kstDay(num(d.ts) || at) === today };
+    });
+    // ---- the totals (today's numbers from the PCs that sent today)
+    var inc = 0, hi = 0, run = 0, all = 0, de = 0, rs = 0, cr = 0, best = null, sum = 0;
+    pcs.forEach(function (p) {
+      var chars = Array.isArray(p.d.chars) ? p.d.chars : [];
+      sum += num(p.d.inc && p.d.inc.all);
+      if (p.today) { inc += num(p.d.inc && p.d.inc.v); hi += num(p.d.inc && p.d.inc.hi); }
+      chars.forEach(function (c) {
+        all++;
+        if (isRunning(p, c)) run++;
+        if (p.today) { de += num(c.de); rs += num(c.rs); cr += num(c.cr); }
+        if (typeof c.x === "number" && num(c.l) < 99 && (!best || c.x > best.c.x)) best = { c: c, pc: p.label };
+      });
+    });
+    var tile = function (k, v) { return '<div class="tile"><div class="k">' + k + '</div><div class="v">' + v + "</div></div>"; };
+    $("sum").innerHTML = rows.length ? [
+      tile("오늘 수입", f1(inc) + " <small>Vex · 누적 " + f1(sum) + "</small>"),
+      tile("오늘 고급 템", hi + " <small>개 (1 Vex 이상)</small>"),
+      tile("돌고 있는 캐릭", run + " <small>/ " + all + "</small>"),
+      tile("오늘 죽음", '<span style="color:' + (de ? "var(--bad)" : "inherit") + '">' + de + "</span>"),
+      tile("오늘 재시작", rs + (cr ? " <small>(충돌 " + cr + ")</small>" : "")),
+      tile("레벨업 가장 가까움", best ? esc(best.c.n) + " <small>" + f1(best.c.x) + "% · Lv " + num(best.c.l) + "</small>" : "-"),
+    ].join("") : "";
+    // ---- the PCs
+    $("pcs").innerHTML = rows.length ? pcs.map(pcCard).join("") : '<div class="card empty">아직 올라온 PC가 없어요. 도우미가 켜져 있으면 2분 안에 나타나요.</div>';
+    // ---- the Hall and the 창고 (shared by all PCs: the freshest one's)
+    var src = pcs.filter(function (p) { return p.d.hof; }).sort(function (a, b) { return b.at - a.at; })[0];
+    $("shared").innerHTML = src ? sharedCard(src) : "";
+  }
+  function isRunning(p, c) {
+    // the bot wrote its log within 10 minutes of the PC's last upload, and that upload is recent
+    return num(c.la) > 0 && num(p.d.ts) - num(c.la) < 10 * 60 * 1000 && p.age < 15 * 60 * 1000;
+  }
+  function pcCard(p) {
+    var d = p.d;
+    var pill = p.age < 6 * 60 * 1000 ? ["ok", "정상"] : p.age < 20 * 60 * 1000 ? ["warn", "늦음"] : ["bad", "연결 끊김"];
+    var chars = Array.isArray(d.chars) ? d.chars : [];
+    var h = '<article class="card pc"><div class="pchead"><h2>' + esc(p.label) + '</h2><span class="pill ' + pill[0] + '">' + pill[1] + " · " + esc(ago(p.age)) + "</span></div>";
+    if (d.err) h += '<div class="err">DB 문제: ' + esc(d.err) + "</div>";
+    var I = d.inc || {};
+    var days = Array.isArray(I.days) ? I.days : [];
+    var y = days.length > 1 ? days[days.length - 2] : null;
+    var mx = days.reduce(function (a, x) { return Math.max(a, num(x && x[1])); }, 0);
+    var spark = days.length ? '<span class="spark" title="최근 7일 수입">' + days.map(function (x, i) {
+      var v = num(x && x[1]);
+      return '<i class="' + (i === days.length - 1 ? "today" : "") + '" style="height:' + (mx ? Math.max(4, Math.round((v / mx) * 100)) : 4) + '%" title="' + esc(String(x && x[0]).slice(5)) + " · " + f1(v) + ' Vex"></i>';
+    }).join("") + "</span>" : "";
+    h += '<div class="sub"><span>오늘 수입 <b>' + (p.today ? f1(I.v) : "0") + "</b> Vex</span><span>고급 <b>" + (p.today ? num(I.hi) : 0) + "</b>개</span>"
+      + (y ? "<span>어제 " + f1(y[1]) + " Vex</span>" : "") + spark + (I.all !== undefined ? "<span>누적 " + f1(I.all) + " Vex</span>" : "") + "<span>캐릭 " + chars.length + "</span></div>";
+    if (!p.today) h += '<div class="err">오늘 올라온 기록이 없어요 (' + esc(ago(p.age)) + "에 마지막으로 올림)</div>";
+    h += '<div class="chars">' + (chars.length ? chars.map(function (c) { return charRow(p, c, I.by || {}); }).join("") : '<div class="empty">캐릭이 없어요</div>') + "</div>";
+    var top = Array.isArray(d.top) ? d.top : [];
+    if (top.length && p.today) {
+      h += "<h3>오늘 들어온 고급 템 <small>(1 Vex 이상)</small></h3><ul class=\"finds\">" + top.map(function (x) {
+        return '<li><span class="t"><span class="' + qClass(x) + '">' + esc(x.t) + "</span> <small>" + esc(x.c) + '</small></span><span class="w">' + f1(x.v) + " Vex · " + esc(hm(x.ts)) + "</span></li>";
+      }).join("") + "</ul>";
+    }
+    return h + "</article>";
+  }
+  function charRow(p, c, by) {
+    var running = isRunning(p, c);
+    var idle = num(c.la) > 0 ? num(p.d.ts) - num(c.la) : -1;
+    var state = running ? "" : idle >= 0 ? " · 멈춤 " + ago(idle).replace(" 전", "") : " · 오늘 기록 없음";
+    var cls = CLS[num(c.c)] !== undefined && num(c.c) >= 0 ? CLS[num(c.c)] : "";
+    var stats = [];
+    if (p.today && num(c.la) > 0) {
+      stats.push('판 <span class="n">' + num(c.g) + "</span>");
+      if (typeof c.de === "number") stats.push("죽음 " + (c.de ? '<span class="hot">' + c.de + "</span>" : '<span class="n">0</span>'));
+      stats.push("재시작 " + (num(c.rs) ? '<span class="amb">' + num(c.rs) + "</span>" + (num(c.cr) ? " (충돌 " + num(c.cr) + ")" : "") : '<span class="n">0</span>'));
+      if (num(c.bx)) stats.push('일찍 나감 <span class="amb">' + num(c.bx) + "</span>");
+    }
+    var xp = typeof c.x === "number" ? '<small> · ' + f1(c.x) + '%</small><div class="xp"><i style="width:' + Math.max(0, Math.min(100, c.x)) + '%"></i></div>' : "";
+    var vex = p.today && by[c.n] ? f1(by[c.n]) + " <small>Vex</small>" : "";
+    return '<div class="ch' + (running ? "" : " idle") + '">'
+      + '<div class="cn">' + (vex ? '<span class="cvm">' + vex + "</span>" : "") + '<span class="dot ' + (running ? "run" : idle >= 0 ? "stop" : "") + '"></span><b>' + esc(c.n) + "</b>"
+      + (c.f ? '<span class="chip">파밍</span>' : "") + (c.m ? "" : '<span class="chip bad">용병 없음</span>')
+      + "<small>" + esc([cls, c.b].filter(Boolean).join(" · ")) + esc(state) + "</small></div>"
+      + '<div class="cl">Lv <b>' + num(c.l) + "</b>" + xp + "</div>"
+      + '<div class="ca">' + esc(DIFF[num(c.d)] || "") + "<small>" + esc(c.a || "") + "</small></div>"
+      + '<div class="cs">' + (stats.length ? "오늘 " + stats.join(" · ") : "") + "</div>"
+      + '<div class="cv">' + vex + "</div></div>";
+  }
+  function sharedCard(p) {
+    var H = p.d.hof || {};
+    var bar = function (label, got, total, cls) {
+      var pct = total ? (got / total) * 100 : 0;
+      return '<div class="brow"><div class="bl"><span>' + label + "</span><span><b>" + got + "</b> / " + total + " · " + pct.toFixed(1) + '%</span></div><div class="bar ' + (cls || "") + '"><i style="width:' + pct.toFixed(1) + '%"></i></div></div>';
+    };
+    var pf = function (label, v) { return '<div class="brow"><div class="bl"><span>' + label + "</span><span><b>" + f1(v) + '%</b></span></div><div class="bar pf"><i style="width:' + Math.max(0, Math.min(100, num(v))) + '%"></i></div></div>'; };
+    var P = Array.isArray(H.p) ? H.p : [0, 0, 0, 0], E = Array.isArray(H.e) ? H.e : [0, 0, 0, 0], R = Array.isArray(H.rw) ? H.rw : null;
+    var h = '<section class="card"><div class="pchead"><h2>명예의 전당 · 창고 <small>모든 PC 공통 · ' + esc(p.label) + " 기준 · " + esc(ago(p.age)) + "</small></h2></div>";
+    h += '<div class="bars" style="margin-top:10px">' + bar("일반 모음", num(P[0]), num(P[1])) + pf("일반 퍼펙트 기준", P[3])
+      + (num(E[1]) ? bar("에테 모음", num(E[0]), num(E[1])) + pf("에테 퍼펙트 기준", E[3]) : "")
+      + (R ? bar("룬워드 칸", num(R[0]), num(R[1])) : "") + "</div>";
+    h += '<div class="sub" style="margin-top:8px"><span>퍼펙트 <b>' + num(P[2]) + "</b>/" + num(P[1]) + (num(E[1]) ? " · 에테 " + num(E[2]) + "/" + num(E[1]) : "") + "</span>"
+      + "<span>5개 꽉 찬 칸 <b>" + num(H.full) + "</b></span><span>2개 이상 <b>" + num(H.two) + "</b></span></div>";
+    var wh = Array.isArray(p.d.wh) ? p.d.wh : [];
+    h += "<h3>오늘 창고에 들어온 템</h3>" + (wh.length && p.today ? '<ul class="finds">' + wh.map(function (x) {
+      return '<li><span class="t ' + qClass(x) + '">' + esc(x.t) + '</span><span class="w">' + esc(hm(x.ts)) + "</span></li>";
+    }).join("") + "</ul>" : '<div class="empty">아직 없어요</div>');
+    return h + "</section>";
+  }
+
+  $("reload").addEventListener("click", load);
+  document.addEventListener("visibilitychange", function () { if (!document.hidden && (!last || Date.now() - last.at > REFRESH)) load(); });
+  setInterval(function () { if (!document.hidden) load(); }, REFRESH);
+  load();
+})();
+</script>
+</body>
+</html>
