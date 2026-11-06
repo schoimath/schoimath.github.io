@@ -118,6 +118,17 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
 .rt .ri .pic { width: 30px; height: 30px; flex: none; display: inline-flex; align-items: center; justify-content: center; background: #0b0a09; border-radius: 4px; }
 .rt .ri img { image-rendering: pixelated; max-width: 28px; max-height: 28px; }
 .rt tr.hi td:first-child { font-weight: 600; }
+/* (11/6) 일별 경험치: the names stay in view while the days scroll sideways (a phone) */
+.xt { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.xt th, .xt td { padding: 4px 8px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+.xt th { color: var(--mute); font-weight: 500; font-size: 12.5px; }
+.xt th:first-child, .xt td:first-child { text-align: left; position: sticky; left: 0; background: var(--card); }
+.xt td:first-child small { color: var(--mute); margin-left: 6px; font-size: 11.5px; }
+.xt td.z { color: var(--mute); }
+.xt td.neg { color: var(--bad); }
+.xt .today { font-weight: 650; }
+.xt tr.grp td { color: var(--mute); font-size: 12px; font-weight: 600; padding-top: 10px; }
+.xbtn { margin-left: auto; }
 /* (11/5) items drawn as in the game: pictures from item_gfx.js, the tooltip in the game's colors (always dark, like the game) */
 .cnb { background: none; border: 0; padding: 0; margin: 0; font: inherit; font-weight: 650; color: inherit; cursor: pointer;
   text-decoration: underline dotted; text-underline-offset: 3px; border-radius: 0; }
@@ -197,6 +208,7 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
   <div id="pcs"></div>
   <div id="shared"></div>
   <div id="runes"></div>
+  <div id="xpd"></div>
   <footer>PC마다 도우미가 2분마다 올려요 · 이 페이지는 1분마다 새로 불러와요 · 캐릭 이름을 누르면 장비가 보여요 · 시간은 한국 시간 · 읽기 전용</footer>
 </div>
 <div id="tip"></div>
@@ -222,6 +234,8 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
     if (n >= 1e4) return Math.round(n / 1e4).toLocaleString("ko-KR") + "만";
     return String(Math.round(n));
   };
+  // (11/6) a day's experience can go below 0 (a death's loss): with its sign
+  var sxp = function (v) { return num(v) < 0 ? "\u2212" + fxp(-num(v)) : "+" + fxp(v); };
   // (11/6, the user: "괄호 열고 패널티 얼마 이런거 표시하면 좋겠어") the high-level experience penalty: the share of experience a level
   // gets (kolbot Experience.expPenalty, in 1024ths: 69 and below all of it, 70 976, ... 98 6, 99 5)
   var XP_PEN = [1024, 976, 928, 880, 832, 784, 736, 688, 640, 592, 544, 496, 448, 400, 352, 304, 256, 192, 144, 108, 81, 61, 46, 35, 26, 20, 15, 11, 8, 6, 5];
@@ -488,6 +502,7 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
     var src = pcs.filter(function (p) { return p.d.hof; }).sort(function (a, b) { return b.at - a.at; })[0];
     $("shared").innerHTML = src ? sharedCard(src) : "";
     $("runes").innerHTML = runeCard(pcs);
+    $("xpd").innerHTML = xpCard(pcs);
   }
   // ---- (11/6) the runes of every PC's bank (룬·보석) and of the 창고, by kind, added up ----
   var RUNES = ["El", "Eld", "Tir", "Nef", "Eth", "Ith", "Tal", "Ral", "Ort", "Thul", "Amn", "Sol", "Shael", "Dol", "Hel", "Io", "Lum",
@@ -531,6 +546,47 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
     if (old.length) h += '<div class="sub" style="margin-top:6px">' + esc(old.join(", ")) + "은(는) 새 도우미를 넣으면 숫자가 나와요 (?)</div>";
     return h + "</section>";
   }
+  // ---- (11/6, the user: "그 매일의 기록을 남겨두는것도 좋겠고.. 하루에 얼마나 먹는지 나중에 표로 볼 수 있음 재미있을듯") each character's
+  // experience in each Korean day (0시 to 24시: its experience at the day's end less at its start) - each PC sends its last 30
+  // days (xh: its own today first), the table shows 7 or 30 ----
+  var XPD_N = 7;
+  function xpCard(pcs) {
+    if (!pcs.length) return "";
+    var DAYMS = 86400000, now = Date.now();
+    var cols = [];
+    for (var i = 0; i < XPD_N; i++) cols.push(kstDay(now - i * DAYMS));
+    var label = function (d, i) { return i === 0 ? "오늘" : i === 1 ? "어제" : Number(d.slice(5, 7)) + "/" + Number(d.slice(8, 10)); };
+    var listed = function (p) { return (Array.isArray(p.d.chars) ? p.d.chars : []).filter(function (c) { return Array.isArray(c.xh); }); };
+    var has = pcs.filter(function (p) { return listed(p).length > 0; });
+    var body = "", rows = 0;
+    has.forEach(function (p) {
+      var base = Date.parse(kstDay(num(p.d.ts) || p.at)); // (xh[0] is this PC's day when it sent)
+      var chars = listed(p).filter(function (c) { return num(c.l) < 99; });
+      if (!chars.length) return;
+      if (pcs.length > 1) body += '<tr class="grp"><td colspan="' + (cols.length + 1) + '">' + esc(p.label) + "</td></tr>";
+      chars.forEach(function (c) {
+        rows++;
+        body += "<tr><td>" + esc(c.n) + "<small>Lv " + num(c.l) + "</small></td>" + cols.map(function (d, i) {
+          var k = Math.round((base - Date.parse(d)) / DAYMS);
+          var v = k >= 0 && k < c.xh.length ? c.xh[k] : null;
+          var t = i === 0 ? " today" : "";
+          if (v === null || v === undefined) return '<td class="z' + t + '">-</td>';
+          if (!num(v)) return '<td class="z' + t + '">0</td>';
+          return '<td class="' + (num(v) < 0 ? "neg" : "") + t + '">' + (num(v) < 0 ? "\u2212" + fxp(-num(v)) : fxp(v)) + "</td>";
+        }).join("") + "</tr>";
+      });
+    });
+    var h = '<section class="card"><div class="pchead"><h2>일별 경험치 <small>0시~24시 · 죽어서 잃은 것은 빼고 · 한국 시간</small></h2>'
+      + '<button type="button" id="xpdN" class="xbtn">' + (XPD_N === 7 ? "30일 보기" : "7일만 보기") + "</button></div>";
+    if (rows) {
+      h += '<div class="rtw"><table class="xt"><thead><tr><th>캐릭</th>' + cols.map(function (d, i) {
+        return '<th class="' + (i === 0 ? "today" : "") + '">' + label(d, i) + "</th>";
+      }).join("") + "</tr></thead><tbody>" + body + "</tbody></table></div>";
+    } else h += '<div class="empty">아직 기록이 없어요</div>';
+    var old = pcs.filter(function (p) { return has.indexOf(p) < 0; }).map(function (p) { return p.label; });
+    if (old.length) h += '<div class="sub" style="margin-top:6px">' + esc(old.join(", ")) + "은(는) 새 도우미를 넣으면 나와요</div>";
+    return h + "</section>";
+  }
   function isRunning(p, c) {
     // the bot wrote its log within 10 minutes of the PC's last upload, and that upload is recent
     return num(c.la) > 0 && num(p.d.ts) - num(c.la) < 10 * 60 * 1000 && p.age < 15 * 60 * 1000;
@@ -571,7 +627,7 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
     if (p.today && num(c.la) > 0) {
       stats.push('판 <span class="n">' + num(c.g) + "</span>");
       if (typeof c.xg === "number" && num(c.l) < 99) {
-        stats.push('경험치 <span class="n">+' + fxp(c.xg) + "</span>" + (num(c.l) >= 70 ? ' <span class="pen">(패널티 ' + penalty(c.l) + "%)</span>" : ""));
+        stats.push('경험치 <span class="' + (num(c.xg) < 0 ? "hot" : "n") + '">' + sxp(c.xg) + "</span>" + (num(c.l) >= 70 ? ' <span class="pen">(패널티 ' + penalty(c.l) + "%)</span>" : ""));
       }
       if (typeof c.de === "number") stats.push("죽음 " + (c.de ? '<span class="hot">' + c.de + "</span>" : '<span class="n">0</span>'));
       stats.push("재시작 " + (num(c.rs) ? '<span class="amb">' + num(c.rs) + "</span>" + (num(c.cr) ? " (충돌 " + num(c.cr) + ")" : "") : '<span class="n">0</span>'));
@@ -692,6 +748,7 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
     var g = t.closest && t.closest("[data-pub]");
     if (g) { ev.preventDefault(); openGear(g.getAttribute("data-pub"), g.getAttribute("data-ck"), g.getAttribute("data-pc")); return; }
     if (t.closest && t.closest("[data-close]")) { closeGear(); return; }
+    if (t.closest && t.closest("#xpdN")) { XPD_N = XPD_N === 7 ? 30 : 7; redraw(); return; }
     var el = t.closest && t.closest("[data-tip]");
     if (el && touch) {
       // (a phone: tap an item for its tooltip, tap again or elsewhere to close)
