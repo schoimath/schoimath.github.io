@@ -87,6 +87,7 @@ h3 { font-size: 14px; margin: 14px 0 6px; }
 .cs .n { color: var(--ink); }
 .cs .hot { color: var(--bad); font-weight: 600; }
 .cs .amb { color: var(--warn); font-weight: 600; }
+.cs .pen { color: var(--mute); font-size: 12px; }
 .cv { text-align: right; white-space: nowrap; }
 .cvm { display: none; }
 .chip { display: inline-block; font-size: 11px; padding: 0 6px; border-radius: 4px; background: var(--soft); color: var(--mute); margin-left: 4px; vertical-align: 1px; }
@@ -214,6 +215,21 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
   };
   var num = function (v) { var n = Number(v); return isFinite(n) ? n : 0; };
   var f1 = function (v) { var n = Math.round(num(v) * 10) / 10; return n.toFixed(n % 1 ? 1 : 0); };
+  // (11/6) experience in Korean units: 13.8억, 7,743만, 950
+  var fxp = function (v) {
+    var n = Math.max(0, num(v));
+    if (n >= 1e8) return (Math.round(n / 1e7) / 10).toLocaleString("ko-KR") + "억";
+    if (n >= 1e4) return Math.round(n / 1e4).toLocaleString("ko-KR") + "만";
+    return String(Math.round(n));
+  };
+  // (11/6, the user: "괄호 열고 패널티 얼마 이런거 표시하면 좋겠어") the high-level experience penalty: the share of experience a level
+  // gets (kolbot Experience.expPenalty, in 1024ths: 69 and below all of it, 70 976, ... 98 6, 99 5)
+  var XP_PEN = [1024, 976, 928, 880, 832, 784, 736, 688, 640, 592, 544, 496, 448, 400, 352, 304, 256, 192, 144, 108, 81, 61, 46, 35, 26, 20, 15, 11, 8, 6, 5];
+  var penalty = function (lvl) {
+    var i = Math.max(0, Math.min(XP_PEN.length - 1, Math.floor(num(lvl)) - 69));
+    var p = 100 - (XP_PEN[i] * 100) / 1024;
+    return p >= 99 ? (Math.floor(p * 10) / 10).toFixed(1) : String(Math.round(p));
+  };
   var KST = 9 * 3600 * 1000;
   var kstDay = function (ts) { return new Date(num(ts) + KST).toISOString().slice(0, 10); };
   var hm = function (ts) { var d = new Date(num(ts) + KST); return d.toISOString().slice(11, 16); };
@@ -554,6 +570,9 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
     var stats = [];
     if (p.today && num(c.la) > 0) {
       stats.push('판 <span class="n">' + num(c.g) + "</span>");
+      if (typeof c.xg === "number" && num(c.l) < 99) {
+        stats.push('경험치 <span class="n">+' + fxp(c.xg) + "</span>" + (num(c.l) >= 70 ? ' <span class="pen">(패널티 ' + penalty(c.l) + "%)</span>" : ""));
+      }
       if (typeof c.de === "number") stats.push("죽음 " + (c.de ? '<span class="hot">' + c.de + "</span>" : '<span class="n">0</span>'));
       stats.push("재시작 " + (num(c.rs) ? '<span class="amb">' + num(c.rs) + "</span>" + (num(c.cr) ? " (충돌 " + num(c.cr) + ")" : "") : '<span class="n">0</span>'));
       if (num(c.bx)) stats.push('일찍 나감 <span class="amb">' + num(c.bx) + "</span>");
