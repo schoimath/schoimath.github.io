@@ -110,7 +110,7 @@ sections:
       - role: "Review Board (RB) Member"
         institution: "National Research Foundation of Korea (NRF)"
         start: "Nov 2024"
-        end: "Oct 2026"
+        end: "Oct 2027"
         cvExport: true
       - role: "Director"
         institution: "Korean Mathematical Society"
@@ -156,6 +156,10 @@ sections:
 
   - title: "Awards"
     awardItems:
+      - name: "아주우수논문상"
+        organization: "Ajou Univ."
+        date: "2026"
+        cvExport: true
       - name: "아주우수논문상"
         organization: "Ajou Univ."
         date: "May 2025"
