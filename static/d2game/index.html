@@ -55,6 +55,8 @@ button:hover { border-color: var(--mute); }
 .tile .k { color: var(--mute); font-size: 12px; }
 .tile .v { font-size: 22px; font-weight: 650; line-height: 1.25; overflow-wrap: anywhere; }
 .tile .v small { font-size: 13px; font-weight: 500; color: var(--mute); }
+.tile .v small.gb { display: block; font-size: 12px; line-height: 1.45; margin-top: 2px; }
+.tile .v small.gb span { white-space: nowrap; }
 .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; margin-bottom: 14px; box-shadow: var(--shadow); }
 .pchead { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .pchead h2 { font-size: 18px; margin: 0; }
@@ -141,6 +143,12 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
 .it .pic .nm { color: #9c8f7a; font-size: 9px; text-align: center; padding: 2px; line-height: 1.1; }
 .it .tx { flex: 1; min-width: 0; font-size: 14px; line-height: 1.35; overflow-wrap: anywhere; cursor: help; }
 .it .tx small { display: block; color: var(--mute); font-size: 12px; }
+/* (11/7) the bots' gear changes: what was there (faded) -> what is there now */
+.items.gcl { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.it .pic.was { width: 34px; height: 34px; opacity: .6; }
+.it .pic.was img { max-width: 30px; max-height: 30px; }
+.it .arr { flex: none; color: var(--mute); font-size: 13px; margin: 0 -5px; }
+.it .tx .was { opacity: .7; }
 .g-unique { --qc: #b8a270; } .g-set { --qc: #3fcf5a; } .g-rare { --qc: #f2e26b; } .g-magic { --qc: #7b86ff; } .g-craft { --qc: #f0a13a; }
 .g-rw { --qc: #c28cff; } .g-normal { --qc: #e6dccb; } .g-rune { --qc: #e0c276; }
 #tip { position: fixed; z-index: 70; pointer-events: none; max-width: min(340px, calc(100vw - 16px)); background: #0b0908; color: #e6dccb;
@@ -395,6 +403,18 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
     return '<li class="it"><div class="pic ' + gq(g) + '"' + tipAttr(g) + ">" + (im ? '<img src="' + im.url + '" alt="">' : '<span class="nm">' + esc(x.t) + "</span>") + "</div>"
       + '<div class="tx"' + tipAttr(g) + '><span class="' + qClass(x) + '">' + esc(x.t) + "</span><small>" + under + "</small></div></li>";
   }
+  /** (11/7) a bot's gear change: what was there (faded) -> what is there now; the character, the slot, when */
+  function gearLine(x) {
+    var n = x && x.n && typeof x.n === "object" ? x.n : { t: "?" }, o = x && x.o && typeof x.o === "object" ? x.o : null;
+    var pic = function (g, cls) {
+      var im = picOf(g);
+      return '<div class="pic ' + gq(g) + (cls ? " " + cls : "") + '"' + tipAttr(g) + ">" + (im ? '<img src="' + im.url + '" alt="">' : '<span class="nm">' + esc(g.t) + "</span>") + "</div>";
+    };
+    var day = kstDay(x.ts), when = day === kstDay(Date.now()) ? hm(x.ts) : Number(day.slice(5, 7)) + "/" + Number(day.slice(8, 10)) + " " + hm(x.ts);
+    return '<li class="it gcx">' + (o ? pic(o, "was") + '<span class="arr">→</span>' : "") + pic(n) + '<div class="tx"' + tipAttr(n) + ">"
+      + (o ? '<span class="was ' + qClass(o) + '">' + esc(o.t) + "</span> → " : "") + '<span class="' + qClass(n) + '">' + esc(n.t) + "</span>"
+      + "<small>" + esc(x.c) + " · " + esc(x.s) + " · " + esc(when) + "</small></div></li>";
+  }
 
   // ---- the address and the key (config.js): only a publishable key, never the secret one
   var base = String(CFG.url || "").trim().replace(/\/+$/, "").replace(/\/rest\/v1$/, "");
@@ -487,9 +507,22 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
         if (typeof c.x === "number" && num(c.l) < 99 && (!best || c.x > best.c.x)) best = { c: c, pc: p.label };
       });
     });
+    // (11/7) the gold: every PC's bank (with what is on its way to the 창고) and what its characters carry; the 창고's once (the
+    // freshest PC's - every PC says the same)
+    var gB = 0, gC = 0, gW = null, gAt = -1, gN = 0, gMiss = [];
+    pcs.forEach(function (p) {
+      var g = p.d.gd;
+      if (!g || typeof g !== "object") { gMiss.push(p.label); return; }
+      gN++;
+      gB += num(g.b) + num(g.p);
+      gC += num(g.c);
+      if (typeof g.w === "number" && p.at > gAt) { gW = num(g.w); gAt = p.at; }
+    });
     var tile = function (k, v) { return '<div class="tile"><div class="k">' + k + '</div><div class="v">' + v + "</div></div>"; };
     $("sum").innerHTML = rows.length ? [
       tile("오늘 수입", f1(inc) + " <small>Vex · 누적 " + f1(sum) + "</small>"),
+      gN ? tile("저장된 골드", fxp(gB + gC + num(gW)) + ' <small class="gb"><span>창고 ' + fxp(gW) + "</span> · <span>은행 " + fxp(gB) + "</span> · <span>캐릭 " + fxp(gC) + "</span>"
+        + (gMiss.length ? " · <span>" + esc(gMiss.join(", ")) + " 빼고</span>" : "") + "</small>") : "",
       tile("오늘 고급 템", hi + " <small>개 (1 Vex 이상)</small>"),
       tile("돌고 있는 캐릭", run + " <small>/ " + all + "</small>"),
       tile("오늘 죽음", '<span style="color:' + (de ? "var(--bad)" : "inherit") + '">' + de + "</span>"),
@@ -500,7 +533,7 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
     $("pcs").innerHTML = rows.length ? pcs.map(pcCard).join("") : '<div class="card empty">아직 올라온 PC가 없어요. 도우미가 켜져 있으면 2분 안에 나타나요.</div>';
     // ---- the Hall and the 창고 (shared by all PCs: the freshest one's)
     var src = pcs.filter(function (p) { return p.d.hof; }).sort(function (a, b) { return b.at - a.at; })[0];
-    $("shared").innerHTML = src ? sharedCard(src) : "";
+    $("shared").innerHTML = src ? sharedCard(src, gW) : "";
     $("runes").innerHTML = runeCard(pcs);
     $("xpd").innerHTML = xpCard(pcs);
   }
@@ -606,7 +639,8 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
       return '<i class="' + (i === days.length - 1 ? "today" : "") + '" style="height:' + (mx ? Math.max(4, Math.round((v / mx) * 100)) : 4) + '%" title="' + esc(String(x && x[0]).slice(5)) + " · " + f1(v) + ' Vex"></i>';
     }).join("") + "</span>" : "";
     h += '<div class="sub"><span>오늘 수입 <b>' + (p.today ? f1(I.v) : "0") + "</b> Vex</span><span>고급 <b>" + (p.today ? num(I.hi) : 0) + "</b>개</span>"
-      + (y ? "<span>어제 " + f1(y[1]) + " Vex</span>" : "") + spark + (I.all !== undefined ? "<span>누적 " + f1(I.all) + " Vex</span>" : "") + "<span>캐릭 " + chars.length + "</span></div>";
+      + (y ? "<span>어제 " + f1(y[1]) + " Vex</span>" : "") + spark + (I.all !== undefined ? "<span>누적 " + f1(I.all) + " Vex</span>" : "") + "<span>캐릭 " + chars.length + "</span>"
+      + (d.gd && typeof d.gd === "object" ? "<span>은행 골드 <b>" + fxp(num(d.gd.b) + num(d.gd.p)) + "</b></span><span>캐릭 골드 <b>" + fxp(d.gd.c) + "</b></span>" : "") + "</div>";
     if (!p.today) h += '<div class="err">오늘 올라온 기록이 없어요 (' + esc(ago(p.age)) + "에 마지막으로 올림)</div>";
     h += '<div class="chars">' + (chars.length ? chars.map(function (c) { return charRow(p, c, I.by || {}); }).join("") : '<div class="empty">캐릭이 없어요</div>') + "</div>";
     var top = Array.isArray(d.top) ? d.top : [];
@@ -615,6 +649,9 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
         return itemLine(x, esc(x.c) + " · " + f1(x.v) + " Vex · " + esc(hm(x.ts)));
       }).join("") + "</ul>";
     }
+    // (11/7, the user: "최근 봇의 장비가 바뀐게 있으면 그 정보를 보여주면 좋겠어") the last 3 days' gear changes, newest first
+    var gc = Array.isArray(d.gc) ? d.gc.filter(function (x) { return x && x.n; }) : [];
+    if (gc.length) h += '<h3>최근 장비 변경 <small>(3일)</small></h3><ul class="items gcl">' + gc.map(gearLine).join("") + "</ul>";
     return h + "</article>";
   }
   function charRow(p, c, by) {
@@ -644,7 +681,7 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
       + '<div class="cs">' + (stats.length ? "오늘 " + stats.join(" · ") : "") + "</div>"
       + '<div class="cv">' + vex + "</div></div>";
   }
-  function sharedCard(p) {
+  function sharedCard(p, wg) {
     var H = p.d.hof || {};
     var bar = function (label, got, total, cls) {
       var pct = total ? (got / total) * 100 : 0;
@@ -657,11 +694,9 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
       + (num(E[1]) ? bar("에테 모음", num(E[0]), num(E[1])) + pf("에테 퍼펙트 기준", E[3]) : "")
       + (R ? bar("룬워드 칸", num(R[0]), num(R[1])) : "") + "</div>";
     h += '<div class="sub" style="margin-top:8px"><span>퍼펙트 <b>' + num(P[2]) + "</b>/" + num(P[1]) + (num(E[1]) ? " · 에테 " + num(E[2]) + "/" + num(E[1]) : "") + "</span>"
-      + "<span>5개 꽉 찬 칸 <b>" + num(H.full) + "</b></span><span>2개 이상 <b>" + num(H.two) + "</b></span></div>";
-    var wh = Array.isArray(p.d.wh) ? p.d.wh : [];
-    h += "<h3>오늘 창고에 들어온 템</h3>" + (wh.length && p.today ? '<ul class="items">' + wh.map(function (x) {
-      return itemLine(x, esc(hm(x.ts)));
-    }).join("") + "</ul>" : '<div class="empty">아직 없어요</div>');
+      + "<span>5개 꽉 찬 칸 <b>" + num(H.full) + "</b></span><span>2개 이상 <b>" + num(H.two) + "</b></span>"
+      + (typeof wg === "number" ? "<span>창고 골드 <b>" + fxp(wg) + "</b></span>" : "") + "</div>";
+    // (11/7: the 창고's new items no longer listed - the user: "창고 아이템 바뀐건 굳이 안보여 줘도 될 것 같고")
     return h + "</section>";
   }
 
