@@ -217,7 +217,7 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
   <div id="shared"></div>
   <div id="runes"></div>
   <div id="xpd"></div>
-  <footer>PC마다 도우미가 2분마다 올려요 · 이 페이지는 1분마다 새로 불러와요 · 캐릭 이름을 누르면 장비가 보여요 · 시간은 한국 시간 · 읽기 전용</footer>
+  <footer>PC마다 도우미가 2분마다 올려요 · 이 페이지는 5분마다 새로 불러와요 (1시간 동안 손대지 않으면 멈추고, 화면을 누르면 다시 해요) · 캐릭 이름을 누르면 장비가 보여요 · 시간은 한국 시간 · 읽기 전용</footer>
 </div>
 <div id="tip"></div>
 <div class="ov" id="ov" role="dialog" aria-modal="true" aria-label="캐릭 장비"><div class="dlg" id="dlg"></div></div>
@@ -226,7 +226,10 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
 (function () {
   "use strict";
   var CFG = window.D2_STATUS_CONFIG || {};
-  var REFRESH = 60 * 1000;
+  // (11/11, the user: Supabase 무료 한도 - "DB 사용량을 줄일 수 있게 디자인 해봐" -> "그렇게 적용해줘") every 5 minutes (was 1 - a page
+  // left open fetched about 17 MB a day); after an hour without a touch it stops ("자동 새로고침 멈춤") until one
+  var REFRESH = 5 * 60 * 1000;
+  var IDLE_STOP = 60 * 60 * 1000;
   var CLS = ["아마존", "소서리스", "네크로맨서", "팔라딘", "바바리안", "드루이드", "어쌔신"];
   var DIFF = ["노멀", "나이트메어", "헬"];
   var $ = function (id) { return document.getElementById(id); };
@@ -448,6 +451,9 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
   }
 
   var last = null; // the last good answer (kept on screen when a refresh fails)
+  var lastAct = Date.now(); // (11/11) the last touch (a click, a key, the wheel, a scroll, the mouse, the page shown)
+  var paused = false; // (11/11) auto refresh stopped: IDLE_STOP without a touch
+  function showUpd() { if (last) $("upd").textContent = hm(last.at) + "에 불러옴" + (paused ? " · 자동 새로고침 멈춤 (화면을 누르면 다시)" : ""); }
   var loading = false;
   var noPub = false;
   var hdrs = function () { var h = { apikey: key, Accept: "application/json" }; if (kind === "jwt") h.Authorization = "Bearer " + key; return h; };
@@ -476,7 +482,7 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
       last = { rows: rows, at: Date.now() };
       note("");
       render(rows);
-      $("upd").textContent = hm(Date.now()) + "에 불러옴";
+      showUpd();
     } catch (e) {
       var msg = e && e.name === "AbortError" ? "15초 동안 답이 없어요" : String(e && e.message ? e.message : e);
       note("<b>불러오지 못했어요.</b> " + esc(msg) + (last ? " · 화면은 " + esc(hm(last.at)) + "에 불러온 것이에요." : ""), !last);
@@ -531,9 +537,17 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
     ].join("") : "";
     // ---- the PCs
     $("pcs").innerHTML = rows.length ? pcs.map(pcCard).join("") : '<div class="card empty">아직 올라온 PC가 없어요. 도우미가 켜져 있으면 2분 안에 나타나요.</div>';
-    // ---- the Hall and the 창고 (shared by all PCs: the freshest one's)
-    var src = pcs.filter(function (p) { return p.d.hof; }).sort(function (a, b) { return b.at - a.at; })[0];
-    $("shared").innerHTML = src ? sharedCard(src, gW) : "";
+    // ---- the Hall and the 창고 (shared by all PCs) - (11/11, the user: "가령 HoF 아이템 개수 같은 게 바뀌었어" - "상태페이지에도 아래쪽에
+    // 전당 완성률이 보여지는데?") a PC with an older helper counts fewer slots (PC3's: no Hellfire Torch slots - 499 / 499 and 100%, not
+    // 499 / 506), and the card took whichever PC sent last, so its numbers jumped: of the PCs heard from in the last 30 minutes (else
+    // all), the one that counts the most slots (the newest helper), the freshest of those
+    var hofN = function (p) { var H = p.d.hof || {}; return num((H.p || [])[1]) + num((H.e || [])[1]) + num((H.rw || [])[1]); };
+    var withHof = pcs.filter(function (p) { return p.d.hof; });
+    var hofLive = withHof.filter(function (p) { return p.age < 30 * 60 * 1000; });
+    var src = (hofLive.length ? hofLive : withHof).sort(function (a, b) { return hofN(b) - hofN(a) || b.at - a.at; })[0];
+    // (11/13) the Hall's newest 1st copies: the freshest PC that sends them (a helper from 11/13 on)
+    var h1src = pcs.filter(function (p) { return Array.isArray(p.d.h1); }).sort(function (a, b) { return b.at - a.at; })[0];
+    $("shared").innerHTML = src ? sharedCard(src, gW, h1src ? h1src.d.h1 : null) : "";
     $("runes").innerHTML = runeCard(pcs);
     $("xpd").innerHTML = xpCard(pcs);
   }
@@ -681,7 +695,19 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
       + '<div class="cs">' + (stats.length ? "오늘 " + stats.join(" · ") : "") + "</div>"
       + '<div class="cv">' + vex + "</div></div>";
   }
-  function sharedCard(p, wg) {
+  /**
+   * (11/13, the user: "HoF에서 1등 템이 갱신되면 웹에서 보여주면 어때?" -> "상태페이지(웹)에 두자") one of the Hall's newest 1st copies
+   * (the helper's h1): its roll against the 1st before it (p), or new; fixed options; ethereal; who found it; when
+   */
+  function hofNewLine(x) {
+    var pc = function (v) { return Math.floor(Math.min(1, num(v)) * 100 + 1e-9); };
+    var sc = function (v) { return num(v) >= 1 ? "퍼펙트" : "옵션 " + pc(v) + "%"; };
+    var what = x.fx ? "고정 옵션" : typeof x.p === "number" ? "옵션 " + pc(x.p) + "% → " + (num(x.s) >= 1 ? "퍼펙트" : pc(x.s) + "%") : "새로 · " + sc(x.s);
+    var day = kstDay(x.ts), when = day === kstDay(Date.now()) ? hm(x.ts) : Number(day.slice(5, 7)) + "/" + Number(day.slice(8, 10)) + " " + hm(x.ts);
+    // (11/13) rl: a rolled runeword (룬워드 굴리기) - the helper sends only those and the bots' finds
+    return itemLine(x, esc([x.rl ? "굴림" : "", what, x.c || "", x.e ? "에테" : "", when].filter(Boolean).join(" · ")));
+  }
+  function sharedCard(p, wg, h1) {
     var H = p.d.hof || {};
     var bar = function (label, got, total, cls) {
       var pct = total ? (got / total) * 100 : 0;
@@ -697,6 +723,8 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
       + "<span>5개 꽉 찬 칸 <b>" + num(H.full) + "</b></span><span>2개 이상 <b>" + num(H.two) + "</b></span>"
       + (typeof wg === "number" ? "<span>창고 골드 <b>" + fxp(wg) + "</b></span>" : "") + "</div>";
     // (11/7: the 창고's new items no longer listed - the user: "창고 아이템 바뀐건 굳이 안보여 줘도 될 것 같고")
+    var L = Array.isArray(h1) ? h1.filter(function (x) { return x && x.t; }) : [];
+    if (L.length) h += '<h3>최근 1등 갱신 <small>(새로 들어온 1등 · 봇이 찾은 것·룬워드 굴리기 · 모든 PC)</small></h3><ul class="items h1l">' + L.map(hofNewLine).join("") + "</ul>";
     return h + "</section>";
   }
 
@@ -802,8 +830,26 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
   loadGfx();
 
   $("reload").addEventListener("click", load);
-  document.addEventListener("visibilitychange", function () { if (!document.hidden && (!last || Date.now() - last.at > REFRESH)) load(); });
-  setInterval(function () { if (!document.hidden) load(); }, REFRESH);
+  // (11/11) a touch: auto refresh goes on (one that was stopped fetches at once when the screen is older than REFRESH)
+  function act() {
+    lastAct = Date.now();
+    if (!paused) return;
+    paused = false;
+    showUpd();
+    if (!last || Date.now() - last.at > REFRESH) load();
+  }
+  ["pointerdown", "keydown", "wheel", "touchstart", "mousemove"].forEach(function (ev) { window.addEventListener(ev, act, { passive: true }); });
+  window.addEventListener("scroll", act, { passive: true });
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) return;
+    act();
+    if (!last || Date.now() - last.at > REFRESH) load();
+  });
+  setInterval(function () {
+    if (document.hidden) return;
+    if (Date.now() - lastAct >= IDLE_STOP) { if (!paused) { paused = true; showUpd(); } return; }
+    load();
+  }, REFRESH);
   load();
 })();
 </script>
