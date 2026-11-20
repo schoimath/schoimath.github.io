@@ -131,6 +131,14 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
 .xt .today { font-weight: 650; }
 .xt tr.grp td { color: var(--mute); font-size: 12px; font-weight: 600; padding-top: 10px; }
 .xbtn { margin-left: auto; }
+/* (11/20) 아이템제작: 강타장 · 갬블 · 참굴리기 side by side (one under another on a phone), each with its newest finds */
+.wkc { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 4px 24px; }
+.wkb { min-width: 0; }
+.wkb h3 { margin: 10px 0 2px; }
+.wkn { font-size: 14px; margin-bottom: 6px; }
+.wkn b { font-weight: 650; }
+.wkn .wkf { color: var(--mute); font-size: 12.5px; white-space: nowrap; }
+.items.wkl { grid-template-columns: minmax(0, 1fr); }
 /* (11/5) items drawn as in the game: pictures from item_gfx.js, the tooltip in the game's colors (always dark, like the game) */
 .cnb { background: none; border: 0; padding: 0; margin: 0; font: inherit; font-weight: 650; color: inherit; cursor: pointer;
   text-decoration: underline dotted; text-underline-offset: 3px; border-radius: 0; }
@@ -213,6 +221,7 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
   </header>
   <div id="warn"></div>
   <section class="tiles" id="sum"></section>
+  <div id="craft"></div>
   <div id="pcs"></div>
   <div id="shared"></div>
   <div id="runes"></div>
@@ -265,7 +274,7 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
     if (ms < 48 * 3600 * 1000) return Math.round(ms / 3600000) + "시간 전";
     return Math.round(ms / 86400000) + "일 전";
   };
-  var qClass = function (x) { return x.r ? "qr" : x.rw ? "qr" : ({ 4: "q4", 5: "q5", 6: "q6", 7: "q7" })[x.q] || ""; };
+  var qClass = function (x) { return x.r ? "qr" : x.rw ? "qr" : ({ 4: "q4", 5: "q5", 6: "q6", 7: "q7", 8: "qr" })[x.q] || ""; };
 
   // ---- (11/5) item pictures: item_gfx.js next to this page (the dashboard's file: built from the game's own files) ----
   var GFX = null, GFX_CACHE = {}, gfxState = "";
@@ -535,6 +544,8 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
       tile("오늘 재시작", rs + (cr ? " <small>(충돌 " + cr + ")</small>" : "")),
       tile("레벨업 가장 가까움", best ? esc(best.c.n) + " <small>" + f1(best.c.x) + "% · Lv " + num(best.c.l) + "</small>" : "-"),
     ].join("") : "";
+    // ---- (11/20) 아이템제작 (every PC's, added up) - a summary it can't read leaves the card out, never the rest of the page
+    try { $("craft").innerHTML = craftCard(pcs); } catch (e) { $("craft").innerHTML = ""; }
     // ---- the PCs
     $("pcs").innerHTML = rows.length ? pcs.map(pcCard).join("") : '<div class="card empty">아직 올라온 PC가 없어요. 도우미가 켜져 있으면 2분 안에 나타나요.</div>';
     // ---- the Hall and the 창고 (shared by all PCs) - (11/11, the user: "가령 HoF 아이템 개수 같은 게 바뀌었어" - "상태페이지에도 아래쪽에
@@ -550,6 +561,52 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
     $("shared").innerHTML = src ? sharedCard(src, gW, h1src ? h1src.d.h1 : null) : "";
     $("runes").innerHTML = runeCard(pcs);
     $("xpd").innerHTML = xpCard(pcs);
+  }
+  /**
+   * (11/20, the user: "지금 PC1 카드와 그 위의 작은 카드 사이에 한 카드 만들어서 강타장 진행상황 : n개 만듦 / 득템보여주기 / 갬블 진행상황 :
+   * 돈얼마 쓰기. 아이템 몇개 구입 / 득템보여주기 / 참굴리기 진행상황 : 그랜드참 몇개, 쥬얼 몇개, 스몰참 몇개 / 득템보여주기 · 각 개수는 누적이고")
+   * 아이템제작: what every PC's bots counted as they worked (the helper's wk: counted on from game to game), added up, and the newest finds of
+   * each job (the PCs' together, newest first). No PC sends it (older helpers): no card.
+   */
+  var WK_SHOW = 6;
+  function craftCard(pcs) {
+    var has = pcs.filter(function (p) { return p.d.wk && typeof p.d.wk === "object"; });
+    if (!has.length) return "";
+    var S = { cb: 0, cbg: 0, gb: 0, gbn: 0, gbg: 0, gc: 0, sc: 0, jw: 0, crg: 0 }, since = 0, got = [];
+    has.forEach(function (p) {
+      var w = p.d.wk;
+      Object.keys(S).forEach(function (k) { S[k] += Math.max(0, num(w[k])); });
+      if (num(w.since) > 0 && (!since || num(w.since) < since)) since = num(w.since);
+      (Array.isArray(w.got) ? w.got : []).forEach(function (x) {
+        if (x && x.g && typeof x.g === "object" && x.g.t) got.push({ j: x.j, ts: num(x.ts), c: x.c, pc: p.label, g: x.g });
+      });
+    });
+    got.sort(function (a, b) { return b.ts - a.ts; });
+    // (a time it can't read: left out)
+    var md = function (ts) { try { var d = kstDay(ts); return Number(d.slice(5, 7)) + "/" + Number(d.slice(8, 10)); } catch (e) { return ""; } };
+    var when = function (ts) { try { return kstDay(ts) === kstDay(Date.now()) ? hm(ts) : md(ts) + " " + hm(ts); } catch (e) { return ""; } };
+    var many = pcs.length > 1;
+    var finds = function (j) {
+      var L = got.filter(function (x) { return x.j === j; }).slice(0, WK_SHOW);
+      if (!L.length) return '<div class="empty">아직 득템이 없어요</div>';
+      return '<ul class="items wkl">' + L.map(function (x) {
+        return itemLine({ t: x.g.t, q: x.g.q, rw: x.g.rw, g: x.g }, esc([x.c, many ? x.pc : "", when(x.ts)].filter(Boolean).join(" · ")));
+      }).join("") + "</ul>";
+    };
+    var n = function (v) { return "<b>" + Math.round(num(v)).toLocaleString("ko-KR") + "</b>"; };
+    var box = function (title, line, g, j) {
+      return '<div class="wkb"><h3>' + title + '</h3><div class="wkn">' + line + ' <span class="wkf">· 득템 ' + Math.round(num(g)).toLocaleString("ko-KR") + "개</span></div>" + finds(j) + "</div>";
+    };
+    var sd = since ? md(since) : "";
+    var h = '<section class="card wk"><div class="pchead"><h2>아이템제작 <small>' + esc(["모든 PC 누적", sd ? sd + "부터" : ""].filter(Boolean).join(" · ")) + "</small></h2></div>";
+    h += '<div class="wkc">'
+      + box("강타장", n(S.cb) + "개 만듦", S.cbg, "cb")
+      + box("갬블", "<b>" + fxp(S.gb) + "</b> 골드 씀 · " + n(S.gbn) + "개 구입", S.gbg, "gb")
+      + box("참굴리기", "그랜드참 " + n(S.gc) + "개 · 쥬얼 " + n(S.jw) + "개 · 스몰참 " + n(S.sc) + "개", S.crg, "cr")
+      + "</div>";
+    var old = pcs.filter(function (p) { return has.indexOf(p) < 0; }).map(function (p) { return p.label; });
+    if (old.length) h += '<div class="sub" style="margin-top:8px">' + esc(old.join(", ")) + "은(는) 새 봇·도우미를 넣으면 더해져요</div>";
+    return h + "</section>";
   }
   // ---- (11/6) the runes of every PC's bank (룬·보석) and of the 창고, by kind, added up ----
   var RUNES = ["El", "Eld", "Tir", "Nef", "Eth", "Ith", "Tal", "Ral", "Ort", "Thul", "Amn", "Sol", "Shael", "Dol", "Hel", "Io", "Lum",
