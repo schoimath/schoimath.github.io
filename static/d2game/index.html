@@ -551,11 +551,14 @@ footer { color: var(--mute); font-size: 12px; text-align: center; margin-top: 18
     // ---- the Hall and the 창고 (shared by all PCs) - (11/11, the user: "가령 HoF 아이템 개수 같은 게 바뀌었어" - "상태페이지에도 아래쪽에
     // 전당 완성률이 보여지는데?") a PC with an older helper counts fewer slots (PC3's: no Hellfire Torch slots - 499 / 499 and 100%, not
     // 499 / 506), and the card took whichever PC sent last, so its numbers jumped: of the PCs heard from in the last 30 minutes (else
-    // all), the one that counts the most slots (the newest helper), the freshest of those
+    // all), the one that counts the most slots (the newest helper), the freshest of those. (11/23, the user: "HoF에 횃불칸 없애줘.." ->
+    // "웹도 고쳐야 할 것 같은데") the newest helper counts fewer now (no Hellfire Torch places: 499, an older one 506): its hof.hv says which
+    // places it counts (2: without the torches) - the highest first (none: 0, an older helper), then the most slots, then the freshest
+    var hofV = function (p) { return num((p.d.hof || {}).hv); };
     var hofN = function (p) { var H = p.d.hof || {}; return num((H.p || [])[1]) + num((H.e || [])[1]) + num((H.rw || [])[1]); };
     var withHof = pcs.filter(function (p) { return p.d.hof; });
     var hofLive = withHof.filter(function (p) { return p.age < 30 * 60 * 1000; });
-    var src = (hofLive.length ? hofLive : withHof).sort(function (a, b) { return hofN(b) - hofN(a) || b.at - a.at; })[0];
+    var src = (hofLive.length ? hofLive : withHof).sort(function (a, b) { return hofV(b) - hofV(a) || hofN(b) - hofN(a) || b.at - a.at; })[0];
     // (11/13) the Hall's newest 1st copies: the freshest PC that sends them (a helper from 11/13 on)
     var h1src = pcs.filter(function (p) { return Array.isArray(p.d.h1); }).sort(function (a, b) { return b.at - a.at; })[0];
     $("shared").innerHTML = src ? sharedCard(src, gW, h1src ? h1src.d.h1 : null) : "";
