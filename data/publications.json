@@ -4,6 +4,19 @@
                          "title":  "Mathematics",
                          "groups":  [
                                         {
+                                            "heading":  "2026+",
+                                            "entries":  [
+                                                            {
+                                                                "authors":  "Suyoung Choi, Younghan Yoon, Seonghyeon Yu",
+                                                                "title":  "Full subcomplexes of Bier spheres",
+                                                                "venue":  "Results in Mathematics",
+                                                                "details":  "accepted for publication (2026+).",
+                                                                "officialLink":  "https://arxiv.org/abs/2503.05385",
+                                                                "cvExport":  true
+                                                            }
+                                                        ]
+                                        },
+                                        {
                                             "heading":  "2026",
                                             "entries":  [
                                                             {
@@ -592,6 +605,12 @@
                           "title":  "Preprints and Notes",
                           "entries":  [
                                           {
+                                              "authors":  "Suyoung Choi, Hyeontae Jang",
+                                              "title":  "Smooth structures on polyhedral products of disks and spheres",
+                                              "officialLink":  "https://arxiv.org/abs/2611.24814",
+                                              "details":  "arXiv:2611.24814."
+                                          },
+                                          {
                                               "authors":  "Suyoung Choi, Younghan Yoon",
                                               "title":  "The graph a-Tur\u00e1n theorem",
                                               "officialLink":  "https://arxiv.org/abs/2611.16262",
@@ -678,11 +697,6 @@
                                              "authors":  "Suyoung Choi,  Hyeontae Jang, Mathieu Vallee",
                                              "title":  "Complete non-singular toric varieties with Picard number 4",
                                              "details":  "arXiv:2504.18134, submitted."
-                                         },
-                                         {
-                                             "authors":  "Suyoung Choi, Younghan Yoon, Seonghyeon Yu",
-                                             "title":  "Full subcomplexes of Bier spheres",
-                                             "details":  "arXiv:2503.05385, submitted."
                                          },
                                          {
                                              "authors":  "Suyoung Choi, Younghan Yoon",
