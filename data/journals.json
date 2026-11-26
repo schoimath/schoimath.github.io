@@ -32,7 +32,7 @@
   "Proc. Japan Acad.": { "id": "proc-japan-acad", "name": "Proc. Japan Acad.", "sortName": "Proc. Japan Acad." },
   "Proc. Roy. Soc. Edinburgh Sect. A.": { "id": "proc-roy-soc-edinburgh-sect-a", "name": "Proc. Roy. Soc. Edinburgh Sect. A.", "sortName": "Proc. Roy. Soc. Edinburgh Sect. A." },
   "Proc. Steklov Inst. Math.": { "id": "proc-steklov-inst-math", "name": "Proc. Steklov Inst. Math.", "sortName": "Proc. Steklov Inst. Math." },
-  "Results in Mathematics": { "id": "results-in-mathematics", "name": "Results in Mathematics", "sortName": "Results in Mathematics", "url": "https://link.springer.com/journal/25" },
+  "Results Math.": { "id": "results-in-mathematics", "name": "Results Math.", "sortName": "Results Math.", "url": "https://link.springer.com/journal/25" },
   "The 2024 World Congress on Advances in Civil, Environmental, and Materials Research (ACEM24)": { "id": "acem24", "name": "The 2024 World Congress on Advances in Civil, Environmental, and Materials Research (ACEM24)", "heading": "ACEM24", "sortName": "ACEM24" },
   "Tohoku Math. J.": { "id": "tohoku-math-j", "name": "Tohoku Math. J.", "sortName": "Tohoku Math. J." },
   "Trans. Amer. Math. Soc.": { "id": "trans-amer-math-soc", "name": "Trans. Amer. Math. Soc.", "sortName": "Trans. Amer. Math. Soc." }
